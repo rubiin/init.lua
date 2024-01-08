@@ -75,9 +75,6 @@ NVIM_APPNAME=rubiin/init.lua/ nvim
 
 - [LazyVim/LazyVim](https://dotfyle.com/plugins/LazyVim/LazyVim)
 
-### split-and-window
-
-- [folke/edgy.nvim](https://dotfyle.com/plugins/folke/edgy.nvim)
 
 ### tabline
 

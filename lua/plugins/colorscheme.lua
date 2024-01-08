@@ -1,3 +1,6 @@
+
+  -- A list of colorscheme plugin you may want to try. Find what suits you.
+
 return {
   {
     "gbprod/nord.nvim",
