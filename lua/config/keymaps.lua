@@ -18,3 +18,7 @@ end
 keymap("n", "<leader>fI", "<cmd>LazyFormatInfo<CR>", {
   desc = "Lazy Format Info",
 })
+
+-- undo tree
+
+vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)

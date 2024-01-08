@@ -36,12 +36,16 @@ return {
       { "zR", function() require("ufo").openAllFolds() end,         desc = "Open All Folds", },
       { "zM", function() require("ufo").closeAllFolds() end,        desc = "Close All Folds", },
       { "zm", function() require("ufo").closeFoldsWith() end,       desc = "Close Folds With", },
-      { "zp", function()
-        local winid = require('ufo').peekFoldedLinesUnderCursor()
-        if not winid then
-          vim.lsp.buf.hover()
-        end
-      end, desc = "Peek Fold", },
+      {
+        "zp",
+        function()
+          local winid = require('ufo').peekFoldedLinesUnderCursor()
+          if not winid then
+            vim.lsp.buf.hover()
+          end
+        end,
+        desc = "Peek Fold",
+      },
     },
   },
 
@@ -80,23 +84,23 @@ return {
   },
 
 
-	-- Refactoring tool
-	{
-		"ThePrimeagen/refactoring.nvim",
-		keys = {
-			{
-				"<leader>r",
-				function()
-					require("refactoring").select_refactor()
-				end,
-				mode = "v",
-				noremap = true,
-				silent = true,
-				expr = false,
-			},
-		},
-		opts = {},
-	},
+  -- Refactoring tool
+  {
+    "ThePrimeagen/refactoring.nvim",
+    keys = {
+      {
+        "<leader>r",
+        function()
+          require("refactoring").select_refactor()
+        end,
+        mode = "v",
+        noremap = true,
+        silent = true,
+        expr = false,
+      },
+    },
+    opts = {},
+  },
 
 
   {
@@ -171,6 +175,28 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()
       require("telescope").load_extension("ui-select")
+    end,
+  },
+
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = { -- note how they're inverted to above example
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+    keys = {
+      { -- lazy style key map
+        "<leader>su",
+        "<cmd>Telescope undo<cr>",
+        desc = "undo history",
+      },
+    },
+    opts = {
+    },
+    config = function(_, opts)
+      require("telescope").load_extension("undo")
     end,
   },
 }
