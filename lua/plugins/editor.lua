@@ -5,6 +5,19 @@ return {
     "wakatime/vim-wakatime",
   },
 
+  -- colorizer
+  {
+    "norcalli/nvim-colorizer.lua",
+    opts = {
+      "css",
+      "scss",
+      "sass",
+      "javascript",
+      "html",
+      "pug",
+    },
+  },
+
   -- ufo code folding
   {
     "kevinhwang91/nvim-ufo",
