@@ -78,6 +78,27 @@ return {
       { "<leader>vz", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
     },
   },
+
+
+	-- Refactoring tool
+	{
+		"ThePrimeagen/refactoring.nvim",
+		keys = {
+			{
+				"<leader>r",
+				function()
+					require("refactoring").select_refactor()
+				end,
+				mode = "v",
+				noremap = true,
+				silent = true,
+				expr = false,
+			},
+		},
+		opts = {},
+	},
+
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
