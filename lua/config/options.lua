@@ -8,8 +8,7 @@ local g = vim.g
 g.editorconfig = false
 
 -- Enable undofile
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- this will persist the undo history across sessions
 
 -- Disable swapfile
 opt.swapfile = false
