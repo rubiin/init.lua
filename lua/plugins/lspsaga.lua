@@ -1,5 +1,7 @@
 local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 
+
+-- when you are lua newbie, you can use this
 return {
   {
     "nvimdev/lspsaga.nvim",
@@ -11,23 +13,24 @@ return {
     opts = {
       -- ui = { border = "single" },
       callhierarchy = { silent = true, keys = { quit = keys.quit } },
+      code_action = { enable = false, extend_gitsigns = true },
+      definition = { silent = true },
+      diagnostic = { enable = true,  keys = { quit = keys.quit } },
       finder = { silent = true, keys = { quit = keys.quit, toggle_or_open = keys.toggle_or_jump } },
       hover = { enable = false },
       rename = { enable = false },
-      definition = { silent = true },
-      outline = { silent = true, keys = keys },
-      lightbulb = { enable = false },
-      code_action = { enable = false, extend_gitsigns = true },
-      diagnostic = { enable = false },
+      outline = { silent = true, keys = keys},
+      lightbulb = { enable = true },
       symbol_in_winbar = { enable = true, show_file = true, hide_keyword = false, folder_level = 0 },
     },
     keys = {
-      { "<leader>j", "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga finder" },
-      { "<leader>p", "<Cmd>Lspsaga peek_definition<CR>", desc = "Lspsaga peek_definition" },
+      { "<leader>j", "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
+      { "<leader>p", "<Cmd>Lspsaga peek_definition<CR>", desc = "Lspsaga Peek Definition" },
       { "<leader>o", "<Cmd>Lspsaga outline<CR>", desc = "Lspsaga outline" },
-      { "<leader>I", "<Cmd>Lspsaga incoming_calls<CR>", desc = "Lspsaga incoming_calls" },
-      { "<leader>O", "<Cmd>Lspsaga outgoing_calls<CR>", desc = "Lspsaga outgoing_calls" },
-      { "<leader>W", "<Cmd>Lspsaga winbar_toggle<CR>", desc = "Lspsaga winbar_toggle" },
+      { "<leader>I", "<Cmd>Lspsaga incoming_calls<CR>", desc = "Lspsaga Incoming Calls" },
+      { "<leader>O", "<Cmd>Lspsaga outgoing_calls<CR>", desc = "Lspsaga Outgoing Calls" },
+      { "<leader>W", "<Cmd>Lspsaga winbar_toggle<CR>", desc = "Lspsaga Winbar Toggle" },
+      { "<leader>S", "<Cmd>Lspsaga outline<CR>", desc = "Lspsaga Winbar Toggle" },
     },
   },
   {

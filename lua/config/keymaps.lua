@@ -30,6 +30,7 @@ keymap("n", "<leader>fI", "<cmd>LazyFormatInfo<CR>", {
 })
 
 
+
 -- quit all buffers
 -- keymap.set('n', '<leader>q', ':qa<CR>', opts)
 
