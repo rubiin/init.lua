@@ -22,18 +22,7 @@ return {
         ["j"] = {},
         ["k"] = {},
       },
-      disabled_filetypes = {
-        "qf",
-        "netrw",
-        "NvimTree",
-        "lazy",
-        "mason",
-        "neo-tree",
-        "aerial",
-        "lspsagaoutline",
-      },
     },
-    event = "VeryLazy",
     keys = {
       {
         "<leader>ht",

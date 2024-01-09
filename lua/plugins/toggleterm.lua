@@ -3,7 +3,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     lazy = true,
-    cmd = { "ToggleTerm" },
+    cmd = "ToggleTerm",
     keys = {
       {
         "<leader>tf",

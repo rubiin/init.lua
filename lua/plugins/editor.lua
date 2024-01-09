@@ -1,6 +1,5 @@
 return {
-
-  -- zen mode for distraction free editing
+   -- waka time
   {
     "wakatime/vim-wakatime",
   },
@@ -63,9 +62,10 @@ return {
     },
   },
 
+    -- zen mode for distraction free editing
   {
     "folke/zen-mode.nvim",
-    cmd = { "ZenMode" },
+    cmd = "ZenMode",
     opts = {
       plugins = {
         gitsigns = true,
@@ -73,6 +73,7 @@ return {
         alacritty = { enabled = false, font = "+2" },
       },
       window = {
+        backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
         width = 0.85, -- width will be 85% of the editor width
       },
     },
@@ -80,11 +81,7 @@ return {
 
     --stylua: ignore
     keys = {
-      {
-        "<leader>zz",
-        "<cmd>ZenMode<cr>",
-        desc = "Zen Mode",
-      },
+      { "<leader>zz", function() require("zen-mode").openAllFolds() end,desc = "Zen mode", },
     },
   },
   {
@@ -100,7 +97,6 @@ return {
   -- Refactoring tool
   {
     "ThePrimeagen/refactoring.nvim",
-    event = "VeryLazy",
     keys = {
       {
         "<leader>r",
@@ -203,7 +199,7 @@ return {
       { -- lazy style key map
         "<leader>su",
         "<cmd>Telescope undo<cr>",
-        desc = "undo history",
+        desc = "Undo history",
       },
     },
     opts = {},
