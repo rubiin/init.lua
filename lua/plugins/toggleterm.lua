@@ -56,22 +56,25 @@ return {
       direction = "horizontal" or "vertical" or "window" or "float",
       -- direction = "vertical",
       close_on_exit = true, -- close the terminal window when the process exits
-      -- shell = vim.o.shell, -- change the default shell
+      shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
-      -- float_opts = {
-      --   -- The border key is *almost* the same as 'nvim_open_win'
-      --   -- see :h nvim_open_win for details on borders however
-      --   -- the 'curved' border is a custom border type
-      --   -- not natively supported but implemented in this plugin.
-      --   border = 'single' or 'double' or 'shadow' or 'curved',
-      --   width = <value>,
-      --   height = <value>,
-      --   winblend = 3,
-      --   highlights = {
-      --     border = "Normal",
-      --     background = "Normal",
-      --   }
-      -- }
+      float_opts = {
+        -- The border key is *almost* the same as 'nvim_win_open'
+        -- see :h nvim_win_open for details on borders however
+        -- the 'curved' border is a custom border type
+        -- not natively supported but implemented in this plugin.
+        border = 'curved', -- single/double/shadow/curved
+        width = math.floor(0.7 * vim.fn.winwidth(0)),
+        height = math.floor(0.8 * vim.fn.winheight(0)),
+        winblend = 4,
+      },
+      on_open = function(term)
+        require('shade').toggle();
+      end,
+      ---@diagnostic disable-next-line: unused-local
+      on_close = function(term)
+        require('shade').toggle();
+      end,
     },
   },
 }
