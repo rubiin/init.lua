@@ -58,7 +58,7 @@ return {
 
       --stylua: ignore
       keys = {
-        { "<leader>zz", function() require("zen-mode").openAllFolds() end, desc = "Zen mode", },
+        { "<leader>zz","<cmd>ZenMode<cr>", desc = "Zen mode", },
       },
     }
 }
