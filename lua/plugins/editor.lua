@@ -1,27 +1,8 @@
-
-
-
 return {
 
   -- zen mode for distraction free editing
   {
     "wakatime/vim-wakatime",
-  },
-
-  -- colorizer
-  {
-    "NvChad/nvim-colorizer.lua",
-    opts = {
-      "css",
-      "scss",
-      "sass",
-      "html",
-    },
-    user_default_options = {
-      rgb_fn = true,
-      hsl_fn = true,
-      css_fn = true,
-    }
   },
 
   -- ufo code folding
@@ -59,7 +40,7 @@ return {
         end
         table.insert(new_virtual_text, { suffix, "MoreMsg" })
         return new_virtual_text
-      end
+      end,
     },
 
     --stylua: ignore
@@ -116,7 +97,6 @@ return {
     },
   },
 
-
   -- Refactoring tool
   {
     "ThePrimeagen/refactoring.nvim",
@@ -135,7 +115,6 @@ return {
     },
     opts = {},
   },
-
 
   {
     "hrsh7th/nvim-cmp",
@@ -227,8 +206,7 @@ return {
         desc = "undo history",
       },
     },
-    opts = {
-    },
+    opts = {},
     config = function(_, opts)
       require("telescope").load_extension("undo")
     end,
