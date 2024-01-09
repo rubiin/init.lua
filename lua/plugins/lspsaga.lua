@@ -45,9 +45,5 @@ return {
   {
     "SmiteshP/nvim-navic",
     enabled = false,
-  },
-  {
-    "stevearc/aerial.nvim",
-    enabled = false,
-  },
+  }
 }
