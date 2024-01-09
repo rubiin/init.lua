@@ -2,6 +2,7 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },

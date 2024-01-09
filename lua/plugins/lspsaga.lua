@@ -3,7 +3,7 @@ local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 return {
   {
     "nvimdev/lspsaga.nvim",
-    cmd = { "Lspsaga" },
+    cmd =  "Lspsaga",
     event = "BufReadPost",
     config = function(_, opts)
       require("lspsaga").setup(opts)

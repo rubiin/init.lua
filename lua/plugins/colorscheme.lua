@@ -1,5 +1,4 @@
-
-  -- A list of colorscheme plugin you may want to try. Find what suits you.
+-- A list of colorscheme plugin you may want to try. Find what suits you.
 
 return {
   {
@@ -19,10 +18,16 @@ return {
   },
 
   -- add night-owl
-  { "haishanh/night-owl.vim", lazy = true },
+  {
+    "haishanh/night-owl.vim",
+    lazy = true
+  },
 
   -- add kanagawa
-  { "rebelot/kanagawa.nvim",  lazy = true },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true
+  },
 
   -- add catppuccin
   {
