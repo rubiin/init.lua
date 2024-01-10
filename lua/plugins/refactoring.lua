@@ -2,6 +2,7 @@ return {
     -- Refactoring tool
     {
       "ThePrimeagen/refactoring.nvim",
+      event = "BufReadPre",
       keys = {
         {
           "<leader>r",
@@ -17,3 +18,5 @@ return {
       opts = {},
     },
 }
+
+
