@@ -3,6 +3,7 @@ return {
   -- Telescope related plugins
   {
     "nvim-telescope/telescope-fzf-native.nvim",
+    lazy = true,
     build = "make",
     config = function()
       require("telescope").load_extension("fzf")
@@ -10,7 +11,7 @@ return {
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
-
+    lazy = true,
     --stylua: ignore
     keys = {
       {
@@ -33,7 +34,8 @@ return {
 
   {
     "debugloop/telescope-undo.nvim",
-    dependencies = { -- note how they're inverted to above example
+    lazy = true,
+    dependencies = {
       {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },

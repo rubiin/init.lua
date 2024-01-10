@@ -1,6 +1,7 @@
 return {
   {
-    "sunjon/shade.nvim"
+    "sunjon/shade.nvim",
+    lazy = true,
   },
   -- profiling vim startup
   {
@@ -23,9 +24,13 @@ return {
     config = true,
     --stylua: ignore
     keys = {
-      {"<leader>uz", function()
+      {
+        "<leader>uz",
+        function()
           require("mini.misc").zoom()
-        end, desc = "Toggle Zoom"}
+        end,
+        desc = "Toggle Zoom"
+      }
     }
   }
 }

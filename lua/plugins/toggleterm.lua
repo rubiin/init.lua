@@ -1,4 +1,3 @@
-
 return {
   {
     "akinsho/toggleterm.nvim",
@@ -50,13 +49,13 @@ return {
       shade_terminals = true,
       -- shading_factor = "<number>", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
       start_in_insert = true,
-      insert_mappings = true, -- whether or not the open mapping applies in insert mode
+      insert_mappings = true,   -- whether or not the open mapping applies in insert mode
       terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
       persist_size = true,
       direction = "horizontal" or "vertical" or "window" or "float",
       -- direction = "vertical",
       close_on_exit = true, -- close the terminal window when the process exits
-      shell = vim.o.shell, -- change the default shell
+      shell = vim.o.shell,  -- change the default shell
       -- This field is only relevant if direction is set to "float"
       float_opts = {
         -- The border key is *almost* the same as "nvim_win_open"

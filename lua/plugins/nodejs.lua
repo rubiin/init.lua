@@ -1,7 +1,7 @@
 return {
   {
     "David-Kunz/cmp-npm",
-    lazy = true,
+    event = "InsertEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "json",
     config = function()
@@ -10,7 +10,7 @@ return {
   },
   {
     "marilari88/twoslash-queries.nvim",
-    lazy = true,
+    event = "InsertEnter",
     config = function()
       require("twoslash-queries").setup({});
       require("lspconfig")["tsserver"].setup({
