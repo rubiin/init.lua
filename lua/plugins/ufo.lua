@@ -3,6 +3,7 @@ return {
     {
       "kevinhwang91/nvim-ufo",
       dependencies = { "kevinhwang91/promise-async" },
+      event = "BufReadPost",
       opts = {
         -- Use treesitter as a main provider
         provider_selector = function()
