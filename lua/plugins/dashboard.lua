@@ -24,7 +24,6 @@ return {
             { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
             { action = [[lua require("lazyvim.util").telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
             { action = 'lua require("persistence").load()',                        desc = " Last Session", icon = " ",    key = "s" },
-            { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
             { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
             { action = "Mason",                                                     desc = " Mason",            icon = " ", key = "m" },
             { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
@@ -34,7 +33,8 @@ return {
             local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
             local footer = {}
             footer[1] = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
-            footer[2] = require("utils.helpers").version_date()
+            footer[2] = ""
+            footer[3] = require("utils.helpers").version_date()
             return footer
           end,
         },

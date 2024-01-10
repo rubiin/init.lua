@@ -6,7 +6,8 @@ return {
     end,
     config = function()
       require("luasnip.loaders.from_vscode").load {
-        include = { "javascript",
+        include = {
+          "javascript",
           "css",
           "docker",
           "go",
