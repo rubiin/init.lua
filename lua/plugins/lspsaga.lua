@@ -11,17 +11,18 @@ return {
       require("lspsaga").setup(opts)
     end,
     opts = {
-      -- ui = { border = "single" },
       callhierarchy = { silent = true, keys = { quit = keys.quit } },
-      code_action = { enable = false, extend_gitsigns = true },
-      definition = { silent = true },
+      definition = { silent = true, keys = { quit = keys.quit }},
       diagnostic = { enable = true,  keys = { quit = keys.quit } },
       finder = { silent = true, keys = { quit = keys.quit, toggle_or_open = keys.toggle_or_jump } },
-      hover = { enable = false },
-      rename = { enable = false },
       outline = { silent = true, keys = keys},
       lightbulb = { enable = true },
       symbol_in_winbar = { enable = true, show_file = true, hide_keyword = false, folder_level = 0 },
+
+      --- disabled lspsaga features
+      hover = { enable = false },
+      code_action = { enable = false, extend_gitsigns = true },
+      rename = { enable = false },
     },
     keys = {
       { "<leader>j", "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
