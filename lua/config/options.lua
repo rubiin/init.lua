@@ -27,7 +27,7 @@ o.swapfile = false
 o.updatetime = 50
 
 -- Enable spell check by default unless in vscode
-if not vim.g.vscode then
+if not g.vscode then
   o.spell = true
 end
 
@@ -38,4 +38,11 @@ o.foldlevelstart = 99
 o.foldenable = true
 
 o.encoding = "UTF-8" -- set encoding
-o.timeoutlen = 300
+
+-- Number of command-lines that are remembered
+o.history = 10000
+
+
+
+-- Decrease redraw time
+o.redrawtime = 100
