@@ -30,11 +30,10 @@ return {
           disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
         },
         sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
+          lualine_a = { "branch" },
+          -- lualine_b = { "mode" },
 
-          lualine_c = {
-            Util.lualine.root_dir(),
+          lualine_b = {
             {
               "diagnostics",
               symbols = {
@@ -90,7 +89,7 @@ return {
               end,
             },
           },
-          lualine_y = {
+          lualine_ = {
             { "progress", separator = " ", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
