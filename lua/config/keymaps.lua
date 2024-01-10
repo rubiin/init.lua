@@ -28,11 +28,3 @@ end
 keymap("n", "<leader>fI", "<cmd>LazyFormatInfo<CR>", {
   desc = "Lazy Format Info",
 })
-
-
-
--- quit all buffers
--- keymap.set('n', '<leader>q', ':qa<CR>', opts)
-
--- -- force quit all buffers
--- keymap.set('n', '<leader>fq', ':qa!<CR>', opts)

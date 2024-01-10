@@ -48,7 +48,7 @@ return {
         {
           "zp",
           function()
-            local winid = require('ufo').peekFoldedLinesUnderCursor()
+            local winid = require("ufo").peekFoldedLinesUnderCursor()
             if not winid then
               vim.lsp.buf.hover()
             end
