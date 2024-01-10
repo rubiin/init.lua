@@ -12,6 +12,13 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
+function M.version_date()
+  local version = vim.version()
+  local print_version = "v" .. version.major .. '.' .. version.minor .. '.' .. version.patch
+  local datetime = os.date('%Y/%m/%d %H:%M:%S')
+
+  return print_version .. ' ' .. datetime
+end
 
 function M.lazy_load (plugin)
   vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
