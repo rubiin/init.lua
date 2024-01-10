@@ -1,10 +1,14 @@
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 
 return {
+  --  add nord 
   {
     "gbprod/nord.nvim",
     lazy = true,
   },
+  -- add vscode
+  { "Mofiqul/vscode.nvim",
+  lazy = true },
   -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",

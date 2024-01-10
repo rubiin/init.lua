@@ -12,6 +12,7 @@ return {
   ]]
   {
     "m4xshen/hardtime.nvim",
+    event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
       restriction_mode = "hint", -- block or hint
@@ -22,10 +23,21 @@ return {
         ["j"] = {},
         ["k"] = {},
       },
+      disable_mouse = false,
+      disabled_filetypes = {
+        "dapui",
+        "mason",
+        "neo-tree",
+        "Outline",
+        "TelescopePrompt",
+        "lazy",
+        "spectre_panel",
+        "lspsaga.window",
+      },
     },
     keys = {
       {
-        "<leader>ht",
+        "<leader>uh",
         "<cmd>Hardtime toggle<CR>",
         desc = "Toggle Hardtime",
       },

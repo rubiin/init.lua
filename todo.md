@@ -1,2 +1,0 @@
-- [] add keymap for lsp saga aerial
-- [] add keymap for lsp saga line diagnostic/ check if inbuilt is available
