@@ -38,3 +38,4 @@ o.foldlevelstart = 99
 o.foldenable = true
 
 o.encoding = "UTF-8" -- set encoding
+o.timeoutlen = 300
