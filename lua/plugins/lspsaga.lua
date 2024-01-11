@@ -16,7 +16,7 @@ return {
       finder = { silent = true, keys = { quit = keys.quit, toggle_or_open = keys.toggle_or_jump } },
       outline = { silent = true, keys = keys },
       lightbulb = { enable = true },
-      symbol_in_winbar = { enable = true, show_file = true, hide_keyword = false, folder_level = 0 },
+      symbol_in_winbar = { enable = false, show_file = true, hide_keyword = false, folder_level = 0 },
 
       --- disabled lspsaga features
       hover = { enable = false },
@@ -30,7 +30,7 @@ return {
       { "<leader>I", "<Cmd>Lspsaga incoming_calls<CR>",  desc = "Lspsaga Incoming Calls" },
       { "<leader>O", "<Cmd>Lspsaga outgoing_calls<CR>",  desc = "Lspsaga Outgoing Calls" },
       { "<leader>W", "<Cmd>Lspsaga winbar_toggle<CR>",   desc = "Lspsaga Winbar Toggle" },
-      { "<leader>S", "<Cmd>Lspsaga outline<CR>",         desc = "Lspsaga Winbar Toggle" },
+      { "<leader>S", "<Cmd>Lspsaga outline<CR>",         desc = "Lspsaga Outline Toggle" },
     },
   },
   {

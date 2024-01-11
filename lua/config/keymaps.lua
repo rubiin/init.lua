@@ -24,3 +24,4 @@ end
 keymap("n", "<leader>fI", "<cmd>LazyFormatInfo<CR>", {
   desc = "Lazy Format Info",
 })
+
