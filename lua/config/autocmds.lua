@@ -11,13 +11,33 @@
 
 local api = vim.api
 
+
+local patterns = {
+	"dap-float",
+	"fugitive",
+	"fugitiveblame",
+	"git",
+	"help",
+	"lspinfo",
+	"man",
+	"notify",
+	"null-ls-info",
+	"none-ls-info",
+	"PlenaryTestPopup",
+	"qf",
+	"query", -- :InspectTree
+	"spectre_panel",
+	"startuptime",
+	"tsplayground",
+}
+
 local function augroup(name)
 	return api.nvim_create_augroup("rubiin_" .. name, { clear = true })
 end
 
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
-  group = api.nvim_create_augroup("HighlightYank", { clear = true }),
+  group = augroup("HighlightYank"),
   callback = function()
     vim.highlight.on_yank({
       higroup = "Visual",
@@ -30,24 +50,7 @@ api.nvim_create_autocmd("TextYankPost", {
 -- close some filetypes with just <q> key
 api.nvim_create_autocmd("FileType", {
 	group = augroup("close_with_q"),
-	pattern = {
-		"dap-float",
-		"fugitive",
-		"fugitiveblame",
-		"git",
-		"help",
-		"lspinfo",
-		"man",
-		"notify",
-    "null-ls-info",
-    "none-ls-info",
-		"PlenaryTestPopup",
-		"qf",
-		"query", -- :InspectTree
-		"spectre_panel",
-		"startuptime",
-		"tsplayground",
-	},
+	pattern =patterns,
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
@@ -56,7 +59,7 @@ api.nvim_create_autocmd("FileType", {
 
 
 -- show cursor line only in active window
-local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+local cursorGrp = augroup("CursorLine")
 api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
   pattern = "*",
   command = "set cursorline",
@@ -72,7 +75,7 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd("BufReadPost", {
 	group = augroup("last_loc"),
 	callback = function(event)
-		local exclude = { "gitcommit", "commit", "gitrebase" }
+		local exclude = patterns
 		local buf = event.buf
 		if
 			vim.tbl_contains(exclude, vim.bo[buf].filetype)

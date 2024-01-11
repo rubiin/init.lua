@@ -4,9 +4,10 @@ return {
     event = "VeryLazy",
     config = function()
       require("shade").setup({
-        overlay_opacity = 50,
+        overlay_opacity = 10,
         opacity_step = 1,
       })
+      require("shade").toggle()
     end,
   },
   -- profiling vim startup

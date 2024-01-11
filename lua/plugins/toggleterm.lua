@@ -31,11 +31,6 @@ return {
         desc = "ToggleTerm (vertical root_dir)",
       },
       {
-        "<leader>Tn",
-        "<cmd>ToggleTermSetName<cr>",
-        desc = "Set term name",
-      },
-      {
         "<leader>Ts",
         "<cmd>TermSelect<cr>",
         desc = "Select term",
@@ -46,14 +41,7 @@ return {
           require("toggleterm").toggle(1, 100, Util.root.get(), "tab")
         end,
         desc = "ToggleTerm (tab root_dir)",
-      },
-      {
-        "<leader>TT",
-        function()
-          require("toggleterm").toggle(1, 100, vim.loop.cwd(), "tab")
-        end,
-        desc = "ToggleTerm (tab cwd_dir)",
-      },
+      }
     },
     opts = {
       -- size can be a number or function which is passed the current terminal
@@ -72,6 +60,12 @@ return {
       -- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
       hide_numbers = true, -- hide the number column in toggleterm buffers
       shade_filetypes = {},
+      on_open = function ()
+        require("shade").toggle()
+      end,
+      on_close = function ()
+        require("shade").toggle()
+      end,
       shade_terminals = true,
       -- shading_factor = '<number>', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
       start_in_insert = true,
@@ -83,7 +77,9 @@ return {
       close_on_exit = true, -- close the terminal window when the process exits
       -- shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
-      -- float_opts = {
+       float_opts = {
+        border = "curved",
+       }
       --   -- The border key is *almost* the same as 'nvim_open_win'
       --   -- see :h nvim_open_win for details on borders however
       --   -- the 'curved' border is a custom border type
