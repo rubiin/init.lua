@@ -2,6 +2,12 @@ return {
   {
     "sunjon/shade.nvim",
     event = "VeryLazy",
+    config = function()
+      require("shade").setup({
+        overlay_opacity = 50,
+        opacity_step = 1,
+      })
+    end,
   },
   -- profiling vim startup
   {
