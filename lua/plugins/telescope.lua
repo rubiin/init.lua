@@ -1,4 +1,10 @@
 return {
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("plugins.telescope")
+    end,
+  },
 
   -- Telescope related plugins
   {

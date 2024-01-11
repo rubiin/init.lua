@@ -45,9 +45,5 @@ return {
         "sagaoutline",
       },
     },
-  },
-  {
-    "SmiteshP/nvim-navic",
-    enabled = true,
   }
 }

@@ -1,11 +1,21 @@
 return {
 	{
 		"utilyre/barbecue.nvim",
+		name = "barbecue",
 		event = "VeryLazy",
-		dependencies = { "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" },
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+
+		init = function()
+			require("barbecue.ui").toggle(true)
+		end,
+
 		keys = {
 			{
-				"<Leader>ub",
+				"<Leader>uB",
 				function()
 					local off = vim.b["barbecue_entries"] == nil
 					require("barbecue.ui").toggle(off and true or nil)
@@ -18,13 +28,11 @@ return {
 				return vim.trim(icon)
 			end, require("lazyvim.config").icons.kinds)
 			return {
-				attach_navic = false,
-        theme = "catppuccin",
-				show_dirname = false,
+				theme = "catppuccin",
 				show_modified = true,
 				kinds = kind_icons,
-				symbols = { separator = "" },
+				show_navic = true, -- whether to show navic
 			}
 		end,
-	},
+	}
 }

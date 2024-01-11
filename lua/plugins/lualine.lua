@@ -8,6 +8,8 @@ local conditions = {
   buffer_not_empty = helpers.buffer_not_empty,
 }
 
+
+
 local lualine_styles = {
   one = function(_, opts)
     opts.options.component_separators = { left = "", right = "" }
