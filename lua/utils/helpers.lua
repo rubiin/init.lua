@@ -1,7 +1,17 @@
 local M = {}
 
-function M.has(plugin)
-	return require("lazy.core.config").plugins[plugin] ~= nil
+local fn = vim.fn
+local bo = vim.bo
+
+function M.str_split (inputstr, sep)
+  if sep == nil then
+          sep = "%s"
+  end
+  local t={}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+          table.insert(t, str)
+  end
+  return t
 end
 
 function M.disable_plugins(list)
@@ -14,6 +24,40 @@ function M.disable_plugins(list)
   end
   return disabled_plugins
 end
+
+
+
+function M.currentFile()
+	local maxLen = 25
+
+	local ext = fn.expand("%:e")
+	local ft = bo.filetype
+	local name = fn.expand("%:t")
+	if ft == "octo" and name:find("^%d$") then
+		name = "#" .. name
+	elseif ft == "TelescopePrompt" then
+		name = "Telescope"
+	end
+
+	local deviconsInstalled, devicons = pcall(require, "nvim-web-devicons")
+	local ftOrExt = ext ~= "" and ext or ft
+	if ftOrExt == "javascript" then ftOrExt = "js" end
+	if ftOrExt == "typescript" then ftOrExt = "ts" end
+	if ftOrExt == "markdown" then ftOrExt = "md" end
+	if ftOrExt == "vimrc" then ftOrExt = "vim" end
+	local icon = deviconsInstalled and devicons.get_icon(name, ftOrExt) or ""
+	-- add sourcegraph icon for clarity
+	if fn.expand("%"):find("^sg") then icon = "󰓁 " .. icon end
+
+	-- truncate
+	local nameNoExt = name:gsub("%.%w+$", "")
+	if #nameNoExt > maxLen then name = nameNoExt:sub(1, maxLen) .. "…" .. ext end
+
+	if icon == "" then return name end
+	return icon .. " " .. name
+end
+
+
 
 function M.version_date()
   local version = vim.version()
