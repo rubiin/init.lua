@@ -5,6 +5,7 @@ local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 return {
   {
     "nvimdev/lspsaga.nvim",
+    event = { "BufReadPost" },
     cmd = "Lspsaga",
     config = function(_, opts)
       require("lspsaga").setup(opts)
@@ -47,6 +48,6 @@ return {
   },
   {
     "SmiteshP/nvim-navic",
-    enabled = false,
+    enabled = true,
   }
 }

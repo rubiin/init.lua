@@ -3,5 +3,6 @@
 local Helper = require("utils.helpers")
 
 return Helper.disable_plugins({
-  -- disable tokyo night
-  "folke/tokyonight" })
+  "folke/tokyonight"
+}
+)

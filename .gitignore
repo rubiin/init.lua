@@ -8,3 +8,4 @@ foo.*
 data
 lazy-lock.json
 undo/*
+.vscode
