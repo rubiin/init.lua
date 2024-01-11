@@ -8,6 +8,7 @@ vim.filetype.add({
       env = "sh",
       ejs = "html",
       eta = "html",
+      conf = "conf",
       hbs = "handlebars",
       svx = "markdown",
       mdx = "markdown",

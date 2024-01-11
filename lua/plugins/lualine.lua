@@ -1,20 +1,11 @@
 local style = "one" -- this keeps the default config, change this to another style name to use it
 
-local fn = vim.fn
-
+local helpers = require("utils.helpers")
 
 local conditions = {
-  buffer_not_empty = function()
-    return fn.empty(fn.expand("%:t")) ~= 1
-  end,
-  hide_in_width = function()
-    return fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = fn.expand("%:p:h")
-    local gitdir = fn.finddir(".git", filepath .. ";")
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end,
+  is_git_repo = helpers.is_git_repo,
+  hide_in_width = helpers.hide_in_width,
+  buffer_not_empty = helpers.buffer_not_empty,
 }
 
 local lualine_styles = {
@@ -27,12 +18,12 @@ local lualine_styles = {
     opts.sections.lualine_a = { { "mode", icon = "" } }
     opts.sections.lualine_b = { {
       "branch",
-      cond = conditions.check_git_workspace
+      cond = conditions.is_git_repo
     },
       {
         "diff",
         cond = conditions.hide_in_width,
-        symbols = { added = " ", modified = "󰝤 ", removed = " " },
+        symbols = { added = " ", modified = " ", removed = " " },
       }
       , "diagnostics" }
 
@@ -89,11 +80,3 @@ return {
     opts = lualine_styles[style],
   },
 }
-
--- active_right({
---   "o:encoding",
---   fmt = string.upper,
---   cond = conditions.hide_in_width,
---   padding = { left = 1, right = 1 },
---   color = { bg = colors.blue, fg = colors.black },
--- })

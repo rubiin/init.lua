@@ -1,7 +1,7 @@
 return {
   {
     "sunjon/shade.nvim",
-    lazy = true,
+    event = "VeryLazy",
   },
   -- profiling vim startup
   {
