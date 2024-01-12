@@ -4,9 +4,14 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     event = "VeryLazy",
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load({
-        include = {
-          "javascript",
+      require("luasnip").filetype_extend("typescript", { "tsdoc" })
+      require("luasnip").filetype_extend("javascript", { "jsdoc" })
+      require("luasnip").filetype_extend("lua", { "luadoc" })
+      require("luasnip").filetype_extend("python", { "pydoc" })
+      require("luasnip").filetype_extend("rust", { "rustdoc" })
+      require("luasnip").filetype_extend("sh", { "shelldoc" })
+      require("luasnip.loaders.from_vscode").load {
+        include = { "javascript",
           "css",
           "docker",
           "go",
@@ -18,10 +23,10 @@ return {
           "python",
           "rust",
           "shell",
-          "sql"
+          "sql",
         },
-      })
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' }})
+      }
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' } })
     end,
   },
   {

@@ -29,6 +29,7 @@ return {
   {
     "echasnovski/mini.misc",
     config = true,
+    event = "VeryLazy",
     --stylua: ignore
     keys = {
       {

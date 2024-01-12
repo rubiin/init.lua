@@ -1,0 +1,17 @@
+
+{
+  "name": "nvim-snippets",
+  "author": "rubiin",
+  "engines": {
+      "vscode": "^1.11.0"
+  },
+  "contributes": {
+      "snippets": [
+          {
+              "language": ["javascript","typescript"],
+              "path": "./nestjs.json"
+          }
+
+      ]
+  }
+}
