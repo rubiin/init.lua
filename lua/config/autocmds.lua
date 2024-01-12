@@ -12,7 +12,11 @@
 local api = vim.api
 local opt_local = vim.opt_local
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
+
+local function augroup(name, opts)
+	opts = opts or {}
+	return vim.api.nvim_create_augroup(name, opts)
+end
 
 local function rubinaugroup(name)
 	return augroup("rubiin_" .. name, { clear = true })
