@@ -11,6 +11,12 @@
 
 local api = vim.api
 local opt_local = vim.opt_local
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+local function rubinaugroup(name)
+	return augroup("rubiin_" .. name, { clear = true })
+end
 
 
 local patterns = {
@@ -32,26 +38,25 @@ local patterns = {
 	"tsplayground",
 }
 
-local function augroup(name)
-	return api.nvim_create_augroup("rubiin_" .. name, { clear = true })
-end
+
+
 
 
 -- reload tmux on config save
-api.nvim_create_autocmd("BufWritePost", {
+autocmd("BufWritePost", {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
 -- reload zsh on save
-api.nvim_create_autocmd("BufWritePost", {
+autocmd("BufWritePost", {
   pattern = { ".zshrc", "*aliases" },
   command = "execute 'silent !source .zshrc --silent'",
 })
 
 
 -- Highlight on yank
-api.nvim_create_autocmd("TextYankPost", {
+autocmd("TextYankPost", {
   group = augroup("HighlightYank"),
   callback = function()
     vim.highlight.on_yank({
@@ -63,7 +68,7 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- close some filetypes with just <q> key
-api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("close_with_q"),
 	pattern =patterns,
 	callback = function(event)
@@ -75,28 +80,28 @@ api.nvim_create_autocmd("FileType", {
 
 -- show cursor line only in active window
 local cursorGrp = augroup("CursorLine")
-api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+autocmd({ "InsertLeave", "WinEnter" }, {
   pattern = "*",
   command = "set cursorline",
   group = cursorGrp,
 })
-api.nvim_create_autocmd(
+autocmd(
   { "InsertEnter", "WinLeave" },
   { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
 
 -- set mdx file to markdown
-api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   pattern = { "*.mdx" },
-  group = api.nvim_create_augroup("Markdown Set Filetype", { clear = true }),
+  group = augroup("Markdown Set Filetype", { clear = true }),
   callback = function()
     vim.cmd("setfiletype markdown")
   end,
 })
 
 
-api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
   callback = function()
@@ -106,7 +111,7 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- Disable swap/undo/backup files in temp directories or shm
-api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
 	group = augroup("undo_disable"),
 	pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
 	callback = function(event)
@@ -118,16 +123,16 @@ api.nvim_create_autocmd("BufWritePre", {
 })
 
 --- Remove all trailing whitespace on save
-local TrimWhiteSpaceGrp = api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
-api.nvim_create_autocmd("BufWritePre", {
+local TrimWhiteSpaceGrp = augroup("TrimWhiteSpaceGrp", { clear = true })
+autocmd("BufWritePre", {
   command = [[:%s/\s\+$//e]],
   group = TrimWhiteSpaceGrp,
 })
 
 
 -- //FIXME Start insert mode and disable line numbers in terminal buffer.
--- api.nvim_create_autocmd("TermOpen", {
---   group = api.nvim_create_augroup("TerminalSettings", { clear = true }),
+-- autocmd("TermOpen", {
+--   group = augroup("TerminalSettings", { clear = true }),
 --   callback = function()
 --     opt_local.number = false
 --     opt_local.relativenumber = false

@@ -127,3 +127,6 @@ o.history = 10000
 
 -- Decrease redraw time
 o.redrawtime = 100
+
+
+
