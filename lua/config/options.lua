@@ -108,7 +108,7 @@ g.markdown_recommended_style = 0
 g.editorconfig = false
 
 -- Enable undofile
-o.undodir = fn.expand("~/.config/nvim/undo")
+o.undodir = fn.expand("~/.config/nvim/misc/undo")
 o.undofile = true
 -- Disable swapfile
 o.swapfile = false
