@@ -35,6 +35,20 @@ local function augroup(name)
 	return api.nvim_create_augroup("rubiin_" .. name, { clear = true })
 end
 
+
+-- reload tmux on config save
+api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
+})
+
+-- reload zsh on save
+api.nvim_create_autocmd("BufWritePost", {
+  pattern = { ".zshrc", "*aliases" },
+  command = "execute 'silent !source .zshrc --silent'",
+})
+
+
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
   group = augroup("HighlightYank"),
@@ -71,38 +85,14 @@ api.nvim_create_autocmd(
 )
 
 
--- Go to last loc when opening a buffer, see ":h last-position-jump"
-api.nvim_create_autocmd("BufReadPost", {
-	group = augroup("last_loc"),
-	callback = function(event)
-		local exclude = patterns
-		local buf = event.buf
-		if
-			vim.tbl_contains(exclude, vim.bo[buf].filetype)
-			or vim.b[buf].lazyvim_last_loc
-		then
-			return
-		end
-		vim.b[buf].lazyvim_last_loc = true
-		local mark = api.nvim_buf_get_mark(buf, '"')
-		local lcount = api.nvim_buf_line_count(buf)
-		if mark[1] > 0 and mark[1] <= lcount then
-			pcall(api.nvim_win_set_cursor, 0, mark)
-		end
-	end,
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup("wrap_spell"),
+	pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
 })
-
---  for spell in text filetypes
-api.nvim_create_autocmd(
-  { "BufRead", "BufNewFile" },
-  {
-    pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
-    callback = function()
-      vim.opt.spell = true
-      vim.opt.spelllang = "en"
-    end,
-  }
-)
 
 -- Disable swap/undo/backup files in temp directories or shm
 api.nvim_create_autocmd("BufWritePre", {
