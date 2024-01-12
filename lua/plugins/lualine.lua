@@ -1,6 +1,7 @@
 local style = "one" -- this keeps the default config, change this to another style name to use it
 
 local helpers = require("utils.helpers")
+local icons = require("lazyvim.config").icons
 
 local conditions = {
   is_git_repo = helpers.is_git_repo,
@@ -25,9 +26,21 @@ local lualine_styles = {
       {
         "diff",
         cond = conditions.hide_in_width,
-        symbols = { added = " ", modified = " ", removed = " " },
+        symbols = {
+          added = icons.git.added,
+          modified = icons.git.modified,
+          removed = icons.git.removed,
+        },
       }
-      , "diagnostics" }
+      , {
+      "diagnostics",
+      symbols = {
+        error = icons.diagnostics.Error,
+        hint = icons.diagnostics.Hint,
+        info = icons.diagnostics.Info,
+        warn = icons.diagnostics.Warn,
+      },
+    } }
 
     opts.sections.lualine_c = {
       {

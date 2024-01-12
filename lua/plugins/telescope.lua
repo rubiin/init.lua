@@ -1,6 +1,18 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        file_ignore_patterns = {
+          "%.pdf",
+          "*.pdf",
+          "**.pdf",
+        },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
     config = function()
       require("plugins.telescope")
     end,
