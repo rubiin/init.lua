@@ -11,8 +11,8 @@ local Util = require("lazyvim.util")
 local keymap = vim.keymap.set
 
 keymap("n", "<leader>sx", require("telescope.builtin").resume, { noremap = true, silent = true, desc = "Resume" })
+keymap("n", "<leader>ua", ":ASToggle<CR>", { desc = "Toggle Auto Save" })
 
--- Gitsigns
 -- Add toggle gitsigns blame line
 if Util.has("gitsigns.nvim") then
   keymap("n", "<leader>ub", "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>", {
