@@ -9,17 +9,20 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local api = vim.api
 local opt_local = vim.opt_local
 local autocmd = vim.api.nvim_create_autocmd
 
+-- autogroup function
 local function augroup(name, opts)
-	opts = opts or {}
+	opts = opts or {clear = true}
 	return vim.api.nvim_create_augroup(name, opts)
 end
 
-local function rubinaugroup(name)
-	return augroup("rubiin_" .. name, { clear = true })
+-- rubins autogroup function
+local function raugroup(name,prefix, opts)
+	opts = opts or {clear = true}
+	prefix = prefix or "rubiin_"                 -- prefix for autogroups so as to not clash with other plugins
+	return vim.api.nvim_create_augroup(prefix .. name, opts)
 end
 
 
@@ -83,28 +86,27 @@ autocmd("FileType", {
 
 
 -- show cursor line only in active window
-local cursorGrp = augroup("CursorLine")
 autocmd({ "InsertLeave", "WinEnter" }, {
   pattern = "*",
   command = "set cursorline",
-  group = cursorGrp,
+  group = augroup("CursorLine"),
 })
 autocmd(
   { "InsertEnter", "WinLeave" },
-  { pattern = "*", command = "set nocursorline", group = cursorGrp }
+  { pattern = "*", command = "set nocursorline", group =  augroup("CursorLine") }
 )
 
 
 -- set mdx file to markdown
 autocmd("BufEnter", {
   pattern = { "*.mdx" },
-  group = augroup("Markdown Set Filetype", { clear = true }),
+  group = augroup("md_mdx"),
   callback = function()
     vim.cmd("setfiletype markdown")
   end,
 })
 
-
+-- This autocmd sets the wrap and spell options to true for filetypes ".txt", ".md", ".tex", and ".typ".
 autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
@@ -127,10 +129,9 @@ autocmd("BufWritePre", {
 })
 
 --- Remove all trailing whitespace on save
-local TrimWhiteSpaceGrp = augroup("TrimWhiteSpaceGrp", { clear = true })
 autocmd("BufWritePre", {
   command = [[:%s/\s\+$//e]],
-  group = TrimWhiteSpaceGrp,
+  group = augroup("TrimWhiteSpaceGrp"),
 })
 
 
