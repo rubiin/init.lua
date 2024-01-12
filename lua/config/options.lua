@@ -5,6 +5,7 @@
 -- \ \_/ / |     | |  _| |_\ \_/ / |\  |/\__/ /
 --  \___/\_|     \_/  \___/ \___/\_| \_/\____/
 
+-- https://neovim.io/doc/user/quickref.html#option-list
 
 local o = vim.opt
 local g = vim.g
@@ -56,7 +57,8 @@ o.spelllang = { "en" }
 o.splitbelow = true -- Put new windows below current
 o.splitkeep = "screen"
 o.splitright = true -- Put new windows right of current
-o.tabstop = 2 -- Number of spaces tabs count for
+o.tabstop = 4 -- Number of spaces tabs count for
+o.softtabstop = 4
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
 o.undolevels = 10000
@@ -129,4 +131,8 @@ o.history = 10000
 o.redrawtime = 100
 
 
+-- highlight search
+o.hlsearch = true
 
+-- incremental search
+o.incsearch = true
