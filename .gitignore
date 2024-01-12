@@ -7,5 +7,5 @@ foo.*
 *.log
 data
 lazy-lock.json
-undo/*
+misc/undo/*
 .vscode
