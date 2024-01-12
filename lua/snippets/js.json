@@ -1,0 +1,45 @@
+{
+  "Console log with variable": {
+    "prefix": "vl",
+    "body": [
+      "console.log('[$1]:', $1)"
+    ],
+    "description": "Log output with variable to console"
+  },
+  "Console log": {
+    "prefix": "lg",
+    "body": [
+      "console.log('[$1]')"
+    ],
+    "description": "Log output to console"
+  },
+  "Arrow Function": {
+    "prefix": "afn",
+    "body": [
+      "($1) => {$2}"
+    ]
+  },
+  "Export Default Function" : {
+    "prefix": "edfn",
+    "body": [
+      "export default function $1($2) {",
+        "$3",
+        "}"
+    ]
+  },
+  "JSDOC Return": {
+    "prefix": "jdreturn",
+    "body": "/** @return {$1} */",
+    "description": "Insert function return type with JSDOC"
+  },
+  "JSDOC Typedef": {
+    "prefix": "jdtype",
+    "body": [
+      "/**",
+      " * @typedef {Object} $1",
+      " * @property {string} $2",
+      "*/"
+    ],
+    "description": "Declare type definition with JSDOC"
+  }
+}

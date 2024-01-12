@@ -10,6 +10,7 @@
 -- Add any additional autocmds here
 
 local api = vim.api
+local opt_local = vim.opt_local
 
 
 local patterns = {
@@ -55,7 +56,7 @@ api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({
       higroup = "Visual",
-      timeout = 100,
+      timeout = 400,
       on_visual = false,
     })
   end,
@@ -85,12 +86,22 @@ api.nvim_create_autocmd(
 )
 
 
-vim.api.nvim_create_autocmd("FileType", {
+-- set mdx file to markdown
+api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.mdx" },
+  group = api.nvim_create_augroup("Markdown Set Filetype", { clear = true }),
+  callback = function()
+    vim.cmd("setfiletype markdown")
+  end,
+})
+
+
+api.nvim_create_autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
   callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
+    opt_local.wrap = true
+    opt_local.spell = true
   end,
 })
 
@@ -99,9 +110,9 @@ api.nvim_create_autocmd("BufWritePre", {
 	group = augroup("undo_disable"),
 	pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
 	callback = function(event)
-		vim.opt_local.undofile = false
+		opt_local.undofile = false
 		if event.file == "COMMIT_EDITMSG" or event.file == "MERGE_MSG" then
-			vim.opt_local.swapfile = false
+			opt_local.swapfile = false
 		end
 	end,
 })
@@ -122,3 +133,5 @@ api.nvim_create_autocmd("BufWritePre", {
 --     opt_local.relativenumber = false
 --   end,
 -- })
+
+

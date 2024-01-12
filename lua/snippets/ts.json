@@ -1,0 +1,655 @@
+{
+  "Nest Controller": {
+    "prefix": "n-controller",
+    "description": "NestJS Controller",
+    "body": [
+      "import { Controller, Get } from '@nestjs/common';",
+      "",
+      "@Controller('${1}')",
+      "export class ${2}Controller {",
+      "\tconstructor(){}",
+      "",
+      "\t@Get() {",
+      "\t\t${0}",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Root Module": {
+    "prefix": "n-module-root",
+    "description": "NestJS Root Module",
+    "body": [
+      "import { Module } from '@nestjs/common';",
+      "import { ${1}Module } from './${2}.module';",
+      "",
+      "@Module({",
+      "\tmodules: [${1}Module],",
+      "})",
+      "export class ${3:Application}Module {${0}};"
+    ]
+  },
+  "Nest Dynamic Module": {
+    "prefix": "n-dynamic-module",
+    "description": "NestJS Dynamic Module Implementing NestModule",
+    "body": [
+      "import { Module, NestModule } from '@nestjs/common';",
+      "import { ${1}MyLibService } from './${2}.service';",
+      "",
+      "@Module({})",
+      "export class MyModule {",
+      "\tstatic register(options): DynamicModule {",
+      "\t\treturn {",
+      "\t\t\tmodule: MyModule,",
+      "\t\tproviders: [",
+      "\t\t\t{",
+      "\t\t\tprovide: MyLibService,",
+      "\t\t\tuseValue: new MyLibService(options),",
+      "\t}",
+      "\t\t],",
+      "\t\texports: [",
+      "\t\t\tMyLibService,",
+      "\t\t]",
+      "\t};",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest NestModule": {
+    "prefix": "n-module-nest",
+    "description": "NestJS Module Implementing NestModule",
+    "body": [
+      "import { Module, NestModule } from '@nestjs/common';",
+      "import { ${1}Module } from './${2}.module';",
+      "",
+      "@Module({",
+      "\tmodules: [${1}Module],",
+      "})",
+      "export class ${3:Application}Module {",
+      "\tconfigure() {",
+      "\t\t${0}",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Mongoose Service": {
+    "prefix": "n-mongoose-service",
+    "description": "NestJS Service for Mongoose",
+    "body": [
+      "import { Model } from 'mongoose';",
+      "import { Injectable, Inject } from '@nestjs/common';",
+      "import { InjectModel } from '@nestjs/mongoose';",
+      "",
+      "import { Create${1:User}Dto } from './dto/create-${2:user}.dto';",
+      "import { ${1:User} } from './interfaces/${2:user}s.interface';",
+      "import { ${1:User}Schema } from './schemas/${2:user}s.schema';",
+      "",
+      "@Injectable()",
+      "export class UsersService {",
+      "\tconstructor(@InjectModel(${1:User}Schema) private readonly ${2:user}Model: Model<${1:User}>) {}",
+      "\tasync findAll () {",
+      "\t\treturn await this.${2:user}Model.find().exec()",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Mongoose Interface": {
+    "prefix": "n-mongoose-interface",
+    "description": "NestJS Interface for mongoose",
+    "body": [
+      "import { Document } from 'mongoose';",
+      "",
+      "export interface ${1:User} extends Document {",
+      "\treadonly ${2:name}: string;",
+      "}"
+    ]
+  },
+  "Nest Unit Test": {
+    "prefix": "n-test",
+    "description": "NestJS Unit Test",
+    "body": [
+      "import { Test } from '@nestjs/testing';",
+      "import { ${1}Controller } from './${2}.controller';",
+      "import { ${1}Service } from './${2}.service';",
+      "",
+      "describe('${1}Controller', () => {",
+      "\tlet ${2}Controller: ${1}Controller;",
+      "\tlet ${2}Service: ${1}Service;",
+      "",
+      "\tbeforeEach(async () => {",
+      "\t\tconst module = await Test.createTestingModule({",
+      "\t\t\tcontrollers: [${1}Controller],",
+      "\t\t\tproviders: [${1}Service],",
+      "\t\t}).compile();",
+      "",
+      "\t\t${2}Service = module.get<${1}Service>(${1}Service);",
+      "\t\t${2}Controller = module.get<${1}Controller>(${1}Controller);",
+      "\t});",
+      "",
+      "\tdescribe('findAll', () => {",
+      "\t\tit('should return an array of users', async () => {",
+      "\t\t\tconst result = ['test'];",
+      "\t\t\tjest.spyOn(${2}Service, 'findAll').mockImplementation(() => result);",
+      "\t\t\t${0}",
+      "\t\t\texpect(await ${2}Controller.findAll()).toBe(result);",
+      "\t\t});",
+      "\t});",
+      "});"
+    ]
+  },
+  "Nest Service Unit Test": {
+    "prefix": "n-test-service",
+    "description": "NestJS Service Unit Test",
+    "body": [
+      "import { Test } from '@nestjs/testing';",
+      "import { ${1}Service } from './${2}.service';",
+      "",
+      "describe('${1} Test suite', () => {",
+      "\tlet ${2}Service: ${1}Service;",
+      "",
+      "\tbeforeEach(async () => {",
+      "\t\tconst module = await Test.createTestingModule({",
+      "\t\t\tproviders: [${1}Service],",
+      "\t\t}).compile();",
+      "",
+      "\t\t${2}Service = module.get<${1}Service>(${1}Service);",
+      "\t});",
+      "",
+      "\tit('should be defined', () => {",
+      "\t\texpect(${2}Service).toBeDefined();",
+      "\t});",
+      "});"
+    ]
+  },
+  "Nest Sequelize Entity": {
+    "prefix": "n-sequelize-entity",
+    "description": "NestJS Sequelize Entity",
+    "body": [
+      "import { Table, Column, Model } from 'sequelize-typescript';",
+      "",
+      "@Table",
+      "export class ${1} extends Model<${1}> {",
+      "\t@Column",
+      "\tname: string;",
+      "",
+      "\t@Column",
+      "\t${0};",
+      "}"
+    ]
+  },
+  "Nest Sequelize Provider": {
+    "prefix": "n-sequelize-provider",
+    "description": "NestJS Sequelize Provider",
+    "body": [
+      "import { ${1} } from './${2}.entity';",
+      "",
+      "export const ${2}Providers = [",
+      "\t{",
+      "\t\tprovide: '${1}Repository',",
+      "\t\tuseValue: ${1},",
+      "\t},",
+      "];"
+    ]
+  },
+  "Nest Sequelize Database Provider": {
+    "prefix": "n-sequelize-database-provider",
+    "description": "NestJS Sequelize Provider",
+    "body": [
+      "import { Sequelize } from 'sequelize-typescript';",
+      "import { ${1} } from '../${2}s/${2}.entity';",
+      "",
+      "export const databaseProviders = [",
+      "\t{",
+      "\t\tprovide: 'SequelizeToken',",
+      "\t\tuseFactory: async () => {",
+      "\t\t\tconst sequelize = new Sequelize({",
+      "\t\t\t\tdialect: '${3:mysql}',",
+      "\t\t\t\thost: '${4:localhost}',",
+      "\t\t\t\tport: ${5:3306},",
+      "\t\t\t\tusername: '${6:root}',",
+      "\t\t\t\tpassword: '${7}',",
+      "\t\t\t\tdatabase: '${0}',",
+      "\t\t\t});",
+      "\t\t\tsequelize.addModels([${1}]);",
+      "\t\t\tawait sequelize.sync();",
+      "\t\t\treturn sequelize;",
+      "\t\t},",
+      "\t},",
+      "];"
+    ]
+  },
+  "Nest Interceptor": {
+    "prefix": "n-interceptor",
+    "description": "NestJS Interceptor",
+    "body": [
+      "import { Injectable, NestInterceptor, ExecutionContext } from '@nestjs/common';",
+      "import { Observable } from 'rxjs';",
+      "",
+      "@Injectable()",
+      "export class ${1}Interceptor implements NestInterceptor {",
+      "\tintercept(context: ExecutionContext, stream$: Observable<any>): Observable<any> {",
+      "\t\t${0}",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Guard": {
+    "prefix": "n-guard",
+    "description": "NestJS Guard",
+    "body": [
+      "import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';",
+      "import { Observable } from 'rxjs';",
+      "import { Reflector } from '@nestjs/core';",
+      "",
+      "@Injectable()",
+      "export class ${1}Guard implements CanActivate {",
+      "\tconstructor(private readonly reflector: Reflector) {}",
+      "",
+      "\tcanActivate(context: ExecutionContext):  boolean | Promise<boolean> | Observable<boolean> {",
+      "\t\t${0}",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Provider": {
+    "prefix": "n-provider",
+    "description": "NestJS Provider",
+    "body": [
+      "import { Injectable } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export class ${1}Service {",
+      "\tconstructor() {}",
+      "\t${0}",
+      "}"
+    ]
+  },
+  "Nest Module": {
+    "prefix": "n-module",
+    "description": "NestJS Module",
+    "body": [
+      "import { Module } from '@nestjs/common';",
+      "import { ${1}Controller } from './${2}.controller';",
+      "",
+      "@Module({",
+      "\tcontrollers: [${1}Controller],",
+      "\tproviders: [],",
+      "})",
+      "export class ${1}Module {${0}};"
+    ]
+  },
+  "Nest Global Module": {
+    "prefix": "n-module-global",
+    "description": "NestJS Global Module",
+    "body": [
+      "import { Module, Global } from '@nestjs/common';",
+      "import { ${1}Controller } from './${2}.controller';",
+      "",
+      "@Global()",
+      "@Module({",
+      "\tcontrollers: [${1}Controller],",
+      "\tproviders: [],",
+      "})",
+      "export class ${1}Module {${0}};"
+    ]
+  },
+  "Nest Middleware": {
+    "prefix": "n-middleware",
+    "description": "NestJS Middleware",
+    "body": [
+      "import { Injectable, NestMiddleware, MiddlewareFunction } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export class ${1}Middleware implements NestMiddleware {",
+      "\tresolve(...args: any[]): MiddlewareFunction {",
+      "\t\treturn (req, res, next) => {",
+      "\t\t\t${0}",
+      "\t\t\tnext();",
+      "\t\t};",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Pipe": {
+    "prefix": "n-pipe",
+    "description": "NestJS Pipe",
+    "body": [
+      "import { PipeTransform, Injectable, ArgumentMetadata } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export class ${1:Validation}Pipe implements PipeTransform {",
+      "  transform(value: any, metadata: ArgumentMetadata) {",
+      "    return ${0:value};",
+      "  }",
+      "}"
+    ]
+  },
+  "Nest Custom Decorator": {
+    "prefix": "n-decorator",
+    "description": "NestJS custom decirator",
+    "body": [
+      "import { createParamDecorator } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export const ${1:Decorator} = createParamDecorator((data, req) => {",
+      "    return ${0:value};",
+      "  });"
+    ]
+  },
+  "Nest Custom Exception": {
+    "prefix": "n-exception",
+    "description": "NestJs Custom Exception",
+    "body": [
+      "import { HttpException , HttpStatus } from '@nestjs/common';",
+      "",
+      "export class ${1}Exception extends HttpException {",
+      "\tconstructor() {",
+      "\t\tsuper('Forbidden', HttpStatus.FORBIDDEN);",
+      "",
+      "}",
+      "}"
+    ]
+  },
+  "Nest Custom Logger": {
+    "prefix": "n-logger",
+    "description": "NestJs Custom Logger",
+    "body": [
+      "import { Logger } from '@nestjs/common';",
+      "",
+      "export class ${1}Logger extends Logger {",
+      "\terror(message: string, trace: string) {",
+      "\t\tsuper.error(message, trace);",
+      "",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest Jwt Implementation": {
+    "prefix": "n-jwt",
+    "description": "NestJs Jwt Implementation",
+    "body": [
+      "import { ExtractJwt, Strategy } from 'passport-jwt';",
+      "import { PassportStrategy } from '@nestjs/passport';",
+      "import { Injectable } from '@nestjs/common';",
+      "import { jwtConstants } from '<YOUR CONFIG FILE>';",
+      "",
+      "@Injectable()",
+      "export class JwtStrategy extends PassportStrategy(Strategy) {",
+      "\tconstructor() {",
+      "\t\tsuper({",
+      "\t\t\tjwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),",
+      "\t\t\tignoreExpiration: false,",
+      "\t\t\tsecretOrKey: jwtConstants.secret,",
+      "\t});",
+      "}",
+      "\tasync validate(payload: any) {",
+      "\t\treturn { userId: payload.sub, username: payload.username };",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest TypeORM Entity": {
+    "prefix": "n-typeorm-entity",
+    "description": "NestJS TypeORM Entity",
+    "body": [
+      "import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';",
+      "",
+      "@Entity()",
+      "export class ${1} {",
+      "\t@PrimaryGeneratedColumn()",
+      "\tid: number;",
+      "",
+      "\t@Column()",
+      "\t${0}: string;",
+      "}",
+      ""
+    ]
+  },
+  "Nest TypeORM Repository": {
+    "prefix": "n-typeorm-repository",
+    "description": "NestJS TypeORM Repository",
+    "body": [
+      "import { EntityRepository, Repository } from 'typeorm';",
+      "import { ${1} } from '../entity/${1}';",
+      "",
+      "@EntityRepository(${1})",
+      "export class ${1}Repository extends Repository<${1}> {",
+      "\tfindByName(clientName: string) {",
+      "\t\treturn this.findOne({ where: {clientName} });",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Nest Crud Controller": {
+    "scope": "typescript",
+    "prefix": "n-crud-con",
+    "description": "Adds All HTTP Methods",
+    "body": [
+      "import { Controller, Get, Param, Put, Body, Post, Delete } from '@nestjs/common';",
+      "import {${1:Name}Entity} from './${2:name}.entity';",
+      "",
+      "@Controller('${2:name}')",
+      "export class ${1:Name}Controller {",
+      "\t@Get()",
+      "\tgetMany(): Promise<${1:Name}Entity[]> {",
+      "\t\treturn ${1:Name}Entity.find();",
+      "\t}",
+      "",
+      "\t@Get(':id')",
+      "\tgetOne(@Param('id') id: number): Promise<${1:Name}Entity> {",
+      "\t\treturn ${1:Name}Entity.findOne(id);",
+      "\t}",
+      "",
+      "\t@Post()",
+      "\tcreateOne(@Body() dto: ${1:Name}Entity): Promise<${1:Name}Entity> {",
+      "\t\treturn ${1:Name}Entity.save(dto);",
+      "\t}",
+      "",
+      "\t@Put(':id')",
+      "\tupdateOne(",
+      "\t\t@Param('id') id: number,",
+      "\t\t@Body() dto: ${1:Name}Entity,",
+      "\t) {",
+      "\t\tdto.id = id;",
+      "",
+      "\t\treturn ${1:Name}Entity.save(dto);",
+      "\t}",
+      "",
+      "\t@Delete(':id')",
+      "\tasync deleteOne(",
+      "\t\t@Param('id') id: number,",
+      "\t): Promise<${1:Name}Entity> {",
+      "\t\tconst dto = await ${1:Name}Entity.findOne(id);",
+      "",
+      "\t\treturn ${1:Name}Entity.remove(dto);",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Nest Put Request": {
+    "scope": "typescript",
+    "prefix": "n-put",
+    "description": "Adds Put HTTP Methods",
+    "body": [
+      "",
+      "@Put(':id')",
+      "updateOne(",
+      "\t@Param('id') id: number,",
+      "\t@Body() dto: ${1:Name}Entity,",
+      ") {",
+      "\tdto.id = id;",
+      "",
+      "\treturn ${1:Name}Entity.save(dto);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Get Many Request": {
+    "scope": "typescript",
+    "description": "Adds Get HTTP Method",
+    "prefix": "n-get-many",
+    "body": [
+      "@Get()",
+      "getMany(): Promise<${1:Name}Entity[]> {",
+      "\treturn ${1:Name}Entity.find();",
+      "}",
+      ""
+    ]
+  },
+  "Nest Get One Request": {
+    "scope": "typescript",
+    "description": "Adds Get for Single Id",
+    "prefix": "n-get",
+    "body": [
+      "@Get(':id')",
+      "getOne(@Param('id') id: number): Promise<${1:Name}Entity> {",
+      "\treturn ${1:Name}Entity.findOne(id);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Post Request": {
+    "scope": "typescript",
+    "description": "Adds Post HTTP Method",
+    "prefix": "n-post",
+    "body": [
+      "@Post()",
+      "createOne(@Body() dto: ${1:Name}Entity): Promise<${1:Name}Entity> {",
+      "\treturn ${1:Name}Entity.save(dto);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Delete Request": {
+    "scope": "typescript",
+    "description": "Adds Delete HTTP Method",
+    "prefix": "n-delete",
+    "body": [
+      "@Delete(':id')",
+      "async deleteOne(",
+      "\t@Param('id') id: number,",
+      "): Promise<${1:Name}Entity> {",
+      "\tconst dto = await ${1:Name}Entity.findOne(id);",
+      "",
+      "\treturn ${1:Name}Entity.remove(dto);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Cron": {
+    "prefix": "n-cron",
+    "body": "import { Injectable, Logger } from '@nestjs/common';\nimport { Cron } from '@nestjs/schedule';\n\n@Injectable()\nexport class ${1:Name}Service {\n\tprivate readonly logger = new Logger(${1:Name}Service.name);\n\n\t@Cron('45 * * * * *')\n\thandleCron() {\n\t\tconsole.log('Called when the current second is 45');\n\t}\n}",
+    "description": "Create new task class with cron method for NestJS"
+  },
+  "Nest CQRS Query": {
+    "prefix": "n-cqrs-query",
+    "description": "NestJS CQRS Query",
+    "body": [
+      "import { IQuery } from '@nestjs/cqrs';",
+      "",
+      "export class ${1}Query implements IQuery {",
+      "\tconstructor(public readonly args: ${2}Dto) {}",
+      "}"
+    ]
+  },
+  "Nest CQRS Query Handler": {
+    "prefix": "n-cqrs-query-handler",
+    "description": "NestJS CQRS Query Handler",
+    "body": [
+      "import { QueryHandler, IQueryHandler } from '@nestjs/cqrs';",
+      "import { ${1}Query } from '../impl';",
+      "",
+      "@QueryHandler(${1}Query)",
+      "export class ${1}Handler implements IQueryHandler<${1}Query> {",
+      "\tconstructor() {}",
+      "",
+      "\tasync execute(command: ${1}Query) {",
+      "\t\treturn 'Hello :)';",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest CQRS Command": {
+    "prefix": "n-cqrs-command",
+    "description": "NestJS CQRS Command",
+    "body": [
+      "import { ICommand } from '@nestjs/cqrs';",
+      "",
+      "export class ${1}Command implements ICommand {",
+      "\tconstructor(public readonly args: ${2}Dto) {}",
+      "}"
+    ]
+  },
+  "Nest CQRS Command Handler": {
+    "prefix": "n-cqrs-command-handler",
+    "description": "NestJS CQRS Command Handler",
+    "body": [
+      "import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';",
+      "import { ${1}Command } from '../impl';",
+      "",
+      "@CommandHandler(${1}Command)",
+      "export class ${1}Handler implements ICommandHandler<${1}Command> {",
+      "\tconstructor() {}",
+      "",
+      "\tasync execute(command: ${1}Command) {",
+      "\t\treturn 'Hello :)';",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest single file upload": {
+    "prefix": "n-file-single",
+    "body": [
+      "@Post('upload')",
+      "@UseInterceptors(FileInterceptor('file'))",
+      "uploadFile(@UploadedFile() file: Express.Multer.File) {",
+      "  console.log(file);",
+      "}"
+    ],
+    "description": "Nest single file upload"
+  },
+  "Nest multiple file upload": {
+    "prefix": "n-file-multi",
+    "body": [
+      "@Post('upload')",
+      "@UseInterceptors(FilesInterceptor('files'))",
+      "uploadFile(@UploadedFiles() files: Array<Express.Multer.File>) {",
+      "  console.log(files);",
+      "}"
+    ],
+    "description": "Nest multiple file upload"
+  },
+  "Nest Mikrorm Entity": {
+    "prefix": "n-mikro-entity",
+    "description": "NestJS Mikroorm Entity",
+    "body": [
+      "import { Entity, PrimaryKey, Property } from '@mikro-orm/core';",
+      "",
+      "@Entity()",
+      "export class ${1} {",
+      "\t@PrimaryKey()",
+      "\tid: number;",
+      "",
+      "\t@Property()",
+      "\t${0}: string;",
+      "}",
+      ""
+    ]
+  },
+  "Nest Mikoorm Repository": {
+    "prefix": "n-mikroorm-repository",
+    "description": "NestJS Mikoorm Repository",
+    "body": [
+      "import { EntityRepository } from '@mikro-orm/postgres';",
+      "import { ${1} } from '../entity/${1}';",
+      "",
+      "export class ${1}Repository extends EntityRepository<${1}> {",
+      "\tfindByName(clientName: string) {",
+      "\t\treturn this.findOne({clientName});",
+      "\t}",
+      "}",
+      ""
+    ]
+  }
+}

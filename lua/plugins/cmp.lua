@@ -1,11 +1,10 @@
 return {
   {
     "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
+    dependencies = { "rafamadriz/friendly-snippets" },
+    event = "VeryLazy",
     config = function()
-      require("luasnip.loaders.from_vscode").load {
+      require("luasnip.loaders.from_vscode").lazy_load({
         include = {
           "javascript",
           "css",
@@ -22,7 +21,8 @@ return {
           "sql",
           -- "yaml",
         },
-      }
+      })
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/lua/snippets" })
       require("luasnip").filetype_extend("typescript", { "tsdoc" })
       require("luasnip").filetype_extend("javascript", { "jsdoc" })
       require("luasnip").filetype_extend("lua", { "luadoc" })
