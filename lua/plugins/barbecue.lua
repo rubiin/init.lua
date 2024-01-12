@@ -3,12 +3,10 @@ return {
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
 		event = "VeryLazy",
-		version = "*",
 		dependencies = {
 			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
+			"nvim-tree/nvim-web-devicons"
 		},
-
 		init = function()
 			require("barbecue.ui").toggle(true)
 		end,
@@ -30,9 +28,8 @@ return {
 			return {
 				theme = "catppuccin",
 				show_modified = true,
-				kinds = kind_icons,
-				show_navic = true, -- whether to show navic
+				kinds = kind_icons
 			}
-		end,
+		end
 	}
 }

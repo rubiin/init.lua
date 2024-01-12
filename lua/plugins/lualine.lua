@@ -91,7 +91,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-
     opts = lualine_styles[style],
   },
 }
