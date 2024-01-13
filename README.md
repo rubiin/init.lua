@@ -58,7 +58,6 @@ NVIM_APPNAME=rubiin/init.lua/ nvim
 + LaTeX editing and previewing via [vimtex](https://github.com/lervag/vimtex)
 + Animated GUI style notification via [nvim-notify](https://github.com/rcarriga/nvim-notify).
 + Code formatting via [Conform](https://github.com/stevearc/conform.nvim).
-+ Command line auto-completion via [wilder.nvim](https://github.com/gelguy/wilder.nvim).
 + Asynchronous code execution via [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim).
 + Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 + Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
