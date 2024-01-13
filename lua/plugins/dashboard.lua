@@ -4,8 +4,7 @@ return {
     event = "VimEnter",
     opts = function()
       local logo = require("utils.banners").dashboard()
-      logo = string.rep("\n", 2) .. logo .. "\n"
-      logo = logo .. "  " .. "[ @rubiin ]" .. "\n\n"
+
 
       local opts = {
         theme = "doom",

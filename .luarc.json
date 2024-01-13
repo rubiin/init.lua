@@ -1,0 +1,11 @@
+{
+  "diagnostics.globals": [
+      "vim",
+      "log",
+      "cmp_mappings"
+  ],
+  "diagnostics.disable": [
+      "unused-local",
+        "different-requires"
+  ]
+}
