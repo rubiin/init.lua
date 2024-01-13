@@ -26,6 +26,7 @@ return {
     "wakatime/vim-wakatime",
     event = "VeryLazy"
   },
+  
   {
     "echasnovski/mini.misc",
     config = true,

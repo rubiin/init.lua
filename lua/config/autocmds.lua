@@ -135,13 +135,4 @@ autocmd("BufWritePre", {
 })
 
 
--- //FIXME Start insert mode and disable line numbers in terminal buffer.
--- autocmd("TermOpen", {
---   group = augroup("TerminalSettings", { clear = true }),
---   callback = function()
---     opt_local.number = false
---     opt_local.relativenumber = false
---   end,
--- })
-
 
