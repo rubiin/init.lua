@@ -30,6 +30,13 @@ Open Neovim with this config:
 NVIM_APPNAME=rubiin/init.lua/ nvim
 ```
 
+## UI
+### Start screen with dashboard-nvim
+![](https://i.imgur.com/DNVB7mz.png)
+
+### Editor
+![](https://i.imgur.com/xDAApQb.png)
+
 ## Plugins
 
 ### colorscheme
