@@ -33,6 +33,10 @@ return {
         "lazy",
         "spectre_panel",
         "lspsaga.window",
+        "qf",
+        "netrw",
+        "NvimTree",
+        "oil"
       },
     },
     keys = {

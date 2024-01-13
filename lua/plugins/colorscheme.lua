@@ -17,15 +17,15 @@ return {
     lazy = true,
   },
 
-  -- add nightfox
+  -- add nightowl
   {
-    "EdenEast/nightfox.nvim",
+    "oxfist/night-owl.nvim",
     lazy = true
   },
 
-  -- add night-owl
+  -- add material
   {
-    "haishanh/night-owl.vim",
+    'marko-cerovac/material.nvim',
     lazy = true
   },
 

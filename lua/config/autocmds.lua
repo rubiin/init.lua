@@ -14,14 +14,14 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- autogroup function
 local function augroup(name, opts)
-	opts = opts or {clear = true}
+	opts = opts or { clear = true }
 	return vim.api.nvim_create_augroup(name, opts)
 end
 
 -- rubins autogroup function
-local function raugroup(name,prefix, opts)
-	opts = opts or {clear = true}
-	prefix = prefix or "rubiin_"                 -- prefix for autogroups so as to not clash with other plugins
+local function raugroup(name, prefix, opts)
+	opts = opts or { clear = true }
+	prefix = prefix or "rubiin_" -- prefix for autogroups so as to not clash with other plugins
 	return vim.api.nvim_create_augroup(prefix .. name, opts)
 end
 
@@ -51,33 +51,33 @@ local patterns = {
 
 -- reload tmux on config save
 autocmd("BufWritePost", {
-  pattern = { "*tmux.conf" },
-  command = "execute 'silent !tmux source <afile> --silent'",
+	pattern = { "*tmux.conf" },
+	command = "execute 'silent !tmux source <afile> --silent'",
 })
 
 -- reload zsh on save
 autocmd("BufWritePost", {
-  pattern = { ".zshrc", "*aliases" },
-  command = "execute 'silent !source .zshrc --silent'",
+	pattern = { ".zshrc", "*aliases" },
+	command = "execute 'silent !source .zshrc --silent'",
 })
 
 
 -- Highlight on yank
 autocmd("TextYankPost", {
-  group = augroup("HighlightYank"),
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "Visual",
-      timeout = 400,
-      on_visual = false,
-    })
-  end,
+	group = augroup("HighlightYank"),
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "Visual",
+			timeout = 400,
+			on_visual = false,
+		})
+	end,
 })
 
 -- close some filetypes with just <q> key
 autocmd("FileType", {
 	group = augroup("close_with_q"),
-	pattern =patterns,
+	pattern = patterns,
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
@@ -87,33 +87,33 @@ autocmd("FileType", {
 
 -- show cursor line only in active window
 autocmd({ "InsertLeave", "WinEnter" }, {
-  pattern = "*",
-  command = "set cursorline",
-  group = augroup("CursorLine"),
+	pattern = "*",
+	command = "set cursorline",
+	group = augroup("CursorLine"),
 })
 autocmd(
-  { "InsertEnter", "WinLeave" },
-  { pattern = "*", command = "set nocursorline", group =  augroup("CursorLine") }
+	{ "InsertEnter", "WinLeave" },
+	{ pattern = "*", command = "set nocursorline", group = augroup("CursorLine") }
 )
 
 
 -- set mdx file to markdown
 autocmd("BufEnter", {
-  pattern = { "*.mdx" },
-  group = augroup("md_mdx"),
-  callback = function()
-    vim.cmd("setfiletype markdown")
-  end,
+	pattern = { "*.mdx" },
+	group = augroup("md_mdx"),
+	callback = function()
+		vim.cmd("setfiletype markdown")
+	end,
 })
 
 -- This autocmd sets the wrap and spell options to true for filetypes ".txt", ".md", ".tex", and ".typ".
 autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
-  callback = function()
-    opt_local.wrap = true
-    opt_local.spell = true
-  end,
+	callback = function()
+		opt_local.wrap = true
+		opt_local.spell = true
+	end,
 })
 
 -- Disable swap/undo/backup files in temp directories or shm
@@ -130,9 +130,19 @@ autocmd("BufWritePre", {
 
 --- Remove all trailing whitespace on save
 autocmd("BufWritePre", {
-  command = [[:%s/\s\+$//e]],
-  group = augroup("TrimWhiteSpaceGrp"),
+	command = [[:%s/\s\+$//e]],
+	group = augroup("TrimWhiteSpaceGrp"),
 })
 
+-- Disable diagnostics in node_modules (0 is current buffer only)
+autocmd({ "BufRead", "BufNewFile" },
+	{
+		pattern = "*/node_modules/*",
+		command = "lua vim.diagnostic.disable(0)"
+	})
 
-
+-- Show `` in specific files
+autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.txt", "*.md", "*.json" },
+	command = "setlocal conceallevel=0"
+})
