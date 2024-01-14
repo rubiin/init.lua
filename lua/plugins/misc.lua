@@ -26,7 +26,7 @@ return {
     "wakatime/vim-wakatime",
     event = "VeryLazy"
   },
-  
+
   {
     "echasnovski/mini.misc",
     config = true,
@@ -40,6 +40,12 @@ return {
         end,
         desc = "Toggle Zoom"
       }
+    }
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts= {
+      timeout = 2000,
     }
   }
 }
