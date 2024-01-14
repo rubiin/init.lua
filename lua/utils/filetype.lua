@@ -22,6 +22,7 @@ vim.filetype.add({
       bashrc = "sh",
       [".bashrc"] = "sh",
       [".zprofile"] = "sh",
+      [".zshrc"] = "sh",
       ["vifmrc"] = "vim",
       [".prettierrc"] = "jsonc",
       [".eslintrc"] = "jsonc",

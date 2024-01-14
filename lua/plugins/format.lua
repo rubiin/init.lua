@@ -1,32 +1,41 @@
-
-  return {
-    -- Setup config for formatter
-    {
-      "stevearc/conform.nvim",
-      optional = true,
-      keys = {
-        -- Add keymap for show info
-        { "<leader>cn", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
-      },
-      opts = {
-        formatters_by_ft = {
-          lua = { "stylua" },
-          sh = { "shfmt" },
-          go = { "goimports", "gofmt" },
-          javascript = { "prettierd", "prettier" },
-          typescript = { "prettierd", "prettier" },
-          html = { "prettierd", "prettier" },
-          css = { "prettierd", "prettier" },
-          scss = { "prettierd", "prettier" },
-          sass = { "prettierd", "prettier" },
-          json = { "prettierd", "prettier" },
-          jsonc = { "prettierd", "prettier" },
-          markdown = { "prettierd", "prettier" },
-          yaml = { "prettierd", "prettier" },
-          vue = { "prettierd", "prettier" },
-          svelte = { "prettierd", "prettier" },
-          xml = { "prettierd", "prettier" }
-        },
-      },
+return {
+  -- Setup config for formatter
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    keys = {
+      -- Add keymap for show info
+      { "<leader>cn", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
     },
-  }
+    opts = {
+      formatters_by_ft = {
+        {
+          ["css"] = {"prettierd", "prettier"},
+          ["go"] = {"goimports", "gofmt"},
+          ["graphql"] = {"prettierd", "prettier"},
+          ["handlebars"] = {"prettierd", "prettier"},
+          ["html"] = {"prettierd", "prettier"},
+          ["javascript"] = {"prettierd", "prettier"},
+          ["javascriptreact"] = {"prettierd", "prettier"},
+          ["json"] = {"prettierd", "prettier"},
+          ["jsonc"] = {"prettierd", "prettier"},
+          ["less"] = {"prettierd", "prettier"},
+          ["lua"] = {"stylua"},
+          ["markdown"] = {"prettierd", "prettier"},
+          ["markdown.mdx"] = {"prettierd", "prettier"},
+          ["sass"] = {"prettierd", "prettier"},
+          ["scss"] = {"prettierd", "prettier"},
+          ["sh"] = {"shfmt"},
+          ["svelte"] = {"prettierd", "prettier"},
+          ["typescript"] = {"prettierd", "prettier"},
+          ["typescriptreact"] = {"prettierd", "prettier"},
+          ["vue"] = {"prettierd", "prettier"},
+          ["xml"] = {"prettierd", "prettier"},
+          ["yaml"] = {"prettierd", "prettier"}
+        }
+
+      },
+
+    },
+  },
+}

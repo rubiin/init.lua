@@ -4,6 +4,7 @@
   "SchemaStore.nvim": { "branch": "main", "commit": "d9de9914da37b54a53edec6923e1893c2262e236" },
   "auto-save.nvim": { "branch": "main", "commit": "e98cafef75271ec83dc84c933f124ab1bb675ef8" },
   "barbecue": { "branch": "main", "commit": "d38a2a023dfb1073dd0e8fee0c9be08855d3688f" },
+  "better-escape.nvim": { "branch": "master", "commit": "d62cf3c04163a46f3895c70cc807f5ae68dd8ca1" },
   "bufferline.nvim": { "branch": "main", "commit": "e48ce1805697e4bb97bc171c081e849a65859244" },
   "catppuccin": { "branch": "main", "commit": "5e36ca599f4aa41bdd87fbf2c5aae4397ac55074" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
