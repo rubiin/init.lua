@@ -148,9 +148,24 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Disable diagnostics in a .env file
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = ".env",
-  callback = function()
-    vim.diagnostic.disable(0)
-  end,
+autocmd("BufRead", {
+	pattern = ".env",
+	callback = function()
+		vim.diagnostic.disable(0)
+	end,
+})
+
+
+-- start terminal in insert mode
+autocmd("TermOpen", {
+	group   = augroup("bufcheck"),
+	pattern = "*",
+	command = "startinsert | set winfixheight"
+})
+
+-- start git messages in insert mode
+autocmd("FileType", {
+	group   = augroup("bufcheck"),
+	pattern = { "gitcommit", "gitrebase", },
+	command = "startinsert | 1"
 })
