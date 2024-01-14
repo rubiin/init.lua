@@ -3,10 +3,6 @@ return {
   {
     "stevearc/conform.nvim",
     optional = true,
-    keys = {
-      -- Add keymap for show info
-      { "<leader>cn", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
-    },
     opts = {
       formatters_by_ft = {
         {
