@@ -4,8 +4,6 @@ return {
     event = "VimEnter",
     opts = function()
       local logo = require("utils.banners").dashboard()
-
-
       local opts = {
         theme = "doom",
         hide = {

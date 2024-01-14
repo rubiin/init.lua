@@ -1,15 +1,17 @@
+local luasnip = require("luasnip")
+
 return {
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
     event = "VeryLazy",
     config = function()
-      require("luasnip").filetype_extend("typescript", { "tsdoc" })
-      require("luasnip").filetype_extend("javascript", { "jsdoc" })
-      require("luasnip").filetype_extend("lua", { "luadoc" })
-      require("luasnip").filetype_extend("python", { "pydoc" })
-      require("luasnip").filetype_extend("rust", { "rustdoc" })
-      require("luasnip").filetype_extend("sh", { "shelldoc" })
+      luasnip.filetype_extend("typescript", { "tsdoc" })
+      luasnip.filetype_extend("javascript", { "jsdoc" })
+      luasnip.filetype_extend("lua", { "luadoc" })
+      luasnip.filetype_extend("python", { "pydoc" })
+      luasnip.filetype_extend("rust", { "rustdoc" })
+      luasnip.filetype_extend("sh", { "shelldoc" })
       require("luasnip.loaders.from_vscode").load {
         include = { "javascript",
           "css",
@@ -42,7 +44,7 @@ return {
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
-      local luasnip = require("luasnip")
+
       local cmp = require("cmp")
       table.insert(opts.sources, { name = "emoji" })
       opts.mapping = vim.tbl_extend("force", opts.mapping, {

@@ -1,6 +1,7 @@
 return {
   {
     "ThePrimeagen/refactoring.nvim",
+    event = "BufRead",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
@@ -40,7 +41,6 @@ return {
       prompt_func_return_type = {
         go = false,
         java = false,
-
         cpp = false,
         c = false,
         h = false,
@@ -50,7 +50,6 @@ return {
       prompt_func_param_type = {
         go = false,
         java = false,
-
         cpp = false,
         c = false,
         h = false,
