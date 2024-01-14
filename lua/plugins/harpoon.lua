@@ -126,6 +126,7 @@ return {
     opts = {
       defaults = {
         ["<leader>h"] = { name = "+harpoon" },
+        ["<leader>;"] = { name = "+info" },
       },
     },
   },
