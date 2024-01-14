@@ -4,6 +4,13 @@ local fn = vim.fn
 local bo = vim.bo
 local api = vim.api
 
+function M.merge_tables(t1,t2)
+  for k,v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
+end
+
 -- splits a string into a table
 function M.str_split (inputstr, sep)
   if sep == nil then
