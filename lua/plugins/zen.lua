@@ -58,7 +58,7 @@ return {
 
     --stylua: ignore
     keys = {
-      { "<leader>zz", "<cmd>ZenMode<cr>", desc = "Zen mode", },
+      { "<leader>uX", "<cmd>ZenMode<cr>", desc = "Zen mode", },
     },
   }
 }
