@@ -146,3 +146,11 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.txt", "*.md", "*.json" },
 	command = "setlocal conceallevel=0"
 })
+
+-- Disable diagnostics in a .env file
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = ".env",
+  callback = function()
+    vim.diagnostic.disable(0)
+  end,
+})

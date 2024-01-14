@@ -1,7 +1,8 @@
 return {
   {
-    "rafcamlet/nvim-luapad",
-    cmd = "Luapad",
-    dependencies = { "antoinemadec/FixCursorHold.nvim" }
-  }
+		"rafcamlet/nvim-luapad",
+		cmd = { "Luapad" },
+    lazy = true,
+		config = true,
+	},
 }
