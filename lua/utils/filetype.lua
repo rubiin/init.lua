@@ -28,6 +28,8 @@ vim.filetype.add({
       [".eslintrc"] = "jsonc",
       ["tsconfig.json"] = "jsonc",
       ["jsconfig.json"] = "jsonc",
+      ["tsconfig.tsbuildinfo"] = 'json',
+      [".npmignore"] = 'ignore'
   },
   pattern = {
       ["%.env%.[%w_.-]+"] = "sh",
