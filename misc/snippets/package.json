@@ -10,8 +10,11 @@
           {
               "language": ["javascript","typescript"],
               "path": "./nestjs.json"
+          },
+          {
+            "language": ["javascriptreact","typescriptreact"],
+            "path": "./react.json"
           }
-
       ]
   }
 }
