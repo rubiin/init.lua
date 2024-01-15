@@ -8,10 +8,7 @@
 
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local lazyvim_util = require("lazyvim.util")
-local keymap = vim.keymap.set
-
-local del = vim.keymap.del
-
+local keymap, del = vim.keymap.set,vim.keymap.del
 
 keymap("n", "<leader>sx", require("telescope.builtin").resume, { noremap = true, silent = true, desc = "Resume" })
 keymap("n", "<leader>ua", ":ASToggle<CR>", { desc = "Toggle Auto Save" })

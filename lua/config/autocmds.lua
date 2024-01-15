@@ -9,8 +9,8 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local = vim.opt_local
-local autocmd = vim.api.nvim_create_autocmd
+local opt_local, autocmd, command, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.api.nvim_create_user_command, vim.fn,vim.cmd
+
 
 -- autogroup function
 local function augroup(name, opts)
@@ -102,7 +102,7 @@ autocmd("BufEnter", {
 	pattern = { "*.mdx" },
 	group = augroup("md_mdx"),
 	callback = function()
-		vim.cmd("setfiletype markdown")
+		cmd("setfiletype markdown")
 	end,
 })
 
@@ -128,11 +128,34 @@ autocmd("BufWritePre", {
 	end,
 })
 
---- Remove all trailing whitespace on save
-autocmd("BufWritePre", {
-	command = [[:%s/\s\+$//e]],
-	group = augroup("TrimWhiteSpaceGrp"),
+-- Trim trailing whitespace and trailing blank lines on save
+local function trim_trailing_whitespace()
+	local pos = vim.api.nvim_win_get_cursor(0)
+	cmd [[silent keepjumps keeppatterns %s/\s\+$//e]]
+	vim.api.nvim_win_set_cursor(0, pos)
+end
+command('TrimWhitespace', trim_trailing_whitespace, {})
+
+local function trim_trailing_lines()
+	local last_line = vim.api.nvim_buf_line_count(0)
+	local last_nonblank_line = fn.prevnonblank(last_line)
+	if last_nonblank_line < last_line then
+		vim.api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {})
+	end
+end
+command('TrimTrailingLines', trim_trailing_lines, {})
+
+local function trim()
+	if not vim.o.binary and vim.o.filetype ~= 'diff' then
+		trim_trailing_lines()
+		trim_trailing_whitespace()
+	end
+end
+autocmd('BufWritePre', {
+	group = augroup('trim_on_save'),
+	callback = trim,
 })
+
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd({ "BufRead", "BufNewFile" },
