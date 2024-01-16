@@ -8,9 +8,12 @@
 
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local lazyvim_util = require("lazyvim.util")
-local keymap, del = vim.keymap.set,vim.keymap.del
+local del = vim.keymap.del
+local keymap = require("utils.helpers").map
 
-keymap("n", "<leader>sx", require("telescope.builtin").resume, { noremap = true, silent = true, desc = "Resume" })
+
+
+keymap("n", "<leader>sx", require("telescope.builtin").resume, { desc = "Resume" })
 keymap("n", "<leader>ua", ":ASToggle<CR>", { desc = "Toggle Auto Save" })
 
 -- Add toggle gitsigns blame line
@@ -20,19 +23,14 @@ if lazyvim_util.has("gitsigns.nvim") then
   })
 end
 
--- Lazy Format Info
-keymap("n", "<leader>fI", "<cmd>LazyFormatInfo<CR>", {
-  desc = "Lazy Format Info",
-})
 
-
-
-
+-- Lazy Format
 
 -- Delete LazyVim default bindings for meta information
 del("n", "<leader>l")
 del("n", "<leader>L")
 
+-- Add LazyVim bindings for meta information
 keymap("n", "<leader>;P", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })

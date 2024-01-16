@@ -144,4 +144,19 @@ M.is_not_empty = function(s)
   return s ~= nil and s ~= ""
 end
 
+
+function M.map(mode, lhs, rhs, opts)
+  local defaults = {
+    silent = true,
+    noremap = true,
+  }
+  vim.keymap.set(mode, lhs, rhs, M.merge(defaults, opts or {}))
+end
+
+-- Merge two tables recursively
+
+function M.merge(...)
+  return vim.tbl_deep_extend('force', ...)
+end
+
 return M

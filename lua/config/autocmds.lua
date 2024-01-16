@@ -9,8 +9,10 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, command, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.api.nvim_create_user_command, vim.fn,vim.cmd
+local opt_local, autocmd, command, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.api
+.nvim_create_user_command, vim.fn, vim.cmd
 
+local keymap = require("utils.helpers").map
 
 -- autogroup function
 local function augroup(name, opts)
@@ -80,7 +82,7 @@ autocmd("FileType", {
 	pattern = patterns,
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+		keymap("n", "q", "<cmd>close<cr>")
 	end,
 })
 
