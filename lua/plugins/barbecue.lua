@@ -1,13 +1,11 @@
 return {
   {
     'utilyre/barbecue.nvim',
-    name = 'barbecue',
     event = 'VeryLazy',
     dependencies = {
       'SmiteshP/nvim-navic',
       'nvim-tree/nvim-web-devicons',
     },
-    init = function() require('barbecue.ui').toggle(true) end,
 
     keys = {
       {

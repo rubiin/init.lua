@@ -1,5 +1,6 @@
 local M = {}
 
+-- use this for more https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow
 -- you may need to adjust the padding on the headers to fit your screen mostly the vertical padding as done on the first header
 local headers = {
   [[
@@ -77,6 +78,14 @@ local headers = {
     ██████  █████████████████████ ████ █████ █████ ████ ██████ ,
 
 ]],
+  [[
+ █████╗ ██████╗  ██████╗██╗  ██╗    ██████╗ ████████╗██╗    ██╗
+██╔══██╗██╔══██╗██╔════╝██║  ██║    ██╔══██╗╚══██╔══╝██║    ██║
+███████║██████╔╝██║     ███████║    ██████╔╝   ██║   ██║ █╗ ██║
+██╔══██║██╔══██╗██║     ██╔══██║    ██╔══██╗   ██║   ██║███╗██║
+██║  ██║██║  ██║╚██████╗██║  ██║    ██████╔╝   ██║   ╚███╔███╔╝
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    ╚═════╝    ╚═╝    ╚══╝╚══╝
+  ]],
   [[
   ✯                              .°•  |
   __     °    •                __     / \

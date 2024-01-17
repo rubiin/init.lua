@@ -3,34 +3,37 @@ local luasnip = require('luasnip')
 return {
   {
     'L3MON4D3/LuaSnip',
-    dependencies = { 'rafamadriz/friendly-snippets' },
-    event = 'VeryLazy',
-    config = function()
-      luasnip.filetype_extend('typescript', { 'tsdoc' })
-      luasnip.filetype_extend('javascript', { 'jsdoc' })
-      luasnip.filetype_extend('lua', { 'luadoc' })
-      luasnip.filetype_extend('python', { 'pydoc' })
-      luasnip.filetype_extend('rust', { 'rustdoc' })
-      luasnip.filetype_extend('sh', { 'shelldoc' })
-      require('luasnip.loaders.from_vscode').load({
-        include = {
-          'javascript',
-          'css',
-          'docker',
-          'go',
-          'html',
-          'javascript',
-          'json',
-          'lua',
-          'markdown',
-          'python',
-          'rust',
-          'shell',
-          'sql',
-        },
-      })
-      require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' } })
-    end,
+    event = 'InsertEnter',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      config = function()
+        luasnip.filetype_extend('typescript', { 'tsdoc' })
+        luasnip.filetype_extend('javascript', { 'jsdoc' })
+        luasnip.filetype_extend('lua', { 'luadoc' })
+        luasnip.filetype_extend('python', { 'pydoc' })
+        luasnip.filetype_extend('rust', { 'rustdoc' })
+        luasnip.filetype_extend('sh', { 'shelldoc' })
+        require('luasnip.loaders.from_vscode').load({
+          include = {
+            'javascript',
+            'css',
+            'docker',
+            'go',
+            'html',
+            'javascript',
+            'json',
+            'lua',
+            'markdown',
+            'python',
+            'rust',
+            'shell',
+            'sql',
+          },
+        })
+        require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' } })
+      end,
+    },
+
   },
   {
     'hrsh7th/nvim-cmp',

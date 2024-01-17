@@ -2,7 +2,8 @@ return {
   -- Setup config for formatter
   {
     "stevearc/conform.nvim",
-    optional = true,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     opts = {
       formatters_by_ft = {
         {

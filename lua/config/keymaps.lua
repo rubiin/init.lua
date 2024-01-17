@@ -11,7 +11,6 @@ local del = vim.keymap.del
 local keymap = require('utils.helpers').map
 
 keymap('n', '<leader>sx', require('telescope.builtin').resume, { desc = 'Resume' })
-keymap('n', '<leader>ua', ':ASToggle<CR>', { desc = 'Toggle Auto Save' })
 
 -- Add toggle gitsigns blame line
 if lazyvim_util.has('gitsigns.nvim') then
