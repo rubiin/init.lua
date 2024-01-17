@@ -94,6 +94,8 @@ function M.dashboard()
 
   -- add padding to the top and bottom of the logo
   logo = string.rep("\n", 2) .. logo .. "\n"
+
+  logo = logo .. "  " .. "With experience comes perspective"  .. "\n\n"
   logo = logo .. "  " .. "[ @rubiin ]" .. "\n\n"
 
   return logo
