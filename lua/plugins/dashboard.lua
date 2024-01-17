@@ -31,8 +31,7 @@ return {
             local footer = {}
             footer[1] = '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
             footer[2] = ''
-            footer[3] = require('utils.helpers').version()
-            return footer
+            return vim.list_extend(footer, require("utils.fortune")())
           end,
         },
       }
