@@ -2,12 +2,10 @@
 ---@param default_opts table | nil
 ---@return table
 function _G.get_spectre_options(default_opts)
-  local Path = require("utils.path")
+  local Path = require('utils.path')
   local opts = default_opts or {}
 
-  if Path.is_git_repo() then
-    opts.cwd = Path.get_git_root()
-  end
+  if Path.is_git_repo() then opts.cwd = Path.get_git_root() end
 
   return opts
 end
@@ -15,35 +13,33 @@ end
 return {
   {
     -- Search and replace with pattern
-    "nvim-pack/nvim-spectre",
-    cmd = "Spectre",
-    opts = { open_cmd = "noswapfile vnew" },
+    'nvim-pack/nvim-spectre',
+    cmd = 'Spectre',
+    opts = { open_cmd = 'noswapfile vnew' },
     keys = {
       {
-        "<leader>sr",
-        function()
-          require("spectre").open()
-        end,
-        desc = "Replace in files",
+        '<leader>sr',
+        function() require('spectre').open() end,
+        desc = 'Replace in files',
       },
       {
-        "<leader>sp",
+        '<leader>sp',
         ":lua require('spectre').open(_G.get_spectre_options())<CR>",
-        desc = "Replace in files (Root dir)",
+        desc = 'Replace in files (Root dir)',
       },
       -- Search current word
       {
-        "<leader>sP",
+        '<leader>sP',
         ":lua require('spectre').open_visual(_G.get_spectre_options({ select_word = true }))<CR>",
-        desc = "Replace current word (Root dir)",
+        desc = 'Replace current word (Root dir)',
       },
       -- Open search with select word in visual mode
       {
-        "<leader>sr",
+        '<leader>sr',
         ":lua require('spectre').open_visual(_G.get_spectre_options())<CR>",
-        mode = "v",
+        mode = 'v',
         silent = true,
-        desc = "Replace current word (Root dir)",
+        desc = 'Replace current word (Root dir)',
       },
     },
   },

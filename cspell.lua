@@ -1,12 +1,12 @@
-local Path = require("utils.path")
+local Path = require('utils.path')
 
 local M = {}
 
 function M.create_cspell_json_if_not_exist()
-  local cspell_json_path = Path.get_root_directory() .. "/cspell.json"
+  local cspell_json_path = Path.get_root_directory() .. '/cspell.json'
 
   if vim.fn.filereadable(cspell_json_path) == 0 then
-    local file = io.open(cspell_json_path, "w")
+    local file = io.open(cspell_json_path, 'w')
     if file then
       local default_content = [[
 {
@@ -35,7 +35,7 @@ function M.create_cspell_json_if_not_exist()
       file:write(default_content)
       file:close()
     else
-      vim.notify("Could not create cSpell.json", "error", { title = "cSpell" })
+      vim.notify('Could not create cSpell.json', 'error', { title = 'cSpell' })
     end
   end
 end
@@ -45,24 +45,22 @@ end
 function M.add_word_to_c_spell_dictionary()
   M.create_cspell_json_if_not_exist()
 
-  local word = vim.fn.expand("<cword>")
-  local dictionary_path = Path.get_root_directory() .. "/cspell-tool.txt"
+  local word = vim.fn.expand('<cword>')
+  local dictionary_path = Path.get_root_directory() .. '/cspell-tool.txt'
 
   -- Append the word to the dictionary file
-  local file = io.open(dictionary_path, "a")
+  local file = io.open(dictionary_path, 'a')
   if file then
     -- Detect new line at the end of the file or not
-    local last_char = file:seek("end", -1)
-    if last_char ~= nil and last_char ~= "\n" then
-      word = "\n" .. word
-    end
+    local last_char = file:seek('end', -1)
+    if last_char ~= nil and last_char ~= '\n' then word = '\n' .. word end
 
-    file:write(word .. "")
+    file:write(word .. '')
     file:close()
     -- Reload buffer to update the dictionary
-    vim.cmd("e!")
+    vim.cmd('e!')
   else
-    vim.notify("Could not open cSpell dictionary", "error", { title = "cSpell" })
+    vim.notify('Could not open cSpell dictionary', 'error', { title = 'cSpell' })
   end
 end
 

@@ -11,44 +11,44 @@ return {
   - Use % and square bracket commands (see :h [) to jump between brackets.
   ]]
   {
-    "m4xshen/hardtime.nvim",
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    'm4xshen/hardtime.nvim',
+    event = 'VeryLazy',
+    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
     opts = {
-      restriction_mode = "hint", -- block or hint
+      restriction_mode = 'hint', -- block or hint
       -- default values is disabled the arrow keys
-      disabled_keys = { ["<Left>"] = {}, ["<Right>"] = {} },
+      disabled_keys = { ['<Left>'] = {}, ['<Right>'] = {} },
       -- Allow j k but restrict gj gk
       restricted_keys = {
-        ["j"] = {},
-        ["k"] = {},
+        ['j'] = {},
+        ['k'] = {},
       },
       disable_mouse = false,
       disabled_filetypes = {
-        "dapui",
-        "mason",
-        "neo-tree",
-        "Outline",
-        "TelescopePrompt",
-        "lazy",
-        "spectre_panel",
-        "lspsaga.window",
-        "qf",
-        "netrw",
-        "NvimTree",
-        "oil"
+        'dapui',
+        'mason',
+        'neo-tree',
+        'Outline',
+        'TelescopePrompt',
+        'lazy',
+        'spectre_panel',
+        'lspsaga.window',
+        'qf',
+        'netrw',
+        'NvimTree',
+        'oil',
       },
     },
     keys = {
       {
-        "<leader>uh",
-        "<cmd>Hardtime toggle<CR>",
-        desc = "Toggle Hardtime",
+        '<leader>uh',
+        '<cmd>Hardtime toggle<CR>',
+        desc = 'Toggle Hardtime',
       },
       {
-        "<leader>hr",
-        "<cmd>Hardtime report<CR>",
-        desc = "Hardtime report",
+        '<leader>hr',
+        '<cmd>Hardtime report<CR>',
+        desc = 'Hardtime report',
       },
     },
   },

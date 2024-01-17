@@ -1,7 +1,7 @@
-local style = "one" -- this keeps the default config, change this to another style name to use it
+local style = 'one' -- this keeps the default config, change this to another style name to use it
 
-local helpers = require("utils.helpers")
-local icons = require("lazyvim.config").icons
+local helpers = require('utils.helpers')
+local icons = require('lazyvim.config').icons
 
 local conditions = {
   is_git_repo = helpers.is_git_repo,
@@ -9,88 +9,88 @@ local conditions = {
   buffer_not_empty = helpers.buffer_not_empty,
 }
 
-
-
 local lualine_styles = {
   one = function(_, opts)
-    opts.options.component_separators = { left = "", right = "" }
-    opts.options.section_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = '', right = '' }
+    opts.options.section_separators = { left = '', right = '' }
 
     table.remove(opts.sections.lualine_x, 1)
 
-    opts.sections.lualine_a = { { "mode", icon = "" } }
-    opts.sections.lualine_b = { {
-      "branch",
-      cond = conditions.is_git_repo
-    },
+    opts.sections.lualine_a = { { 'mode', icon = '' } }
+    opts.sections.lualine_b = {
       {
-        "diff",
+        'branch',
+        cond = conditions.is_git_repo,
+      },
+      {
+        'diff',
         cond = conditions.hide_in_width,
         symbols = {
           added = icons.git.added,
           modified = icons.git.modified,
           removed = icons.git.removed,
         },
-      }
-      , {
-      "diagnostics",
-      symbols = {
-        error = icons.diagnostics.Error,
-        hint = icons.diagnostics.Hint,
-        info = icons.diagnostics.Info,
-        warn = icons.diagnostics.Warn,
       },
-    } }
+      {
+        'diagnostics',
+        symbols = {
+          error = icons.diagnostics.Error,
+          hint = icons.diagnostics.Hint,
+          info = icons.diagnostics.Info,
+          warn = icons.diagnostics.Warn,
+        },
+      },
+    }
 
     opts.sections.lualine_c = {
       {
-        "filename",
-        cond = conditions.buffer_not_empty
-      }
+        'filename',
+        cond = conditions.buffer_not_empty,
+      },
     }
 
-
-    opts.sections.lualine_x = { { "location", cond = conditions.buffer_not_empty, icon = "", padding = { left = 1, right = 1 } } }
+    opts.sections.lualine_x =
+      { { 'location', cond = conditions.buffer_not_empty, icon = '', padding = { left = 1, right = 1 } } }
     opts.sections.lualine_y = {
       {
-        "o:encoding",
+        'o:encoding',
         cond = conditions.hide_in_width,
         fmt = string.upper,
       },
 
       {
-        "fileformat",
+        'fileformat',
         icons_enabled = true,
         cond = conditions.buffer_not_empty,
         symbols = {
-          unix = "LF ",
-          dos = "CRLF ",
-          mac = "CR ",
+          unix = 'LF ',
+          dos = 'CRLF ',
+          mac = 'CR ',
         },
       },
     }
     opts.sections.lualine_z = {
-      "filetype",
+      'filetype',
     }
     opts.extensions = {
-      "lazy",
-      "man",
-      "mason",
-      "nvim-dap-ui",
-      "overseer",
-      "quickfix",
-      "toggleterm",
-      "trouble",
-      "neo-tree",
-      "symbols-outline",
+      'lazy',
+      'man',
+      'mason',
+      'nvim-dap-ui',
+      'overseer',
+      'quickfix',
+      'toggleterm',
+      'trouble',
+      'neo-tree',
+      'symbols-outline',
     }
   end,
 }
 
 return {
   {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
     opts = lualine_styles[style],
   },
 }

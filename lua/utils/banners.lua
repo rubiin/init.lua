@@ -10,7 +10,7 @@ local headers = {
     ██║ ╚████║ ███████╗ ╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
     ╚═╝  ╚═══╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
     ]],
-    [[
+  [[
                                      ██
                                     ░░
   ███████   █████   ██████  ██    ██ ██ ██████████
@@ -77,7 +77,7 @@ local headers = {
     ██████  █████████████████████ ████ █████ █████ ████ ██████ ,
 
 ]],
-[[
+  [[
   ✯                              .°•  |
   __     °    •                __     / \
  / /   ____ ___  ______  _____/ /_    | O |
@@ -89,14 +89,13 @@ local headers = {
 
 function M.dashboard()
   math.randomseed(os.time())
-  local logo =  headers[math.random(#headers)]
-
+  local logo = headers[math.random(#headers)]
 
   -- add padding to the top and bottom of the logo
-  logo = string.rep("\n", 2) .. logo .. "\n"
+  logo = string.rep('\n', 2) .. logo .. '\n'
 
-  logo = logo .. "  " .. "With experience comes perspective"  .. "\n\n"
-  logo = logo .. "  " .. "[ @rubiin ]" .. "\n\n"
+  logo = logo .. '  ' .. 'With experience comes perspective' .. '\n\n'
+  logo = logo .. '  ' .. '[ @rubiin ]' .. '\n\n'
 
   return logo
 end

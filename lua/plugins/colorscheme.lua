@@ -3,45 +3,45 @@
 return {
   --  add nord
   {
-    "gbprod/nord.nvim",
+    'gbprod/nord.nvim',
     lazy = true,
   },
   -- add vscode
   {
-    "Mofiqul/vscode.nvim",
-    lazy = true
+    'Mofiqul/vscode.nvim',
+    lazy = true,
   },
   -- add gruvbox
   {
-    "ellisonleao/gruvbox.nvim",
+    'ellisonleao/gruvbox.nvim',
     lazy = true,
   },
 
   -- add nightowl
   {
-    "oxfist/night-owl.nvim",
-    lazy = true
+    'oxfist/night-owl.nvim',
+    lazy = true,
   },
 
   -- add material
   {
     'marko-cerovac/material.nvim',
-    lazy = true
+    lazy = true,
   },
 
   -- add kanagawa
   {
-    "rebelot/kanagawa.nvim",
-    lazy = true
+    'rebelot/kanagawa.nvim',
+    lazy = true,
   },
 
   -- add catppuccin
   {
-    "catppuccin/nvim",
+    'catppuccin/nvim',
     lazy = true,
-    name = "catppuccin",
+    name = 'catppuccin',
     opts = {
-      flavour = "mocha",
+      flavour = 'mocha',
       integrations = {
         cmp = true,
         dashboard = true,
@@ -58,13 +58,13 @@ return {
         native_lsp = {
           enabled = true,
           underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
+            errors = { 'undercurl' },
+            hints = { 'undercurl' },
+            warnings = { 'undercurl' },
+            information = { 'undercurl' },
           },
         },
-        navic = { enabled = false, custom_bg = "lualine" },
+        navic = { enabled = false, custom_bg = 'lualine' },
         neotest = true,
         neotree = true,
         noice = true,
@@ -79,9 +79,9 @@ return {
   },
 
   {
-    "LazyVim/LazyVim",
+    'LazyVim/LazyVim',
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = 'catppuccin',
     },
   },
 }
