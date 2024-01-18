@@ -114,8 +114,11 @@ function M.get_root_directory()
 end
 
 -- Check if a variable is not empty nor nil
-M.is_not_empty = function(s) return s ~= nil and s ~= '' end
+ function M.is_not_empty(s)
+  return s ~= nil and s ~= ''
+end
 
+-- Check if a variable is empty or nil
 function M.map(mode, lhs, rhs, opts)
   local defaults = {
     silent = true,
@@ -126,6 +129,20 @@ end
 
 -- Merge two tables recursively
 
-function M.merge(...) return vim.tbl_deep_extend('force', ...) end
+function M.merge(...)
+  return vim.tbl_deep_extend('force', ...)
+end
+
+--- Extend a table of lists by key.
+---@param table table The table to extend.
+---@param keys table List of keys to extend.
+---@param values table The values to extend the table with.
+function M.extend_keys (table, keys, values)
+  table = table or {}
+  for _, key in ipairs(keys) do
+    table[key] = vim.list_extend(table[key] or {}, values)
+  end
+  return table
+end
 
 return M
