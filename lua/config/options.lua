@@ -24,25 +24,47 @@ g.autoformat = false
 -- * a function with signature `function(buf) -> string|string[]`
 g.root_spec = { 'lsp', { '.git', 'lua' }, 'cwd' }
 
-o.autowrite = true -- Enable auto write
+-- line numbers
+o.relativenumber = true -- Relative line numbers
+o.number = true -- Print line number
+
+-- line wrapping
+o.wrap = false -- Disable line wrap
+
+-- search settings
+o.hlsearch = true -- highlight search
+o.incsearch = true -- incremental search
+o.ignorecase = true -- ignore case when searching
+o.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+
+-- tab settings
+o.splitkeep = 'screen'
+o.splitbelow = true -- Put new windows below current
+o.splitright = true -- Put new windows right of current
+
+-- cursor line
+o.cursorline = true -- highlight the current cursor line
+
+-- clipboard
 o.clipboard = 'unnamedplus' -- Sync with system clipboard
+
+o.autowrite = true -- Enable auto write
 o.completeopt = 'menu,menuone,noselect'
 o.conceallevel = 3 -- Hide * markup for bold and italic
 o.confirm = true -- Confirm to save changes before exiting modified buffer
-o.cursorline = true -- Enable highlighting of the current line
+
 o.expandtab = true -- Use spaces instead of tabs
 o.formatoptions = 'jcroqlnt' -- tcqj
 o.grepformat = '%f:%l:%c:%m'
 o.grepprg = 'rg --vimgrep'
-o.ignorecase = true -- Ignore case
+
 o.inccommand = 'nosplit' -- preview incremental substitute
 o.laststatus = 3 -- global statusline
 o.list = true -- Show some invisible characters (tabs...
 o.mouse = 'a' -- Enable mouse mode
-o.number = true -- Print line number
+
 o.pumblend = 10 -- Popup blend
 o.pumheight = 10 -- Maximum number of entries in a popup
-o.relativenumber = true -- Relative line numbers
 o.scrolloff = 4 -- Lines of context
 o.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 o.shiftround = true -- Round indent
@@ -51,13 +73,10 @@ o.shortmess:append({ W = true, I = true, c = true, C = true })
 o.showmode = false -- Dont show mode since we have a statusline
 o.sidescrolloff = 8 -- Columns of context
 o.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
-o.smartcase = true -- Don't ignore case with capitals
+
 o.smartindent = true -- Insert indents automatically
 o.spelllang = { 'en' }
-o.splitbelow = true -- Put new windows below current
-o.splitkeep = 'screen'
-o.splitright = true -- Put new windows right of current
-o.tabstop = 4 -- Number of spaces tabs count for
+
 o.softtabstop = 4
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
@@ -65,7 +84,6 @@ o.undolevels = 10000
 o.virtualedit = 'block' -- Allow cursor to move where there is no text in visual block mode
 o.wildmode = 'longest:full,full' -- Command-line completion mode
 o.winminwidth = 5 -- Minimum window width
-o.wrap = false -- Disable line wrap
 o.fillchars = {
   foldopen = '',
   foldclose = '',
@@ -105,8 +123,8 @@ g.markdown_recommended_style = 0
 g.editorconfig = false
 
 -- Enable undofile
-o.undodir = fn.expand('~/.config/nvim/misc/undo')
 o.undofile = true
+o.undodir = fn.expand('~/.config/nvim/misc/undo')
 -- Disable swapfile
 o.swapfile = false
 
@@ -124,8 +142,3 @@ o.history = 10000
 -- Decrease redraw time
 o.redrawtime = 100
 
--- highlight search
-o.hlsearch = true
-
--- incremental search
-o.incsearch = true
