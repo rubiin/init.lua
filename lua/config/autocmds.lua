@@ -20,12 +20,8 @@ local function augroup(name, opts)
   return vim.api.nvim_create_augroup(name, opts)
 end
 
--- rubins autogroup function
-local function raugroup(name, prefix, opts)
-  opts = opts or { clear = true }
-  prefix = prefix or 'rubiin_' -- prefix for autogroups so as to not clash with other plugins
-  return vim.api.nvim_create_augroup(prefix .. name, opts)
-end
+
+local au_filetypes = augroup("ConfigFileType")
 
 local patterns = {
   'dap-float',
@@ -46,16 +42,20 @@ local patterns = {
   'tsplayground',
 }
 
+
+local au_filewrite = augroup("ConfigFileWrite")
 -- reload tmux on config save
 autocmd('BufWritePost', {
+  group = au_filewrite,
   pattern = { '*tmux.conf' },
-  command = "execute 'silent !tmux source <afile> --silent'",
+  command = "!tmux source <afile>;notify-send -i reload 'Reloading tmux",
 })
 
 -- reload zsh on save
 autocmd('BufWritePost', {
+  group = au_filewrite,
   pattern = { '.zshrc', '*aliases' },
-  command = "execute 'silent !source .zshrc --silent'",
+  command = "!source .zshrc;notify-send -i reload 'Reloading zshrc'",
 })
 
 -- Automatically close NvimTree if it's the last buffer on window
@@ -90,7 +90,7 @@ autocmd('TextYankPost', {
 
 -- close some filetypes with just <q> key
 autocmd('FileType', {
-  group = augroup('close_with_q'),
+  group = au_filetypes,
   pattern = patterns,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -115,7 +115,7 @@ autocmd('BufEnter', {
 
 -- This autocmd sets the wrap and spell options to true for filetypes ".txt", ".md", ".tex", and ".typ".
 autocmd('FileType', {
-  group = augroup('wrap_spell'),
+  group = au_filetypes,
   pattern = { '*.txt', '*.md', '*.tex', '*.typ' },
   callback = function()
     opt_local.wrap = true
@@ -186,7 +186,7 @@ autocmd('TermOpen', {
 
 -- start git messages in insert mode
 autocmd('FileType', {
-  group = augroup('bufcheck'),
+  group = au_filetypes,
   pattern = { 'gitcommit', 'gitrebase' },
   command = 'startinsert | 1',
 })

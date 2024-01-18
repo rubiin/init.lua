@@ -9,7 +9,7 @@ return {
     keys = {
       {
         '<leader>r',
-        function() require('telescope').extensions.refactoring.refactors() end,
+        function() require('lua.plugins.ui.telescope').extensions.refactoring.refactors() end,
         mode = { 'v' },
         desc = 'Refactoring menu',
       },
@@ -59,7 +59,7 @@ return {
     },
     config = function(_, options)
       require('refactoring').setup(options)
-      require('telescope').load_extension('refactoring')
+      require('lua.plugins.ui.telescope').load_extension('refactoring')
     end,
   },
 }
