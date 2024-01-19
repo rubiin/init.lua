@@ -886,7 +886,7 @@ local fortune_list = {
 --- returns an array of strings
 local main = function(opts)
   local options = {
-    max_width = 70,
+    max_width = 60,
     fortune_list = fortune_list,
   }
 

@@ -14,6 +14,8 @@ function M.str_split(inputstr, sep)
   return t
 end
 
+
+
 --- Check if the minimum Neovim version is satisfied
 --- Expects only the minor version, e.g. "9" for 0.9.1
 ---@param version number

@@ -20,8 +20,7 @@ local function augroup(name, opts)
   return vim.api.nvim_create_augroup(name, opts)
 end
 
-
-local au_filetypes = augroup("ConfigFileType")
+local au_filetypes = augroup('ConfigFileType')
 
 local patterns = {
   'dap-float',
@@ -42,8 +41,7 @@ local patterns = {
   'tsplayground',
 }
 
-
-local au_filewrite = augroup("ConfigFileWrite")
+local au_filewrite = augroup('ConfigFileWrite')
 -- reload tmux on config save
 autocmd('BufWritePost', {
   group = au_filewrite,
@@ -54,8 +52,15 @@ autocmd('BufWritePost', {
 -- reload zsh on save
 autocmd('BufWritePost', {
   group = au_filewrite,
-  pattern = { '.zshrc', '*aliases' },
+  pattern = { '.zshrc', '.bash_aliases', '.zshenv' },
   command = "!source .zshrc;notify-send -i reload 'Reloading zshrc'",
+})
+
+-- reload bash on save
+autocmd('BufWritePost', {
+  group = au_filewrite,
+  pattern = { '.bashrc', '.bash_aliases', '.bashenv' },
+  command = "!source .bashrc;notify-send -i reload 'Reloading bashrc'",
 })
 
 -- Automatically close NvimTree if it's the last buffer on window
@@ -179,9 +184,18 @@ autocmd('BufRead', {
 
 -- start terminal in insert mode
 autocmd('TermOpen', {
-  group = augroup('bufcheck'),
+  group = augroup('terminalSetting'),
   pattern = '*',
   command = 'startinsert | set winfixheight',
+})
+
+-- Disable foldcolumn and signcolumn for terinals
+autocmd('TermOpen', {
+  group = augroup('terminalSetting'),
+  callback = function()
+    vim.opt_local.foldcolumn = '0'
+    vim.opt_local.signcolumn = 'no'
+  end,
 })
 
 -- start git messages in insert mode

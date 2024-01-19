@@ -10,7 +10,10 @@ return {
       {
         'williamboman/mason.nvim',
         opts = function(_, opts)
-          vim.list_extend(opts.ensure_installed or {}, { 'prettier', 'prettierd', 'goimports', 'stylua', 'shfmt' ,"eslint_d","eslint","cspell","markdownlint"})
+          vim.list_extend(
+            opts.ensure_installed or {},
+            { 'prettier', 'prettierd', 'goimports', 'stylua', 'shfmt', 'eslint_d', 'cspell', 'markdownlint' }
+          )
         end,
       },
     },
@@ -45,8 +48,6 @@ return {
   },
   {
     'mfussenegger/nvim-lint',
-    opts = function(_, opts)
-      opts.linters_by_ft = util.extend_keys(opts.linters_by_ft, { '*' }, { 'cspell' })
-    end,
+    opts = function(_, opts) opts.linters_by_ft = util.extend_keys(opts.linters_by_ft, { '*' }, { 'cspell' }) end,
   },
 }
