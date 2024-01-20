@@ -14,6 +14,7 @@ local opt_local, autocmd, command, fn, cmd =
 
 local keymap = require('utils.helpers').map
 
+
 -- autogroup function
 local function augroup(name, opts)
   opts = opts or { clear = true }
@@ -40,6 +41,17 @@ local patterns = {
   'startuptime',
   'tsplayground',
 }
+
+
+
+-- fix comment, dont add comment on new line
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  group = augroup("comment_newline"),
+  pattern = { "*" },
+  callback = function()
+    vim.cmd([[set formatoptions-=cro]])
+  end,
+})
 
 local au_filewrite = augroup('ConfigFileWrite')
 -- reload tmux on config save
@@ -122,10 +134,10 @@ autocmd('BufEnter', {
   callback = function() cmd('setfiletype markdown') end,
 })
 
--- This autocmd sets the wrap and spell options to true for filetypes ".txt", ".md", ".tex", and ".typ".
+-- This autocmd sets the wrap and spell options to true for filetypes
 autocmd('FileType', {
   group = au_filetypes,
-  pattern = { '*.txt', '*.md', '*.tex', '*.typ' },
+  pattern = { '*.txt', '*.tex', '*.typ' ,'gitcommit','markdown'},
   callback = function()
     opt_local.wrap = true
     opt_local.spell = true
@@ -199,6 +211,7 @@ autocmd('TermOpen', {
   callback = function()
     opt_local.foldcolumn = '0'
     opt_local.signcolumn = 'no'
+    opt_local.number = false
   end,
 })
 
