@@ -214,3 +214,4 @@ uelic
 jesseduffield
 lazygit
 todesktop
+higroup

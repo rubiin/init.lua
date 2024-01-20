@@ -103,6 +103,8 @@ autocmd('FileType', {
   end,
 })
 
+
+-- close some filetypes with just <q> key
 -- show cursor line only in active window
 autocmd({ 'InsertLeave', 'WinEnter' }, {
   pattern = '*',
@@ -193,8 +195,8 @@ autocmd('TermOpen', {
 autocmd('TermOpen', {
   group = augroup('terminalSetting'),
   callback = function()
-    vim.opt_local.foldcolumn = '0'
-    vim.opt_local.signcolumn = 'no'
+    opt_local.foldcolumn = '0'
+    opt_local.signcolumn = 'no'
   end,
 })
 

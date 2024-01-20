@@ -75,7 +75,7 @@ o.sidescrolloff = 8 -- Columns of context
 o.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
 
 o.smartindent = true -- Insert indents automatically
-o.spelllang = { 'en' }
+
 
 o.softtabstop = 4
 o.termguicolors = true -- True color support
@@ -84,15 +84,6 @@ o.undolevels = 10000
 o.virtualedit = 'block' -- Allow cursor to move where there is no text in visual block mode
 o.wildmode = 'longest:full,full' -- Command-line completion mode
 o.winminwidth = 5 -- Minimum window width
-o.fillchars = {
-  foldopen = '',
-  foldclose = '',
-  -- fold = "⸱",
-  fold = ' ',
-  foldsep = ' ',
-  diff = '╱',
-  eob = ' ',
-}
 
 o.shell = '/bin/zsh' -- Use zsh as shell
 
@@ -104,6 +95,16 @@ o.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
 o.foldcolumn = '1' -- '0' is not bad
 o.foldlevelstart = 99
 o.foldenable = true
+o.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  -- fold = "⸱",
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+  eob = ' ',
+}
+
 
 if fn.has('nvim-0.9.0') == 1 then o.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]] end
 
@@ -122,11 +123,10 @@ g.markdown_recommended_style = 0
 
 g.editorconfig = false
 
--- Enable undofile
-o.undofile = true
+-- Undo and swap settings
+o.undofile = true --Enable undofile
 o.undodir = fn.expand('~/.config/nvim/misc/undo')
--- Disable swapfile
-o.swapfile = false
+o.swapfile = false -- Disable swapfile
 
 -- Decrease update time
 o.updatetime = 50
@@ -135,6 +135,7 @@ o.updatetime = 50
 if not g.vscode then o.spell = true end
 
 o.encoding = 'UTF-8' -- set encoding
+o.spelllang = { 'en' } -- set spell check language
 
 -- Number of command-lines that are remembered
 o.history = 10000
