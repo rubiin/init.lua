@@ -14,8 +14,6 @@ function M.str_split(inputstr, sep)
   return t
 end
 
-
-
 --- Check if the minimum Neovim version is satisfied
 --- Expects only the minor version, e.g. "9" for 0.9.1
 ---@param version number
@@ -107,6 +105,15 @@ function M.get_git_root()
   return fn.fnamemodify(dot_git_path, ':h')
 end
 
+-- lua line component for lazy
+function M.lazy_lua_component()
+  return {
+    require("lazy.status").updates,
+    cond = require("lazy.status").has_updates,
+    color = { fg = "#ff9e64" },
+  }
+end
+
 --- Get root directory of git project or fallback to current directory
 ---@return string|nil
 function M.get_root_directory()
@@ -116,7 +123,7 @@ function M.get_root_directory()
 end
 
 -- Check if a variable is not empty nor nil
- function M.is_not_empty(s)
+function M.is_not_empty(s)
   return s ~= nil and s ~= ''
 end
 
@@ -139,7 +146,7 @@ end
 ---@param table table The table to extend.
 ---@param keys table List of keys to extend.
 ---@param values table The values to extend the table with.
-function M.extend_keys (table, keys, values)
+function M.extend_keys(table, keys, values)
   table = table or {}
   for _, key in ipairs(keys) do
     table[key] = vim.list_extend(table[key] or {}, values)
