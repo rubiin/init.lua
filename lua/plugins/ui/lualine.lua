@@ -83,6 +83,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
+    lazy = true,
     opts = lualine_styles[style],
   },
 }

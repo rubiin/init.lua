@@ -1,7 +1,8 @@
 return {
   {
     'LunarVim/bigfile.nvim',
-    event = 'VeryLazy',
+    event = 'BufReadPre',
+    lazy = true,
     opts = {
       -- Disables LSP/treesitter, etc for files above 5000 lines (even if they have really long lines)
       pattern = function(bufnr, filesize_mib)

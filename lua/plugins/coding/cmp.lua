@@ -4,6 +4,7 @@ return {
   {
     'L3MON4D3/LuaSnip',
     event = 'InsertEnter',
+    lazy=true,
     dependencies = {
       'rafamadriz/friendly-snippets',
       config = function()
@@ -37,6 +38,7 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
+    lazy=true,
     dependencies = {
       'hrsh7th/cmp-emoji',
     },

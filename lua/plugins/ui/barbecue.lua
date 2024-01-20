@@ -6,7 +6,7 @@ return {
       'SmiteshP/nvim-navic',
       'nvim-tree/nvim-web-devicons',
     },
-
+    lazy = true,
     keys = {
       {
         '<Leader>uB',

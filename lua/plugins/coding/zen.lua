@@ -5,6 +5,7 @@ return {
   {
     'folke/zen-mode.nvim',
     cmd = 'ZenMode',
+    lazy = true,
     window = {
       backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
       -- height and width can be:

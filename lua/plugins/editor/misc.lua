@@ -13,11 +13,13 @@ return {
   {
     'wakatime/vim-wakatime',
     event = 'VeryLazy',
+    lazy = true,
   },
 
   {
     'echasnovski/mini.misc',
     config = true,
+    lazy = true,
     event = 'VeryLazy',
     --stylua: ignore
     keys = {

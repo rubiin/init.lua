@@ -15,6 +15,7 @@ return {
     -- Search and replace with pattern
     'nvim-pack/nvim-spectre',
     cmd = 'Spectre',
+    lazy = true,
     opts = { open_cmd = 'noswapfile vnew' },
     keys = {
       {
