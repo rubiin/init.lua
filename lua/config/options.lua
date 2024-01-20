@@ -75,14 +75,14 @@ o.shell = '/bin/zsh' -- Use zsh as shell
 
 -- Folding
 o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-o.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+o.foldtext = 'v:lua.require"lazyvim.util".ui.foldtext()'
 o.foldcolumn = '1' -- '0' is not bad
 o.foldlevelstart = 99
 o.foldenable = true
 o.fillchars = {
   foldopen = '',
   foldclose = '',
-  -- fold = "⸱",
+  -- fold = '⸱',
   fold = ' ',
   foldsep = ' ',
   diff = '╱',
@@ -116,17 +116,17 @@ o.winminwidth = 5 -- Minimum window width
 -- Additional settings based on Neovim version
 if fn.has('nvim-0.10') == 1 then o.smoothscroll = true end
 
-if fn.has('nvim-0.9.0') == 1 then o.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]] end
+if fn.has('nvim-0.9.0') == 1 then o.statuscolumn = [[%!v:lua.require"lazyvim.util".ui.statuscolumn()]] end
 
 -- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
 if fn.has('nvim-0.10') == 1 then
   o.foldmethod = 'expr'
-  o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  o.foldexpr = 'v:lua.require"lazyvim.util".ui.foldexpr()'
 else
   o.foldmethod = 'indent'
 end
 
-vim.o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
+vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
 -- Fix markdown indentation settings
 g.markdown_recommended_style = 0

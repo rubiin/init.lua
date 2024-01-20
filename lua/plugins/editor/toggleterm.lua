@@ -1,4 +1,4 @@
-local Util = require('lazyvim.util')
+local root_dir = require('lazyvim.util').root.get()
 
 return {
   {
@@ -10,7 +10,7 @@ return {
         '<leader>Tf',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 0, Util.root.get(), 'float')
+          require('toggleterm').toggle(count, 0, root_dir, 'float')
         end,
         desc = 'ToggleTerm (float root_dir)',
       },
@@ -18,7 +18,7 @@ return {
         '<leader>Th',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 15, Util.root.get(), 'horizontal')
+          require('toggleterm').toggle(count, 15, root_dir, 'horizontal')
         end,
         desc = 'ToggleTerm (horizontal root_dir)',
       },
@@ -26,7 +26,7 @@ return {
         '<leader>Tv',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, vim.o.columns * 0.4, Util.root.get(), 'vertical')
+          require('toggleterm').toggle(count, vim.o.columns * 0.4, root_dir, 'vertical')
         end,
         desc = 'ToggleTerm (vertical root_dir)',
       },
@@ -37,7 +37,7 @@ return {
       },
       {
         '<leader>Tt',
-        function() require('toggleterm').toggle(1, 100, Util.root.get(), 'tab') end,
+        function() require('toggleterm').toggle(1, 100, root_dir, 'tab') end,
         desc = 'ToggleTerm (tab root_dir)',
       },
     },
@@ -51,11 +51,6 @@ return {
         end
       end,
       open_mapping = [[<c-\>]],
-      -- on_open = fun(t: Terminal), -- function to run when the terminal opens
-      -- on_close = fun(t: Terminal), -- function to run when the terminal closes
-      -- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
-      -- on_stderr = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
-      -- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
       hide_numbers = true, -- hide the number column in toggleterm buffers
       shade_filetypes = {},
       shade_terminals = true,
@@ -68,24 +63,11 @@ return {
       direction = 'horizontal' or 'vertical' or 'window' or 'float',
       -- direction = "vertical",
       close_on_exit = true, -- close the terminal window when the process exits
-      -- shell = vim.o.shell, -- change the default shell
+      shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
       float_opts = {
         border = 'curved',
       },
-      --   -- The border key is *almost* the same as 'nvim_open_win'
-      --   -- see :h nvim_open_win for details on borders however
-      --   -- the 'curved' border is a custom border type
-      --   -- not natively supported but implemented in this plugin.
-      --   border = 'single' or 'double' or 'shadow' or 'curved',
-      --   width = <value>,
-      --   height = <value>,
-      --   winblend = 3,
-      --   highlights = {
-      --     border = "Normal",
-      --     background = "Normal",
-      --   }
-      -- }
     },
   },
 }

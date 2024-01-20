@@ -14,7 +14,6 @@ local opt_local, autocmd, command, fn, cmd =
 
 local keymap = require('utils.helpers').map
 
-
 -- autogroup function
 local function augroup(name, opts)
   opts = opts or { clear = true }
@@ -42,15 +41,11 @@ local patterns = {
   'tsplayground',
 }
 
-
-
 -- fix comment, dont add comment on new line
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  group = augroup("comment_newline"),
-  pattern = { "*" },
-  callback = function()
-    vim.cmd([[set formatoptions-=cro]])
-  end,
+autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  group = augroup('comment_newline'),
+  pattern = { '*' },
+  callback = function() vim.cmd([[set formatoptions-=cro]]) end,
 })
 
 local au_filewrite = augroup('ConfigFileWrite')
@@ -113,11 +108,10 @@ autocmd('FileType', {
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.opt.number = false
-		opt_local.cursorline = false
+    opt_local.cursorline = false
     keymap('n', 'q', '<cmd>close<cr>')
   end,
 })
-
 
 -- show cursor line only in active window
 autocmd({ 'InsertLeave', 'WinEnter' }, {
@@ -137,7 +131,7 @@ autocmd('BufEnter', {
 -- This autocmd sets the wrap and spell options to true for filetypes
 autocmd('FileType', {
   group = au_filetypes,
-  pattern = { '*.txt', '*.tex', '*.typ' ,'gitcommit','markdown'},
+  pattern = { '*.txt', '*.tex', '*.typ', 'gitcommit', 'markdown' },
   callback = function()
     opt_local.wrap = true
     opt_local.spell = true

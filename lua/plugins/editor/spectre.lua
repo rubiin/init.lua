@@ -2,10 +2,10 @@
 ---@param default_opts table | nil
 ---@return table
 function _G.get_spectre_options(default_opts)
-  local Path = require('utils.path')
+  local util = require('utils.helpers')
   local opts = default_opts or {}
 
-  if Path.is_git_repo() then opts.cwd = Path.get_git_root() end
+  if util.is_git_repo() then opts.cwd = util.get_git_root() end
 
   return opts
 end

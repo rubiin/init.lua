@@ -15,7 +15,7 @@ function M.str_split(inputstr, sep)
 end
 
 --- Check if the minimum Neovim version is satisfied
---- Expects only the minor version, e.g. "9" for 0.9.1
+--- Expects only the minor version, e.g. '9' for 0.9.1
 ---@param version number
 ---@return boolean
 function M.is_neovim_version_satified(version) return version <= tonumber(vim.version().minor) end
@@ -69,7 +69,7 @@ function M.lazy_load(plugin)
         api.nvim_del_augroup_by_name('BeLazyOnFileOpen' .. plugin)
 
         -- dont defer for treesitter as it will show slow highlighting
-        -- This deferring only happens only when we do "nvim filename"
+        -- This deferring only happens only when we do 'nvim filename'
         if plugin ~= 'nvim-treesitter' then
           vim.schedule(function()
             require('lazy').load({ plugins = plugin })
@@ -108,9 +108,9 @@ end
 -- lua line component for lazy
 function M.lazy_lua_component()
   return {
-    require("lazy.status").updates,
-    cond = require("lazy.status").has_updates,
-    color = { fg = "#ff9e64" },
+    require('lazy.status').updates,
+    cond = require('lazy.status').has_updates,
+    color = { fg = '#ff9e64' },
   }
 end
 

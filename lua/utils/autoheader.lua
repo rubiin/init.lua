@@ -1,10 +1,19 @@
 -- adds header to new file if it is a shell script
 
 local fn = vim.fn
+local autocmd = vim.api.nvim_create_autocmd
+local au_buff = vim.api.nvim_create_augroup('BufNewFile', { clear = true })
 
-vim.cmd([[
-autocmd BufNewFile *.sh lua SetTitle()
-]])
+autocmd(
+  'BufNewFile', {
+    group = au_buff,
+    pattern = { '*.sh' },
+    callback = function()
+      SetTitle()
+    end
+  })
+
+
 
 function SetTitle()
   if fn.expand('%:e') == 'sh' then
@@ -22,6 +31,9 @@ function SetTitle()
   end
 end
 
-vim.cmd([[
-autocmd BufNewFile * normal G
-]])
+autocmd('BufNewFile', {
+  group = au_buff,
+  callback = function()
+    vim.api.nvim_feedkeys('G', 'n', true)
+  end
+})

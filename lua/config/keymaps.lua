@@ -14,7 +14,7 @@ keymap('n', '<leader>sx', require('telescope.builtin').resume, { desc = 'Resume'
 
 -- Add toggle gitsigns blame line
 if lazyvim_util.has('gitsigns.nvim') then
-  keymap('n', '<leader>ub', "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>", {
+  keymap('n', '<leader>ub', '<cmd>lua require("gitsigns").toggle_current_line_blame()<CR>', {
     desc = 'Toggle current line blame',
   })
 end
