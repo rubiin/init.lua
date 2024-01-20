@@ -13,7 +13,7 @@ return {
         luasnip.filetype_extend('python', { 'pydoc' })
         luasnip.filetype_extend('rust', { 'rustdoc' })
         luasnip.filetype_extend('sh', { 'shelldoc' })
-        require('luasnip.loaders.from_vscode').load({
+        require('luasnip.loaders.from_vscode').lazy_load({
           include = {
             'javascript',
             'css',
@@ -33,7 +33,6 @@ return {
         require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' } })
       end,
     },
-
   },
   {
     'hrsh7th/nvim-cmp',
