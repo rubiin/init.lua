@@ -94,17 +94,19 @@ autocmd('TextYankPost', {
 })
 
 -- close some filetypes with just <q> key
+-- also disable number and cursorline
 autocmd('FileType', {
   group = au_filetypes,
   pattern = patterns,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
+    vim.opt.number = false
+		opt_local.cursorline = false
     keymap('n', 'q', '<cmd>close<cr>')
   end,
 })
 
 
--- close some filetypes with just <q> key
 -- show cursor line only in active window
 autocmd({ 'InsertLeave', 'WinEnter' }, {
   pattern = '*',
