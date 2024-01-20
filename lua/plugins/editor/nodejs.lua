@@ -1,9 +1,11 @@
 return {
   {
     'David-Kunz/cmp-npm',
-    event = 'InsertEnter',
+    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
     ft = 'json',
-    config = function() require('cmp-npm').setup({}) end,
+    config = function()
+    require('cmp-npm').setup({})
+    end,
   },
 }

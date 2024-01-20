@@ -4,7 +4,7 @@ return {
   {
     'rafcamlet/nvim-luapad',
     cmd = { 'Luapad' },
-    lazy = true,
+    event ="VeryLazy",
     config = true,
   },
 }

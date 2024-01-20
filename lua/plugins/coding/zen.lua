@@ -1,3 +1,5 @@
+local o = vim.opt
+
 return {
   -- zen mode for distraction free editing
   {
@@ -42,16 +44,16 @@ return {
     on_open = function()
       require('gitsigns.actions').toggle_current_line_blame()
       require('indent_blankline.commands').disable()
-      vim.opt.relativenumber = false
-      vim.opt.signcolumn = 'no'
+      o.relativenumber = false
+      o.signcolumn = 'no'
       require('gitsigns.actions').refresh()
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       require('gitsigns.actions').toggle_current_line_blame()
       require('indent_blankline.commands').enable()
-      vim.opt.relativenumber = true
-      vim.opt.signcolumn = 'yes:2'
+      o.relativenumber = true
+      o.signcolumn = 'yes:2'
       require('gitsigns.actions').refresh()
     end,
 

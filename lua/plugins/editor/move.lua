@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.move', version = '*',
-  event = 'BufRead',
+  event = 'VeryLazy',
   config = function()
   require('mini.move').setup({})
   end

@@ -1,5 +1,4 @@
 local icons = require('utils.icons')
-local u = require('utils.helpers')
 
 return {
   'folke/todo-comments.nvim',

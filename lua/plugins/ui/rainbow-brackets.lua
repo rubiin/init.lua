@@ -3,7 +3,8 @@ return {
     'HiPhish/rainbow-delimiters.nvim',
     event = 'BufReadPost',
     init = function()
-      local rainbow_delimiters = require('rainbow-delimiters')
+      local status_ok, rainbow_delimiters = pcall(require, 'rainbow-delimiters')
+      if not status_ok then return end
 
       vim.g.rainbow_delimiters = {
         strategy = {
