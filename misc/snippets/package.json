@@ -3,7 +3,7 @@
   "name": "nvim-snippets",
   "author": "rubiin",
   "engines": {
-      "vscode": "^1.11.0"
+      "vscode": "^1..0"
   },
   "contributes": {
       "snippets": [

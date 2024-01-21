@@ -2,7 +2,8 @@ return {
 
   -- profiling vim startup
   {
-    enabled = true,
+    enabled = false,
+    lazy = true,
     'dstein64/vim-startuptime',
     -- lazy-load on a command
     cmd = 'StartupTime',
