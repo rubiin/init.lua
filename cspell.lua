@@ -1,4 +1,4 @@
-local Path = require('utils.path')
+local Path = require('utils.helpers')
 
 local M = {}
 

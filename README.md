@@ -1,6 +1,7 @@
-# 💤 My neo vim config
+# 💤 My neovim config
 
-This was bound to happen.
+Based on LazyVim as a starter. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal as a result of which this repo was born which was sooner or later bound to happen
+
 
 # init.lua/
 
@@ -23,6 +24,8 @@ This was bound to happen.
   - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
   - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
   - [iterm2](https://iterm2.com/) **_(Macos)_**
+
+You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering you are on a linux based system
 
 ## Install Instructions
 
