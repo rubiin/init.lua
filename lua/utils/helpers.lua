@@ -5,6 +5,9 @@ local bo = vim.bo
 local api = vim.api
 
 -- splits a string into a table
+--- @param inputstr string
+--- @param sep string
+--- @return table
 function M.str_split(inputstr, sep)
   if sep == nil then sep = '%s' end
   local t = {}
@@ -14,9 +17,9 @@ function M.str_split(inputstr, sep)
   return t
 end
 
---- Check if the minimum Neovim version is satisfied
+-- Check if the minimum Neovim version is satisfied
 --- Expects only the minor version, e.g. '9' for 0.9.1
----@param version number
+--- @param version number
 ---@return boolean
 function M.is_neovim_version_satified(version) return version <= tonumber(vim.version().minor) end
 
@@ -26,6 +29,8 @@ function M.is_neovim_version_satified(version) return version <= tonumber(vim.ve
 function M.is_executable_available(command) return fn.executable(command) == 1 end
 
 -- disable plugins
+--- @param list table
+--- @return table
 function M.disable_plugins(list)
   local disabled_plugins = {}
   for _, plugin in ipairs(list) do
@@ -37,7 +42,8 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
--- get the version and date
+-- get the version of neovim
+--- @return string
 function M.version()
   local version = vim.version()
   local print_version = 'v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
@@ -85,9 +91,11 @@ function M.lazy_load(plugin)
 end
 
 -- check if buffer is empty
+---@return boolean
 function M.buffer_not_empty() return fn.empty(fn.expand('%:t')) ~= 1 end
 
 -- check if window width is wide enough for lualine components
+---@return boolean
 function M.hide_in_width() return fn.winwidth(0) > 80 end
 
 --- Check if current directory is a git repo
@@ -106,6 +114,7 @@ function M.get_git_root()
 end
 
 -- lua line component for lazy
+---@return table
 function M.lazy_lua_component()
   return {
     require('lazy.status').updates,
@@ -123,12 +132,14 @@ function M.get_root_directory()
 end
 
 -- Check if a variable is not empty nor nil
+---@param s string
+---@return boolean
 function M.is_not_empty(s)
   return s ~= nil and s ~= ''
 end
 
 -- Check if a variable is empty or nil
-function M.map(mode, lhs, rhs, opts)
+function M.keymap(mode, lhs, rhs, opts)
   local defaults = {
     silent = true,
     noremap = true,
@@ -137,7 +148,7 @@ function M.map(mode, lhs, rhs, opts)
 end
 
 -- Merge two tables recursively
-
+---@return table
 function M.merge(...)
   return vim.tbl_deep_extend('force', ...)
 end

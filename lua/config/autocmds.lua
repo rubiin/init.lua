@@ -12,7 +12,7 @@
 local opt_local, autocmd, command, fn, cmd =
   vim.opt_local, vim.api.nvim_create_autocmd, vim.api.nvim_create_user_command, vim.fn, vim.cmd
 
-local keymap = require('utils.helpers').map
+local keymap = require('utils.helpers').keymap
 
 -- autogroup function
 local function augroup(name, opts)
@@ -120,13 +120,6 @@ autocmd({ 'InsertLeave', 'WinEnter' }, {
   group = augroup('CursorLine'),
 })
 autocmd({ 'InsertEnter', 'WinLeave' }, { pattern = '*', command = 'set nocursorline', group = augroup('CursorLine') })
-
--- set mdx file to markdown
-autocmd('BufEnter', {
-  pattern = { '*.mdx' },
-  group = augroup('md_mdx'),
-  callback = function() cmd('setfiletype markdown') end,
-})
 
 -- This autocmd sets the wrap and spell options to true for filetypes
 autocmd('FileType', {

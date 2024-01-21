@@ -116,7 +116,9 @@ o.winminwidth = 5 -- Minimum window width
 -- Additional settings based on Neovim version
 if fn.has('nvim-0.10') == 1 then o.smoothscroll = true end
 
-if fn.has('nvim-0.9.0') == 1 then o.statuscolumn = [[%!v:lua.require"lazyvim.util".ui.statuscolumn()]] end
+if vim.fn.has("nvim-0.9.0") == 1 then
+  vim.opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
+end
 
 -- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
 if fn.has('nvim-0.10') == 1 then

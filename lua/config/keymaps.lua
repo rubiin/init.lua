@@ -8,7 +8,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local lazyvim_util = require('lazyvim.util')
 local del = vim.keymap.del
-local keymap = require('utils.helpers').map
+local keymap = require('utils.helpers').keymap
 
 keymap('n', '<leader>sx', require('telescope.builtin').resume, { desc = 'Resume' })
 

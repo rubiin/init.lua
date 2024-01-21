@@ -1,14 +1,16 @@
--- auto set filetype with this map
+ -- Detect and assign filetype based on the extension or filename
 
 vim.filetype.add({
   extension = {
     profile = 'sh',
+    env = "dotenv",
     json = 'jsonc',
-    env = 'sh',
     ejs = 'html',
+    htm = 'html',
+    mjml = 'html',
     eta = 'html',
     conf = 'conf',
-    hbs = 'handlebars',
+    hbs = 'html',
     svx = 'markdown',
     mdx = 'markdown',
     svelte = 'svelte',
@@ -17,20 +19,16 @@ vim.filetype.add({
     patch = 'patch',
   },
   filename = {
-    env = 'sh',
-    bashrc = 'sh',
-    ['.bashrc'] = 'sh',
+    ['.env'] = 'dotenv',
     ['.zprofile'] = 'sh',
-    ['.zshrc'] = 'sh',
+    ['.zshenv'] = 'sh',
+    ['tsconfig.tsbuildinfo'] = 'jsonc',
     ['vifmrc'] = 'vim',
-    ['.prettierrc'] = 'jsonc',
-    ['.eslintrc'] = 'jsonc',
-    ['tsconfig.json'] = 'jsonc',
-    ['jsconfig.json'] = 'jsonc',
-    ['tsconfig.tsbuildinfo'] = 'json',
-    ['.npmignore'] = 'ignore',
   },
   pattern = {
-    ['%.env%.[%w_.-]+'] = 'sh',
+    ['%.env%.[%w_.-]+'] = 'dotenv',
+    ['ignore$'] = 'ignore',
+    ['rc$'] = 'ignore',
+    ['%.json'] = 'jsonc',
   },
 })
