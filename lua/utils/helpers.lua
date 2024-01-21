@@ -4,6 +4,19 @@ local fn = vim.fn
 local bo = vim.bo
 local api = vim.api
 
+
+-- toggle dark mode
+function M.toggle_light_dark_theme()
+	if vim.o.background == "light" then
+		vim.o.background = "dark"
+		vim.cmd([[Catppuccin mocha]])
+	else
+		vim.o.background = "light"
+		vim.cmd([[Catppuccin latte]])
+	end
+end
+
+
 -- splits a string into a table
 --- @param inputstr string
 --- @param sep string

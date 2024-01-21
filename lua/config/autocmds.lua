@@ -20,7 +20,8 @@ local function augroup(name, opts)
   return vim.api.nvim_create_augroup(name, opts)
 end
 
-local au_filetypes = augroup('ConfigFileType')
+local au_filewrite = augroup('FileWrite')
+local au_general = augroup('GeneralSettings')
 
 local patterns = {
   'dap-float',
@@ -41,22 +42,112 @@ local patterns = {
   'tsplayground',
 }
 
-local au_filewrite = augroup('ConfigFileWrite')
--- reload tmux on config save
+-- Autocommands for general settings
+
+-- Start git messages in insert mode
+autocmd('FileType', {
+  group = au_general,
+  pattern = { 'gitcommit', 'gitrebase' },
+  command = 'startinsert | 1',
+})
+
+-- Fix comment, dont add comment on new line
+autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  group = au_general,
+  pattern = { '*' },
+  callback = function() vim.cmd([[set formatoptions-=cro]]) end,
+})
+
+-- Highlight on yank
+autocmd('TextYankPost', {
+  group = au_general,
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'Visual',
+      timeout = 400,
+      on_visual = false,
+    })
+  end,
+})
+
+-- Close some filetypes with just <q> key
+-- also disable number and cursorline
+autocmd('FileType', {
+  group = au_general,
+  pattern = patterns,
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.opt.number = false
+    opt_local.cursorline = false
+    keymap('n', 'q', '<cmd>close<cr>')
+  end,
+})
+
+-- Show cursor line only in active window
+autocmd({ 'InsertLeave', 'WinEnter' }, {
+  group = au_general,
+  pattern = '*',
+  command = 'set cursorline',
+})
+
+autocmd({ 'InsertEnter', 'WinLeave' }, { pattern = '*', command = 'set nocursorline', group = au_general })
+
+-- This autocmd sets the wrap and spell options to true for filetypes
+autocmd('FileType', {
+  group = au_general,
+  pattern = { '*.txt', '*.tex', '*.typ', 'gitcommit', 'markdown' },
+  callback = function()
+    opt_local.wrap = true
+    opt_local.spell = true
+  end,
+})
+
+-- Disable swap/undo/backup files in temp directories or shm
+autocmd('BufWritePre', {
+  group = au_general,
+  pattern = { '/tmp/*', '*.tmp', '*.bak', 'COMMIT_EDITMSG', 'MERGE_MSG' },
+  callback = function(event)
+    opt_local.undofile = false
+    if event.file == 'COMMIT_EDITMSG' or event.file == 'MERGE_MSG' then opt_local.swapfile = false end
+  end,
+})
+
+-- Disable diagnostics in node_modules (0 is current buffer only)
+autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = au_general,
+  pattern = '*/node_modules/*',
+  command = 'lua vim.diagnostic.disable(0)',
+})
+
+-- Show `` in specific files
+autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = au_general,
+  pattern = { '*.txt', '*.md', '*.json' },
+  command = 'setlocal conceallevel=0',
+})
+
+-- Disable diagnostics in a .env file
+autocmd('BufRead', {
+  group = au_general,
+  pattern = '.env',
+  callback = function() vim.diagnostic.disable(0) end,
+})
+
+-- Reload tmux on config save
 autocmd('BufWritePost', {
   group = au_filewrite,
   pattern = { '*tmux.conf' },
   command = "!tmux source <afile>;notify-send -i reload 'Reloading tmux",
 })
 
--- reload zsh on save
+-- Reload zsh on save
 autocmd('BufWritePost', {
   group = au_filewrite,
   pattern = { '.zshrc', '.bash_aliases', '.zshenv' },
   command = "!source .zshrc;notify-send -i reload 'Reloading zshrc'",
 })
 
--- reload bash on save
+-- Reload bash on save
 autocmd('BufWritePost', {
   group = au_filewrite,
   pattern = { '.bashrc', '.bash_aliases', '.bashenv' },
@@ -78,59 +169,6 @@ autocmd('QuitPre', {
         vim.api.nvim_win_close(w, true)
       end
     end
-  end,
-})
-
--- Highlight on yank
-autocmd('TextYankPost', {
-  group = augroup('HighlightYank'),
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = 'Visual',
-      timeout = 400,
-      on_visual = false,
-    })
-  end,
-})
-
--- close some filetypes with just <q> key
--- also disable number and cursorline
-autocmd('FileType', {
-  group = au_filetypes,
-  pattern = patterns,
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.opt.number = false
-    opt_local.cursorline = false
-    keymap('n', 'q', '<cmd>close<cr>')
-  end,
-})
-
--- show cursor line only in active window
-autocmd({ 'InsertLeave', 'WinEnter' }, {
-  pattern = '*',
-  command = 'set cursorline',
-  group = augroup('CursorLine'),
-})
-autocmd({ 'InsertEnter', 'WinLeave' }, { pattern = '*', command = 'set nocursorline', group = augroup('CursorLine') })
-
--- This autocmd sets the wrap and spell options to true for filetypes
-autocmd('FileType', {
-  group = au_filetypes,
-  pattern = { '*.txt', '*.tex', '*.typ', 'gitcommit', 'markdown' },
-  callback = function()
-    opt_local.wrap = true
-    opt_local.spell = true
-  end,
-})
-
--- Disable swap/undo/backup files in temp directories or shm
-autocmd('BufWritePre', {
-  group = augroup('undo_disable'),
-  pattern = { '/tmp/*', '*.tmp', '*.bak', 'COMMIT_EDITMSG', 'MERGE_MSG' },
-  callback = function(event)
-    opt_local.undofile = false
-    if event.file == 'COMMIT_EDITMSG' or event.file == 'MERGE_MSG' then opt_local.swapfile = false end
   end,
 })
 
@@ -160,25 +198,7 @@ autocmd('BufWritePre', {
   callback = trim,
 })
 
--- Disable diagnostics in node_modules (0 is current buffer only)
-autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = '*/node_modules/*',
-  command = 'lua vim.diagnostic.disable(0)',
-})
-
--- Show `` in specific files
-autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.txt', '*.md', '*.json' },
-  command = 'setlocal conceallevel=0',
-})
-
--- Disable diagnostics in a .env file
-autocmd('BufRead', {
-  pattern = '.env',
-  callback = function() vim.diagnostic.disable(0) end,
-})
-
--- start terminal in insert mode
+-- Start terminal in insert mode
 autocmd('TermOpen', {
   group = augroup('terminalSetting'),
   pattern = '*',
@@ -193,11 +213,4 @@ autocmd('TermOpen', {
     opt_local.signcolumn = 'no'
     opt_local.number = false
   end,
-})
-
--- start git messages in insert mode
-autocmd('FileType', {
-  group = au_filetypes,
-  pattern = { 'gitcommit', 'gitrebase' },
-  command = 'startinsert | 1',
 })

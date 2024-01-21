@@ -138,7 +138,6 @@ g.editorconfig = false
 if not g.vscode then o.spell = true end -- Enable spell check by default unless in vscode
 o.encoding = 'UTF-8' -- set encoding
 o.spelllang = { 'en' } -- set spell check language
-o.formatoptions:remove({ "c", "r", "o" }) --don't continue comments automagically
 
 -- Number of command-lines that are remembered
 o.history = 10000

@@ -8,7 +8,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local lazyvim_util = require('lazyvim.util')
 local del = vim.keymap.del
-local keymap = require('utils.helpers').keymap
+local keymap, toggle_light_dark_theme =
+  require('utils.helpers').keymap, require('utils.helpers').toggle_light_dark_theme
 
 keymap('n', '<leader>sx', require('telescope.builtin').resume, { desc = 'Resume' })
 
@@ -19,7 +20,10 @@ if lazyvim_util.has('gitsigns.nvim') then
   })
 end
 
--- Lazy Format
+-- keymap for toggling light and dark mode
+keymap('n', '<leader>uD', toggle_light_dark_theme, {
+  desc = 'Toggle dark/light mode',
+})
 
 -- Delete LazyVim default bindings for meta information
 del('n', '<leader>l')

@@ -67,6 +67,11 @@ return {
       -- This field is only relevant if direction is set to 'float'
       float_opts = {
         border = 'curved',
+        winblend = 0,
+        highlights = {
+          border = "Normal",
+          background = "Normal",
+        },
       },
     },
   },
