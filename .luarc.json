@@ -6,7 +6,8 @@
   ],
   "diagnostics.disable": [
       "unused-local",
-        "different-requires"
+        "different-requires",
+        "undefined-field"
   ],
   "workspace.checkThirdParty": false
 }

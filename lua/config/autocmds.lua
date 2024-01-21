@@ -41,13 +41,6 @@ local patterns = {
   'tsplayground',
 }
 
--- fix comment, dont add comment on new line
-autocmd({ 'BufEnter', 'BufWinEnter' }, {
-  group = augroup('comment_newline'),
-  pattern = { '*' },
-  callback = function() vim.cmd([[set formatoptions-=cro]]) end,
-})
-
 local au_filewrite = augroup('ConfigFileWrite')
 -- reload tmux on config save
 autocmd('BufWritePost', {
