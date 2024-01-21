@@ -29,6 +29,10 @@ return {
     lazy = true,
   },
 
+  {
+    'neanias/everforest-nvim',
+    lazy = true,
+  },
   -- add kanagawa
   {
     'rebelot/kanagawa.nvim',
