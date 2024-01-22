@@ -4,6 +4,7 @@ return {
   {
     'akinsho/toggleterm.nvim',
     lazy = true,
+    enabled = false,
     cmd = { 'ToggleTerm' },
     keys = {
       {
@@ -62,7 +63,7 @@ return {
       persist_size = true,
       direction = 'horizontal' or 'vertical' or 'window' or 'float',
           -- function to run on opening the terminal
-      -- direction = "vertical",
+      -- direction = 'vertical',
       close_on_exit = true, -- close the terminal window when the process exits
       shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
@@ -70,8 +71,8 @@ return {
         border = 'curved',
         winblend = 0,
         highlights = {
-          border = "Normal",
-          background = "Normal",
+          border = 'Normal',
+          background = 'Normal',
         },
       },
     },

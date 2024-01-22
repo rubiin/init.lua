@@ -100,11 +100,11 @@ end
 
 -- toggle dark mode
 function M.toggle_light_dark_theme()
-	if vim.o.background == "light" then
-		vim.o.background = "dark"
+	if vim.o.background == 'light' then
+		vim.o.background = 'dark'
 		vim.cmd([[Catppuccin mocha]])
 	else
-		vim.o.background = "light"
+		vim.o.background = 'light'
 		vim.cmd([[Catppuccin latte]])
 	end
 end

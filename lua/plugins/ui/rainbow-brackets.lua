@@ -1,7 +1,7 @@
 return {
   {
     'HiPhish/rainbow-delimiters.nvim',
-    event = "LazyFile",
+    event = 'LazyFile',
     lazy = true,
     init = function()
       local status_ok, rainbow_delimiters = pcall(require, 'rainbow-delimiters')

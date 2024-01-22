@@ -4,7 +4,7 @@ return {
     event = 'InsertEnter',
     lazy = true,
     config = function()
-      require("better_escape").setup({})
+      require('better_escape').setup({})
     end
   },
 }

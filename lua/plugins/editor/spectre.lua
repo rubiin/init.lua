@@ -25,19 +25,19 @@ return {
       },
       {
         '<leader>sp',
-        ":lua require('spectre').open(_G.get_spectre_options())<CR>",
+        function() require('spectre').open(_G.get_spectre_options()) end,
         desc = 'Replace in files (Root dir)',
       },
       -- Search current word
       {
         '<leader>sP',
-        ":lua require('spectre').open_visual(_G.get_spectre_options({ select_word = true }))<CR>",
+        function()  require('spectre').open_visual(_G.get_spectre_options({ select_word = true })) end,
         desc = 'Replace current word (Root dir)',
       },
       -- Open search with select word in visual mode
       {
         '<leader>sr',
-        ":lua require('spectre').open_visual(_G.get_spectre_options())<CR>",
+        function()  require('spectre').open_visual(_G.get_spectre_options()) end,
         mode = 'v',
         silent = true,
         desc = 'Replace current word (Root dir)',

@@ -3,7 +3,7 @@
 vim.filetype.add({
   extension = {
     profile = 'sh',
-    env = "dotenv",
+    env = 'dotenv',
     json = 'jsonc',
     ejs = 'html',
     htm = 'html',

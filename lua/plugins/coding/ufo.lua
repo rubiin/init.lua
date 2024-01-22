@@ -3,7 +3,7 @@ return {
   {
     'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async' },
-    event = "LazyFile",
+    event = 'LazyFile',
     lazy = true,
     opts = {
       -- Use treesitter as a main provider
@@ -36,9 +36,6 @@ return {
         return new_virtual_text
       end,
     },
-
-    --stylua: ignore
-
     keys = {
       { 'zr', function() require('ufo').openFoldsExceptKinds() end, desc = 'Open Folds Except Kinds', },
       { 'zR', function() require('ufo').openAllFolds() end,         desc = 'Open All Folds', },

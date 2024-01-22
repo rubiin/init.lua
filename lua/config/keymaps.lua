@@ -9,13 +9,14 @@
 local lazyvim_util = require('lazyvim.util')
 local del = vim.keymap.del
 local keymap, toggle_light_dark_theme =
-  require('utils.helpers').keymap, require('utils.helpers').toggle_light_dark_theme
+    require('utils.helpers').keymap, require('utils.helpers').toggle_light_dark_theme
 
-keymap('n', '<leader>sx', require('telescope.builtin').resume, { desc = 'Resume' })
 
 -- Add toggle gitsigns blame line
 if lazyvim_util.has('gitsigns.nvim') then
-  keymap('n', '<leader>ub', '<cmd>lua require("gitsigns").toggle_current_line_blame()<CR>', {
+  keymap('n', '<leader>ub', function()
+    require("gitsigns").toggle_current_line_blame()
+  end, {
     desc = 'Toggle current line blame',
   })
 end
@@ -25,12 +26,14 @@ keymap('n', '<leader>uD', toggle_light_dark_theme, {
   desc = 'Toggle dark/light mode',
 })
 
--- Delete LazyVim default bindings for meta information
+-- Delete LazyVim default bindings
 del('n', '<leader>l')
 del('n', '<leader>L')
+del('n', '<leader>-')
+
 
 -- Add LazyVim bindings for meta information
-keymap('n', '<leader>;P', '<cmd>Mason<CR>', { desc = 'Package Manager - [Mason]' })
+keymap('n', '<leader>;m', '<cmd>Mason<CR>', { desc = 'Package Manager - [Mason]' })
 keymap('n', '<leader>;p', '<cmd>Lazy<CR>', { desc = 'Plugin Manager - [LazyVim]' })
 keymap('n', '<leader>;e', '<cmd>LazyExtras<CR>', { desc = 'Extras Manager - [LazyVim]' })
 keymap('n', '<leader>;n', '<cmd>LspInfo<CR>', { desc = 'Lsp Info' })

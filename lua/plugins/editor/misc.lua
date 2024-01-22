@@ -25,11 +25,11 @@ return {
     --stylua: ignore
     keys = {
       {
-        "<leader>uz",
+        '<leader>uz',
         function()
-          require("mini.misc").zoom()
+          require('mini.misc').zoom()
         end,
-        desc = "Toggle Zoom"
+        desc = 'Toggle Zoom'
       }
     }
 ,

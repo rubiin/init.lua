@@ -137,7 +137,7 @@ autocmd('BufRead', {
 autocmd('BufWritePost', {
   group = au_filewrite,
   pattern = { '*tmux.conf' },
-  command = "!tmux source <afile>;notify-send -i reload 'Reloading tmux",
+  command = "!tmux source <afile>;notify-send -i reload 'Reloading tmux'",
 })
 
 -- Reload zsh on save

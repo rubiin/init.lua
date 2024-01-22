@@ -1,6 +1,7 @@
 local keys = { quit = { '<esc>', 'q' }, toggle_or_jump = { '<cr>', 'o' } }
 
 -- when you are lua newbie, you can use this
+-- might replace with lsp-zero
 return {
   {
     'nvimdev/lspsaga.nvim',
@@ -22,13 +23,12 @@ return {
       rename = { enable = false },
     },
     keys = {
-      { '<leader>j', '<Cmd>Lspsaga finder<CR>', desc = 'Lspsaga Finder' },
-      { '<leader>p', '<Cmd>Lspsaga peek_definition<CR>', desc = 'Lspsaga Peek Definition' },
-      { '<leader>o', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga outline' },
-      { '<leader>I', '<Cmd>Lspsaga incoming_calls<CR>', desc = 'Lspsaga Incoming Calls' },
-      { '<leader>O', '<Cmd>Lspsaga outgoing_calls<CR>', desc = 'Lspsaga Outgoing Calls' },
-      { '<leader>W', '<Cmd>Lspsaga winbar_toggle<CR>', desc = 'Lspsaga Winbar Toggle' },
-      { '<leader>S', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga Outline Toggle' },
+      { '<leader>lj', '<Cmd>Lspsaga finder<CR>', desc = 'Lspsaga Finder' },
+      { '<leader>lp', '<Cmd>Lspsaga peek_definition<CR>', desc = 'Lspsaga Peek Definition' },
+      { '<leader>lo', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga outline' },
+      { '<leader>lI', '<Cmd>Lspsaga incoming_calls<CR>', desc = 'Lspsaga Incoming Calls' },
+      { '<leader>lO', '<Cmd>Lspsaga outgoing_calls<CR>', desc = 'Lspsaga Outgoing Calls' },
+      { '<leader>lS', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga Outline Toggle' },
     },
   },
   {
