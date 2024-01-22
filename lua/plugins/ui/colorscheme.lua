@@ -1,3 +1,25 @@
+Util = require('lazyvim.util')
+-- stylua: ignore
+local builtins = { "zellner", "torte", "slate", "shine", "ron", "quiet", "peachpuff",
+  "pablo", "murphy", "lunaperche", "koehler", "industry", "evening", "elflord",
+  "desert", "delek", "default", "darkblue", "blue", "morning", "retrobox", "sorbet",
+  "zaibatsu", "wildcharm", "vim", "habamax","tokonight"
+}
+local get_colorsheme = function()
+  local target = vim.fn.getcompletion
+
+  ---@diagnostic disable-next-line: duplicate-set-field
+  vim.fn.getcompletion = function()
+    return vim.tbl_filter(function(color)
+      return not vim.tbl_contains(builtins, color)
+      ---@diagnostic disable-next-line: param-type-mismatch
+    end, target('', 'color'))
+  end
+
+  Util.telescope('colorscheme', { enable_preview = true })()
+  vim.fn.getcompletion = target
+end
+
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 
 return {
@@ -5,29 +27,43 @@ return {
   {
     'gbprod/nord.nvim',
     lazy = true,
-
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
   -- add vscode
   {
     'Mofiqul/vscode.nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
   -- add gruvbox
   {
     'ellisonleao/gruvbox.nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
 
   -- add nightowl
   {
     'oxfist/night-owl.nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
 
   -- add material
   {
     'marko-cerovac/material.nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
   -- add everforest
   {
@@ -38,6 +74,9 @@ return {
   {
     'rebelot/kanagawa.nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
 
   -- add catppuccin
