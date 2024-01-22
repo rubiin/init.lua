@@ -69,6 +69,9 @@ return {
   {
     'neanias/everforest-nvim',
     lazy = true,
+    keys = {
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+    },
   },
   -- add kanagawa
   {
