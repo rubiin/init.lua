@@ -5,6 +5,8 @@ local bo = vim.bo
 local api = vim.api
 
 
+
+
 -- toggle dark mode
 function M.toggle_light_dark_theme()
 	if vim.o.background == "light" then

@@ -27,6 +27,15 @@ local icons = {
   diff_add = '',
   diff_modified = '',
   diff_remove = '',
+  distro= {
+    arch = '󰣇',
+    alpine = '󰣖',
+    centos = '󱄚',
+    debian = '',
+    fedora = '',
+    freebsd = '',
+    suse = '',
+  }
 }
 
 return icons
