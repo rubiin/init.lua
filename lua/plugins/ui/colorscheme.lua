@@ -4,45 +4,46 @@ return {
   --  add nord
   {
     'gbprod/nord.nvim',
+    lazy = true,
 
   },
   -- add vscode
   {
     'Mofiqul/vscode.nvim',
-
+    lazy = true,
   },
   -- add gruvbox
   {
     'ellisonleao/gruvbox.nvim',
-
+    lazy = true,
   },
 
   -- add nightowl
   {
     'oxfist/night-owl.nvim',
-
+    lazy = true,
   },
 
   -- add material
   {
     'marko-cerovac/material.nvim',
-
+    lazy = true,
   },
-
+  -- add everforest
   {
     'neanias/everforest-nvim',
-
+    lazy = true,
   },
   -- add kanagawa
   {
     'rebelot/kanagawa.nvim',
-
+    lazy = true,
   },
 
   -- add catppuccin
   {
     'catppuccin/nvim',
-
+    lazy = true,
     name = 'catppuccin',
     opts = {
       flavour = 'mocha',
