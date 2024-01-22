@@ -1,4 +1,4 @@
-local root_dir = vim.fn.expand('%:h')
+local cwd = vim.loop.cwd()
 
 return {
   {
@@ -10,25 +10,25 @@ return {
         '<leader>Tf',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 0, root_dir, 'float')
+          require('toggleterm').toggle(count, 0, cwd, 'float')
         end,
-        desc = 'ToggleTerm (float root_dir)',
+        desc = 'ToggleTerm (float cwd)',
       },
       {
         '<leader>Th',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 15, root_dir, 'horizontal')
+          require('toggleterm').toggle(count, 15, cwd, 'horizontal')
         end,
-        desc = 'ToggleTerm (horizontal root_dir)',
+        desc = 'ToggleTerm (horizontal cwd)',
       },
       {
         '<leader>Tv',
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, vim.o.columns * 0.4, root_dir, 'vertical')
+          require('toggleterm').toggle(count, vim.o.columns * 0.4, cwd, 'vertical')
         end,
-        desc = 'ToggleTerm (vertical root_dir)',
+        desc = 'ToggleTerm (vertical cwd)',
       },
       {
         '<leader>Ts',
@@ -37,8 +37,8 @@ return {
       },
       {
         '<leader>Tt',
-        function() require('toggleterm').toggle(1, 100, root_dir, 'tab') end,
-        desc = 'ToggleTerm (tab root_dir)',
+        function() require('toggleterm').toggle(1, 100, cwd, 'tab') end,
+        desc = 'ToggleTerm (tab cwd)',
       },
     },
     opts = {
