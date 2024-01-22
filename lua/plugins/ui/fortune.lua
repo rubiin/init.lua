@@ -2,9 +2,7 @@ return {
   'rubiin/fortune.nvim',
   lazy = true,
   event = 'VimEnter',
-  config = function()
-    require('fortune').setup({
+  opts= {
       max_width = 60,
-    })
-  end,
+    }
 }

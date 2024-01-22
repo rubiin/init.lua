@@ -2,8 +2,7 @@ return {
   {
     'windwp/nvim-ts-autotag',
     event = 'VeryLazy',
-    config = function()
-      require('nvim-ts-autotag').setup({
+    opts ={
         enable = true,
         enable_rename = true,
         filetypes = {
@@ -28,7 +27,6 @@ return {
           'vue',
           'xml',
         },
-      })
-    end,
+      }
   },
 }

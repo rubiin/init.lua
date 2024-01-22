@@ -7,7 +7,6 @@ return {
     'nvimdev/lspsaga.nvim',
     event = { 'BufReadPost' },
     cmd = 'Lspsaga',
-    config = function(_, opts) require('lspsaga').setup(opts) end,
     opts = {
       callhierarchy = { silent = true, keys = { quit = keys.quit } },
       definition = { silent = true, keys = { quit = keys.quit } },

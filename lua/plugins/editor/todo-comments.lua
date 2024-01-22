@@ -5,8 +5,7 @@ return {
   dependencies = 'nvim-lua/plenary.nvim',
   event = 'VeryLazy',
   lazy = true,
-  config = function()
-    require('todo-comments').setup({
+  opts = {
       keywords = {
         FIX = {
           icon = icons.debug, -- icon used for the sign, and in search results
@@ -26,6 +25,5 @@ return {
         hint = { 'DiagnosticHint', '#10B981' },
         default = { 'Identifier', '#7C3AED' },
       },
-    })
-  end,
+    }
 }

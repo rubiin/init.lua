@@ -104,7 +104,6 @@ return {
         desc = 'Undo history',
       },
     },
-    opts = {},
     config = function(_, opts) require('telescope').load_extension('undo') end,
   },
 }
