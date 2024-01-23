@@ -16,7 +16,7 @@ local keymap = require('utils.helpers').keymap
 -- Add toggle gitsigns blame line
 if lazyvim_util.has('gitsigns.nvim') then
   keymap('n', '<leader>uB', function()
-    require("gitsigns").toggle_current_line_blame()
+    require('gitsigns').toggle_current_line_blame()
   end, {
     desc = 'Toggle Current Line Blame',
   })

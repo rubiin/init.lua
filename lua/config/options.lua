@@ -11,7 +11,9 @@ local o = vim.opt
 local g = vim.g
 local fn = vim.fn
 
--------------------------------------- globals -------------------------------------------------------
+-- ========================================================================== --
+-- ==                          GLOBALS                                     == --
+-- ========================================================================== --
 
 g.mapleader = ' '
 g.maplocalleader = '\\'
@@ -27,37 +29,61 @@ g.autoformat = false
 -- * a function with signature `function(buf) -> string|string[]`
 g.root_spec = { 'lsp', { '.git', 'lua' }, 'cwd' }
 
---------------------------------------------- Line numbers ---------------------------------------------
+-- ========================================================================== --
+-- ==                          LINE NUMBERS                                == --
+-- ========================================================================== --
+
 o.relativenumber = true -- Relative line numbers
 o.number = true -- Print line number
 
---------------------------------------------- Line wrapping ---------------------------------------------
+-- ========================================================================== --
+-- ==                          LINE WRAPPING                               == --
+-- ========================================================================== --
+
 o.wrap = false -- Disable line wrap
 
---------------------------------------------- Search settings ---------------------------------------------
+-- ========================================================================== --
+-- ==                              SEARCH                                  == --
+-- ========================================================================== --
+
 o.hlsearch = true -- highlight search
 o.incsearch = true -- incremental search
 o.ignorecase = true -- ignore case when searching
 o.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
---------------------------------------------- Tab settings ---------------------------------------------
+-- ========================================================================== --
+-- ==                          TABS                                        == --
+-- ========================================================================== --
+
 o.splitkeep = 'screen'
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 
---------------------------------------------- Cursor line ---------------------------------------------
+-- ========================================================================== --
+-- ==                          CUSRSOR LINE                                == --
+-- ========================================================================== --
+
 o.cursorline = true -- highlight the current cursor line
 
---------------------------------------------- Clipboard ---------------------------------------------
+-- ========================================================================== --
+-- ==                          CLIPBOARD                                   == --
+-- ========================================================================== --
+
 o.clipboard = 'unnamedplus' -- Sync with system clipboard
 
---------------------------------------------- Auto write ---------------------------------------------
+-- ========================================================================== --
+-- ==                          AUTO WRITE                                  == --
+-- ========================================================================== --
+
 o.autowrite = true -- Enable auto write
 o.completeopt = 'menu,menuone,noselect'
 o.conceallevel = 3 -- Hide * markup for bold and italic
 o.confirm = true -- Confirm to save changes before exiting modified buffer
 
---------------------------------------------- Indentation settings ---------------------------------------------
+-- ========================================================================== --
+-- ==                          INDENTATION                                 == --
+-- ========================================================================== --
+
 o.expandtab = true -- Use spaces instead of tabs
 o.formatoptions = 'jcroqlnt' -- tcqj
 o.grepformat = '%f:%l:%c:%m'
@@ -67,16 +93,25 @@ o.shiftwidth = 2 -- Size of an indent
 o.smartindent = true -- Insert indents automatically
 o.softtabstop = 4 -- Number of spaces tabs count for (when 'expandtab' is set)
 
---------------------------------------------- Popup settings ---------------------------------------------
+-- ========================================================================== --
+-- ==                          POPUP                                       == --
+-- ========================================================================== --
+
 o.pumblend = 10 -- Popup blend
 o.pumheight = 10 -- Maximum number of entries in a popup
 
---------------------------------------------- Terminal settings ---------------------------------------------
+-- ========================================================================== --
+-- ==                          TERMINAL                                    == --
+-- ========================================================================== --
+
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
 o.shell = '/bin/zsh' -- Use zsh as shell
 
---------------------------------------------- Folding ---------------------------------------------
+-- ========================================================================== --
+-- ==                          FOLDING                                     == --
+-- ========================================================================== --
+
 o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 o.foldtext = 'v:lua.require"lazyvim.util".ui.foldtext()'
 o.foldcolumn = '1' -- '0' is not bad
@@ -119,9 +154,7 @@ o.winminwidth = 5 -- Minimum window width
 -- Additional settings based on Neovim version
 if fn.has('nvim-0.10') == 1 then o.smoothscroll = true end
 
-if vim.fn.has("nvim-0.9.0") == 1 then
-  vim.opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
-end
+if vim.fn.has('nvim-0.9.0') == 1 then vim.opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]] end
 
 -- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
 if fn.has('nvim-0.10') == 1 then
