@@ -11,8 +11,11 @@ local o = vim.opt
 local g = vim.g
 local fn = vim.fn
 
+-------------------------------------- globals -------------------------------------------------------
+
 g.mapleader = ' '
 g.maplocalleader = '\\'
+g.vscode_snippets_path = fn.stdpath('config') .. '/misc/snippets' -- Path to vscode snippets
 
 -- Enable LazyVim auto format
 g.autoformat = false
@@ -24,37 +27,37 @@ g.autoformat = false
 -- * a function with signature `function(buf) -> string|string[]`
 g.root_spec = { 'lsp', { '.git', 'lua' }, 'cwd' }
 
--- Line numbers
+--------------------------------------------- Line numbers ---------------------------------------------
 o.relativenumber = true -- Relative line numbers
 o.number = true -- Print line number
 
--- Line wrapping
+--------------------------------------------- Line wrapping ---------------------------------------------
 o.wrap = false -- Disable line wrap
 
--- Search settings
+--------------------------------------------- Search settings ---------------------------------------------
 o.hlsearch = true -- highlight search
 o.incsearch = true -- incremental search
 o.ignorecase = true -- ignore case when searching
 o.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
--- Tab settings
+--------------------------------------------- Tab settings ---------------------------------------------
 o.splitkeep = 'screen'
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 
--- Cursor line
+--------------------------------------------- Cursor line ---------------------------------------------
 o.cursorline = true -- highlight the current cursor line
 
--- Clipboard
+--------------------------------------------- Clipboard ---------------------------------------------
 o.clipboard = 'unnamedplus' -- Sync with system clipboard
 
--- Auto write
+--------------------------------------------- Auto write ---------------------------------------------
 o.autowrite = true -- Enable auto write
 o.completeopt = 'menu,menuone,noselect'
 o.conceallevel = 3 -- Hide * markup for bold and italic
 o.confirm = true -- Confirm to save changes before exiting modified buffer
 
--- Indentation settings
+--------------------------------------------- Indentation settings ---------------------------------------------
 o.expandtab = true -- Use spaces instead of tabs
 o.formatoptions = 'jcroqlnt' -- tcqj
 o.grepformat = '%f:%l:%c:%m'
@@ -64,16 +67,16 @@ o.shiftwidth = 2 -- Size of an indent
 o.smartindent = true -- Insert indents automatically
 o.softtabstop = 4 -- Number of spaces tabs count for (when 'expandtab' is set)
 
--- Popup settings
+--------------------------------------------- Popup settings ---------------------------------------------
 o.pumblend = 10 -- Popup blend
 o.pumheight = 10 -- Maximum number of entries in a popup
 
--- Terminal settings
+--------------------------------------------- Terminal settings ---------------------------------------------
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
 o.shell = '/bin/zsh' -- Use zsh as shell
 
--- Folding
+--------------------------------------------- Folding ---------------------------------------------
 o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 o.foldtext = 'v:lua.require"lazyvim.util".ui.foldtext()'
 o.foldcolumn = '1' -- '0' is not bad
@@ -134,7 +137,7 @@ vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 g.markdown_recommended_style = 0
 g.editorconfig = false
 
--- Spell and encoding settings
+--------------------------------------------- Spell and encoding settings ---------------------------------------------
 if not g.vscode then o.spell = true end -- Enable spell check by default unless in vscode
 o.encoding = 'UTF-8' -- set encoding
 o.spelllang = { 'en' } -- set spell check language

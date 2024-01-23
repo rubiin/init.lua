@@ -13,7 +13,7 @@ return {
       {
         '<Leader>ua',
         '<cmd>ASToggle<CR>',
-        desc = 'Auto save toggle',
+        desc = 'Toggle Auto Save',
       },
     },
   },

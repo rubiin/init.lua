@@ -26,7 +26,7 @@ return {
     'gbprod/nord.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -35,7 +35,7 @@ return {
     'Mofiqul/vscode.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -44,7 +44,7 @@ return {
     'ellisonleao/gruvbox.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -53,7 +53,7 @@ return {
     'oxfist/night-owl.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -62,7 +62,7 @@ return {
     'marko-cerovac/material.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -71,7 +71,7 @@ return {
     'neanias/everforest-nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 
@@ -80,7 +80,7 @@ return {
     'rebelot/kanagawa.nvim',
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme with preview' },
+      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
     },
   },
 

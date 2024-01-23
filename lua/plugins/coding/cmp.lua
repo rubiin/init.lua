@@ -1,5 +1,6 @@
 local luasnip = require('luasnip')
 
+-- 0.10 , can use native snippets
 return {
   {
     'L3MON4D3/LuaSnip',
@@ -31,7 +32,7 @@ return {
             'sql',
           },
         })
-        require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.fn.stdpath('config') .. '/misc/snippets' } })
+        require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.g.vscode_snippets_path  or ""} })
       end,
     },
   },
