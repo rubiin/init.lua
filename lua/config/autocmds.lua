@@ -9,7 +9,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, command, fn, cmd =
+local opt_local, autocmd, user_command, fn, cmd =
   vim.opt_local, vim.api.nvim_create_autocmd, vim.api.nvim_create_user_command, vim.fn, vim.cmd
 
 local keymap = require('utils.helpers').keymap
@@ -178,14 +178,12 @@ local function trim_trailing_whitespace()
   cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
   vim.api.nvim_win_set_cursor(0, pos)
 end
-command('TrimWhitespace', trim_trailing_whitespace, {})
 
 local function trim_trailing_lines()
   local last_line = vim.api.nvim_buf_line_count(0)
   local last_nonblank_line = fn.prevnonblank(last_line)
   if last_nonblank_line < last_line then vim.api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {}) end
 end
-command('TrimTrailingLines', trim_trailing_lines, {})
 
 local function trim()
   if not vim.o.binary and vim.o.filetype ~= 'diff' then
@@ -193,6 +191,7 @@ local function trim()
     trim_trailing_whitespace()
   end
 end
+
 autocmd('BufWritePre', {
   group = augroup('trim_on_save'),
   callback = trim,
@@ -214,3 +213,82 @@ autocmd('TermOpen', {
     opt_local.number = false
   end,
 })
+
+
+-- Check if we need to reload the file when it changed
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = augroup("lazyvim_checktime"),
+  callback = function()
+    if vim.o.buftype ~= 'nofile' then
+      vim.cmd('checktime')
+    end
+  end
+})
+
+
+-- resize splits if window got resized
+autocmd({ "VimResized" }, {
+  group = augroup("lazyvim_resize_splits"),
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
+  end,
+})
+
+-- go to last loc when opening a buffer
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup("lazyvim_last_loc"),
+  callback = function(event)
+    local exclude = { "gitcommit" }
+    local buf = event.buf
+    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+      return
+    end
+    vim.b[buf].lazyvim_last_loc = true
+    local mark = vim.api.nvim_buf_get_mark(buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("lazyvim_json_conceal"),
+  pattern = { "json", "jsonc", "json5" },
+  callback = function()
+    vim.wo.conceallevel = 0
+  end,
+})
+
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = augroup("lazyvim_auto_create_dir"),
+  callback = function(event)
+    if event.match:match("^%w%w+://") then
+      return
+    end
+    local file = vim.loop.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+
+
+
+----------------   user commands   ---------------------------
+
+user_command('TrimTrailingLines', trim_trailing_lines, {})
+
+user_command('TrimWhitespace', trim_trailing_whitespace, {})
+
+user_command(
+  "TermSelect",
+  function(opts)
+    vim.notify('Sample user command', { title = 'Test' })
+  end,
+  { nargs = '?' }
+)

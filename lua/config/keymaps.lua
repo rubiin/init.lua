@@ -6,10 +6,11 @@
 -- \_| \_/\____/  \_/ \_|  |_/\_| |_/\_|    \____/
 
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Not everything needs to be a keymap, you can also use `user_commands`
+
 local lazyvim_util = require('lazyvim.util')
 local del = vim.keymap.del
-local keymap =
-    require('utils.helpers').keymap
+local keymap = require('utils.helpers').keymap
 
 
 -- Add toggle gitsigns blame line
@@ -37,3 +38,5 @@ keymap('n', '<leader>;i', '<cmd>ConformInfo<CR>', { desc = 'Conform Info' })
 keymap('n', '<leader>;c', lazyvim_util.news.changelog, { desc = 'Changelog [LazyVim]' })
 keymap('n', '<leader>;r', lazyvim_util.root.info, { desc = 'Root Info [LazyVim]' })
 keymap('n', '<leader>;M', vim.cmd.messages, { desc = 'Display messages' })
+
+
