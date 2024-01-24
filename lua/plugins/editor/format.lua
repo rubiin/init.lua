@@ -13,7 +13,7 @@ return {
         opts = function(_, opts)
           vim.list_extend(
             opts.ensure_installed or {},
-            { "prettier", "prettierd", "goimports", "stylua", "shfmt", "eslint_d", "cspell", "markdownlint" }
+            { "prettier", "prettierd", "goimports", "stylua", "shfmt", "eslint_d", "cspell", "markdownlint", "codespell", }
           )
         end,
       },
@@ -49,8 +49,10 @@ return {
   },
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      opts.linters_by_ft = util.extend_keys(opts.linters_by_ft, { "*" }, { "cspell" })
-    end,
+    opts = {
+      linters_by_ft = {
+        ["*"] = { "cspell", "codespell" },
+      },
+    }
   },
 }
