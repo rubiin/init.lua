@@ -52,3 +52,11 @@ keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;r", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
+
+
+keymap(
+  "n",
+  "<leader>cs",
+  function() require('utils.cspell').add_word_to_c_spell_dictionary() end,
+  { desc = "Add unknown to cspell dictionary" }
+)

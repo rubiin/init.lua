@@ -1101,3 +1101,5 @@ zshz
 zstd
 zstyle
 zxvf
+
+noconfirm
