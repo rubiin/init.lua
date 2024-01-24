@@ -27,11 +27,10 @@ del("n", "<leader>L")
 del("n", "<leader>-")
 
 -- Copy whole file content to clipboard with C-c
-keymap("n", "<C-c>", ":%y+<CR>", {desc= "Copy whole file to clipboard"})
+keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy whole file to clipboard" })
 
 -- Select all text in buffer with C-a
 keymap("n", "<C-a>", "ggVG", { desc = "Select all" })
-
 
 -- Move live up or down
 keymap("n", "<A-Down>", ":m .+1<CR>", { desc = "Move line down" })
@@ -41,9 +40,10 @@ keymap("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
-
 -- Add LazyVim bindings for meta information
-keymap("n", "<leader>;",function() require("dashboard"):instance() end, { desc = "Package Manager - [Mason]" })
+keymap("n", "<leader>;", function()
+  require("dashboard"):instance()
+end, { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
