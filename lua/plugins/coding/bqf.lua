@@ -32,6 +32,6 @@ return {
         ptoggleauto = 'a',
         ptogglemode = 'P',
       },
-    }
+    },
   },
 }

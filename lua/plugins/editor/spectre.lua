@@ -31,13 +31,13 @@ return {
       -- Search current word
       {
         '<leader>sP',
-        function()  require('spectre').open_visual(_G.get_spectre_options({ select_word = true })) end,
+        function() require('spectre').open_visual(_G.get_spectre_options({ select_word = true })) end,
         desc = 'Replace current word (Root dir)',
       },
       -- Open search with select word in visual mode
       {
         '<leader>sr',
-        function()  require('spectre').open_visual(_G.get_spectre_options()) end,
+        function() require('spectre').open_visual(_G.get_spectre_options()) end,
         mode = 'v',
         silent = true,
         desc = 'Replace current word (Root dir)',

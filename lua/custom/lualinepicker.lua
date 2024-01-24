@@ -47,8 +47,8 @@ local styles = function(opts)
       attach_mappings = function(prompt_bufnr, map)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
-          local selection = action_state.get_selected_entry();
-          selection_to_style(selection);
+          local selection = action_state.get_selected_entry()
+          selection_to_style(selection)
         end)
         map('i', '<C-j>', next_style)
         map('i', '<C-k>', prev_style)

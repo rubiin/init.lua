@@ -3,8 +3,8 @@ local cwd = vim.loop.cwd()
 return {
   {
     'akinsho/toggleterm.nvim',
-    lazy = true,
-    enabled = false,
+    event = 'VeryLazy',
+    enabled = true,
     cmd = { 'ToggleTerm' },
     keys = {
       {
@@ -62,7 +62,7 @@ return {
       terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
       persist_size = true,
       direction = 'horizontal' or 'vertical' or 'window' or 'float',
-          -- function to run on opening the terminal
+      -- function to run on opening the terminal
       -- direction = 'vertical',
       close_on_exit = true, -- close the terminal window when the process exits
       shell = vim.o.shell, -- change the default shell

@@ -5,7 +5,7 @@ return {
   {
     'L3MON4D3/LuaSnip',
     event = 'InsertEnter',
-    lazy=true,
+    lazy = true,
     dependencies = {
       'rafamadriz/friendly-snippets',
       config = function()
@@ -32,14 +32,14 @@ return {
             'sql',
           },
         })
-        require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.g.vscode_snippets_path  or ''} })
+        require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.g.vscode_snippets_path or '' } })
       end,
     },
   },
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
-    lazy=true,
+    lazy = true,
     dependencies = {
       'hrsh7th/cmp-emoji',
     },

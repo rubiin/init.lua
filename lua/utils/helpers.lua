@@ -5,15 +5,11 @@ local bo = vim.bo
 local api = vim.api
 local icons = require('lazyvim.config').icons
 
-
-
 M.styles = {
   slanted = 'slanted',
   bubbly = 'bubbly',
   default = 'default',
 }
-
-
 
 --- @param type string
 --- @return table
@@ -92,23 +88,21 @@ function M.lualine_styles(type)
   opts.sections.lualine_z = {
     'filetype',
   }
-  opts.extensions = {
-  }
+  opts.extensions = {}
 
   return opts
 end
 
 -- toggle dark mode
 function M.toggle_light_dark_theme()
-	if vim.o.background == 'light' then
-		vim.o.background = 'dark'
-		vim.cmd([[Catppuccin mocha]])
-	else
-		vim.o.background = 'light'
-		vim.cmd([[Catppuccin latte]])
-	end
+  if vim.o.background == 'light' then
+    vim.o.background = 'dark'
+    vim.cmd([[Catppuccin mocha]])
+  else
+    vim.o.background = 'light'
+    vim.cmd([[Catppuccin latte]])
+  end
 end
-
 
 -- splits a string into a table
 --- @param inputstr string
@@ -240,9 +234,7 @@ end
 -- Check if a variable is not empty nor nil
 ---@param s string
 ---@return boolean
-function M.is_not_empty(s)
-  return s ~= nil and s ~= ''
-end
+function M.is_not_empty(s) return s ~= nil and s ~= '' end
 
 -- Check if a variable is empty or nil
 function M.keymap(mode, lhs, rhs, opts)
@@ -255,9 +247,7 @@ end
 
 -- Merge two tables recursively
 ---@return table
-function M.merge(...)
-  return vim.tbl_deep_extend('force', ...)
-end
+function M.merge(...) return vim.tbl_deep_extend('force', ...) end
 
 --- Extend a table of lists by key.
 ---@param table table The table to extend.

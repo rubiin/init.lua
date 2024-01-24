@@ -1,9 +1,33 @@
 Util = require('lazyvim.util')
 
-local builtins = { 'zellner', 'torte', 'slate', 'shine', 'ron', 'quiet', 'peachpuff',
-  'pablo', 'murphy', 'lunaperche', 'koehler', 'industry', 'evening', 'elflord',
-  'desert', 'delek', 'default', 'darkblue', 'blue', 'morning', 'retrobox', 'sorbet',
-  'zaibatsu', 'wildcharm', 'vim', 'habamax','tokonight'
+local builtins = {
+  'zellner',
+  'torte',
+  'slate',
+  'shine',
+  'ron',
+  'quiet',
+  'peachpuff',
+  'pablo',
+  'murphy',
+  'lunaperche',
+  'koehler',
+  'industry',
+  'evening',
+  'elflord',
+  'desert',
+  'delek',
+  'default',
+  'darkblue',
+  'blue',
+  'morning',
+  'retrobox',
+  'sorbet',
+  'zaibatsu',
+  'wildcharm',
+  'vim',
+  'habamax',
+  'tokonight',
 }
 
 local get_colorsheme = function()

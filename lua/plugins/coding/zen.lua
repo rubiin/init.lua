@@ -59,7 +59,7 @@ return {
       end,
     },
     keys = {
-      { '<leader>uX', '<cmd>ZenMode<cr>', desc = 'Toggle Zen Mode', },
+      { '<leader>uX', '<cmd>ZenMode<cr>', desc = 'Toggle Zen Mode' },
     },
   },
 }

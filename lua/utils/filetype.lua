@@ -1,4 +1,4 @@
- -- Detect and assign filetype based on the extension or filename
+-- Detect and assign filetype based on the extension or filename
 
 vim.filetype.add({
   extension = {

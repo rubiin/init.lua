@@ -4,16 +4,11 @@ local fn = vim.fn
 local autocmd = vim.api.nvim_create_autocmd
 local au_buff = vim.api.nvim_create_augroup('BufNewFile', { clear = true })
 
-autocmd(
-  'BufNewFile', {
-    group = au_buff,
-    pattern = { '*.sh' },
-    callback = function()
-      SetTitle()
-    end
-  })
-
-
+autocmd('BufNewFile', {
+  group = au_buff,
+  pattern = { '*.sh' },
+  callback = function() SetTitle() end,
+})
 
 function SetTitle()
   if fn.expand('%:e') == 'sh' then
@@ -33,7 +28,5 @@ end
 
 autocmd('BufNewFile', {
   group = au_buff,
-  callback = function()
-    vim.api.nvim_feedkeys('G', 'n', true)
-  end
+  callback = function() vim.api.nvim_feedkeys('G', 'n', true) end,
 })
