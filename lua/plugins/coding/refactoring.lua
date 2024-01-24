@@ -27,7 +27,7 @@ return {
       {
         "<leader>rb",
         function()
-          require("refactoring").refactor("Exract Block")
+          require("refactoring").refactor("Extract Block")
         end,
         mode = { "n" },
         desc = "Extract Block",
@@ -35,7 +35,7 @@ return {
       {
         "<leader>rf",
         function()
-          require("refactoring").refactor("Exract Block To File")
+          require("refactoring").refactor("Extract Block To File")
         end,
         mode = { "n" },
         desc = "Extract Block to File",
