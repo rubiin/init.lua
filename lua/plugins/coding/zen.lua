@@ -3,8 +3,8 @@ local o = vim.opt
 return {
   -- zen mode for distraction free editing
   {
-    'folke/zen-mode.nvim',
-    cmd = 'ZenMode',
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     lazy = true,
     opts = {
 
@@ -38,28 +38,28 @@ return {
         tmux = { enabled = false }, -- disables the tmux statusline
         alacritty = {
           enabled = true,
-          font = '14', -- font size
+          font = "14", -- font size
         },
       },
       -- callback where you can add custom code when the Zen window opens
       on_open = function()
-        require('gitsigns.actions').toggle_current_line_blame()
-        require('indent_blankline.commands').disable()
+        require("gitsigns.actions").toggle_current_line_blame()
+        require("indent_blankline.commands").disable()
         o.relativenumber = false
-        o.signcolumn = 'no'
-        require('gitsigns.actions').refresh()
+        o.signcolumn = "no"
+        require("gitsigns.actions").refresh()
       end,
       -- callback where you can add custom code when the Zen window closes
       on_close = function()
-        require('gitsigns.actions').toggle_current_line_blame()
-        require('indent_blankline.commands').enable()
+        require("gitsigns.actions").toggle_current_line_blame()
+        require("indent_blankline.commands").enable()
         o.relativenumber = true
-        o.signcolumn = 'yes:2'
-        require('gitsigns.actions').refresh()
+        o.signcolumn = "yes:2"
+        require("gitsigns.actions").refresh()
       end,
     },
     keys = {
-      { '<leader>uX', '<cmd>ZenMode<cr>', desc = 'Toggle Zen Mode' },
+      { "<leader>uX", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },
   },
 }

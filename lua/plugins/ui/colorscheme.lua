@@ -1,43 +1,45 @@
-Util = require('lazyvim.util')
+Util = require("lazyvim.util")
 
 local builtins = {
-  'zellner',
-  'torte',
-  'slate',
-  'shine',
-  'ron',
-  'quiet',
-  'peachpuff',
-  'pablo',
-  'murphy',
-  'lunaperche',
-  'koehler',
-  'industry',
-  'evening',
-  'elflord',
-  'desert',
-  'delek',
-  'default',
-  'darkblue',
-  'blue',
-  'morning',
-  'retrobox',
-  'sorbet',
-  'zaibatsu',
-  'wildcharm',
-  'vim',
-  'habamax',
-  'tokonight',
+  "zellner",
+  "torte",
+  "slate",
+  "shine",
+  "ron",
+  "quiet",
+  "peachpuff",
+  "pablo",
+  "murphy",
+  "lunaperche",
+  "koehler",
+  "industry",
+  "evening",
+  "elflord",
+  "desert",
+  "delek",
+  "default",
+  "darkblue",
+  "blue",
+  "morning",
+  "retrobox",
+  "sorbet",
+  "zaibatsu",
+  "wildcharm",
+  "vim",
+  "habamax",
+  "tokonight",
 }
 
 local get_colorsheme = function()
   local target = vim.fn.getcompletion
 
   vim.fn.getcompletion = function()
-    return vim.tbl_filter(function(color) return not vim.tbl_contains(builtins, color) end, target('', 'color'))
+    return vim.tbl_filter(function(color)
+      return not vim.tbl_contains(builtins, color)
+    end, target("", "color"))
   end
 
-  Util.telescope('colorscheme', { enable_preview = true })()
+  Util.telescope("colorscheme", { enable_preview = true })()
   vim.fn.getcompletion = target
 end
 
@@ -47,74 +49,74 @@ return {
 
   --  add nord
   {
-    'gbprod/nord.nvim',
+    "gbprod/nord.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add vscode
   {
-    'Mofiqul/vscode.nvim',
+    "Mofiqul/vscode.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add gruvbox
   {
-    'ellisonleao/gruvbox.nvim',
+    "ellisonleao/gruvbox.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add nightowl
   {
-    'oxfist/night-owl.nvim',
+    "oxfist/night-owl.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add material
   {
-    'marko-cerovac/material.nvim',
+    "marko-cerovac/material.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add everforest
   {
-    'neanias/everforest-nvim',
+    "neanias/everforest-nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add kanagawa
   {
-    'rebelot/kanagawa.nvim',
+    "rebelot/kanagawa.nvim",
     lazy = true,
     keys = {
-      { '<leader>uC', get_colorsheme, desc = 'Colorscheme With Preview' },
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
 
   -- add catppuccin
   {
-    'catppuccin/nvim',
+    "catppuccin/nvim",
     lazy = true,
-    name = 'catppuccin',
+    name = "catppuccin",
     opts = {
-      flavour = 'mocha',
+      flavour = "mocha",
       integrations = {
         cmp = true,
         dashboard = true,
@@ -131,13 +133,13 @@ return {
         native_lsp = {
           enabled = true,
           underlines = {
-            errors = { 'undercurl' },
-            hints = { 'undercurl' },
-            warnings = { 'undercurl' },
-            information = { 'undercurl' },
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
           },
         },
-        navic = { enabled = false, custom_bg = 'lualine' },
+        navic = { enabled = false, custom_bg = "lualine" },
         neotest = true,
         neotree = true,
         noice = true,
@@ -152,9 +154,9 @@ return {
   },
 
   {
-    'LazyVim/LazyVim',
+    "LazyVim/LazyVim",
     opts = {
-      colorscheme = 'catppuccin',
+      colorscheme = "catppuccin",
     },
   },
 }

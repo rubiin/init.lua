@@ -1,17 +1,19 @@
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local conf = require('telescope.config').values
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
-local lualine_styles = require('utils.helpers').lualine_styles
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
+local conf = require("telescope.config").values
+local action_state = require("telescope.actions.state")
+local actions = require("telescope.actions")
+local lualine_styles = require("utils.helpers").lualine_styles
+
+local M = {}
 
 -- our picker function: styles
-local styles = function(opts)
+M.linepicker = function(opts)
   opts = opts or {}
 
   local selection_to_style = function(selection)
-    local style = lualine_styles(selection['ordinal'])
-    require('lualine').setup(style)
+    local style = lualine_styles(selection["ordinal"])
+    require("lualine").setup(style)
   end
 
   local next_style = function(bfnbr)
@@ -28,12 +30,12 @@ local styles = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = 'Lualine styles',
+      prompt_title = "Lualine styles",
       finder = finders.new_table({
         results = {
-          { 'slanted', require('utils.helpers').styles.slanted },
-          { 'bubbly', require('utils.helpers').styles.bubbly },
-          { 'default', require('utils.helpers').styles.default },
+          { "slanted", require("utils.helpers").styles.slanted },
+          { "bubbly", require("utils.helpers").styles.bubbly },
+          { "default", require("utils.helpers").styles.default },
         },
         entry_maker = function(entry)
           return {
@@ -50,8 +52,8 @@ local styles = function(opts)
           local selection = action_state.get_selected_entry()
           selection_to_style(selection)
         end)
-        map('i', '<C-j>', next_style)
-        map('i', '<C-k>', prev_style)
+        map("i", "<C-j>", next_style)
+        map("i", "<C-k>", prev_style)
 
         return true
       end,
@@ -59,5 +61,4 @@ local styles = function(opts)
     :find()
 end
 
--- to execute the function
-styles()
+return M

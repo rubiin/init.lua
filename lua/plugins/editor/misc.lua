@@ -4,24 +4,26 @@ return {
   {
     enabled = false,
     lazy = true,
-    'dstein64/vim-startuptime',
+    "dstein64/vim-startuptime",
     -- lazy-load on a command
-    cmd = 'StartupTime',
+    cmd = "StartupTime",
     -- init is called during startup. Configuration for vim plugins typically should be set in an init function
-    init = function() vim.g.startuptime_tries = 10 end,
+    init = function()
+      vim.g.startuptime_tries = 10
+    end,
   },
   -- waka time
   {
-    'wakatime/vim-wakatime',
-    event = 'VeryLazy',
+    "wakatime/vim-wakatime",
+    event = "VeryLazy",
     lazy = true,
   },
 
   {
-    'echasnovski/mini.misc',
+    "echasnovski/mini.misc",
     config = true,
     lazy = true,
-    event = 'VeryLazy',
+    event = "VeryLazy",
     --stylua: ignore
     keys = {
       {
@@ -35,7 +37,7 @@ return {
 ,
   },
   {
-    'rcarriga/nvim-notify',
+    "rcarriga/nvim-notify",
     opts = {
       timeout = 2000,
     },

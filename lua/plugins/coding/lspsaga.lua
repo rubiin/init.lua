@@ -1,12 +1,12 @@
-local keys = { quit = { '<esc>', 'q' }, toggle_or_jump = { '<cr>', 'o' } }
+local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 
 -- when you are lua newbie, you can use this
 -- might replace with lsp-zero
 return {
   {
-    'nvimdev/lspsaga.nvim',
-    event = { 'BufReadPost' },
-    cmd = 'Lspsaga',
+    "nvimdev/lspsaga.nvim",
+    event = { "BufReadPost" },
+    cmd = "Lspsaga",
     opts = {
       callhierarchy = { silent = true, keys = { quit = keys.quit } },
       definition = { silent = true, keys = { quit = keys.quit } },
@@ -22,23 +22,23 @@ return {
       rename = { enable = false },
     },
     keys = {
-      { '<leader>lj', '<Cmd>Lspsaga finder<CR>', desc = 'Lspsaga Finder' },
-      { '<leader>lp', '<Cmd>Lspsaga peek_definition<CR>', desc = 'Lspsaga Peek Definition' },
-      { '<leader>lo', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga outline' },
-      { '<leader>lI', '<Cmd>Lspsaga incoming_calls<CR>', desc = 'Lspsaga Incoming Calls' },
-      { '<leader>lO', '<Cmd>Lspsaga outgoing_calls<CR>', desc = 'Lspsaga Outgoing Calls' },
-      { '<leader>lS', '<Cmd>Lspsaga outline<CR>', desc = 'Lspsaga Outline Toggle' },
+      { "<leader>lj", "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
+      { "<leader>lp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Lspsaga Peek Definition" },
+      { "<leader>lo", "<Cmd>Lspsaga outline<CR>", desc = "Lspsaga outline" },
+      { "<leader>lI", "<Cmd>Lspsaga incoming_calls<CR>", desc = "Lspsaga Incoming Calls" },
+      { "<leader>lO", "<Cmd>Lspsaga outgoing_calls<CR>", desc = "Lspsaga Outgoing Calls" },
+      { "<leader>lS", "<Cmd>Lspsaga outline<CR>", desc = "Lspsaga Outline Toggle" },
     },
   },
   {
-    'RRethy/vim-illuminate',
+    "RRethy/vim-illuminate",
     opts = {
       filetypes_denylist = {
-        'sagafinder',
-        'sagacallhierarchy',
-        'sagaincomingcalls',
-        'sagapeekdefinition',
-        'sagaoutline',
+        "sagafinder",
+        "sagacallhierarchy",
+        "sagaincomingcalls",
+        "sagapeekdefinition",
+        "sagaoutline",
       },
     },
   },

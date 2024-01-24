@@ -1,7 +1,7 @@
 return {
   {
-    'mg979/vim-visual-multi',
-    branch = 'master',
-    event = 'LazyFile',
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "LazyFile",
   },
 }

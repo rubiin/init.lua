@@ -1,6 +1,6 @@
 return {
-  'karb94/neoscroll.nvim',
-  event = 'BufRead',
+  "karb94/neoscroll.nvim",
+  event = "BufRead",
   lazy = true,
   opts = {},
 }

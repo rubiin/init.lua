@@ -2,52 +2,54 @@ local cwd = vim.loop.cwd()
 
 return {
   {
-    'akinsho/toggleterm.nvim',
-    event = 'VeryLazy',
+    "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
     enabled = true,
-    cmd = { 'ToggleTerm' },
+    cmd = { "ToggleTerm" },
     keys = {
       {
-        '<leader>Tf',
+        "<leader>Tf",
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 0, cwd, 'float')
+          require("toggleterm").toggle(count, 0, cwd, "float")
         end,
-        desc = 'ToggleTerm (float cwd)',
+        desc = "ToggleTerm (float cwd)",
       },
       {
-        '<leader>Th',
+        "<leader>Th",
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, 15, cwd, 'horizontal')
+          require("toggleterm").toggle(count, 15, cwd, "horizontal")
         end,
-        desc = 'ToggleTerm (horizontal cwd)',
+        desc = "ToggleTerm (horizontal cwd)",
       },
       {
-        '<leader>Tv',
+        "<leader>Tv",
         function()
           local count = vim.v.count1
-          require('toggleterm').toggle(count, vim.o.columns * 0.4, cwd, 'vertical')
+          require("toggleterm").toggle(count, vim.o.columns * 0.4, cwd, "vertical")
         end,
-        desc = 'ToggleTerm (vertical cwd)',
+        desc = "ToggleTerm (vertical cwd)",
       },
       {
-        '<leader>Ts',
-        '<cmd>TermSelect<cr>',
-        desc = 'Select term',
+        "<leader>Ts",
+        "<cmd>TermSelect<cr>",
+        desc = "Select term",
       },
       {
-        '<leader>Tt',
-        function() require('toggleterm').toggle(1, 100, cwd, 'tab') end,
-        desc = 'ToggleTerm (tab cwd)',
+        "<leader>Tt",
+        function()
+          require("toggleterm").toggle(1, 100, cwd, "tab")
+        end,
+        desc = "ToggleTerm (tab cwd)",
       },
     },
     opts = {
       -- size can be a number or function which is passed the current terminal
       size = function(term)
-        if term.direction == 'horizontal' then
+        if term.direction == "horizontal" then
           return 15
-        elseif term.direction == 'vertical' then
+        elseif term.direction == "vertical" then
           return vim.o.columns * 0.4
         end
       end,
@@ -61,18 +63,18 @@ return {
       insert_mappings = true, -- whether or not the open mapping applies in insert mode
       terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
       persist_size = true,
-      direction = 'horizontal' or 'vertical' or 'window' or 'float',
+      direction = "horizontal" or "vertical" or "window" or "float",
       -- function to run on opening the terminal
       -- direction = 'vertical',
       close_on_exit = true, -- close the terminal window when the process exits
       shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
       float_opts = {
-        border = 'curved',
+        border = "curved",
         winblend = 0,
         highlights = {
-          border = 'Normal',
-          background = 'Normal',
+          border = "Normal",
+          background = "Normal",
         },
       },
     },

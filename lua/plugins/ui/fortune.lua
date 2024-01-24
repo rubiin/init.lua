@@ -1,7 +1,7 @@
 return {
-  'rubiin/fortune.nvim',
+  "rubiin/fortune.nvim",
   lazy = true,
-  event = 'VimEnter',
+  event = "VimEnter",
   opts = {
     max_width = 60,
   },
