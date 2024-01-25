@@ -8,7 +8,6 @@ return {
         ["<leader>h"] = { name = "+harpoon" },
         ["<leader>;"] = { name = "+info" },
         ["<leader>T"] = { name = "+terminal" },
-        ["<leader>l"] = { name = "+lsp" },
         ["<leader>r"] = { name = "+refactoring" },
       },
     },
