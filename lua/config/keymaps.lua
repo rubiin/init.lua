@@ -40,9 +40,9 @@ keymap("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
-keymap("n", "<leader>;", function()
-  require("dashboard"):instance()
-end, { desc = "Open Dashboard" })
+-- keymap("n", "<leader>;", function()
+--   require("dashboard"):instance()
+-- end, { desc = "Open Dashboard" })
 
 -- Add LazyVim bindings for meta information
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
@@ -58,12 +58,9 @@ keymap("n", "<leader>cs", function()
   require("utils.cspell").add_word_to_c_spell_dictionary()
 end, { desc = "Add unknown to cspell dictionary" })
 
-
-
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make it rain baby",
 })
-
 
 -- All Hail Lsp
 keymap("n", "<leader>lo", function()

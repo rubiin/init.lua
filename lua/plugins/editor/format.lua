@@ -11,20 +11,17 @@ return {
       {
         "williamboman/mason.nvim",
         opts = function(_, opts)
-          vim.list_extend(
-            opts.ensure_installed or {},
-            {
-              "prettier",
-              "prettierd",
-              "goimports",
-              "stylua",
-              "shfmt",
-              "eslint_d",
-              "cspell",
-              "markdownlint",
-              "codespell",
-            }
-          )
+          vim.list_extend(opts.ensure_installed or {}, {
+            "prettier",
+            "prettierd",
+            "goimports",
+            "stylua",
+            "shfmt",
+            "eslint_d",
+            "cspell",
+            "markdownlint",
+            "codespell",
+          })
         end,
       },
     },
