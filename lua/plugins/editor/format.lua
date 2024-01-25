@@ -1,5 +1,3 @@
-local util = require("utils.helpers")
-
 return {
   -- Setup config for formatter
   {
@@ -12,15 +10,26 @@ return {
         "williamboman/mason.nvim",
         opts = function(_, opts)
           vim.list_extend(opts.ensure_installed or {}, {
-            "prettier",
-            "prettierd",
             "goimports",
             "stylua",
             "shfmt",
+
+            -- formatters
             "eslint_d",
-            "cspell",
-            "markdownlint",
+            "prettier",
+            "prettierd",
+            "prettierd",
+            "biome",
+
+            -- code spell
             "codespell",
+            "misspell",
+            "cspell",
+
+            -- markdown
+            "markdownlint",
+            -- rustywind for tailwindcss
+            "rustywind",
           })
         end,
       },
@@ -28,28 +37,46 @@ return {
     opts = {
       formatters_by_ft = {
         {
-          ["css"] = { "prettierd", "prettier" },
+          ["css"] = { "biome", "prettierd", "prettier" },
           ["go"] = { "goimports", "gofmt" },
-          ["graphql"] = { "prettierd", "prettier" },
-          ["handlebars"] = { "prettierd", "prettier" },
-          ["html"] = { "prettierd", "prettier" },
-          ["javascript"] = { "prettierd", "prettier" },
-          ["javascriptreact"] = { "prettierd", "prettier" },
-          ["json"] = { "prettierd", "prettier" },
-          ["jsonc"] = { "prettierd", "prettier" },
-          ["less"] = { "prettierd", "prettier" },
+          ["graphql"] = { "biome", "prettierd", "prettier" },
+          ["handlebars"] = { "biome", "prettierd", "prettier" },
+          ["html"] = { "biome", "prettierd", "prettier" },
+          ["javascript"] = { { "biome", "deno_fmt", "prettier" } },
+          ["javascriptreact"] = { "rustywind", { "biome", "deno_fmt", "prettier" } },
+          ["json"] = { "biome", "prettierd", "prettier" },
+          ["jsonc"] = { "biome", "prettierd", "prettier" },
+          ["less"] = { "biome", "prettierd", "prettier" },
           ["lua"] = { "stylua" },
-          ["markdown"] = { "prettierd", "prettier" },
-          ["markdown.mdx"] = { "prettierd", "prettier" },
-          ["sass"] = { "prettierd", "prettier" },
-          ["scss"] = { "prettierd", "prettier" },
+          ["markdown"] = { "biome", "prettierd", "prettier" },
+          ["markdown.mdx"] = { "biome", "prettierd", "prettier" },
+          ["sass"] = { "biome", "prettierd", "prettier" },
+          ["scss"] = { "biome", "prettierd", "prettier" },
           ["sh"] = { "shfmt" },
-          ["svelte"] = { "prettierd", "prettier" },
-          ["typescript"] = { "prettierd", "prettier" },
-          ["typescriptreact"] = { "prettierd", "prettier" },
-          ["vue"] = { "prettierd", "prettier" },
-          ["xml"] = { "prettierd", "prettier" },
-          ["yaml"] = { "prettierd", "prettier" },
+          ["svelte"] = { "rustywind", { "biome", "deno_fmt", "prettierd", "prettier" } },
+          ["typescript"] = { { "biome", "deno_fmt", "prettierd", "prettier" } },
+          ["typescriptreact"] = { "rustywind", { "biome", "deno_fmt", "prettierd", "prettier" } },
+          ["vue"] = { "biome", "prettierd", "prettier" },
+          ["xml"] = { "biome", "prettierd", "prettier" },
+          ["yaml"] = { "biome", "prettierd", "prettier" },
+        },
+      },
+      formatters = {
+        biome = {
+          condition = function(ctx)
+            return vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+        deno_fmt = {
+          condition = function(ctx)
+            return vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+        prettier = {
+          condition = function(ctx)
+            return not vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
+              and not vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
+          end,
         },
       },
     },

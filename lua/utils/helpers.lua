@@ -169,33 +169,20 @@ M.notify = function(message, level, title)
   api.nvim_notify(message, level, notify_options)
 end
 
--- lazy load plugins , taken from NVchads config
-function M.lazy_load(plugin)
-  api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
-    group = api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
-    callback = function()
-      local file = fn.expand("%")
-      local condition = file ~= "NvimTree_1" and file ~= "[lazy]" and file ~= ""
+function M.biome_config_exists()
+  local current_dir = vim.fn.getcwd()
+  local config_file = current_dir .. "/biome.json"
+  if vim.fn.filereadable(config_file) == 1 then
+    return true
+  end
+end
 
-      if condition then
-        api.nvim_del_augroup_by_name("BeLazyOnFileOpen" .. plugin)
-
-        -- dont defer for treesitter as it will show slow highlighting
-        -- This deferring only happens only when we do 'nvim filename'
-        if plugin ~= "nvim-treesitter" then
-          vim.schedule(function()
-            require("lazy").load({ plugins = plugin })
-
-            if plugin == "nvim-lspconfig" then
-              vim.cmd("silent! do FileType")
-            end
-          end, 0)
-        else
-          require("lazy").load({ plugins = plugin })
-        end
-      end
-    end,
-  })
+function M.deno_config_exist()
+  local current_dir = vim.fn.getcwd()
+  local config_file = current_dir .. "/deno.json"
+  if vim.fn.filereadable(config_file) == 1 then
+    return true
+  end
 end
 
 -- check if buffer is empty

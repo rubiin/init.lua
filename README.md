@@ -78,3 +78,6 @@ NVIM_APPNAME=rubiin/init.lua/ nvim
 - Asynchronous code execution via [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim).
 - Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 - Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
+
+## Personalization
+
