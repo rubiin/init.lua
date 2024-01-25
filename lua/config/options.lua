@@ -18,6 +18,7 @@ local fn = vim.fn
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
+g.github_username = "rubiin" -- Github username
 
 -- Enable LazyVim auto format
 g.autoformat = false
