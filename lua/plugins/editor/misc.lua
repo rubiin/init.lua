@@ -42,4 +42,11 @@ return {
       timeout = 2000,
     },
   },
+
+  {
+    "eandrju/cellular-automaton.nvim",
+    event = "VeryLazy",
+    lazy = true,
+    cmd = "CellularAutomaton",
+  }
 }

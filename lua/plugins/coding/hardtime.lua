@@ -13,6 +13,7 @@ return {
   {
     "m4xshen/hardtime.nvim",
     event = "VeryLazy",
+    enabled = false, -- dont enable by default until I get used to it
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
       restriction_mode = "hint", -- block or hint

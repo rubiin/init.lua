@@ -56,9 +56,17 @@ keymap("n", "<leader>;r", lazyvim_util.root.info, { desc = "Root Info [LazyVim]"
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
 
 
+
+-- Add spell check to cspell
 keymap(
   "n",
   "<leader>cs",
   function() require('utils.cspell').add_word_to_c_spell_dictionary() end,
   { desc = "Add unknown to cspell dictionary" }
 )
+
+
+-- Fun stuffs
+keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>",{
+  desc = "Make it rain baby"
+})
