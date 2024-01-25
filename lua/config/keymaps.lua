@@ -40,14 +40,16 @@ keymap("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
--- Add LazyVim bindings for meta information
 keymap("n", "<leader>;", function()
   require("dashboard"):instance()
-end, { desc = "Package Manager - [Mason]" })
+end, { desc = "Open Dashboard" })
+
+
+-- Add LazyVim bindings for meta information
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
-keymap("n", "<leader>;n", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;r", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
