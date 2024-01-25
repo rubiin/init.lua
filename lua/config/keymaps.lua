@@ -52,7 +52,6 @@ keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [Laz
 keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
-keymap("n", "<leader>;r", lazyvim_util.root.info, { desc = "Root Info [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
 
 
