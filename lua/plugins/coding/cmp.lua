@@ -13,6 +13,11 @@ return {
         require("luasnip").filetype_extend("python", { "pydoc" })
         require("luasnip").filetype_extend("rust", { "rustdoc" })
         require("luasnip").filetype_extend("sh", { "shelldoc" })
+
+        -- extend html snippets to react files
+        require("luasnip").filetype_extend("javascriptreact", { "html" })
+        require("luasnip").filetype_extend("typescriptreact", { "html" })
+
         require("luasnip.loaders.from_vscode").lazy_load({
           include = {
             "javascript",
@@ -33,15 +38,20 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.g.vscode_snippets_path or "" } })
       end,
     },
+    opts = {
+      history = true,
+      region_check_events = "InsertEnter",
+      delete_check_events = "TextChanged,InsertLeave",
+      -- This one is cool cause if you have dynamic snippets, it updates as you type!
+      updateevents = "TextChanged,TextChangedI",
+    },
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" , "hrsh7th/cmp-nvim-lsp-signature-help" },
+    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-nvim-lsp-signature-help" },
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
       table.insert(opts.sources, { name = "nvim_lsp_signature_help" })
     end,
-  }
-
-
+  },
 }

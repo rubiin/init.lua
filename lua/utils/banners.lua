@@ -78,22 +78,26 @@ local headers = {
     /_____/\__,_/\__,_/_/ /_/\___/_/ /_/  /_(.|.)_\,
 ]],
 
-  [[🛸　　　 　🌎　°　　🌓　•　　.°•　　　🚀 ✯
+  [[      🛸　　　 　🌎　°　　🌓　•　　.°•　　　🚀 ✯
     　　　★　*　　　　　°　　　　🛰 　°·      🪐
     .　　　•　° ★　•  ☄
 
-      ▁▂▃▄▅▆▇▇▆▅▄▃▂▁
+          ▁▂▃▄▅▆▇▇▆▅▄▃▂▁
 
                                                   ]],
 }
 
 function M.dashboard()
   math.randomseed(os.time())
-  local logo = headers[math.random(#headers)]
+  local logo = headers[1]
+
+  if vim.g.random_banner ~= nil and vim.g.random_banner then
+    logo = headers[math.random(#headers)]
+  end
 
   -- add padding to the top and bottom of the logo
   logo = string.rep("\n", 2) .. logo .. "\n"
-  logo = logo .. "  " .. "[ @"..(vim.g.github_username or "rubiin").." ]" .. "\n\n"
+  logo = logo .. "  " .. "[ @" .. (vim.g.github_username or "rubiin") .. " ]" .. "\n\n"
 
   return logo
 end

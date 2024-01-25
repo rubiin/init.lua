@@ -44,7 +44,6 @@ keymap("n", "<leader>;", function()
   require("dashboard"):instance()
 end, { desc = "Open Dashboard" })
 
-
 -- Add LazyVim bindings for meta information
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
@@ -54,18 +53,38 @@ keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
 
-
-
 -- Add spell check to cspell
-keymap(
-  "n",
-  "<leader>cs",
-  function() require('utils.cspell').add_word_to_c_spell_dictionary() end,
-  { desc = "Add unknown to cspell dictionary" }
-)
+keymap("n", "<leader>cs", function()
+  require("utils.cspell").add_word_to_c_spell_dictionary()
+end, { desc = "Add unknown to cspell dictionary" })
 
+
+
+keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
+  desc = "Make it rain baby",
+})
+
+
+-- All Hail Lsp
+keymap("n", "<leader>lo", function()
+  require("telescope.builtin").lsp_document_symbols()
+end, {
+  desc = "Lsp Outline",
+})
+
+keymap("n", "<leader>li", function()
+  require("telescope.builtin").lsp_incoming_calls()
+end, {
+  desc = "Lsp Incoming Calls",
+})
+
+keymap("n", "<leader>lo", function()
+  require("telescope.builtin").lsp_outgoing_calls()
+end, {
+  desc = "Lsp Outgoing Calls",
+})
 
 -- Fun stuffs
-keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>",{
-  desc = "Make it rain baby"
+keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
+  desc = "Make it rain baby",
 })

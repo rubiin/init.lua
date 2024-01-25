@@ -48,5 +48,5 @@ return {
     event = "VeryLazy",
     lazy = true,
     cmd = "CellularAutomaton",
-  }
+  },
 }

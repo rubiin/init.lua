@@ -13,7 +13,17 @@ return {
         opts = function(_, opts)
           vim.list_extend(
             opts.ensure_installed or {},
-            { "prettier", "prettierd", "goimports", "stylua", "shfmt", "eslint_d", "cspell", "markdownlint", "codespell", }
+            {
+              "prettier",
+              "prettierd",
+              "goimports",
+              "stylua",
+              "shfmt",
+              "eslint_d",
+              "cspell",
+              "markdownlint",
+              "codespell",
+            }
           )
         end,
       },
@@ -53,6 +63,6 @@ return {
       linters_by_ft = {
         ["*"] = { "cspell", "codespell" },
       },
-    }
+    },
   },
 }

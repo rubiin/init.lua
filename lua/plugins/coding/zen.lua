@@ -7,7 +7,6 @@ return {
     cmd = "ZenMode",
     lazy = true,
     opts = {
-
       window = {
         backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
         -- height and width can be:
@@ -61,5 +60,12 @@ return {
     keys = {
       { "<leader>uX", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },
+  },
+  -- Dims inactive portions of the code you're editing
+  {
+    "folke/twilight.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    cmd = "Twilight",
   },
 }
