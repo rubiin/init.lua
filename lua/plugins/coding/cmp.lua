@@ -1,4 +1,3 @@
-local luasnip = require("luasnip")
 
 -- 0.10 , can use native snippets
 return {
@@ -9,12 +8,12 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
-        luasnip.filetype_extend("typescript", { "tsdoc" })
-        luasnip.filetype_extend("javascript", { "jsdoc" })
-        luasnip.filetype_extend("lua", { "luadoc" })
-        luasnip.filetype_extend("python", { "pydoc" })
-        luasnip.filetype_extend("rust", { "rustdoc" })
-        luasnip.filetype_extend("sh", { "shelldoc" })
+        require("luasnip").filetype_extend("typescript", { "tsdoc" })
+        require("luasnip").filetype_extend("javascript", { "jsdoc" })
+        require("luasnip").filetype_extend("lua", { "luadoc" })
+        require("luasnip").filetype_extend("python", { "pydoc" })
+        require("luasnip").filetype_extend("rust", { "rustdoc" })
+        require("luasnip").filetype_extend("sh", { "shelldoc" })
         require("luasnip.loaders.from_vscode").lazy_load({
           include = {
             "javascript",
@@ -51,6 +50,7 @@ return {
       end
 
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       table.insert(opts.sources, { name = "emoji" })
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
