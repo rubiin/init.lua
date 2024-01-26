@@ -176,12 +176,13 @@ vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 g.markdown_recommended_style = 0
 g.editorconfig = false
 
---------------------------------------------- Spell and encoding settings ---------------------------------------------
-if not g.vscode then
-  o.spell = true
-end -- Enable spell check by default unless in vscode
+-- ========================================================================== --
+-- ==                  SPELL AND ENCONDING                                 == --
+-- ========================================================================== --
+
+o.spell = true -- Enable spell check by default
 o.encoding = "UTF-8" -- set encoding
-o.spelllang = { "en" } -- set spell check language
+o.spelllang = "en_us" -- set spell check language
 
 -- Number of command-lines that are remembered
 o.history = 10000

@@ -1,6 +1,5 @@
 local cwd = vim.loop.cwd()
 
-
 -- TODO: disable this plugin and use the default terminal
 return {
   {
