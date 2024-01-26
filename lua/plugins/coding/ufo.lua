@@ -1,5 +1,5 @@
 return {
-    -- add folding range to capabilities
+  -- add folding range to capabilities
   {
     "neovim/nvim-lspconfig",
     opts = {

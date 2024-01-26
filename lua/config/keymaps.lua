@@ -56,7 +56,7 @@ keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
 -- Add spell check to cspell
 keymap("n", "<leader>cs", function()
   require("utils.cspell").add_word_to_c_spell_dictionary()
-end, { desc = "Add unknown to cspell dictionary" })
+end, { desc = "Add Word To Cspell Dictionary" })
 
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make it rain baby",
