@@ -169,6 +169,16 @@ M.notify = function(message, level, title)
   api.nvim_notify(message, level, notify_options)
 end
 
+function M.delete_keymaps(list)
+  if list == {} or list == nil then
+    return
+  end
+
+  for _, keymap in ipairs(list) do
+    vim.keymap.del(keymap[1], keymap[2])
+  end
+end
+
 function M.biome_config_exists()
   local current_dir = vim.fn.getcwd()
   local config_file = current_dir .. "/biome.json"

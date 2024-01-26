@@ -9,8 +9,7 @@
 -- Not everything needs to be a keymap, you can also use `user_commands`
 
 local lazyvim_util = require("lazyvim.util")
-local del = vim.keymap.del
-local keymap = require("utils.helpers").keymap
+local keymap, delete_keys = require("utils.helpers").keymap, require("utils.helpers").delete_keymaps
 
 -- Add toggle gitsigns blame line
 if lazyvim_util.has("gitsigns.nvim") then
@@ -22,23 +21,19 @@ if lazyvim_util.has("gitsigns.nvim") then
 end
 
 -- Delete LazyVim default bindings
-del("n", "<leader>l")
-del("n", "<leader>L")
-del("n", "<leader>-")
+local keymaps_to_delete = {
+  { "n", "<leader>l" },
+  { "n", "<leader>L" },
+  { "n", "<leader>-" },
+  { "n", "<leader>|" },
+}
+delete_keys(keymaps_to_delete)
 
 -- Copy whole file content to clipboard with C-c
 keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy whole file to clipboard" })
 
 -- Select all text in buffer with C-a
 keymap("n", "<C-a>", "ggVG", { desc = "Select all" })
-
--- Move live up or down
-keymap("n", "<A-Down>", ":m .+1<CR>", { desc = "Move line down" })
-keymap("n", "<A-Up>", ":m .-2<CR>", { desc = "Move line up" })
-keymap("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
-keymap("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
-keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- keymap("n", "<leader>;", function()
 --   require("dashboard"):instance()
@@ -60,25 +55,6 @@ end, { desc = "Add Word To Cspell Dictionary" })
 
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make it rain baby",
-})
-
--- All Hail Lsp
-keymap("n", "<leader>lo", function()
-  require("telescope.builtin").lsp_document_symbols()
-end, {
-  desc = "Lsp Outline",
-})
-
-keymap("n", "<leader>li", function()
-  require("telescope.builtin").lsp_incoming_calls()
-end, {
-  desc = "Lsp Incoming Calls",
-})
-
-keymap("n", "<leader>lo", function()
-  require("telescope.builtin").lsp_outgoing_calls()
-end, {
-  desc = "Lsp Outgoing Calls",
 })
 
 -- Fun stuffs
