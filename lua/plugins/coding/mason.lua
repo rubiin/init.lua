@@ -18,6 +18,7 @@ return {
         "codespell",
         "misspell",
         "cspell",
+        "typos-lsp",
 
         -- markdown
         "markdownlint",

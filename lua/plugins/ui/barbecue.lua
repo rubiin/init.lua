@@ -15,6 +15,7 @@ return {
         theme = "catppuccin",
         show_modified = true,
         kinds = kind_icons,
+        create_autocmd = false,
       }
     end,
   },
