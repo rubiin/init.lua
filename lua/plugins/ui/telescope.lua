@@ -20,8 +20,7 @@ return {
           },
           vertical = {
             prompt_position = "top",
-
-          }
+          },
         },
         color_devicons = true,
         sorting_strategy = "ascending",
@@ -88,7 +87,6 @@ return {
           "target/",
           "vendor/*",
         },
-
       },
     },
   },
