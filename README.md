@@ -87,5 +87,10 @@ g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vsc
 g.github_username = "rubiin" -- Github username
 g.random_banner = true -- Random banner
 g.fortune = true -- Fortune in start screen
-```
 
+```
+If you want to start neovim with no plugins whatsoever you can use the `--clean` flag. For example, if you want to use neovim as your git editor you can add this to your `.gitconfig`:
+
+  ```sh
+core.editor = nvim --clean
+  ```
