@@ -18,11 +18,11 @@ return {
       outline = { enable = true, silent = true, keys = keys }, -- symbols outline
       lightbulb = { enable = true }, -- bulb as the name says
       hover = { enable = true, keys = { quit = keys.quit } }, -- hover doc
+      rename = { enable = true }, --  used telescope/inc-rename for this
       code_action = { enable = true, extend_gitsigns = true, show_server_name = true }, -- might use actions-preview for this
 
       --- disabled lspsaga features
       finder = { enable = false }, -- handled by telescope
-      rename = { enable = false }, --  used telescope/inc-rename for this
       diagnostic = { enable = false }, -- used inlay hints for this
       callhierarchy = { enable = false }, -- use telescope for this incoming/outgoing calls
       symbol_in_winbar = { enable = false }, -- used barbeque for this

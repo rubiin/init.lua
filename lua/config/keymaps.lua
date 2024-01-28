@@ -53,7 +53,6 @@ keymap("n", "<leader>cs", function()
   require("utils.cspell").add_word_to_c_spell_dictionary()
 end, { desc = "Add Word To Cspell Dictionary" })
 
-
 -- Fun stuffs
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make It Rain Baby",

@@ -11,7 +11,6 @@ return {
           text_align = "left",
         },
       },
-    }
-
-  }
+    },
+  },
 }

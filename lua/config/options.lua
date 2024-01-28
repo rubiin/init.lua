@@ -25,8 +25,6 @@ g.fortune = true -- Fortune in start screen
 g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 g.autoformat = false -- Enable LazyVim auto format
 
-
-
 -- LazyVim root dir detection
 -- Each entry can be:
 -- * the name of a detector function like `lsp` or `cwd`
@@ -154,7 +152,6 @@ o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the
 o.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 o.wildmode = "longest:full,full" -- Command-line completion mode
 
-
 -- Additional settings based on Neovim version
 if fn.has("nvim-0.10") == 1 then
   o.smoothscroll = true
@@ -174,7 +171,6 @@ end
 
 vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
-
 -- ========================================================================== --
 -- ==                  SPELL AND ENCONDING                                 == --
 -- ========================================================================== --
@@ -182,7 +178,6 @@ vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 o.spell = true -- Enable spell check by default
 o.encoding = "UTF-8" -- set encoding
 o.spelllang = "en_us" -- set spell check language
-
 
 -- ========================================================================== --
 -- ==                  Performance Settings                                == --

@@ -32,7 +32,7 @@ return {
             info[1] = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
             info[2] = ""
 
-            if(vim.g.fortune ~= nil and vim.g.fortune) then
+            if vim.g.fortune ~= nil and vim.g.fortune then
               local fortune = require("fortune").get_fortune()
               local footer = vim.list_extend(info, fortune)
             end

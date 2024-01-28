@@ -5,7 +5,6 @@ local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 local lualine_styles = require("utils.helpers").lualine_styles
 
-
 -- our picker function: styles
 local linepicker = function(opts)
   opts = opts or {}

@@ -4,6 +4,16 @@ return {
     lazy = true,
     opts = {
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "-L",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+        },
         file_ignore_patterns = {
           file_ignore_patterns = {
             "%.7z",
