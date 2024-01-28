@@ -266,6 +266,7 @@ autocmd("BufReadPost", {
   end,
 })
 
+
 -- Fix conceallevel for json files
 autocmd({ "FileType" }, {
   group = augroup("lazyvim_json_conceal"),

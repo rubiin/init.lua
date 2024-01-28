@@ -2,6 +2,14 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
+      opts.ui = {
+        icons = {
+          package_installed = "",
+          package_pending = "➜",
+          package_uninstalled = ""
+        }
+      }
+
       vim.list_extend(opts.ensure_installed or {}, {
         "goimports",
         "stylua",
