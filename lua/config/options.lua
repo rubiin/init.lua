@@ -20,9 +20,12 @@ g.maplocalleader = "\\"
 g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
 g.github_username = "rubiin" -- Github username
 g.random_banner = true -- Random banner
+g.fortune = true -- Fortune in start screen
 
--- Enable LazyVim auto format
-g.autoformat = false
+g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+g.autoformat = false -- Enable LazyVim auto format
+
+
 
 -- LazyVim root dir detection
 -- Each entry can be:
@@ -32,16 +35,11 @@ g.autoformat = false
 g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 
 -- ========================================================================== --
--- ==                          LINE NUMBERS                                == --
+-- ==                          LINE SETTINGS                               == --
 -- ========================================================================== --
 
 o.relativenumber = true -- Relative line numbers
 o.number = true -- Print line number
-
--- ========================================================================== --
--- ==                          LINE WRAPPING                               == --
--- ========================================================================== --
-
 o.wrap = false -- Disable line wrap
 
 -- ========================================================================== --
@@ -52,14 +50,17 @@ o.hlsearch = true -- highlight search
 o.incsearch = true -- incremental search
 o.ignorecase = true -- ignore case when searching
 o.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+o.grepformat = "%f:%l:%c:%m" -- format for grep
+o.grepprg = "rg --vimgrep" -- use ripgrep for grep
 
 -- ========================================================================== --
--- ==                          TABS                                        == --
+-- ==                          WINDOW SETTINGS                             == --
 -- ========================================================================== --
 
 o.splitkeep = "screen"
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
+o.winminwidth = 5 -- Minimum window width
 
 -- ========================================================================== --
 -- ==                          CUSRSOR LINE                                == --
@@ -88,8 +89,6 @@ o.confirm = true -- Confirm to save changes before exiting modified buffer
 
 o.expandtab = true -- Use spaces instead of tabs
 o.formatoptions = "jcroqlnt" -- tcqj
-o.grepformat = "%f:%l:%c:%m"
-o.grepprg = "rg --vimgrep"
 o.shiftround = true -- Round indent
 o.shiftwidth = 2 -- Size of an indent
 o.smartindent = true -- Insert indents automatically
@@ -133,7 +132,10 @@ o.fillchars = {
 o.scrolloff = 4 -- Lines of context
 o.sidescrolloff = 8 -- Columns of context
 
--- Undo and swap settings
+-- ========================================================================== --
+-- ==                  UNDO AND SWAP                                       == --
+-- ========================================================================== --
+
 o.undofile = true --Enable undofile
 o.undodir = fn.expand(vim.fn.stdpath("config") .. "/misc/undo")
 o.swapfile = false -- Disable swapfile
@@ -151,7 +153,7 @@ o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the
 
 o.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 o.wildmode = "longest:full,full" -- Command-line completion mode
-o.winminwidth = 5 -- Minimum window width
+
 
 -- Additional settings based on Neovim version
 if fn.has("nvim-0.10") == 1 then
@@ -172,9 +174,6 @@ end
 
 vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
--- Fix markdown indentation settings
-g.markdown_recommended_style = 0
-g.editorconfig = false
 
 -- ========================================================================== --
 -- ==                  SPELL AND ENCONDING                                 == --
@@ -184,11 +183,11 @@ o.spell = true -- Enable spell check by default
 o.encoding = "UTF-8" -- set encoding
 o.spelllang = "en_us" -- set spell check language
 
--- Number of command-lines that are remembered
-o.history = 10000
 
--- Decrease redraw time
-o.redrawtime = 100
+-- ========================================================================== --
+-- ==                  Performance Settings                                == --
+-- ========================================================================== --
 
--- Decrease update time
-o.updatetime = 50
+o.history = 10000 -- Number of command-lines that are remembered
+o.redrawtime = 100 -- Decrease redraw time
+o.updatetime = 50 -- Decrease update time

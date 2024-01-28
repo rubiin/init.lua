@@ -1,6 +1,5 @@
 local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 
--- when you are lua newbie, you can use this
 return {
   {
     "neovim/nvim-lspconfig",
@@ -10,7 +9,6 @@ return {
       keys[#keys + 1] = { "<leader>ca", false }
     end,
   },
-
   {
     "nvimdev/lspsaga.nvim",
     cmd = "Lspsaga",
@@ -23,11 +21,11 @@ return {
       code_action = { enable = true, extend_gitsigns = true, show_server_name = true }, -- might use actions-preview for this
 
       --- disabled lspsaga features
-      finder = { enable = false, silent = true, keys = { quit = keys.quit, toggle_or_open = keys.toggle_or_jump } }, -- handled by telescope
+      finder = { enable = false }, -- handled by telescope
       rename = { enable = false }, --  used telescope/inc-rename for this
-      diagnostic = { enable = false, keys = { quit = keys.quit } }, -- used inlay hints for this
-      callhierarchy = { enable = false, silent = true, keys = { quit = keys.quit } }, -- use telescope for this
-      symbol_in_winbar = { enable = false, show_file = true, hide_keyword = false, folder_level = 0 }, -- used barbeque for this
+      diagnostic = { enable = false }, -- used inlay hints for this
+      callhierarchy = { enable = false }, -- use telescope for this incoming/outgoing calls
+      symbol_in_winbar = { enable = false }, -- used barbeque for this
     },
     keys = {
       { "<leader>cp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },

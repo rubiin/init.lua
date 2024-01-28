@@ -80,4 +80,12 @@ NVIM_APPNAME=rubiin/init.lua/ nvim
 - Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
 
 ## Personalization
+You can customize the banner with the globals on `lua/rubiin/init.lua`:
+
+```lua
+g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
+g.github_username = "rubiin" -- Github username
+g.random_banner = true -- Random banner
+g.fortune = true -- Fortune in start screen
+```
 
