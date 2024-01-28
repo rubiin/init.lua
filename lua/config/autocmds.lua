@@ -14,7 +14,7 @@ local opt_local, autocmd, user_command, fn, cmd =
 
 local keymap = require("utils.helpers").keymap
 
-local lualine_picker = require("custom.lualinepicker").linepicker
+local lualine_picker = require("custom.lualinepicker")
 
 -- autogroup function
 local function augroup(name, opts)

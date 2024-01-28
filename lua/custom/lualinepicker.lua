@@ -5,10 +5,9 @@ local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 local lualine_styles = require("utils.helpers").lualine_styles
 
-local M = {}
 
 -- our picker function: styles
-M.linepicker = function(opts)
+local linepicker = function(opts)
   opts = opts or {}
 
   local selection_to_style = function(selection)
@@ -61,4 +60,4 @@ M.linepicker = function(opts)
     :find()
 end
 
-return M
+return linepicker
