@@ -17,7 +17,7 @@ return {
           ["handlebars"] = { "biome", "prettierd", "prettier" },
           ["html"] = { "biome", "prettierd", "prettier" },
           ["javascript"] = { { "biome", "deno_fmt", "prettier" } },
-          ["javascriptreact"] = { "rustywind", { "biome", "deno_fmt", "prettier" } },
+          ["javascriptreact"] = { "rustywind", { "biome", "deno_fmt", "prettierd" } },
           ["json"] = { "biome", "prettierd", "prettier" },
           ["jsonc"] = { "biome", "prettierd", "prettier" },
           ["less"] = { "biome", "prettierd", "prettier" },

@@ -179,19 +179,33 @@ function M.delete_keymaps(list)
   end
 end
 
-function M.biome_config_exists()
+function M.config_exists(filename)
   local current_dir = vim.fn.getcwd()
-  local config_file = current_dir .. "/biome.json"
+  local config_file = current_dir .. "/" .. filename
   if vim.fn.filereadable(config_file) == 1 then
     return true
   end
 end
 
-function M.deno_config_exist()
-  local current_dir = vim.fn.getcwd()
-  local config_file = current_dir .. "/deno.json"
-  if vim.fn.filereadable(config_file) == 1 then
-    return true
+-- Trim trailing whitespace and trailing blank lines on save
+function M.trim_trailing_whitespace()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
+  vim.api.nvim_win_set_cursor(0, pos)
+end
+
+function M.trim_trailing_lines()
+  local last_line = vim.api.nvim_buf_line_count(0)
+  local last_nonblank_line = fn.prevnonblank(last_line)
+  if last_nonblank_line < last_line then
+    vim.api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {})
+  end
+end
+
+function M.trim()
+  if not vim.o.binary and vim.o.filetype ~= "diff" then
+    M.trim_trailing_lines()
+    M.trim_trailing_whitespace()
   end
 end
 

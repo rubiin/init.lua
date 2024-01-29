@@ -4,4 +4,5 @@ local Helper = require("utils.helpers")
 
 return Helper.disable_plugins({
   "folke/tokyonight",
+  "echasnovski/mini.pairs",
 })

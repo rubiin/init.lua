@@ -9,10 +9,9 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, user_command, fn, cmd =
-  vim.opt_local, vim.api.nvim_create_autocmd, vim.api.nvim_create_user_command, vim.fn, vim.cmd
+local opt_local, autocmd, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd
 
-local keymap = require("utils.helpers").keymap
+local keymap, trim = require("utils.helpers").keymap, require("utils.helpers").trim
 
 local lualine_picker = require("custom.lualinepicker")
 
@@ -185,27 +184,6 @@ autocmd("QuitPre", {
 })
 
 -- Trim trailing whitespace and trailing blank lines on save
-local function trim_trailing_whitespace()
-  local pos = vim.api.nvim_win_get_cursor(0)
-  cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
-  vim.api.nvim_win_set_cursor(0, pos)
-end
-
-local function trim_trailing_lines()
-  local last_line = vim.api.nvim_buf_line_count(0)
-  local last_nonblank_line = fn.prevnonblank(last_line)
-  if last_nonblank_line < last_line then
-    vim.api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {})
-  end
-end
-
-local function trim()
-  if not vim.o.binary and vim.o.filetype ~= "diff" then
-    trim_trailing_lines()
-    trim_trailing_whitespace()
-  end
-end
-
 autocmd("BufWritePre", {
   group = augroup("trim_on_save"),
   callback = trim,
@@ -266,7 +244,6 @@ autocmd("BufReadPost", {
   end,
 })
 
-
 -- Fix conceallevel for json files
 autocmd({ "FileType" }, {
   group = augroup("lazyvim_json_conceal"),
@@ -288,8 +265,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-
-
 -- auto update barbecue , more performant than using default autocmd
 autocmd({
   "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
@@ -305,13 +280,3 @@ autocmd({
     require("barbecue.ui").update()
   end,
 })
-
--- ========================================================================== --
--- ==                          USER COMMANDS                               == --
--- ========================================================================== --
-
-user_command("TrimTrailingLines", trim_trailing_lines, {})
-
-user_command("TrimWhitespace", trim_trailing_whitespace, {})
-
-user_command("LuaLineSelect", lualine_picker, {})

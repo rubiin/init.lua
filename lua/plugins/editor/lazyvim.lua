@@ -4,6 +4,7 @@ return {
     opts = {
       defaults = {
         autocmds = false,
+        colorscheme = "catppuccin",
       },
     },
   },
