@@ -35,7 +35,6 @@ keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 -- Select all text in buffer with C-a
 keymap("n", "<C-a>", "ggVG", { desc = "Select All" })
 
-
 -- keymap("n", "<leader>;", function()
 --   require("dashboard"):instance()
 -- end, { desc = "Open Dashboard" })

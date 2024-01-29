@@ -2,5 +2,8 @@ return {
   "karb94/neoscroll.nvim",
   event = "BufRead",
   lazy = true,
-  opts = {}, -- use default configuration
+  opts = {
+
+    mappings = { "<C-u>", "<C-d>" }, -- disable other scrolling methods
+  },
 }
