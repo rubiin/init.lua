@@ -30,10 +30,11 @@ local keymaps_to_delete = {
 delete_keys(keymaps_to_delete)
 
 -- Copy whole file content to clipboard with C-c
-keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy whole file to clipboard" })
+keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
 -- Select all text in buffer with C-a
-keymap("n", "<C-a>", "ggVG", { desc = "Select all" })
+keymap("n", "<C-a>", "ggVG", { desc = "Select All" })
+
 
 -- keymap("n", "<leader>;", function()
 --   require("dashboard"):instance()
@@ -46,7 +47,7 @@ keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [Laz
 keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
-keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display messages" })
+keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
 -- Add spell check to cspell
 keymap("n", "<leader>cs", function()
