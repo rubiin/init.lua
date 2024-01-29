@@ -63,7 +63,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 
 ### Start screen with dashboard-nvim
 
-![](https://i.imgur.com/DNVB7mz.png)
+![](https://i.imgur.com/AA3ty9F.png)
 
 ### Editor
 
@@ -110,3 +110,10 @@ If you want to start neovim with no plugins whatsoever you can use the `--clean`
   ```sh
 core.editor = nvim --clean
   ```
+
+## Credits and Further reading/learning
+Teejay Dev for his [videos](https://www.youtube.com/@teej_dv)
+Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
+ThePrimeagen for his [videos](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
+Alpha2phi for his [Article](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
+
