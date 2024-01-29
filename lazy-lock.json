@@ -6,6 +6,7 @@
   "barbecue.nvim": { "branch": "main", "commit": "d38a2a023dfb1073dd0e8fee0c9be08855d3688f" },
   "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },
   "bigfile.nvim": { "branch": "main", "commit": "33eb067e3d7029ac77e081cfe7c45361887a311a" },
+ "boole.nvim": { "branch": "main", "commit": "7b4a3dae28e3b2497747aa840439e9493cabdc49" },
   "bufferline.nvim": { "branch": "main", "commit": "b15c6daf5a64426c69732b31a951f4e438cb6590" },
   "catppuccin": { "branch": "main", "commit": "afab7ec2a79c7127627dede79c0018b6e45663d0" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "b7d056dab963b5d3f2c560d92937cb51db61cb5b" },

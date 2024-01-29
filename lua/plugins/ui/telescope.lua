@@ -99,6 +99,8 @@ return {
       require("telescope").load_extension("fzf")
     end,
   },
+
+  -- TODO: replace this with oil
   {
     "nvim-telescope/telescope-file-browser.nvim",
     lazy = true,
