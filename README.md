@@ -11,10 +11,12 @@ Based on LazyVim as a starter. The one based on lunarvim can be found at my dotf
 
 ## ⚡️ Requirements
 
-- Neovim >= **0.9.0** (needs to be built with **LuaJIT**)
+- Neovim >= **0.9.4** (needs to be built with **LuaJIT**)
 - Git >= **2.19.0** (for partial clones support)
-- a [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) **_(optional, but needed to display some icons)_**
-- [lazygit](https://github.com/jesseduffield/lazygit) **_(optional)_**
+- a [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) as your terminal font.
+  > Make sure the nerd font you set doesn't end with Mono to prevent small icons.
+  > Example : `JetbrainsMono Nerd Font` and not ~~JetbrainsMono Nerd Font Mono~~
+- [lazygit](https://github.com/jesseduffield/lazygit) **_(optional)_** for git integration
 - a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
 - for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) **_(optional)_**
   - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -25,7 +27,7 @@ Based on LazyVim as a starter. The one based on lunarvim can be found at my dotf
   - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
   - [iterm2](https://iterm2.com/) **_(Macos)_**
 
-You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering you are on a linux based system
+You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering you are on a unix based system
 
 ## Install Instructions
 
@@ -43,6 +45,19 @@ Open Neovim with this config:
 ```sh
 NVIM_APPNAME=rubiin/init.lua/ nvim
 ```
+## Docker Instructions
+
+```sh
+docker run -w /root -it --rm alpine:latest sh -uelic '
+  apk add git nodejs neovim ripgrep build-base wget --update
+  git clone https://github.com/rubiin/init.lua ~/.config/nvim
+  nvim
+  '
+```
+
+- NOTE for Windows users:
+- don't use Windows
+- try WSL2 on Windows and pretend you're on Linux (it's better)
 
 ## UI
 
@@ -78,6 +93,7 @@ NVIM_APPNAME=rubiin/init.lua/ nvim
 - Asynchronous code execution via [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim).
 - Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 - Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
+
 
 ## Personalization
 You can customize the banner with the globals on `lua/rubiin/init.lua`:
