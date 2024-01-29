@@ -108,8 +108,8 @@ return {
     keys = {
       {
         '<leader>sB',
-        ':Telescope file_browser path=%:p:h=%:p:h<cr>',
-        desc = 'Browse Files',
+        "<cmd>Telescope find_files cwd=%:p:h<cr>",
+        desc = 'Browse Files (cwd)',
       },
     },
     config = function()
