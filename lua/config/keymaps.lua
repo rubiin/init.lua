@@ -33,8 +33,8 @@ delete_keys(keymaps_to_delete)
 -- Copy whole file content to clipboard with C-c
 -- keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
--- Select all text in buffer with C-a
--- keymap("n", "<C-a>", "ggVG", { desc = "Select All" })
+-- Select all text in buffer with ==
+keymap("n", "==", "ggVG", { desc = "Select All" })
 
 -- keymap("n", "<C-e>", "yyp", { desc = "Copy and Paste Line" })
 
