@@ -4,10 +4,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = { "K", false }
-      keys[#keys + 1] = { "<leader>ca", false }
-      keys[#keys + 1] = { "<leader>cA", false }
+      local keymaps = require("lazyvim.plugins.lsp.keymaps").get()
+      keymaps[#keymaps + 1] = { "K", false }
+      keymaps[#keymaps + 1] = { "<leader>ca", false }
+      keymaps[#keymaps + 1] = { "<leader>cl", false }
+      keymaps[#keymaps + 1] = { "<leader>cA", false }
     end,
   },
   {

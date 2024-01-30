@@ -1103,3 +1103,7 @@ zstyle
 zxvf
 
 noconfirm
+shfmt
+callhierarchy
+symbol_in_winbar
+codeaction
