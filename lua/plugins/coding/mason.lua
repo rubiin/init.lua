@@ -25,7 +25,6 @@ return {
 
         -- code spell
         "codespell",
-        "misspell",
         "cspell",
         "typos-lsp",
 
