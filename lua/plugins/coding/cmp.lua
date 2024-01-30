@@ -60,6 +60,11 @@ return {
       table.insert(opts.sources, { name = "nvim_lua" })
       table.insert(opts.sources, { name = "nvim_lsp_signature_help" })
       local cmp = require("cmp")
+
+      opts.window = {
+        documentation = cmp.config.window.bordered("rounded"),
+      }
+
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
