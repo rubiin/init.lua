@@ -172,7 +172,7 @@ end
 vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
 -- ========================================================================== --
--- ==                  SPELL AND ENCONDING                                 == --
+-- ==                  SPELL AND ENCODING                                 == --
 -- ========================================================================== --
 
 o.spell = true -- Enable spell check by default

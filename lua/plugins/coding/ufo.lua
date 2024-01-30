@@ -1,18 +1,6 @@
 return {
   -- add folding range to capabilities
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      capabilities = {
-        textDocument = {
-          foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          },
-        },
-      },
-    },
-  },
+
   -- ufo code folding
   {
     "kevinhwang91/nvim-ufo",
@@ -21,8 +9,8 @@ return {
     lazy = true,
     opts = {
       -- Use treesitter as a main provider
-      provider_selector = function()
-        return { "treesitter", "indent" }
+      provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
       end,
       fold_virt_text_handler = function(virtual_text, left_number, end_line_number, width, truncate)
         local new_virtual_text = {}
@@ -67,7 +55,7 @@ return {
         end,
         desc = "Close All Folds",
       },
-     {
+      {
         "zp",
         function()
           local winid = require("ufo").peekFoldedLinesUnderCursor()
