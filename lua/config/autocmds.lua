@@ -283,7 +283,7 @@ autocmd({
 
 --[[ Open plugin repos with gx ]]
 vim.api.nvim_create_autocmd("BufReadPost", {
-  group = vim.api.nvim_create_augroup("GxWithPlugins"),
+  group = augroup("GxWithPlugins"),
   callback = function()
     if vim.fn.getcwd() == vim.fn.stdpath("config") then
       vim.keymap.set("n", "gx", function()

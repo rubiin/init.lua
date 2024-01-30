@@ -54,13 +54,6 @@ return {
     },
     keys = {
       {
-        "zr",
-        function()
-          require("ufo").openFoldsExceptKinds()
-        end,
-        desc = "Open Folds Except Kinds",
-      },
-      {
         "zR",
         function()
           require("ufo").openAllFolds()
@@ -74,14 +67,7 @@ return {
         end,
         desc = "Close All Folds",
       },
-      {
-        "zm",
-        function()
-          require("ufo").closeFoldsWith()
-        end,
-        desc = "Close Folds With",
-      },
-      {
+     {
         "zp",
         function()
           local winid = require("ufo").peekFoldedLinesUnderCursor()
