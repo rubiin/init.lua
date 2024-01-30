@@ -49,14 +49,12 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
     },
     opts = function(_, opts)
       vim.list_extend(opts.sources or {}, {
-        { name = "emoji" },
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
       })
