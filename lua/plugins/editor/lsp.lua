@@ -69,7 +69,7 @@ return {
         function()
           require("lspsaga.codeaction").code_action({ context = { only = "source" } })
         end,
-        desc = "Code action (source)",
+        desc = "Code Action (Source)",
       },
 
       { "<leader>uo", "<Cmd>Lspsaga outline<CR>", desc = "Outline Toggle" },

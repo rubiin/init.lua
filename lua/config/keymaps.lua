@@ -29,12 +29,11 @@ local keymaps_to_delete = {
 }
 delete_keys(keymaps_to_delete)
 
--- TODO: find a different keymaps for this
--- Copy whole file content to clipboard with C-c
--- keymap("n", "<C-c>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
+-- Copy whole file content to clipboard with C-1
+keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
--- Select all text in buffer with ==
-keymap("n", "==", "ggVG", { desc = "Select All" })
+-- Select all text in buffer with C-2
+keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
 
 -- keymap("n", "<C-e>", "yyp", { desc = "Copy and Paste Line" })
 
@@ -56,7 +55,7 @@ keymap("n", "<leader>cs", function()
   require("utils.cspell").add_word_to_c_spell_dictionary()
 end, { desc = "Add Word To Cspell Dictionary" })
 
--- Fun stuffs
+-- Fun stuffs TODO: remap to something else
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make It Rain Baby",
 })
