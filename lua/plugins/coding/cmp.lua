@@ -49,10 +49,33 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-nvim-lsp-signature-help" },
+    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-nvim-lsp-signature-help", "hrsh7th/cmp-cmdline" },
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
       table.insert(opts.sources, { name = "nvim_lsp_signature_help" })
+      local cmp = require("cmp")
+      -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
+
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }),
+      })
     end,
   },
 }
