@@ -280,3 +280,43 @@ autocmd({
     require("barbecue.ui").update()
   end,
 })
+
+--[[ Open plugin repos with gx ]]
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = vim.api.nvim_create_augroup("GxWithPlugins"),
+  callback = function()
+    if vim.fn.getcwd() == vim.fn.stdpath("config") then
+      vim.keymap.set("n", "gx", function()
+        local file = vim.fn.expand("<cfile>") --[[@as string]]
+
+        -- First try the default behaviour from https://github.com/neovim/neovim/blob/597355deae2ebddcb8b930da9a8b45a65d05d09b/runtime/lua/vim/_editor.lua#L1084.
+        local _, err = vim.ui.open(file)
+        if not err then
+          return
+        end
+
+        -- Consider anything that looks like string/string a GitHub link.
+        local link = file:match("%w[%w%-]+/[%w%-%._]+")
+        if link then
+          _, err = vim.ui.open("https://www.github.com/" .. link)
+        end
+
+        -- If that fails, just blame me.
+        if err then
+          vim.notify(err, vim.log.levels.ERROR)
+        end
+      end, { desc = "Open filepath or URI under cursor" })
+    end
+  end,
+  desc = "Make `gx` open repos in default browser",
+})
+
+--[[ Disable `mini.indentscope` for specific filetypes ]]
+autocmd("FileType", {
+  pattern = { "fzf", "lspinfo" },
+  group = augroup("DisableIndentScope"),
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+  desc = "Disable `mini.indentscope` for specific filetypes",
+})
