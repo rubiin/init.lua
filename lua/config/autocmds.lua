@@ -281,8 +281,28 @@ autocmd({
   end,
 })
 
+local fold_augroup = augroup("remember_folds")
+
+autocmd({ "BufLeave", "BufWinLeave" }, {
+  pattern = "*",
+  callback = function()
+    vim.cmd("silent! mkview")
+  end,
+  group = fold_augroup,
+  desc = "Remember folds on buffer exit",
+})
+
+autocmd("BufReadPost", {
+  pattern = "*",
+  group = fold_augroup,
+  callback = function()
+    cmd("silent! loadview")
+  end,
+  desc = "Restore folds on buffer enter",
+})
+
 --[[ Open plugin repos with gx ]]
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
   group = augroup("GxWithPlugins"),
   callback = function()
     if vim.fn.getcwd() == vim.fn.stdpath("config") then

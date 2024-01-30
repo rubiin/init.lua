@@ -10,7 +10,7 @@ return {
     opts = {
       -- Use treesitter as a main provider
       provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
+        return { "treesitter", "indent" }
       end,
       fold_virt_text_handler = function(virtual_text, left_number, end_line_number, width, truncate)
         local new_virtual_text = {}

@@ -77,7 +77,13 @@ o.clipboard = "unnamedplus" -- Sync with system clipboard
 -- ========================================================================== --
 
 o.autowrite = true -- Enable auto write
-o.completeopt = "menu,menuone,noselect"
+
+-- completeopt is used to manage code suggestions
+-- menuone: show popup even when there is only one suggestion
+-- noinsert: Only insert text when selection is confirmed
+-- noselect: force us to select one from the suggestions
+
+o.completeopt = "menu,menuone,noselect,noinsert"
 o.conceallevel = 3 -- Hide * markup for bold and italic
 o.confirm = true -- Confirm to save changes before exiting modified buffer
 
