@@ -10,7 +10,7 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
-  -- waka time
+  -- wakatime
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",

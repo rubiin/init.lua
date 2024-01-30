@@ -24,7 +24,7 @@ return {
         { "include", "exclude" },
         { "vim", "nvim" },
         { "BufRead", "BufReadPre", "BufReadPost" }, -- useful for lazyvim configs
-        { "BufWite", "BufWritePre", "BufWritePost" }, -- useful for lazyvim configs
+        { "BufWrite", "BufWritePre", "BufWritePost" }, -- useful for lazyvim configs
         { "on", "off" },
         { "light", "dark" },
         { "frappe", "latte", "macchiato", "mocha" },

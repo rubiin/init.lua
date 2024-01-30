@@ -3,6 +3,15 @@ local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 return {
   {
     "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        typos_lsp = {
+          settings = {
+            diagnosticSeverity = "Warning",
+          },
+        },
+      },
+    },
     init = function()
       local keymaps = require("lazyvim.plugins.lsp.keymaps").get()
       keymaps[#keymaps + 1] = { "K", false }
@@ -58,17 +67,4 @@ return {
   },
 
   -- TODO: remove unwanted codespell, misspell, proselint
-
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        typos_lsp = {
-          settings = {
-            diagnosticSeverity = "Warning",
-          },
-        },
-      },
-    },
-  },
 }
