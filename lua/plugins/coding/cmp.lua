@@ -46,7 +46,6 @@ return {
       updateevents = "TextChanged,TextChangedI",
     },
   },
-
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -56,13 +55,16 @@ return {
       "hrsh7th/cmp-nvim-lua",
     },
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-      table.insert(opts.sources, { name = "nvim_lua" })
-      table.insert(opts.sources, { name = "nvim_lsp_signature_help" })
+      vim.list_extend(opts.sources or {}, {
+        { name = "emoji" },
+        { name = "nvim_lua" },
+        { name = "nvim_lsp_signature_help" },
+      })
+
       local cmp = require("cmp")
 
       opts.window = {
-        documentation = cmp.config.window.bordered("rounded"),
+        documentation = cmp.config.window.bordered(),
       }
 
       -- `/` cmdline setup.

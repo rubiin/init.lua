@@ -21,7 +21,13 @@ return {
               runtime = {
                 version = "LuaJIT",
               },
+              diagnostics = {
+                globals = { "vim" },
+              },
               workspace = {
+                library = {
+                  vim.env.VIMRUNTIME,
+                },
                 checkThirdParty = false,
                 maxPreload = 10000,
                 preloadFileSize = 1000,
