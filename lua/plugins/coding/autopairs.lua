@@ -9,6 +9,7 @@ return {
       map_c_w = false, -- map <c-w> to delete a pair if possible
       disable_in_visualblock = true,
       check_ts = true,
+      disable_filetype = { "TelescopePrompt", "spectre_panel" },
     },
   },
 }

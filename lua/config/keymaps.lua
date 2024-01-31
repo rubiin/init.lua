@@ -59,7 +59,3 @@ end, { desc = "Add Word To Cspell Dictionary" })
 keymap("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make It Rain Baby",
 })
-
--- Change current working directory locally and print cwd after that,
--- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
--- keymap.set("n", "<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", { desc = "change cwd" })

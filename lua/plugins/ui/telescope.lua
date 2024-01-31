@@ -1,3 +1,5 @@
+local icons = require("utils.icons").ui
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -6,13 +8,14 @@ return {
       defaults = {
         vimgrep_arguments = {
           "rg",
-          "-L",
           "--color=never",
           "--no-heading",
           "--with-filename",
           "--line-number",
           "--column",
           "--smart-case",
+          "--hidden",
+          "--glob=!.git/",
         },
         layout_config = {
           horizontal = {
@@ -25,8 +28,8 @@ return {
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = "  ", -- or $
-        selection_caret = " ",
+        prompt_prefix = icons.Telescope, -- or $
+        selection_caret = icons.Forward,
         path_display = { "smart" },
         file_ignore_patterns = {
           "%.7z",

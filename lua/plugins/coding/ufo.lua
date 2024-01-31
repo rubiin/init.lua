@@ -1,5 +1,4 @@
 return {
-  -- add folding range to capabilities
 
   -- ufo code folding
   {

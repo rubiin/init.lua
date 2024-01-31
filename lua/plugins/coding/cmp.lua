@@ -49,9 +49,18 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lua",
+      {
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        event = "InsertEnter",
+      },
+      {
+        "hrsh7th/cmp-cmdline",
+        event = "InsertEnter",
+      },
+      {
+        "hrsh7th/cmp-nvim-lua",
+        event = "InsertEnter",
+      },
     },
     opts = function(_, opts)
       vim.list_extend(opts.sources or {}, {

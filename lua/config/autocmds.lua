@@ -41,6 +41,9 @@ local patterns = {
   "spectre_panel",
   "startuptime",
   "tsplayground",
+  "lir",
+  "DressingSelect",
+  "Jaq",
 }
 
 -- ========================================================================== --

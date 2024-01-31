@@ -1,13 +1,13 @@
-local icons = require("utils.icons")
+local icons = require("utils.icons").ui
 return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ui = {
         icons = {
-          package_installed = icons.loaded,
-          package_pending = icons.pending,
-          package_uninstalled = icons.not_loaded,
+          package_installed = icons.Loaded,
+          package_pending = icons.Pending,
+          package_uninstalled = icons.NotLoaded,
         },
       }
 
