@@ -38,6 +38,8 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 2000,
+      -- Animation style
+      stages = "fade_in_slide_out",
     },
   },
 

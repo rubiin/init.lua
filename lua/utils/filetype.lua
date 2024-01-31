@@ -30,5 +30,8 @@ vim.filetype.add({
     ["ignore$"] = "ignore",
     ["rc$"] = "ignore",
     ["%.json"] = "jsonc",
+    [".*/waybar/config"] = "jsonc",
+    [".*/mako/config"] = "dosini",
+    [".*/kitty/*.conf"] = "bash",
   },
 })

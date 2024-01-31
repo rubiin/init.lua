@@ -1121,3 +1121,5 @@ rubiin
 bfnbr
 au_filewrite
 lspinfo
+
+dotenv
