@@ -1,9 +1,9 @@
 # 💤 My neovim config
 
-Based on LazyVim as a starter. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal as a result of which this repo was born which was sooner or later bound to happen
+Based on LazyVim as a starter. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal
+as a result of which this repo was born which was sooner or later bound to happen
 
-
-# init.lua/
+## init.lua/
 
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/leaderkey?style=flat" /></a>
@@ -27,7 +27,8 @@ Based on LazyVim as a starter. The one based on lunarvim can be found at my dotf
   - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
   - [iterm2](https://iterm2.com/) **_(Macos)_**
 
-You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering you are on a unix based system
+You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering
+you are on a unix based system
 
 ## Install Instructions
 
@@ -45,6 +46,7 @@ Open Neovim with this config:
 ```sh
 NVIM_APPNAME=rubiin/init.lua/ nvim
 ```
+
 ## Docker Instructions
 
 ```sh
@@ -63,11 +65,11 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 
 ### Start screen with dashboard-nvim
 
-![](https://i.imgur.com/AA3ty9F.png)
+![dashboard](https://i.imgur.com/AA3ty9F.png)
 
 ### Editor
 
-![](https://i.imgur.com/xDAApQb.png)
+![editor](https://i.imgur.com/xDAApQb.png)
 
 ## Plugins
 
@@ -94,8 +96,8 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 - Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
 
-
 ## Personalization
+
 You can customize the banner with the globals on `lua/rubiin/globals.lua`:
 
 ```lua
@@ -105,13 +107,16 @@ g.random_banner = true -- Random banner
 g.fortune = true -- Fortune in start screen
 
 ```
-If you want to start neovim with no plugins whatsoever you can use the `--clean` flag. For example, if you want to use neovim as your git editor you can add this to your `.gitconfig`:
 
-  ```sh
+If you want to start neovim with no plugins whatsoever you can use the `--clean` flag. For example, if you want
+to use neovim as your git editor you can add this to your `.gitconfig`:
+
+```sh
 core.editor = nvim --clean
-  ```
+```
 
 ## Credits and Further reading/learning
+
 Teejay Dev for his [videos](https://www.youtube.com/@teej_dv)
 Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
 ThePrimeagen for his [videos](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
