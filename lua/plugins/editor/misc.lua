@@ -1,3 +1,5 @@
+-- this file holds all the small plugin changes or overides from lazyvim config
+
 return {
 
   -- profiling vim startup
@@ -10,13 +12,36 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Explorer",
+            highlight = "Directory",
+            text_align = "left",
+          },
+        },
+      },
+    },
+  },
+
   -- wakatime
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",
     lazy = true,
   },
-
+  -- project
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {
+      manual_mode = false,
+    },
+  },
+  -- zoom
   {
     "echasnovski/mini.misc",
     config = true,
