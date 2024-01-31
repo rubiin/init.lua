@@ -96,7 +96,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 
 
 ## Personalization
-You can customize the banner with the globals on `lua/rubiin/init.lua`:
+You can customize the banner with the globals on `lua/rubiin/globals.lua`:
 
 ```lua
 g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
@@ -116,4 +116,3 @@ Teejay Dev for his [videos](https://www.youtube.com/@teej_dv)
 Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
 ThePrimeagen for his [videos](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
 Alpha2phi for his [Article](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
-

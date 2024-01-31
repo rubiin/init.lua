@@ -11,19 +11,8 @@ local o = vim.opt
 local g = vim.g
 local fn = vim.fn
 
--- ========================================================================== --
--- ==                          GLOBALS                                     == --
--- ========================================================================== --
-
 g.mapleader = " "
 g.maplocalleader = "\\"
-g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
-g.github_username = "rubiin" -- Github username
-g.random_banner = true -- Random banner
-g.fortune = true -- Fortune in start screen
-
-g.markdown_recommended_style = 0 -- Fix markdown indentation settings
-g.autoformat = false -- Enable LazyVim auto format
 
 -- LazyVim root dir detection
 -- Each entry can be:
@@ -141,7 +130,7 @@ o.sidescrolloff = 8 -- Columns of context
 -- ========================================================================== --
 
 o.undofile = true --Enable undofile
-o.undodir = fn.expand(vim.fn.stdpath("config") .. "/misc/undo")
+o.undodir = vim.fn.stdpath("config") .. "/misc/undo"
 o.swapfile = false -- Disable swapfile
 o.undolevels = 10000
 
@@ -191,4 +180,4 @@ o.spelllang = "en_us" -- set spell check language
 
 o.history = 10000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
-o.updatetime = 50 -- Decrease update time
+o.updatetime = 200 -- Decrease update time
