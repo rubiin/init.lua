@@ -129,6 +129,7 @@ return {
     Loaded = " ",
     NotLoaded = " ",
     Pending = " ",
+    SelectionCaret = " ",
     Search = " ",
     SignIn = " ",
     SignOut = " ",

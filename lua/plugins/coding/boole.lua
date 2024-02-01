@@ -3,8 +3,8 @@ return {
     "nat-418/boole.nvim",
     event = "BufReadPost",
     keys = {
-      { "<C-a>", "<Cmd>Boole increment<CR>", desc = "Increment",},
-      { "<C-x>", "<Cmd>Boole decrement<CR>", desc = "Decrement",},
+      { "<C-a>", "<Cmd>Boole increment<CR>", desc = "Increment" },
+      { "<C-x>", "<Cmd>Boole decrement<CR>", desc = "Decrement" },
     },
     opts = {
       mappings = {

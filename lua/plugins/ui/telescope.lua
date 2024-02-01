@@ -3,6 +3,15 @@ local icons = require("utils.icons").ui
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "debugloop/telescope-undo.nvim",
+      "telescope/telescope-fzf-native.nvim",
+      "telescope/telescope-ui-select.nvim",
+      "telescope/telescope-file-browser.nvim",
+      "rcarriga/nvim-notify",
+      "kkharji/sqlite.lua",
+      { "prochri/telescope-all-recent.nvim", opts = {} },
+    },
     lazy = true,
     opts = {
       defaults = {
@@ -18,18 +27,15 @@ return {
           "--glob=!.git/",
         },
         layout_config = {
-          horizontal = {
-            prompt_position = "top",
-          },
-          vertical = {
-            prompt_position = "top",
-          },
+
+          horizontal = { prompt_position = "top", results_width = 0.6 },
+          vertical = { mirror = false },
         },
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         prompt_prefix = icons.Telescope, -- or $
-        selection_caret = icons.Forward,
+        selection_caret = icons.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {
           "%.7z",
@@ -92,58 +98,37 @@ return {
         },
       },
     },
-  },
-  -- Telescope related plugins
-
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension("frecency")
-    end,
-  },
-
-  -- TODO: replace this with oil
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    lazy = true,
-    --stylua: ignore
     keys = {
       {
-        '<leader>sB',
+        "<leader>sB",
         "<cmd>Telescope find_files cwd=%:p:h<cr>",
-        desc = 'Browse Files (cwd)',
+        desc = "Browse Files (cwd)",
       },
-    },
-    config = function()
-      require("telescope").load_extension("file_browser")
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").load_extension("ui-select")
-    end,
-  },
-
-  {
-    "debugloop/telescope-undo.nvim",
-    lazy = true,
-    dependencies = {
-      {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-      },
-    },
-    keys = {
       {
         "<leader>cu",
         "<cmd>Telescope undo<cr>",
-        desc = "Undo history",
+        desc = "Undo History",
+      },
+      {
+        "<leader>sN",
+        function()
+          require("telescope").extensions.notify.notify()
+        end,
+        desc = "Search Notifications",
       },
     },
+
     config = function(_, opts)
-      require("telescope").load_extension("undo")
+      local Util = require("lazyvim.util")
+      local telescope = require("telescope")
+      if Util.has("nvim-notify") then
+        require("telescope").load_extension("notify")
+      end
+      telescope.setup(opts)
+      telescope.load_extension("undo")
+      telescope.load_extension("file_browser")
+      telescope.load_extension("ui-select")
+      telescope.load_extension("harpoon")
     end,
   },
 }

@@ -66,22 +66,6 @@ return {
       -- Animation style
       stages = "fade_in_slide_out",
     },
-    config = function(opts)
-      local Util = require("lazyvim.util")
-      if Util.has("nvim-notify") then
-        require("telescope").load_extension("notify")
-      end
-      require("notify").setup(opts)
-    end,
-    keys = {
-      {
-        "<leader>sN",
-        function()
-          require("telescope").extensions.notify.notify()
-        end,
-        desc = "Search Notifications",
-      },
-    },
   },
 
   {
