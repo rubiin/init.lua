@@ -1123,3 +1123,10 @@ au_filewrite
 lspinfo
 
 dotenv
+filesize_mib
+readfile
+hrsh7th
+shelldoc
+rustdoc
+pydoc
+tsdoc
