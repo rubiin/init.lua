@@ -26,6 +26,7 @@ local keymaps_to_delete = {
   { "n", "<leader>L" },
   { "n", "<leader>-" },
   { "n", "<leader>|" },
+  { "n", "<leader>ft" },
 }
 delete_keys(keymaps_to_delete)
 
@@ -58,3 +59,8 @@ end, { desc = "Add Word To Cspell Dictionary" })
 keymap("n", "<leader>==", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make It Rain Baby",
 })
+
+
+keymap("n", "<C-/>", function()
+  lazyvim_util.terminal(nil, { border = "rounded" })
+end, { desc = "Terminal (Root Dir)" })
