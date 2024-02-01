@@ -18,7 +18,19 @@ return {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
     lazy = true,
-    opts = { open_cmd = "noswapfile vnew" },
+    config = function()
+      local theme = require("catppuccin.palettes").get_palette("macchiato")
+
+      vim.api.nvim_set_hl(0, "SpectreSearch", { bg = theme.red, fg = theme.base })
+      vim.api.nvim_set_hl(0, "SpectreReplace", { bg = theme.green, fg = theme.base })
+      require("spectre").setup({
+        is_insert_mode = true,
+        highlight = {
+          search = "SpectreSearch",
+          replace = "SpectreReplace",
+        },
+      })
+    end,
     keys = {
       {
         "<leader>sr",
@@ -27,6 +39,14 @@ return {
         end,
         desc = "Replace in files",
       },
+      {
+        "<leader>sf",
+        function()
+          require("spectre").open_file_search({ select_word = true })
+        end,
+        desc = "Replace in current file",
+      },
+
       {
         "<leader>sp",
         function()

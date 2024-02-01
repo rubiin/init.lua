@@ -1,4 +1,4 @@
--- this file holds all the small plugin changes or overides from lazyvim config
+-- this file holds all the small plugin changes or overrides from lazyvim config
 
 return {
 
