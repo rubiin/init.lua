@@ -1135,3 +1135,4 @@ timeoutlen
 timeoutlen
 linepicker
 bufname
+disable_in_visualblock
