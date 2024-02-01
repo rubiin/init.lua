@@ -38,7 +38,7 @@ return {
           require("refactoring").refactor("Extract Block To File")
         end,
         mode = { "n" },
-        desc = "Extract Block to File",
+        desc = "Extract Block To File",
       },
       {
         "<leader>rP",
@@ -78,7 +78,7 @@ return {
           require("refactoring").refactor("Extract Function to File")
         end,
         mode = { "v" },
-        desc = "Extract Function to File",
+        desc = "Extract Function To File",
       },
       {
         "<leader>rx",

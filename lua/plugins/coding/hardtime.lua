@@ -49,7 +49,7 @@ return {
       {
         "<leader>hr",
         "<cmd>Hardtime report<CR>",
-        desc = "Hardtime report",
+        desc = "Hardtime Report",
       },
     },
   },

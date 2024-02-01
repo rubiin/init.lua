@@ -37,14 +37,14 @@ return {
         function()
           require("spectre").open()
         end,
-        desc = "Replace in files",
+        desc = "Replace Un Files",
       },
       {
         "<leader>sf",
         function()
           require("spectre").open_file_search({ select_word = true })
         end,
-        desc = "Replace in current file",
+        desc = "Replace In Current File",
       },
 
       {
@@ -52,7 +52,7 @@ return {
         function()
           require("spectre").open(_G.get_spectre_options())
         end,
-        desc = "Replace in files (Root dir)",
+        desc = "Replace In Files (Root dir)",
       },
       -- Search current word
       {
@@ -60,7 +60,7 @@ return {
         function()
           require("spectre").open_visual(_G.get_spectre_options({ select_word = true }))
         end,
-        desc = "Replace current word (Root dir)",
+        desc = "Replace Current Word (Root dir)",
       },
       -- Open search with select word in visual mode
       {
@@ -70,7 +70,7 @@ return {
         end,
         mode = "v",
         silent = true,
-        desc = "Replace current word (Root dir)",
+        desc = "Replace Current Word (Root dir)",
       },
     },
   },

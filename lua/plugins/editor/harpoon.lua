@@ -45,7 +45,7 @@ return {
           function()
             require("harpoon").ui.toggle_quick_menu()
           end,
-          desc = "Toggle quick menu",
+          desc = "Toggle Quick Menu",
         },
         {
           "<leader>hn",
@@ -66,35 +66,35 @@ return {
           function()
             require("harpoon").mark.rm_file()
           end,
-          desc = "Remove file from harpoon",
+          desc = "Remove File From Harpoon",
         },
         {
           "<leader>h1",
           function()
             require("harpoon").ui.nav_file(1)
           end,
-          desc = "Navigate to file 1",
+          desc = "Navigate To File 1",
         },
         {
           "<leader>h2",
           function()
             require("harpoon").ui.nav_file(2)
           end,
-          desc = "Navigate to file 2",
+          desc = "Navigate To File 2",
         },
         {
           "<leader>h3",
           function()
             require("harpoon").ui.nav_file(3)
           end,
-          desc = "Navigate to file 3",
+          desc = "Navigate To File 3",
         },
         {
           "<leader>h4",
           function()
             require("harpoon").ui.nav_file(4)
           end,
-          desc = "Navigate to file 4",
+          desc = "Navigate To File 4",
         },
       }
     end,
