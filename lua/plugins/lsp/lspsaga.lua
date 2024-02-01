@@ -43,7 +43,7 @@ return {
       },
 
       { "<leader>uo", "<Cmd>Lspsaga outline<CR>", desc = "Outline Toggle" },
-      { "K", "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover Doc" },
+      { "K", "<Cmd>Lspsaga hover_doc ++silent<CR>", desc = "Hover Doc" },
     },
   },
   {
