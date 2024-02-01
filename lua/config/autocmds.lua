@@ -9,7 +9,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd
+local opt_local, autocmd, fn, cmd, api = vim.opt_local, api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
 
 local keymap, trim = require("utils.helpers").keymap, require("utils.helpers").trim
 
@@ -18,7 +18,7 @@ local lualine_picker = require("custom.lualinepicker")
 -- autogroup function
 local function augroup(name, opts)
   opts = opts or { clear = true }
-  return vim.api.nvim_create_augroup(name, opts)
+  return api.nvim_create_augroup(name, opts)
 end
 
 local au_filewrite = augroup("FileWrite")
@@ -170,9 +170,9 @@ autocmd("BufWritePost", {
 autocmd("QuitPre", {
   callback = function()
     local invalid_win = {}
-    local wins = vim.api.nvim_list_wins()
+    local wins = api.nvim_list_wins()
     for _, w in ipairs(wins) do
-      local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+      local bufname = api.nvim_buf_get_name(api.nvim_win_get_buf(w))
       if bufname:match("NvimTree_") ~= nil then
         table.insert(invalid_win, w)
       end
@@ -180,7 +180,7 @@ autocmd("QuitPre", {
     if #invalid_win == #wins - 1 then
       -- Should quit, so we close all invalid windows.
       for _, w in ipairs(invalid_win) do
-        vim.api.nvim_win_close(w, true)
+        api.nvim_win_close(w, true)
       end
     end
   end,
@@ -239,10 +239,10 @@ autocmd("BufReadPost", {
       return
     end
     vim.b[buf].lazyvim_last_loc = true
-    local mark = vim.api.nvim_buf_get_mark(buf, '"')
-    local lcount = vim.api.nvim_buf_line_count(buf)
+    local mark = api.nvim_buf_get_mark(buf, '"')
+    local lcount = api.nvim_buf_line_count(buf)
     if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      pcall(api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
@@ -257,7 +257,7 @@ autocmd({ "FileType" }, {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+api.nvim_create_autocmd({ "BufWritePre" }, {
   group = augroup("lazyvim_auto_create_dir"),
   callback = function(event)
     if event.match:match("^%w%w+://") then
@@ -342,4 +342,15 @@ autocmd("FileType", {
     vim.b.miniindentscope_disable = true
   end,
   desc = "Disable `mini.indentscope` for specific filetypes",
+})
+
+-- Disable caps lock while vim is running
+api.nvim_create_autocmd('VimEnter', {
+  pattern = "*",
+  command = "!setxkbmap -option ctrl:nocaps"
+})
+
+api.nvim_create_autocmd('VimLeave', {
+  pattern = "*",
+  command = "!setxkbmap -option"
 })
