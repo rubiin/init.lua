@@ -20,12 +20,13 @@ if lazyvim_util.has("gitsigns.nvim") then
   })
 end
 
--- Delete LazyVim default bindings
+-- Delete LazyVim default bindings which are nuisance for me
 local keymaps_to_delete = {
   { "n", "<leader>l" },
   { "n", "<leader>L" },
   { "n", "<leader>-" },
   { "n", "<leader>|" },
+  { "n", "<leader>fT" },
   { "n", "<leader>ft" },
 }
 delete_keys(keymaps_to_delete)
