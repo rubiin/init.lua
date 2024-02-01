@@ -27,7 +27,7 @@ local builtins = {
   "wildcharm",
   "vim",
   "habamax",
-  "tokonight",
+  "tokyonight",
 }
 
 local get_colorsheme = function()
