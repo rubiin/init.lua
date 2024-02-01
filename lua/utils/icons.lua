@@ -128,7 +128,7 @@ return {
     Project = " ",
     Loaded = " ",
     NotLoaded = " ",
-    Pending = "󰌚 ",
+    Pending = " ",
     Search = " ",
     SignIn = " ",
     SignOut = " ",

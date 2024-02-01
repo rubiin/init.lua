@@ -1130,3 +1130,8 @@ shelldoc
 rustdoc
 pydoc
 tsdoc
+lualinepicker
+timeoutlen
+timeoutlen
+linepicker
+bufname

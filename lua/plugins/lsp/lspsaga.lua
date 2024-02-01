@@ -13,7 +13,18 @@ return {
       hover = { enable = true, keys = { quit = keys.quit } }, -- hover doc
       rename = { enable = true }, --  used telescope/inc-rename for this
       code_action = { enable = true, extend_gitsigns = true, show_server_name = true }, -- might use actions-preview for this
-
+      ui = {
+        theme = "round",
+        border = "rounded",
+        winblend = 0,
+        expand = "",
+        collapse = "",
+        preview = " ",
+        code_action = "󱧣 ",
+        diagnostic = "🐞",
+        hover = " ",
+        kind = {},
+      },
       --- disabled lspsaga features
       finder = { enable = false }, -- handled by telescope
       diagnostic = { enable = false }, -- used inlay hints for this
