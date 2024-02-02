@@ -4,13 +4,34 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "debugloop/telescope-undo.nvim",
       "telescope/telescope-fzf-native.nvim",
-      "telescope/telescope-ui-select.nvim",
-      "telescope/telescope-file-browser.nvim",
+      {
+        "debugloop/telescope-undo.nvim",
+        lazy = true,
+        event = "VeryLazy",
+      },
+      {
+        "telescope/telescope-ui-select.nvim",
+        lazy = true,
+        event = "VeryLazy",
+      },
+      "ThePrimeagen/harpoon",
+      {
+        "telescope/telescope-file-browser.nvim",
+        lazy = true,
+        event = "VeryLazy",
+      },
       "rcarriga/nvim-notify",
-      "kkharji/sqlite.lua",
-      { "prochri/telescope-all-recent.nvim", opts = {} },
+      {
+        "kkharji/sqlite.lua",
+        event = "VeryLazy",
+      },
+      {
+        "prochri/telescope-all-recent.nvim",
+        lazy = true,
+        event = "VeryLazy",
+        opts = {},
+      },
     },
     lazy = true,
     opts = {
@@ -27,14 +48,13 @@ return {
           "--glob=!.git/",
         },
         layout_config = {
-
           horizontal = { prompt_position = "top", results_width = 0.6 },
           vertical = { mirror = false },
         },
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = icons.Telescope, -- or $
+        prompt_prefix = icons.Telescope,           -- or $
         selection_caret = icons.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {

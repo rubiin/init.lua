@@ -49,15 +49,18 @@ return {
     dependencies = {
       {
         "hrsh7th/cmp-nvim-lsp-signature-help",
-        event = "InsertEnter",
+        lazy = true,
+        event = { "VeryLazy", }
       },
       {
         "hrsh7th/cmp-cmdline",
-        event = "InsertEnter",
+        lazy = true,
+        event = { "VeryLazy" },
       },
       {
         "hrsh7th/cmp-nvim-lua",
-        event = "InsertEnter",
+        lazy = true,
+        event = { "VeryLazy" },
       },
     },
     opts = function(_, opts)

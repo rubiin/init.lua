@@ -9,7 +9,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, fn, cmd, api = vim.opt_local, api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
+local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
 
 local keymap, trim = require("utils.helpers").keymap, require("utils.helpers").trim
 
@@ -345,12 +345,14 @@ autocmd("FileType", {
 })
 
 -- Disable caps lock while vim is running
-api.nvim_create_autocmd('VimEnter', {
+api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
-  command = "!setxkbmap -option ctrl:nocaps"
+  group = augroup("CapslockDisable"),
+  command = "!setxkbmap -option ctrl:nocaps",
 })
 
-api.nvim_create_autocmd('VimLeave', {
+api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
-  command = "!setxkbmap -option"
+  group = augroup("CapslockDisable"),
+  command = "!setxkbmap -option",
 })
