@@ -50,7 +50,7 @@ return {
       {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         lazy = true,
-        event = { "VeryLazy", }
+        event = { "VeryLazy" },
       },
       {
         "hrsh7th/cmp-cmdline",

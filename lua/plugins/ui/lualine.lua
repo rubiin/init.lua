@@ -1,6 +1,13 @@
-local lualine_styles = require("utils.helpers").lualine_styles
+-- use a protected call so we don't error out on first use
+local status_ok, lualinestyles = pcall(require, "utils.helpers")
+if not status_ok then
+	print("please restart neovim")
+	return
+end
 
-local used_style = require("utils.helpers").styles.slanted -- this is the default style, change it to the style you want to use from the list
+local lualine_styles = lualinestyles.lualine_styles
+
+local used_style = lualine_styles.styles.slanted -- this is the default style, change it to the style you want to use from the list
 
 return {
   {
