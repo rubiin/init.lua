@@ -52,9 +52,10 @@ return {
           "--smart-case",
           "--hidden",
           "--glob=!.git/",
+          "--glob=!node_modules/",
         },
         layout_config = {
-          horizontal = { prompt_position = "top", results_width = 0.6 },
+          horizontal = { prompt_position = "top", results_width = 0.8 },
           vertical = { mirror = false },
         },
         color_devicons = true,

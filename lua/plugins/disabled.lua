@@ -5,4 +5,5 @@ local disable_plugins = require("utils.helpers").disable_plugins
 return disable_plugins({
   "folke/tokyonight",
   "echasnovski/mini.pairs",
+  "echasnovski/mini.comment",
 })
