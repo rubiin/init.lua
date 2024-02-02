@@ -2,15 +2,12 @@
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
 local helpers = require("utils.helpers")
-local lualine_picker = require("custom.lualinepicker")
 
 local user_command = vim.api.nvim_create_user_command
 
 user_command("TrimTrailingLines", helpers.trim_trailing_lines, {})
 
 user_command("TrimWhitespace", helpers.trim_trailing_whitespace, {})
-
-user_command("LuaLineSelect", lualine_picker, {})
 
 user_command("ToggleDarkMode", helpers.toggle_light_dark_theme, {})
 

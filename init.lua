@@ -19,5 +19,5 @@ vim.loader.enable()
 
 require("config.lazy")
 require("utils.filetype")
-require("config.usercmds")
 require("config.globals") -- user and lazy globals
+require("config.usercmds")

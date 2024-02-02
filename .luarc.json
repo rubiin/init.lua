@@ -2,7 +2,8 @@
   "diagnostics.globals": [
       "vim",
       "log",
-      "cmp_mappings"
+      "cmp_mappings",
+        "vim"
   ],
   "diagnostics.disable": [
       "unused-local",
