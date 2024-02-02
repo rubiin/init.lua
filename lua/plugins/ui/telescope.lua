@@ -4,7 +4,10 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
+    {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
       {
         "debugloop/telescope-undo.nvim",
         lazy = true,
@@ -145,6 +148,7 @@ return {
         require("telescope").load_extension("notify")
       end
       telescope.setup(opts)
+       telescope.load_extension("fzf")
       telescope.load_extension("undo")
       telescope.load_extension("file_browser")
       telescope.load_extension("ui-select")
