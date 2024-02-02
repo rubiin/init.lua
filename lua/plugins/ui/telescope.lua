@@ -4,10 +4,12 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-    {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-  },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        lazy = true,
+        event = "VeryLazy",
+      },
       {
         "debugloop/telescope-undo.nvim",
         lazy = true,
@@ -27,6 +29,7 @@ return {
       "rcarriga/nvim-notify",
       {
         "kkharji/sqlite.lua",
+        lazy = true,
         event = "VeryLazy",
       },
       {
@@ -57,7 +60,7 @@ return {
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = icons.Telescope, -- or $
+        prompt_prefix = icons.Telescope,           -- or $
         selection_caret = icons.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {
@@ -143,16 +146,19 @@ return {
 
     config = function(_, opts)
       local Util = require("lazyvim.util")
+
       local telescope = require("telescope")
-      if Util.has("nvim-notify") then
-        require("telescope").load_extension("notify")
-      end
       telescope.setup(opts)
-       telescope.load_extension("fzf")
-      telescope.load_extension("undo")
-      telescope.load_extension("file_browser")
-      telescope.load_extension("ui-select")
-      telescope.load_extension("harpoon")
+
+      Util.on_load("telescope.nvim", function()
+        if Util.has("nvim-notify") then
+          require("telescope").load_extension("notify")
+        end
+        telescope.load_extension("undo")
+        telescope.load_extension("file_browser")
+        telescope.load_extension("ui-select")
+        telescope.load_extension("harpoon")
+      end)
     end,
   },
 }
