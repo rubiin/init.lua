@@ -58,6 +58,4 @@ return {
       },
     },
   },
-
-  -- TODO: remove unwanted codespell, misspell, proselint
 }

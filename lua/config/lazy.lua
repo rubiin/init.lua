@@ -64,13 +64,13 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins, reference from NvChad
       disabled_plugins = {
-				"gzip",
-				"matchparen",
-				"netrwPlugin",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
+        "gzip",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
       },
     },
   },

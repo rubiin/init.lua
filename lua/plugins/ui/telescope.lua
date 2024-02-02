@@ -60,7 +60,7 @@ return {
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = icons.Telescope,           -- or $
+        prompt_prefix = icons.Telescope, -- or $
         selection_caret = icons.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {
