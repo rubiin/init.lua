@@ -4,20 +4,20 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "telescope/telescope-fzf-native.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
       {
         "debugloop/telescope-undo.nvim",
         lazy = true,
         event = "VeryLazy",
       },
       {
-        "telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
         lazy = true,
         event = "VeryLazy",
       },
       "ThePrimeagen/harpoon",
       {
-        "telescope/telescope-file-browser.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
         lazy = true,
         event = "VeryLazy",
       },
