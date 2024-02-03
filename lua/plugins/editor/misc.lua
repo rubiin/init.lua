@@ -1,7 +1,6 @@
 -- this file holds all the small plugin changes or overrides from lazyvim config
 
 return {
-
   -- profiling vim startup
   {
     enabled = false,
@@ -27,7 +26,6 @@ return {
       },
     },
   },
-
   -- wakatime
   {
     "wakatime/vim-wakatime",
@@ -56,8 +54,7 @@ return {
         end,
         desc = 'Toggle Zoom'
       }
-    }
-,
+    },
   },
   {
     "rcarriga/nvim-notify",
@@ -67,7 +64,6 @@ return {
       stages = "fade_in_slide_out",
     },
   },
-
   {
     "eandrju/cellular-automaton.nvim",
     event = "VeryLazy",

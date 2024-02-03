@@ -21,7 +21,7 @@ return {
         expand = user_icons.ui.Expand,
         collapse = user_icons.ui.Collapse,
         preview = user_icons.ui.Preview,
-        code_action = user_icons.ui.CodeAction,
+        code_action = user_icons.diagnostics.Hint,
         diagnostic = user_icons.diagnostics.Debug,
         hover = user_icons.ui.Hover,
         kind = {},

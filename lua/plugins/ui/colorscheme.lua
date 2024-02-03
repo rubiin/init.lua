@@ -1,4 +1,4 @@
-Util = require("lazyvim.util")
+local lazy_util = require("lazyvim.util")
 
 local builtins = {
   "zellner",
@@ -39,12 +39,10 @@ local get_colorsheme = function()
     end, target("", "color"))
   end
 
-  Util.telescope("colorscheme", { enable_preview = true })()
+  lazy_util.telescope("colorscheme", { enable_preview = true })()
   vim.fn.getcompletion = target
 end
-
 -- A list of colorscheme plugin you may want to try. Find what suits you.
-
 return {
   {
     "Mofiqul/dracula.nvim",
