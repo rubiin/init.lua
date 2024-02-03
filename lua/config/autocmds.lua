@@ -12,12 +12,15 @@
 local opt_local, autocmd, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd
 
 local keymap, trim = require("utils.helpers").keymap, require("utils.helpers").trim
+-- autoheader for sh scripts
+require("custom.autoheader")
 
 -- autogroup function
 local function augroup(name, opts)
   opts = opts or { clear = true }
   return vim.api.nvim_create_augroup(name, opts)
 end
+
 
 local au_filewrite = augroup("FileWrite")
 local au_general = augroup("GeneralSettings")
