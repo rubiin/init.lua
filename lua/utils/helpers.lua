@@ -11,6 +11,15 @@ M.styles = {
   default = "default",
 }
 
+-- taken from ThePrimeagen and modified
+function M.ColorMyPencils(color)
+  color = color or "catppuccin"
+  vim.cmd.colorscheme(color)
+
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
 --- @param type string
 --- @return table
 function M.lualine_styles(type)
@@ -123,7 +132,7 @@ end
 --- Expects only the minor version, e.g. '9' for 0.9.1
 --- @param version number
 ---@return boolean
-function M.is_neovim_version_satified(version)
+function M.is_neovim_version_satisfied(version)
   return version <= tonumber(vim.version().minor)
 end
 
