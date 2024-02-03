@@ -5,7 +5,6 @@ if not status_ok then
   return
 end
 
-
 local used_style = lualinestyles.styles.slanted -- this is the default style, change it to the style you want to use from the list
 local lualine_styles = lualinestyles.lualine_styles(used_style)
 

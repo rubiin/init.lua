@@ -46,10 +46,24 @@ end
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 
 return {
-
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
   --  add nord
   {
     "gbprod/nord.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
+  -- one dark theme
+  {
+    "olimorris/onedarkpro.nvim",
     lazy = true,
     keys = {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
@@ -65,24 +79,6 @@ return {
     },
   },
 
-  -- add gruvbox
-  {
-    "ellisonleao/gruvbox.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
-
-  -- add nightowl
-  {
-    "oxfist/night-owl.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
-
   -- add material
   {
     "marko-cerovac/material.nvim",
@@ -91,7 +87,6 @@ return {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
-
   -- add everforest
   {
     "neanias/everforest-nvim",
