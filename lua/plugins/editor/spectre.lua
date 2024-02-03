@@ -42,7 +42,7 @@ return {
       {
         "<leader>sf",
         function()
-          require("spectre").open_file_search({ select_word = true })
+          require("spectre").open_file_search()
         end,
         desc = "Replace In Current File",
       },

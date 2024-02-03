@@ -1,4 +1,5 @@
 local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
+local user_icons = require("utils.icons")
 
 return {
 
@@ -17,12 +18,12 @@ return {
         theme = "round",
         border = "rounded",
         winblend = 0,
-        expand = "",
-        collapse = "",
-        preview = " ",
-        code_action = "󱧣 ",
-        diagnostic = "🐞",
-        hover = " ",
+        expand = user_icons.ui.Expand,
+        collapse = user_icons.ui.Collapse,
+        preview = user_icons.ui.Preview,
+        code_action = user_icons.ui.CodeAction,
+        diagnostic = user_icons.diagnostics.Debug,
+        hover = user_icons.ui.Hover,
         kind = {},
       },
       --- disabled lspsaga features

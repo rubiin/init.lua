@@ -3,7 +3,7 @@
 Based on LazyVim as a starter. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal
 as a result of which this repo was born which was sooner or later bound to happen
 
-## init.lua/
+## init.lua/(Always WIP)
 
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/leaderkey?style=flat" /></a>

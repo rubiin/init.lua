@@ -24,6 +24,7 @@ vim.filetype.add({
     [".zshenv"] = "sh",
     ["tsconfig.tsbuildinfo"] = "jsonc",
     ["vifmrc"] = "vim",
+    ["LICENCE"] = "markdown",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "dotenv",

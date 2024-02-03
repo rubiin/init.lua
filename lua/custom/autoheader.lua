@@ -8,11 +8,11 @@ autocmd("BufNewFile", {
   group = au_buff,
   pattern = { "*.sh" },
   callback = function()
-    SetTitle()
+    set_title()
   end,
 })
 
-function SetTitle()
+function set_title()
   if fn.expand("%:e") == "sh" then
     fn.setline(1, "#!/bin/bash")
     fn.setline(2, "#")
