@@ -12,7 +12,10 @@ return {
         auto_preview = false,
         show_title = true,
         delay_syntax = 50,
+        win_height = 12,
+        win_vheight = 12,
         wrap = false,
+        border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
       },
       func_map = {
         tab = "t",
@@ -31,6 +34,12 @@ return {
         ptoggleitem = "p",
         ptoggleauto = "a",
         ptogglemode = "P",
+      },
+      filter = {
+        fzf = {
+          action_for = { ["ctrl-s"] = "split" },
+          extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+        },
       },
     },
   },
