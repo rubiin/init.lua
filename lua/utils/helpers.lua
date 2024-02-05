@@ -3,7 +3,7 @@ local M = {}
 local fn = vim.fn
 local bo = vim.bo
 local api = vim.api
-local icons = require("lazyvim.config").icons
+local icons = require("utils.icons")
 
 M.styles = {
   slanted = "slanted",
@@ -51,9 +51,9 @@ function M.lualine_styles(type)
       "diff",
       cond = M.hide_in_width,
       symbols = {
-        added = icons.git.added,
-        modified = icons.git.modified,
-        removed = icons.git.removed,
+        added = icons.git.LineAdded,
+        modified = icons.git.LineModified,
+        removed = icons.git.LineRemoved,
       },
     },
     {
