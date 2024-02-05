@@ -32,7 +32,7 @@ local keymaps_to_delete = {
 delete_keys(keymaps_to_delete)
 
 -- Copy whole file content to clipboard with C-1
-keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
+keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
 -- Select all text in buffer with C-2
 keymap("n", "<C-2>", "ggVG", { desc = "Select All" })

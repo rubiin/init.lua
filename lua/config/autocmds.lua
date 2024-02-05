@@ -343,3 +343,5 @@ autocmd("FileType", {
   end,
   desc = "Disable `mini.indentscope` for specific filetypes",
 })
+
+-- TODO: nvim tree sitter only install required

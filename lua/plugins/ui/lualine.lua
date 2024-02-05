@@ -2,8 +2,8 @@
 local success, lualinestyles = pcall(require, "utils.helpers")
 
 if not success then
-    print("Error loading 'utils.helpers':", lualinestyles)
-    -- Additional error handling code
+  print("Error loading 'utils.helpers':", lualinestyles)
+  -- Additional error handling code
 end
 local used_style = lualinestyles.styles.slanted -- this is the default style, change it to the style you want to use from the list
 local lualine_styles = lualinestyles.lualine_styles(used_style)
