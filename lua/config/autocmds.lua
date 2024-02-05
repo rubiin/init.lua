@@ -11,7 +11,8 @@
 
 local opt_local, autocmd, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd
 
-local keymap, trim = require("utils.helpers").keymap, require("utils.helpers").trim
+local helpers = require("utils.helpers")
+
 -- autoheader for sh scripts
 require("custom.autoheader")
 
@@ -85,9 +86,9 @@ autocmd("FileType", {
   pattern = patterns,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.opt.number = false
+    vim.o.number = false
     opt_local.cursorline = false
-    keymap("n", "q", "<cmd>close<cr>")
+    helpers.keymap("n", "q", "<cmd>close<cr>")
   end,
 })
 
@@ -122,13 +123,6 @@ autocmd("BufWritePre", {
   end,
 })
 
--- Disable diagnostics in node_modules (0 is current buffer only)
-autocmd({ "BufRead", "BufNewFile" }, {
-  group = augeneral,
-  pattern = "*/node_modules/*",
-  command = "lua vim.diagnostic.disable(0)",
-})
-
 -- Show `` in specific files
 autocmd({ "BufRead", "BufNewFile" }, {
   group = augeneral,
@@ -136,10 +130,10 @@ autocmd({ "BufRead", "BufNewFile" }, {
   command = "setlocal conceallevel=0",
 })
 
--- Disable diagnostics in a .env file
+-- Disable diagnostics in a .env file and node_modules (0 is current buffer only)
 autocmd("BufRead", {
   group = augeneral,
-  pattern = ".env",
+  pattern = { ".env", "*/node_modules/*" },
   callback = function()
     vim.diagnostic.disable(0)
   end,
@@ -189,7 +183,7 @@ autocmd("QuitPre", {
 -- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
   group = augroup("trim_on_save"),
-  callback = trim,
+  callback = helpers.trim,
 })
 
 -- Start terminal in insert mode
@@ -252,7 +246,7 @@ autocmd({ "FileType" }, {
   group = augroup("lazyvim_json_conceal"),
   pattern = { "json", "jsonc", "json5" },
   callback = function()
-    vim.opt_local.conceallevel = 0
+    opt_local.conceallevel = 0
   end,
 })
 
@@ -265,22 +259,6 @@ autocmd({ "BufWritePre" }, {
     end
     local file = vim.loop.fs_realpath(event.match) or event.match
     fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
-  end,
-})
-
--- auto update barbecue , more performant than using default autocmd
-autocmd({
-  "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
-  "BufWinEnter",
-  "CursorHold",
-  "InsertLeave",
-
-  -- include this if you have set `show_modified` to `true`
-  "BufModifiedSet",
-}, {
-  group = augroup("barbecue.updater"),
-  callback = function()
-    require("barbecue.ui").update()
   end,
 })
 
@@ -308,9 +286,9 @@ autocmd("BufReadPost", {
 autocmd("BufReadPost", {
   group = augroup("GxWithPlugins"),
   callback = function()
-    if vim.fn.getcwd() == vim.fn.stdpath("config") then
-      vim.keymap.set("n", "gx", function()
-        local file = vim.fn.expand("<cfile>") --[[@as string]]
+    if fn.getcwd() == fn.stdpath("config") then
+      helpers.keymap("n", "gx", function()
+        local file = fn.expand("<cfile>") --[[@as string]]
 
         -- First try the default behaviour from https://github.com/neovim/neovim/blob/597355deae2ebddcb8b930da9a8b45a65d05d09b/runtime/lua/vim/_editor.lua#L1084.
         local _, err = vim.ui.open(file)
@@ -344,4 +322,18 @@ autocmd("FileType", {
   desc = "Disable `mini.indentscope` for specific filetypes",
 })
 
--- TODO: nvim tree sitter only install required
+-- ========================================================================== --
+-- ==                          USER COMMANDS                               == --
+-- ========================================================================== --
+
+local user_command = vim.api.nvim_create_user_command
+
+user_command("TrimTrailingLines", helpers.trim_trailing_lines, {})
+
+user_command("TrimWhitespace", helpers.trim_trailing_whitespace, {})
+
+user_command("ToggleDarkMode", helpers.toggle_light_dark_theme, {})
+
+-- Change current working directory locally and print cwd after that,
+-- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
+user_command("SetCWD", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", {})

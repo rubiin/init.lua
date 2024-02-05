@@ -7,6 +7,14 @@ return {
     opts = {},
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    ensure_installed = {
+      "typescript",
+      "tsx",
+      "javascript",
+    },
+  },
+  {
     "pmizio/typescript-tools.nvim",
     event = { "BufReadPost *.ts,*.tsx,*.js,*.jsx", "BufNewFile *.ts,*.tsx,*.js,*.jsx" },
     dependencies = { "nvim-lua/plenary.nvim", "nvim-lspconfig" },

@@ -1,8 +1,6 @@
 local M = {}
 
-local fn = vim.fn
-local bo = vim.bo
-local api = vim.api
+local fn, bo, api = vim.fn, vim.bo, vim.api
 local icons = require("utils.icons")
 
 M.styles = {
@@ -16,8 +14,8 @@ function M.ColorMyPencils(color)
   color = color or "catppuccin"
   vim.cmd.colorscheme(color)
 
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  api.nvim_set_hl(0, "Normal", { bg = "none" })
+  api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 --- @param type string
