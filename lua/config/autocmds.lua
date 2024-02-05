@@ -322,21 +322,18 @@ autocmd("FileType", {
   desc = "Disable `mini.indentscope` for specific filetypes",
 })
 
+local api = vim.api
 
-autocmd("VimEnter", {
-  group = augroup("capslockstuff", { clear = true }),
-  callback = function()
-    vim.cmd("!setxkbmap -option caps:escape")
-  end,
+-- Disable caps lock while vim is running
+autocmd("InsertEnter", {
+  pattern = "*",
+  command = "!setxkbmap -option",
 })
 
-autocmd("VimLeave", {
-  group = augroup("capslockstuff", { clear = true }),
-  callback = function()
-    vim.cmd("!setxkbmap -option")
-  end,
+autocmd("InsertLeave", {
+  pattern = "*",
+  command = "!setxkbmap -option ctrl:nocaps",
 })
-
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
