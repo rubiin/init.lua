@@ -11,6 +11,8 @@
 local helpers = require("utils.helpers")
 local lazyvim_util = require("lazyvim.util")
 
+helpers.cowboy()
+
 -- Add toggle gitsigns blame line
 if lazyvim_util.has("gitsigns.nvim") then
   helpers.keymap("n", "<leader>uB", function()
