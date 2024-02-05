@@ -7,6 +7,9 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     lazy = true,
+    enabled = function()
+      return not require("utils.helpers").is_neovim_version_satisfied(10)
+    end,
     opts = function()
       local kind_icons = vim.tbl_map(function(icon)
         return vim.trim(icon)
@@ -32,7 +35,11 @@ return {
       }, {
         group = vim.api.nvim_create_augroup("barbecue.updater", { clear = true }),
         callback = function()
-          require("barbecue.ui").update()
+          local status_ok, barbeque_ui = pcall(require, "barbecue.ui")
+          if not status_ok then
+            return
+          end
+          barbeque_ui.update()
         end,
       })
     end,
