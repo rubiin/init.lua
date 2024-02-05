@@ -1,6 +1,6 @@
 local M = {}
 
-local fn, bo, api = vim.fn, vim.bo, vim.api
+local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local icons = require("utils.icons")
 
 M.styles = {
@@ -12,7 +12,7 @@ M.styles = {
 -- taken from ThePrimeagen and modified
 function M.ColorMyPencils(color)
   color = color or "catppuccin"
-  vim.cmd.colorscheme(color)
+  cmd.colorscheme(color)
 
   api.nvim_set_hl(0, "Normal", { bg = "none" })
   api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -102,12 +102,12 @@ end
 
 -- toggle dark mode
 function M.toggle_light_dark_theme()
-  if vim.o.background == "light" then
-    vim.o.background = "dark"
-    vim.cmd([[Catppuccin mocha]])
+  if o.background == "light" then
+    o.background = "dark"
+    cmd([[Catppuccin mocha]])
   else
-    vim.o.background = "light"
-    vim.cmd([[Catppuccin latte]])
+    o.background = "light"
+    cmd([[Catppuccin latte]])
   end
 end
 
@@ -187,30 +187,30 @@ function M.delete_keymaps(list)
 end
 
 function M.config_exists(filename)
-  local current_dir = vim.fn.getcwd()
+  local current_dir = fn.getcwd()
   local config_file = current_dir .. "/" .. filename
-  if vim.fn.filereadable(config_file) == 1 then
+  if fn.filereadable(config_file) == 1 then
     return true
   end
 end
 
 -- Trim trailing whitespace and trailing blank lines on save
 function M.trim_trailing_whitespace()
-  local pos = vim.api.nvim_win_get_cursor(0)
-  vim.cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
-  vim.api.nvim_win_set_cursor(0, pos)
+  local pos = api.nvim_win_get_cursor(0)
+  cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
+  api.nvim_win_set_cursor(0, pos)
 end
 
 function M.trim_trailing_lines()
-  local last_line = vim.api.nvim_buf_line_count(0)
+  local last_line = api.nvim_buf_line_count(0)
   local last_nonblank_line = fn.prevnonblank(last_line)
   if last_nonblank_line < last_line then
-    vim.api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {})
+    api.nvim_buf_set_lines(0, last_nonblank_line, last_line, true, {})
   end
 end
 
 function M.trim()
-  if not vim.o.binary and vim.o.filetype ~= "diff" then
+  if not o.binary and o.filetype ~= "diff" then
     M.trim_trailing_lines()
     M.trim_trailing_whitespace()
   end

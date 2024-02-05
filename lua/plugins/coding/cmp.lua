@@ -5,32 +5,33 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
-        require("luasnip").filetype_extend("typescript", { "tsdoc" })
-        require("luasnip").filetype_extend("javascript", { "jsdoc" })
-        require("luasnip").filetype_extend("lua", { "luadoc" })
-        require("luasnip").filetype_extend("python", { "pydoc" })
-        require("luasnip").filetype_extend("rust", { "rustdoc" })
-        require("luasnip").filetype_extend("sh", { "shelldoc" })
+        local luasnip = require("luasnip")
+        luasnip.filetype_extend("typescript", { "tsdoc" })
+        luasnip.filetype_extend("javascript", { "jsdoc" })
+        luasnip.filetype_extend("lua", { "luadoc" })
+        luasnip.filetype_extend("python", { "pydoc" })
+        luasnip.filetype_extend("rust", { "rustdoc" })
+        luasnip.filetype_extend("sh", { "shelldoc" })
 
         -- extend html snippets to react files
-        require("luasnip").filetype_extend("javascriptreact", { "html" })
-        require("luasnip").filetype_extend("typescriptreact", { "html" })
+        luasnip.filetype_extend("javascriptreact", { "html" })
+        luasnip.filetype_extend("typescriptreact", { "html" })
 
         require("luasnip.loaders.from_vscode").lazy_load({
           include = {
             "javascript",
-            "css",
+            -- "css",
             "docker",
-            "go",
-            "html",
+            -- "go",
+            -- "html",
             "typescript",
             "json",
             "lua",
             "markdown",
-            "python",
-            "rust",
+            -- "python",
+            -- "rust",
             "shell",
-            "sql",
+            -- "sql",
           },
         })
         require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.g.vscode_snippets_path or "" } })

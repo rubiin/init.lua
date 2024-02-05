@@ -9,7 +9,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, fn, cmd = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd
+local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
 
 local helpers = require("utils.helpers")
 
@@ -19,7 +19,7 @@ require("custom.autoheader")
 -- autogroup function
 local function augroup(name, opts)
   opts = opts or { clear = true }
-  return vim.api.nvim_create_augroup(name, opts)
+  return api.nvim_create_augroup(name, opts)
 end
 
 local aufilewrite = augroup("FileWrite")
@@ -63,7 +63,7 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
   pattern = { "*" },
   callback = function()
-    vim.cmd([[set formatoptions-=cro]])
+    cmd([[set formatoptions-=cro]])
   end,
 })
 
@@ -164,9 +164,9 @@ autocmd("BufWritePost", {
 autocmd("QuitPre", {
   callback = function()
     local invalid_win = {}
-    local wins = vim.api.nvim_list_wins()
+    local wins = api.nvim_list_wins()
     for _, w in ipairs(wins) do
-      local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+      local bufname = api.nvim_buf_get_name(api.nvim_win_get_buf(w))
       if bufname:match("NvimTree_") ~= nil then
         table.insert(invalid_win, w)
       end
@@ -174,7 +174,7 @@ autocmd("QuitPre", {
     if #invalid_win == #wins - 1 then
       -- Should quit, so we close all invalid windows.
       for _, w in ipairs(invalid_win) do
-        vim.api.nvim_win_close(w, true)
+        api.nvim_win_close(w, true)
       end
     end
   end,
@@ -233,10 +233,10 @@ autocmd("BufReadPost", {
       return
     end
     vim.b[buf].lazyvim_last_loc = true
-    local mark = vim.api.nvim_buf_get_mark(buf, '"')
-    local lcount = vim.api.nvim_buf_line_count(buf)
+    local mark = api.nvim_buf_get_mark(buf, '"')
+    local lcount = api.nvim_buf_line_count(buf)
     if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      pcall(api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
@@ -267,7 +267,7 @@ local fold_augroup = augroup("remember_folds")
 autocmd({ "BufLeave", "BufWinLeave" }, {
   pattern = "*",
   callback = function()
-    vim.cmd("silent! mkview")
+    cmd("silent! mkview")
   end,
   group = fold_augroup,
   desc = "Remember folds on buffer exit",
@@ -322,23 +322,24 @@ autocmd("FileType", {
   desc = "Disable `mini.indentscope` for specific filetypes",
 })
 
-local api = vim.api
-
 -- Disable caps lock while vim is running
 autocmd("InsertEnter", {
   pattern = "*",
+  group = augroup("ToggleCapsLock"),
   command = "!setxkbmap -option",
 })
 
 autocmd("InsertLeave", {
+  group = augroup("ToggleCapsLock"),
   pattern = "*",
   command = "!setxkbmap -option ctrl:nocaps",
 })
+
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
 
-local user_command = vim.api.nvim_create_user_command
+local user_command = api.nvim_create_user_command
 
 user_command("TrimTrailingLines", helpers.trim_trailing_lines, {})
 

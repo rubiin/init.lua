@@ -130,7 +130,7 @@ o.sidescrolloff = 8 -- Columns of context
 -- ========================================================================== --
 
 o.undofile = true --Enable undofile
-o.undodir = vim.fn.stdpath("config") .. "/misc/undo"
+o.undodir = fn.stdpath("config") .. "/misc/undo"
 o.swapfile = false -- Disable swapfile
 o.undolevels = 10000
 
@@ -152,8 +152,8 @@ if fn.has("nvim-0.10") == 1 then
   o.smoothscroll = true
 end
 
-if vim.fn.has("nvim-0.9.0") == 1 then
-  vim.opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
+if fn.has("nvim-0.9.0") == 1 then
+  o.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
 end
 
 -- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
@@ -164,7 +164,7 @@ else
   o.foldmethod = "indent"
 end
 
-vim.o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
+o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
 -- ========================================================================== --
 -- ==                  SPELL AND ENCODING                                 == --
