@@ -166,16 +166,19 @@ end
 
 ---notify
 ---@param message string
----@param level integer
+---@param level string
 ---@param title string
-M.notify = function(message, level, title)
+function M.notify(message, level, title, timeout)
   local notify_options = {
     title = title,
-    timeout = 2000,
+    timeout = timeout or 2000,
   }
-  api.nvim_notify(message, level, notify_options)
+  vim.notify(message, level, notify_options)
 end
 
+--- Delete multiple keymaps
+---@param list table
+---@return nil
 function M.delete_keymaps(list)
   if list == {} or list == nil then
     return
@@ -186,21 +189,15 @@ function M.delete_keymaps(list)
   end
 end
 
-function M.config_exists(filename)
-  local current_dir = fn.getcwd()
-  local config_file = current_dir .. "/" .. filename
-  if fn.filereadable(config_file) == 1 then
-    return true
-  end
-end
 
--- Trim trailing whitespace and trailing blank lines on save
+-- Trim trailing whitespace on save
 function M.trim_trailing_whitespace()
   local pos = api.nvim_win_get_cursor(0)
   cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
   api.nvim_win_set_cursor(0, pos)
 end
 
+-- Trim trailing blank lines on save
 function M.trim_trailing_lines()
   local last_line = api.nvim_buf_line_count(0)
   local last_nonblank_line = fn.prevnonblank(last_line)
@@ -209,6 +206,7 @@ function M.trim_trailing_lines()
   end
 end
 
+-- Trim trailing whitespace and blank lines on save
 function M.trim()
   if not o.binary and o.filetype ~= "diff" then
     M.trim_trailing_lines()
@@ -271,6 +269,10 @@ function M.is_not_empty(s)
 end
 
 -- Check if a variable is empty or nil
+--- @param mode string
+--- @param lhs string
+--- @param rhs string
+--- @param opts table
 function M.keymap(mode, lhs, rhs, opts)
   local defaults = {
     silent = true,

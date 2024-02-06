@@ -281,7 +281,7 @@ autocmd("BufReadPost", {
   callback = function()
     if fn.getcwd() == fn.stdpath("config") then
       helpers.keymap("n", "gx", function()
-        local file = fn.expand("<cfile>") --[[@as string]]
+        local file = fn.expand("<cfile>") 
 
         -- First try the default behaviour from https://github.com/neovim/neovim/blob/597355deae2ebddcb8b930da9a8b45a65d05d09b/runtime/lua/vim/_editor.lua#L1084.
         local _, err = vim.ui.open(file)

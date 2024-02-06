@@ -42,7 +42,7 @@ require("lazy").setup({
       loaded = user_icons.ui.Loaded,
       not_loaded = user_icons.ui.NotLoaded,
     },
-    border = user_icons.ui.BorderStyle
+    border = user_icons.ui.BorderStyle,
   },
 
   defaults = {

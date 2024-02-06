@@ -1,9 +1,12 @@
-local path = require("utils.helpers")
+local helper = require("utils.helpers")
 
 local M = {}
 
+-- original code from lazyvim-ide but modified
+
+-- Create cSpell.json if not exist
 function M.create_cspell_json_if_not_exist()
-  local cspell_json_path = path.get_root_directory() .. "/cspell.json"
+  local cspell_json_path = helper.get_root_directory() .. "/cspell.json"
 
   if vim.fn.filereadable(cspell_json_path) == 0 then
     local file = io.open(cspell_json_path, "w")
@@ -35,21 +38,41 @@ function M.create_cspell_json_if_not_exist()
       file:write(default_content)
       file:close()
     else
-      vim.notify("Could not create cSpell.json", "error", { title = "cSpell" })
+      helper.notify("Could not open cSpell dictionary", "error","cSpell" )
     end
   end
 end
 
--- TODO: Read from the cspell.json from root of the project and add the word to the dictionary
--- Add unknown word to dictionary
+-- Add word to cSpell dictionary file
 function M.add_word_to_c_spell_dictionary()
   M.create_cspell_json_if_not_exist()
 
   local word = vim.fn.expand("<cword>")
-  local dictionary_path = path.get_root_directory() .. "/cspell-tool.txt"
+  local dictionary_path = helper.get_root_directory() .. "/cspell-tool.txt"
+
+  local file = io.open(dictionary_path, "r")
+  if file then
+    -- read file to check the word exists or not
+
+    local wordFound = false
+    -- Loop through each line in the file
+    for line in file:lines() do
+      -- Check if the line contains only the word
+      if line == word then
+        wordFound = true
+        break -- Stop reading further lines if the word is found
+      end
+    end
+    if wordFound then
+      helper.notify("Word already exists in the dictionary", "info", "cSpell")
+      return
+    end
+  else
+    helper.notify("Could not open cSpell dictionary", "error","cSpell" )
+  end
 
   -- Append the word to the dictionary file
-  local file = io.open(dictionary_path, "a")
+  file = io.open(dictionary_path, "a")
   if file then
     -- Detect new line at the end of the file or not
     local last_char = file:seek("end", -1)
@@ -62,7 +85,7 @@ function M.add_word_to_c_spell_dictionary()
     -- Reload buffer to update the dictionary
     vim.cmd("e!")
   else
-    vim.notify("Could not open cSpell dictionary", "error", { title = "cSpell" })
+    helper.notify("Could not open cSpell dictionary", "error","cSpell" )
   end
 end
 

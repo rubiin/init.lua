@@ -30,6 +30,7 @@ return {
       {
         "kkharji/sqlite.lua",
         lazy = true,
+        enabled = not jit.os:find("Windows"),
         event = "VeryLazy",
       },
       {
