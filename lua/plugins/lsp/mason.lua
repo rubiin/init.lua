@@ -1,4 +1,5 @@
 local icons = require("utils.icons")
+
 return {
   {
     "williamboman/mason.nvim",
@@ -9,7 +10,8 @@ return {
           package_pending = icons.ui.Pending,
           package_uninstalled = icons.ui.NotLoaded,
         },
-        border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+        border = vim.g.border_style,
+        height = 0.8,
       }
 
       opts.max_concurrent_installers = 10

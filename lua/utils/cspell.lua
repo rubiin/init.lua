@@ -1,9 +1,9 @@
-local Path = require("utils.helpers")
+local path = require("utils.helpers")
 
 local M = {}
 
 function M.create_cspell_json_if_not_exist()
-  local cspell_json_path = Path.get_root_directory() .. "/cspell.json"
+  local cspell_json_path = path.get_root_directory() .. "/cspell.json"
 
   if vim.fn.filereadable(cspell_json_path) == 0 then
     local file = io.open(cspell_json_path, "w")
@@ -46,7 +46,7 @@ function M.add_word_to_c_spell_dictionary()
   M.create_cspell_json_if_not_exist()
 
   local word = vim.fn.expand("<cword>")
-  local dictionary_path = Path.get_root_directory() .. "/cspell-tool.txt"
+  local dictionary_path = path.get_root_directory() .. "/cspell-tool.txt"
 
   -- Append the word to the dictionary file
   local file = io.open(dictionary_path, "a")

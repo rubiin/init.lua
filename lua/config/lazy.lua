@@ -42,7 +42,7 @@ require("lazy").setup({
       loaded = user_icons.Loaded,
       not_loaded = user_icons.NotLoaded,
     },
-    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+    border = vim.g.border_style,
   },
 
   defaults = {
