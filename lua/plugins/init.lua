@@ -9,6 +9,6 @@ return {
   { import = "plugins.extras.treesj" },
   { import = "plugins.extras.wakatime" },
   { import = "plugins.extras.fortune" },
-  { import = "plugins.extras.barbeque" },
+  { import = "plugins.extras.barbecue" },
   { import = "plugins.extras.dropbar" },
 }
