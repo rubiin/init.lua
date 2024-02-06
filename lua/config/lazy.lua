@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-local user_icons = require("utils.icons").ui
+local user_icons = require("utils.icons")
 
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -39,10 +39,10 @@ require("lazy").setup({
   },
   ui = {
     icons = {
-      loaded = user_icons.Loaded,
-      not_loaded = user_icons.NotLoaded,
+      loaded = user_icons.ui.Loaded,
+      not_loaded = user_icons.ui.NotLoaded,
     },
-    border = vim.g.border_style,
+    border = user_icons.ui.BorderStyle
   },
 
   defaults = {

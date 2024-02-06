@@ -11,4 +11,3 @@ g.random_banner = true -- Random banner
 g.fortune = true -- Fortune in start screen
 g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 g.autoformat = false -- Enable LazyVim auto format
-g.border_style = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" }

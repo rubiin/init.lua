@@ -77,6 +77,7 @@ return {
     BoldLineLeft = "▎",
     BoldLineMiddle = "┃",
     BoldLineDashedMiddle = "┋",
+    BorderStyle = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
     BookMark = "",
     BoxChecked = " ",
     Bug = " ",
