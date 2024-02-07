@@ -3,7 +3,8 @@
       "vim",
       "log",
       "cmp_mappings",
-        "vim"
+        "vim",
+        "jit"
   ],
   "diagnostics.disable": [
       "unused-local",

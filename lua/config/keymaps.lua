@@ -64,3 +64,8 @@ utils.keymap("n", "<leader>==", "<cmd>CellularAutomaton make_it_rain<CR>", {
 utils.keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = "rounded" })
 end, { desc = "Terminal (Root Dir)" })
+
+-- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
+utils.keymap("n", "<leader>ct", function()
+  utils.search_todos()
+end, { desc = "List Todos on QuickFix" })

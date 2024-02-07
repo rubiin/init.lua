@@ -10,7 +10,7 @@ M.styles = {
 }
 
 -- taken from ThePrimeagen and modified
-function M.colr_my_pencils(color)
+function M.color_my_pencils(color)
   color = color or "catppuccin"
   cmd.colorscheme(color)
 
@@ -349,7 +349,7 @@ end
 ---populate quickfixlist with the results
 function M.search_todos()
   local result
-  result = vim.fn.system("rg --json --case-sensitive -w 'TODO|HACK|WARN|PERF|FIX|NOTE'")
+  result = fn.system("rg --json --case-sensitive -w 'TODO|HACK|WARN|PERF|FIX|NOTE'")
   if result == nil then
     return
   end
