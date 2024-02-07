@@ -1,20 +1,37 @@
-
 {
   "name": "nvim-snippets",
   "author": "rubiin",
   "engines": {
-      "vscode": "^1..0"
+    "vscode": "^1.0.0"
   },
   "contributes": {
-      "snippets": [
-          {
-              "language": ["javascript","typescript"],
-              "path": "./nestjs.json"
-          },
-          {
-            "language": ["javascriptreact","typescriptreact"],
-            "path": "./react.json"
-          }
-      ]
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./nestjs.json"
+      },
+      {
+        "language": [
+          "javascriptreact",
+          "typescriptreact"
+        ],
+        "path": "./react.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
+      },
+      {
+        "language": [
+          "sh"
+        ],
+        "path": "./sh.json"
+      }
+    ]
   }
 }

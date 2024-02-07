@@ -6,9 +6,11 @@ return {
   { import = "plugins.lsp" },
 
   -- install from extras if you need them
+  -- plugin.<file name without extension> to require it.
   { import = "plugins.extras.treesj" },
   { import = "plugins.extras.wakatime" },
   { import = "plugins.extras.fortune" },
   { import = "plugins.extras.barbecue" },
   { import = "plugins.extras.dropbar" },
+  { import = "plugins.extras.neogen" },
 }
