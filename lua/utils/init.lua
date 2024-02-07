@@ -9,7 +9,7 @@ M.styles = {
   default = "default",
 }
 
--- taken from ThePrimeagen and modified
+-- Taken from ThePrimeagen and modified
 function M.color_my_pencils(color)
   color = color or "catppuccin"
   cmd.colorscheme(color)
@@ -100,7 +100,7 @@ function M.lualine_styles(type)
   return opts
 end
 
--- toggle dark mode
+-- Toggle dark mode
 function M.toggle_light_dark_theme()
   if o.background == "light" then
     o.background = "dark"
@@ -111,7 +111,7 @@ function M.toggle_light_dark_theme()
   end
 end
 
--- splits a string into a table
+-- Splits a string into a table
 --- @param inputstr string
 --- @param sep string
 --- @return table
@@ -134,14 +134,14 @@ function M.is_neovim_version_satisfied(version)
   return version <= tonumber(vim.version().minor)
 end
 
----checks if a command is available
+---Checks if a command is available
 ---@param command string
 ---@return boolean
 function M.is_executable_available(command)
   return fn.executable(command) == 1
 end
 
--- disable plugins
+-- Disable plugins
 --- @param list table
 --- @return table
 function M.disable_plugins(list)
@@ -155,7 +155,7 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
--- get the version of neovim
+-- Get the version of neovim
 --- @return string
 function M.version()
   local version = vim.version()
@@ -164,7 +164,7 @@ function M.version()
   return " " .. print_version .. " "
 end
 
----notify
+---Notify
 ---@param message string
 ---@param level string
 ---@param title string
@@ -213,13 +213,13 @@ function M.trim()
   end
 end
 
--- check if buffer is empty
+-- Check if buffer is empty
 ---@return boolean
 function M.buffer_not_empty()
   return fn.empty(fn.expand("%:t")) ~= 1
 end
 
--- check if window width is wide enough for lualine components
+-- Check if window width is wide enough for lualine components
 ---@return boolean
 function M.hide_in_width()
   return fn.winwidth(0) > 80
@@ -240,7 +240,7 @@ function M.get_git_root()
   return fn.fnamemodify(dot_git_path, ":h")
 end
 
--- lua line component for lazy
+-- Lua line component for lazy
 ---@return table
 function M.lazy_lua_component()
   return {
@@ -376,8 +376,9 @@ function M.search_todos()
   if next(qf_list) ~= nil then
     fn.setqflist(qf_list)
     cmd("copen")
+    M.notify("Added Todos to quickfixlist!", vim.log.levels.INFO, "TODOs")
   else
-    M.notify("No results found!", vim.log.levels.INFO, "Search TODOs")
+    M.notify("No results found!", vim.log.levels.INFO, "TODOs")
   end
 end
 

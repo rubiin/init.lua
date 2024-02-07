@@ -78,7 +78,7 @@ return {
     BoldLineMiddle = "┃",
     BoldLineDashedMiddle = "┋",
     BorderStyle = {
-      --  follows the semantics "top_left","top","top_right","right","bottom_right","bottom","bottom_left","left",
+      --  follows the following semantics {"top_left","top","top_right","right","bottom_right","bottom","bottom_left","left"}
       default = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
       dashed = { "╭", "┄", "╮", "┊", "╯", "┄", "╰", "┊" },
       double = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },

@@ -2,7 +2,7 @@ local utils = require("utils")
 
 local M = {}
 
--- original code from lazyvim-ide but modified
+-- Original code from lazyvim-ide but modified
 
 -- Create cSpell.json if not exist
 function M.create_cspell_json_if_not_exist()
