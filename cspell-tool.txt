@@ -2033,3 +2033,10 @@ zxvf
 navic
 sniprun
 ({
+tsplayground
+fugitiveblame
+augeneral
+quickfixlist
+submatches
+copen
+Todos

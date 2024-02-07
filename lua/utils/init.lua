@@ -10,6 +10,7 @@ M.styles = {
 }
 
 -- Taken from ThePrimeagen and modified
+--- @param color string
 function M.color_my_pencils(color)
   color = color or "catppuccin"
   cmd.colorscheme(color)
@@ -112,15 +113,15 @@ function M.toggle_light_dark_theme()
 end
 
 -- Splits a string into a table
---- @param inputstr string
+--- @param value string
 --- @param sep string
 --- @return table
-function M.str_split(inputstr, sep)
+function M.str_split(value, sep)
   if sep == nil then
     sep = "%s"
   end
   local t = {}
-  for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+  for str in string.gmatch(value, "([^" .. sep .. "]+)") do
     table.insert(t, str)
   end
   return t
@@ -166,7 +167,7 @@ end
 
 ---Notify
 ---@param message string
----@param level string
+---@param level string|integer
 ---@param title string
 function M.notify(message, level, title, timeout)
   local notify_options = {

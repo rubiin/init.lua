@@ -14,6 +14,8 @@ local utils = require("utils")
 require("custom.autoheader")
 
 -- autogroup function
+--- @param name string
+---@param opts table?
 local function augroup(name, opts)
   opts = opts or { clear = true }
   return api.nvim_create_augroup(name, opts)
