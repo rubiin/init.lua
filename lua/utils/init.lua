@@ -348,8 +348,7 @@ end
 -- Search for TODOs in the project
 ---populate quickfixlist with the results
 function M.search_todos()
-  local result
-  result = fn.system("rg --json --case-sensitive -w 'TODO|HACK|WARN|PERF|FIX|NOTE'")
+  local result = fn.system("rg --json --case-sensitive -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:'")
   if result == nil then
     return
   end
