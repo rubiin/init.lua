@@ -89,6 +89,7 @@ local headers = {
                                                   ]],
 }
 
+-- Dashboard logo
 function M.dashboard()
   math.randomseed(os.time())
   local logo = headers[1]
