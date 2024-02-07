@@ -1,4 +1,4 @@
-local helper = require("utils.helpers")
+local utils = require("utils")
 
 local M = {}
 
@@ -6,7 +6,7 @@ local M = {}
 
 -- Create cSpell.json if not exist
 function M.create_cspell_json_if_not_exist()
-  local cspell_json_path = helper.get_root_directory() .. "/cspell.json"
+  local cspell_json_path = utils.get_root_directory() .. "/cspell.json"
 
   if vim.fn.filereadable(cspell_json_path) == 0 then
     local file = io.open(cspell_json_path, "w")
@@ -38,7 +38,7 @@ function M.create_cspell_json_if_not_exist()
       file:write(default_content)
       file:close()
     else
-      helper.notify("Could not open cSpell dictionary", "error","cSpell" )
+      utils.notify("Could not open cSpell dictionary", "error", "cSpell")
     end
   end
 end
@@ -48,7 +48,7 @@ function M.add_word_to_c_spell_dictionary()
   M.create_cspell_json_if_not_exist()
 
   local word = vim.fn.expand("<cword>")
-  local dictionary_path = helper.get_root_directory() .. "/cspell-tool.txt"
+  local dictionary_path = utils.get_root_directory() .. "/cspell-tool.txt"
 
   local file = io.open(dictionary_path, "r")
   if file then
@@ -64,11 +64,11 @@ function M.add_word_to_c_spell_dictionary()
       end
     end
     if wordFound then
-      helper.notify("Word already exists in the dictionary", "info", "cSpell")
+      utils.notify("Word already exists in the dictionary", "info", "cSpell")
       return
     end
   else
-    helper.notify("Could not open cSpell dictionary", "error","cSpell" )
+    utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end
 
   -- Append the word to the dictionary file
@@ -85,7 +85,7 @@ function M.add_word_to_c_spell_dictionary()
     -- Reload buffer to update the dictionary
     vim.cmd("e!")
   else
-    helper.notify("Could not open cSpell dictionary", "error","cSpell" )
+    utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end
 end
 

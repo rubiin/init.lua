@@ -189,7 +189,6 @@ function M.delete_keymaps(list)
   end
 end
 
-
 -- Trim trailing whitespace on save
 function M.trim_trailing_whitespace()
   local pos = api.nvim_win_get_cursor(0)
@@ -269,10 +268,10 @@ function M.is_not_empty(s)
 end
 
 -- Check if a variable is empty or nil
---- @param mode string
+--- @param mode string|table
 --- @param lhs string
---- @param rhs string
---- @param opts table
+--- @param rhs string|function
+--- @param opts table?
 function M.keymap(mode, lhs, rhs, opts)
   local defaults = {
     silent = true,

@@ -8,7 +8,7 @@
 
 local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
 
-local helpers = require("utils.helpers")
+local utils = require("utils")
 
 -- autoheader for sh scripts
 require("custom.autoheader")
@@ -81,7 +81,7 @@ autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.o.number = false
     opt_local.cursorline = false
-    helpers.keymap("n", "q", "<cmd>close<cr>")
+    utils.keymap("n", "q", "<cmd>close<cr>")
   end,
 })
 
@@ -153,6 +153,7 @@ autocmd("BufWritePost", {
   command = "!source .bashrc;notify-send -i reload 'Reloading bashrc'",
 })
 
+-- TODO: FIX for neotree
 -- Automatically close NvimTree if it's the last buffer on window
 autocmd("QuitPre", {
   callback = function()
@@ -176,7 +177,7 @@ autocmd("QuitPre", {
 -- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
   group = augroup("trim_on_save"),
-  callback = helpers.trim,
+  callback = utils.trim,
 })
 
 -- Start terminal in insert mode
@@ -280,8 +281,8 @@ autocmd("BufReadPost", {
   group = augroup("GxWithPlugins"),
   callback = function()
     if fn.getcwd() == fn.stdpath("config") then
-      helpers.keymap("n", "gx", function()
-        local file = fn.expand("<cfile>") 
+      utils.keymap("n", "gx", function()
+        local file = fn.expand("<cfile>")
 
         -- First try the default behaviour from https://github.com/neovim/neovim/blob/597355deae2ebddcb8b930da9a8b45a65d05d09b/runtime/lua/vim/_editor.lua#L1084.
         local _, err = vim.ui.open(file)
@@ -334,11 +335,11 @@ autocmd("InsertLeave", {
 
 local user_command = api.nvim_create_user_command
 
-user_command("TrimTrailingLines", helpers.trim_trailing_lines, {})
+user_command("TrimTrailingLines", utils.trim_trailing_lines, {})
 
-user_command("TrimWhitespace", helpers.trim_trailing_whitespace, {})
+user_command("TrimWhitespace", utils.trim_trailing_whitespace, {})
 
-user_command("ToggleDarkMode", helpers.toggle_light_dark_theme, {})
+user_command("ToggleDarkMode", utils.toggle_light_dark_theme, {})
 
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file

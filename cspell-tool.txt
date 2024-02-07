@@ -1139,3 +1139,5 @@ disable_in_visualblock
 
 barbeque
 dropbar
+aufilewrite
+bashenv

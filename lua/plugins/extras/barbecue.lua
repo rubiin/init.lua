@@ -8,7 +8,7 @@ return {
     },
     lazy = true,
     enabled = function()
-      return not require("utils.helpers").is_neovim_version_satisfied(10)
+      return not require("utils").is_neovim_version_satisfied(10)
     end,
     opts = function()
       local kind_icons = vim.tbl_map(function(icon)

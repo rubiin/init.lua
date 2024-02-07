@@ -1,12 +1,12 @@
 --- General configuration for spectre base on current git repo
----@param default_opts table | nil
+---@param default_opts table?
 ---@return table
 function _G.get_spectre_options(default_opts)
-  local util = require("utils.helpers")
+  local utils = require("utils")
   local opts = default_opts or {}
 
-  if util.is_git_repo() then
-    opts.cwd = util.get_git_root()
+  if utils.is_git_repo() then
+    opts.cwd = utils.get_git_root()
   end
 
   return opts
