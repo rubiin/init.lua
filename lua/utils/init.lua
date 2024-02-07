@@ -10,7 +10,7 @@ M.styles = {
 }
 
 -- taken from ThePrimeagen and modified
-function M.ColorMyPencils(color)
+function M.colr_my_pencils(color)
   color = color or "catppuccin"
   cmd.colorscheme(color)
 

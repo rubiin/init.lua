@@ -10,7 +10,7 @@ return {
           package_pending = icons.ui.Pending,
           package_uninstalled = icons.ui.NotLoaded,
         },
-        border = icons.ui.BorderStyle,
+        border = icons.ui.BorderStyle.default,
         height = 0.8,
       }
 
