@@ -10,7 +10,7 @@ return {
           package_pending = icons.ui.Pending,
           package_uninstalled = icons.ui.NotLoaded,
         },
-        border = icons.ui.BorderStyle.default,
+        border = vim.g.borderStyle,
         height = 0.8,
       }
 

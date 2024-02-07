@@ -73,8 +73,8 @@ return {
       local cmp = require("cmp")
 
       opts.window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = { border = vim.g.borderStyle, scrolloff = 2 },
+        documentation = { border = vim.g.borderStyle, scrolloff = 2 },
       }
 
       -- `/` cmdline setup.

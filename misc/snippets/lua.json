@@ -1,4 +1,34 @@
-{
+{  "export_module": {
+  "body": [
+    "local M = {}",
+    "--------------------------------------------------------------------------------",
+    "",
+    "$0--------------------------------------------------------------------------------",
+    "return M"
+  ],
+  "prefix": "export module"
+},
+"pcall": {
+  "body": [
+    "local success = pcall(${1:func})",
+    "if not success then",
+    "\t$0",
+    "\treturn",
+    "end"
+  ],
+  "prefix": [
+    "try",
+    "pcall"
+  ]
+},
+"safe_require": {
+  "body": [
+    "local ok, ${1:module} = require(\"${1:module}\")",
+    "if not (ok and ${1:module}) then return end",
+    "${1:module}.$0"
+  ],
+  "prefix": "safe require"
+},
   "print_table": {
     "prefix": "print_table",
     "description": "print table function",
