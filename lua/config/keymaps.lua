@@ -63,3 +63,8 @@ end, { desc = "Terminal (Root Dir)" })
 utils.keymap("n", "<leader>ct", function()
   utils.search_todos()
 end, { desc = "List Todos On QuickFix" })
+
+-- Add keymap to open URL under cursor
+utils.keymap("n", "gx", function()
+  utils.open_url()
+end, { desc = "Open URL Under Cursor" })

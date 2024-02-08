@@ -2063,3 +2063,5 @@ shortmess
 statuscolumn
 unnamedplus
 autowrite
+shellescape
+jobstart

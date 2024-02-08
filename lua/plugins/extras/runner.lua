@@ -10,7 +10,7 @@ return {
       },
       display_options = {
         terminal_scrollback = vim.o.scrollback,
-        terminal_width = 80
+        terminal_width = 80,
       },
       live_display = { "Terminal" },
     },

@@ -112,6 +112,20 @@ function M.toggle_light_dark_theme()
   end
 end
 
+-- Open URL under cursor, supports http, https and www
+function M.open_url()
+  -- Get the text under the cursor
+  local url = vim.fn.expand("<cWORD>")
+
+  -- Check if it resembles a URL
+  if url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
+    -- Open the URL in the default browser
+    fn.jobstart({ "xdg-open", url })
+  else
+    print("No URL found under cursor")
+  end
+end
+
 -- Splits a string into a table
 --- @param value string
 --- @param sep string
