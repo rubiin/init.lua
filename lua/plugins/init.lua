@@ -11,6 +11,6 @@ return {
   { import = "plugins.extras.wakatime" },
   { import = "plugins.extras.fortune" },
   { import = "plugins.extras.barbecue" },
-  { import = "plugins.extras.dropbar" },
   { import = "plugins.extras.neogen" },
+  { import = "plugins.extras.better-escape" },
 }
