@@ -35,12 +35,6 @@ utils.keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" }
 -- Select all text in buffer with C-2
 utils.keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
 
--- helpers.keymap("n", "<C-e>", "yyp", { desc = "Copy and Paste Line" })
-
--- helpers.keymap("n", "<leader>;", function()
---   require("dashboard"):instance()
--- end, { desc = "Open Dashboard" })
-
 -- Add LazyVim bindings for meta information
 utils.keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 utils.keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
@@ -68,4 +62,4 @@ end, { desc = "Terminal (Root Dir)" })
 -- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
 utils.keymap("n", "<leader>ct", function()
   utils.search_todos()
-end, { desc = "List Todos on QuickFix" })
+end, { desc = "List Todos On QuickFix" })
