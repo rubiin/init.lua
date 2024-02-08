@@ -45,13 +45,6 @@ return {
         delete_check_events = "TextChanged",
         -- This one is cool cause if you have dynamic snippets, it updates as you type!
         updateevents = "TextChanged,TextChangedI",
-        ext_opts = {
-          [types.choiceNode] = {
-            active = {
-              virt_text = { { "●", "GruvboxOrange" } },
-            },
-          },
-        },
       })
     end,
   },
@@ -81,11 +74,16 @@ return {
         { name = "nvim_lsp_signature_help" },
       })
 
+
+
       local cmp = require("cmp")
 
       opts.window = {
         completion = { border = vim.g.borderStyle, scrolloff = 2 },
         documentation = { border = vim.g.borderStyle, scrolloff = 2 },
+      }
+      opts.formatting = {
+        fields = { 'kind', 'abbr', 'menu' }
       }
 
       -- `/` cmdline setup.
