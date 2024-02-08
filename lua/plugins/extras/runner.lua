@@ -6,13 +6,13 @@ return {
     opts = {
       live_mode_toggle = "enable",
       display = {
-        "VirtualText", --# display ok results as virtual text (multiline is shortened)
         "Terminal",
       },
       display_options = {
         terminal_scrollback = vim.o.scrollback,
+        terminal_width = 80
       },
-      live_display = { "VirtualText", "Terminal" },
+      live_display = { "Terminal" },
     },
   },
 }
