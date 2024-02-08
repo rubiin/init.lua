@@ -20,15 +20,15 @@ return {
         "stylua",
         "shfmt",
 
-        -- formatters
+        -- formatters & linters
         "eslint_d",
         "prettier",
         "prettierd",
         "prettierd",
         "biome",
+        "selene",
 
         -- code spell
-        "codespell",
         "cspell",
         "typos-lsp",
 

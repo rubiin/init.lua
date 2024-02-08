@@ -155,7 +155,6 @@ autocmd("BufWritePost", {
   command = "!source .bashrc;notify-send -i reload 'Reloading bashrc'",
 })
 
-
 -- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
   group = augroup("trim_on_save"),
@@ -163,18 +162,22 @@ autocmd("BufWritePre", {
 })
 
 -- Start terminal in insert mode
--- Disable foldcolumn and signcolumn for terinals
 autocmd("TermOpen", {
   group = augroup("terminalSetting"),
   pattern = "*",
   command = "startinsert | set winfixheight",
+})
+
+-- Disable foldcolumn and signcolumn for terinals
+autocmd("TermOpen", {
+  group = augroup("terminalSetting"),
+  pattern = "*",
   callback = function()
     opt_local.foldcolumn = "0"
     opt_local.signcolumn = "no"
     opt_local.number = false
   end,
 })
-
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -255,8 +258,7 @@ autocmd("BufReadPost", {
   desc = "Restore folds on buffer enter",
 })
 
-
--- Disable `mini.indentscope` for specific filetypes 
+-- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
   pattern = { "fzf", "lspinfo" },
   group = augroup("DisableIndentScope"),
