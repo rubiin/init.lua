@@ -155,26 +155,6 @@ autocmd("BufWritePost", {
   command = "!source .bashrc;notify-send -i reload 'Reloading bashrc'",
 })
 
--- TODO: FIX for neotree
--- Automatically close NvimTree if it's the last buffer on window
-autocmd("QuitPre", {
-  callback = function()
-    local invalid_win = {}
-    local wins = api.nvim_list_wins()
-    for _, w in ipairs(wins) do
-      local bufname = api.nvim_buf_get_name(api.nvim_win_get_buf(w))
-      if bufname:match("NvimTree_") ~= nil then
-        table.insert(invalid_win, w)
-      end
-    end
-    if #invalid_win == #wins - 1 then
-      -- Should quit, so we close all invalid windows.
-      for _, w in ipairs(invalid_win) do
-        api.nvim_win_close(w, true)
-      end
-    end
-  end,
-})
 
 -- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
@@ -183,21 +163,18 @@ autocmd("BufWritePre", {
 })
 
 -- Start terminal in insert mode
+-- Disable foldcolumn and signcolumn for terinals
 autocmd("TermOpen", {
   group = augroup("terminalSetting"),
   pattern = "*",
   command = "startinsert | set winfixheight",
-})
-
--- Disable foldcolumn and signcolumn for terinals
-autocmd("TermOpen", {
-  group = augroup("terminalSetting"),
   callback = function()
     opt_local.foldcolumn = "0"
     opt_local.signcolumn = "no"
     opt_local.number = false
   end,
 })
+
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -278,35 +255,6 @@ autocmd("BufReadPost", {
   desc = "Restore folds on buffer enter",
 })
 
---[[ Open plugin repos with gx ]]
-autocmd("BufReadPost", {
-  group = augroup("GxWithPlugins"),
-  callback = function()
-    if fn.getcwd() == fn.stdpath("config") then
-      utils.keymap("n", "gx", function()
-        local file = fn.expand("<cfile>")
-
-        -- First try the default behaviour from https://github.com/neovim/neovim/blob/597355deae2ebddcb8b930da9a8b45a65d05d09b/runtime/lua/vim/_editor.lua#L1084.
-        local _, err = vim.ui.open(file)
-        if not err then
-          return
-        end
-
-        -- Consider anything that looks like string/string a GitHub link.
-        local link = file:match("%w[%w%-]+/[%w%-%._]+")
-        if link then
-          _, err = vim.ui.open("https://www.github.com/" .. link)
-        end
-
-        -- If that fails, just blame me.
-        if err then
-          vim.notify(err, vim.log.levels.ERROR)
-        end
-      end, { desc = "Open filepath or URI under cursor" })
-    end
-  end,
-  desc = "Make `gx` open repos in default browser",
-})
 
 --[[ Disable `mini.indentscope` for specific filetypes ]]
 autocmd("FileType", {
