@@ -75,7 +75,7 @@ autocmd("TextYankPost", {
 })
 
 -- Close some filetypes with just <q> key
--- also disable number and cursorline
+-- Also disable number and cursorline
 autocmd("FileType", {
   group = augeneral,
   pattern = patterns,
@@ -186,7 +186,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
 })
 
--- resize splits if window got resized
+-- Resize splits if window got resized
 autocmd({ "VimResized" }, {
   group = augroup("lazyvim_resize_splits"),
   callback = function()
@@ -196,7 +196,7 @@ autocmd({ "VimResized" }, {
   end,
 })
 
--- go to last loc when opening a buffer
+-- Go to last loc when opening a buffer
 autocmd("BufReadPost", {
   group = augroup("lazyvim_last_loc"),
   callback = function(event)
@@ -256,7 +256,7 @@ autocmd("BufReadPost", {
 })
 
 
---[[ Disable `mini.indentscope` for specific filetypes ]]
+-- Disable `mini.indentscope` for specific filetypes 
 autocmd("FileType", {
   pattern = { "fzf", "lspinfo" },
   group = augroup("DisableIndentScope"),
