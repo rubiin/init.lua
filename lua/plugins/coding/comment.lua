@@ -6,6 +6,8 @@ return {
       ---Add a space b/w comment and the line
       ---@type boolean
       padding = true,
+      ---Whether the cursor should stay at its position
+      sticky = true,
 
       ---Line which should be ignored while comment/uncomment
       ---Example: Use '^$' to ignore empty lines
@@ -19,6 +21,16 @@ return {
         -- block-comment keymap
         block = "gb",
       },
+      -- extra mapping
+      -- Includes `gco`, `gcO`, `gcA`
+      extra = {
+        ---Add comment on the line above
+        above = "gcO",
+        ---Add comment on the line below
+        below = "gco",
+        ---Add comment at the end of line
+        eol = "gcA",
+      },
 
       -- Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
       mappings = {
@@ -30,10 +42,6 @@ return {
         --  `gc[count]{motion}` -> line-comment  the region contained in {motion}
         --  `gb[count]{motion}` -> block-comment the region contained in {motion}
         basic = true,
-
-        -- extra mapping
-        -- Includes `gco`, `gcO`, `gcA`
-        extra = true,
 
         ---extended mapping
         ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
@@ -66,5 +74,12 @@ return {
 
     --local comment_ft = require("Comment.ft")
     --comment_ft.set("lua", { "--%s", "--[[%s]]" })
+    config = function(_, opts)
+      require("ts_context_commentstring").setup({
+        enable_autocmd = false,
+      })
+      vim.g.skip_ts_context_commentstring_module = true
+      require("Comment").setup(opts)
+    end,
   },
 }

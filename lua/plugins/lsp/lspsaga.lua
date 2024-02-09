@@ -16,7 +16,7 @@ return {
       code_action = { enable = true, extend_gitsigns = true, show_server_name = true }, -- might use actions-preview for this
       ui = {
         theme = "round",
-        border = vim.g.borderStyle,
+        border = vim.g.border_style,
         winblend = 0,
         expand = user_icons.ui.Expand,
         collapse = user_icons.ui.Collapse,

@@ -92,8 +92,8 @@ return {
 
       opts = {
         window = {
-          completion = { border = vim.g.borderStyle, scrolloff = 2 },
-          documentation = { border = vim.g.borderStyle, scrolloff = 2 },
+          completion = { border = vim.g.border_style, scrolloff = 2 },
+          documentation = { border = vim.g.border_style, scrolloff = 2 },
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },

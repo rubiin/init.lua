@@ -42,7 +42,7 @@ require("lazy").setup({
       loaded = user_icons.ui.Loaded,
       not_loaded = user_icons.ui.NotLoaded,
     },
-    border = vim.g.borderStyle,
+    border = vim.g.border_style,
   },
 
   defaults = {
