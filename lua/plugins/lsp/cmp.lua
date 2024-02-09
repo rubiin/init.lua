@@ -90,25 +90,31 @@ return {
 
       local user_icons = require("utils.icons")
 
-      opts.window = {
-        completion = { border = vim.g.borderStyle, scrolloff = 2 },
-        documentation = { border = vim.g.borderStyle, scrolloff = 2 },
-      }
-      opts.formatting = {
-
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format("%s", user_icons.kinds[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
-          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
-          return vim_item
-        end,
+      opts = {
+        window = {
+          completion = { border = vim.g.borderStyle, scrolloff = 2 },
+          documentation = { border = vim.g.borderStyle, scrolloff = 2 },
+        },
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s", user_icons.kinds[vim_item.kind])
+            vim_item.menu = ({
+              nvim_lsp = "(LSP)",
+              emoji = "(Emoji)",
+              path = "(Path)",
+              calc = "(Calc)",
+              cmp_tabnine = "(Tabnine)",
+              luasnip = "(Snippet)",
+              buffer = "(Buffer)",
+              tmux = "(TMUX)",
+              copilot = "(Copilot)",
+              treesitter = "(TreeSitter)",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
       }
     end,
 
@@ -122,7 +128,6 @@ return {
           { name = "buffer" },
         },
       })
-
       -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
