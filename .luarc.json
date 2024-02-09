@@ -11,7 +11,8 @@
         "different-requires",
         "undefined-field",
         "redundant-parameter",
-        "undefined-doc-name"
+        "undefined-doc-name",
+        "redefined-local"
   ],
   "workspace.checkThirdParty": false
 }

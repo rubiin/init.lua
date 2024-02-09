@@ -13,7 +13,7 @@ return {
         -- * an absolute number of cells when > 1
         -- * a percentage of the width / height of the editor when <= 1
         width = 0.8, -- width of the Zen window
-        height = 1, -- height of the Zen window
+        height = 1,  -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
@@ -29,12 +29,12 @@ return {
       plugins = {
         options = {
           enabled = true,
-          ruler = false, -- disables the ruler text in the cmd line area
-          showcmd = false, -- disables the command in the last line of the screen
+          ruler = false,                -- disables the ruler text in the cmd line area
+          showcmd = false,              -- disables the command in the last line of the screen
         },
         twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
-        gitsigns = { enabled = true }, -- disables git signs
-        tmux = { enabled = false }, -- disables the tmux statusline
+        gitsigns = { enabled = true },  -- disables git signs
+        tmux = { enabled = false },     -- disables the tmux statusline
         alacritty = {
           enabled = true,
           font = "14", -- font size
@@ -42,19 +42,41 @@ return {
       },
       -- callback where you can add custom code when the Zen window opens
       on_open = function()
-        require("gitsigns.actions").toggle_current_line_blame()
-        require("indent_blankline.commands").disable()
+        local status_ok, gitsigns = pcall(require, "gitsigns.actions")
+        if not status_ok then
+          return
+        end
+
+        gitsigns.toggle_current_line_blame()
+
+        local status_ok, indent_blankline = pcall(require, "indent_blankline.commands")
+        if not status_ok then
+          return
+        end
+
+        indent_blankline.disable()
+
         o.relativenumber = false
         o.signcolumn = "no"
-        require("gitsigns.actions").refresh()
+        gitsigns.refresh()
       end,
       -- callback where you can add custom code when the Zen window closes
       on_close = function()
-        require("gitsigns.actions").toggle_current_line_blame()
-        require("indent_blankline.commands").enable()
+        local status_ok, gitsigns = pcall(require, "gitsigns.actions")
+        if not status_ok then
+          return
+        end
+
+        local status_ok, indent_blankline = pcall(require, "indent_blankline.commands")
+        if not status_ok then
+          return
+        end
+
+        gitsigns.toggle_current_line_blame()
+        indent_blankline.enable()
         o.relativenumber = true
         o.signcolumn = "yes:2"
-        require("gitsigns.actions").refresh()
+        gitsigns.refresh()
       end,
     },
     keys = {
