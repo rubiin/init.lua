@@ -96,9 +96,17 @@ return {
       }
       opts.formatting = {
 
-        fields = { "kind", "abbr" },
-        format = function(_, vim_item)
-          vim_item.kind = user_icons.kinds[vim_item.kind] or ""
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          -- Kind icons
+          vim_item.kind = string.format("%s", user_icons.kinds[vim_item.kind])
+          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+          vim_item.menu = ({
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+          })[entry.source.name]
           return vim_item
         end,
       }

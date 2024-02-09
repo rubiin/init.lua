@@ -12,6 +12,6 @@ return {
   { import = "plugins.extras.fortune" },
   { import = "plugins.extras.barbecue" },
   { import = "plugins.extras.neogen" },
-  { import = "plugins.extras.auto-save" },
+  { import = "plugins.extras.autosave" },
   { import = "plugins.extras.better-escape" },
 }

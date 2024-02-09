@@ -12,12 +12,28 @@ return {
       -- configure autopairs
       autopairs.setup({
         check_ts = true, -- enable treesitter
+        ts_config = {
+          lua = { "string", "source" }, -- it will not add a pair on that treesitter node
+          javascript = { "string", "template_string" }, -- it will not add a pair on that treesitter node
+          java = false, -- it will not add a pair on that treesitter node
+        },
+        disable_filetype = { "TelescopePrompt", "spectre_panel" },
+        fast_wrap = {
+          map = "<M-e>",
+          chars = { "{", "[", "(", '"', "'" },
+          pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+          offset = 0, -- Offset from pattern match
+          end_key = "$",
+          keys = "qwertyuiopzxcvbnmasdfghjkl",
+          check_comma = true,
+          highlight = "PmenuSel",
+          highlight_grey = "LineNr",
+        },
         map_cr = true,
         map_bs = true, -- map the <BS> key
         map_c_h = false, -- Map the <C-h> key to delete a pair
         map_c_w = false, -- map <c-w> to delete a pair if possible
         disable_in_visualblock = true,
-        disable_filetype = { "TelescopePrompt", "spectre_panel" },
       })
 
       -- Import nvim-autopairs completion functionality safely

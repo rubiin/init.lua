@@ -2065,3 +2065,5 @@ unnamedplus
 autowrite
 shellescape
 jobstart
+PmenuSel
+qwertyuiopzxcvbnmasdfghjkl
