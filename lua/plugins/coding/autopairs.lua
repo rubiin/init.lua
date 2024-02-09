@@ -13,20 +13,26 @@ return {
       autopairs.setup({
         check_ts = true, -- enable treesitter
         map_cr = true,
-        map_bs = true, -- map the <BS> key
+        map_bs = true,   -- map the <BS> key
         map_c_h = false, -- Map the <C-h> key to delete a pair
         map_c_w = false, -- map <c-w> to delete a pair if possible
         disable_in_visualblock = true,
         disable_filetype = { "TelescopePrompt", "spectre_panel" },
       })
 
-      -- import nvim-autopairs completion functionality
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      -- Import nvim-autopairs completion functionality safely
+      local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+      if not cmp_autopairs_setup then
+        return
+      end
 
-      -- import nvim-cmp plugin (completions plugin)
-      local cmp = require("cmp")
+      -- Import nvim-cmp plugin safely (completions plugin)
+      local cmp_setup, cmp = pcall(require, "cmp")
+      if not cmp_setup then
+        return
+      end
 
-      -- make autopairs and completion work together
+      -- Make autopairs and completion work together
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
