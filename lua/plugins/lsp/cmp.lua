@@ -1,4 +1,19 @@
 -- 0.10 , can use native snippets
+
+local sourceIcons = {
+  buffer = "﬘",
+	cmdline = "󰘳",
+	emoji = "󰞅",
+	luasnip = "",
+	nvim_lsp = "󰒕",
+	path = "",
+  nvim_lua = "",
+  treesitter = "",
+  zsh = "",
+  spell = "暈",
+}
+
+
 return {
   {
     "L3MON4D3/LuaSnip",
@@ -81,15 +96,21 @@ return {
         documentation = { border = vim.g.borderStyle, scrolloff = 2 },
       }
       opts.formatting = {
-        fields = { "kind", "abbr", "menu" },
+        fields = { "kind" ,"abbr", "menu", }, -- order of the fields
+          format = function(entry, item)
+            -- abbreviate length https://github.com/hrsh7th/nvim-cmp/discussions/609
+            -- (height is controlled via pumheight option)
+            local maxLength = 50
+            if #item.abbr > maxLength then item.abbr = item.abbr:sub(1, maxLength) .. "…" end
 
-            format = function(_, item)
-              local icons = require("utils.icons").kinds
-              if icons[item.kind] then
-                item.kind = icons[item.kind] .. item.kind
-              end
-              return item
-            end,
+            -- set icons
+            -- stylua: ignore
+            item.kind = entry.source.name == "nvim_lsp" and user_icons.kinds[item.kind] or ""
+            item.menu = sourceIcons[entry.source.name]
+
+            return item
+          end,
+
 
 
       }
