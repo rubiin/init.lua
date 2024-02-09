@@ -74,18 +74,30 @@ return {
         { name = "nvim_lsp_signature_help" },
       })
 
-
-
-      local cmp = require("cmp")
+      local user_icons = require("utils.icons")
 
       opts.window = {
         completion = { border = vim.g.borderStyle, scrolloff = 2 },
         documentation = { border = vim.g.borderStyle, scrolloff = 2 },
       }
       opts.formatting = {
-        fields = { 'kind', 'abbr', 'menu' }
-      }
+        fields = { "kind", "abbr", "menu" },
 
+            format = function(_, item)
+              local icons = require("utils.icons").kinds
+              if icons[item.kind] then
+                item.kind = icons[item.kind] .. item.kind
+              end
+              return item
+            end,
+
+
+      }
+    end,
+
+    config = function(_, opts)
+      local cmp = require("cmp")
+      cmp.setup(opts)
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
@@ -111,3 +123,4 @@ return {
     end,
   },
 }
+

@@ -11,13 +11,10 @@ return {
       return not require("utils").is_neovim_version_satisfied(10)
     end,
     opts = function()
-      local kind_icons = vim.tbl_map(function(icon)
-        return vim.trim(icon)
-      end, require("lazyvim.config").icons.kinds)
       return {
         theme = "catppuccin",
         show_modified = true,
-        kinds = kind_icons,
+        kinds = require("utils.icons").kinds,
         create_autocmd = false,
       }
     end,
