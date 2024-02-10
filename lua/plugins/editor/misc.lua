@@ -32,4 +32,10 @@ return {
       stages = "fade_in_slide_out",
     },
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      popup_border_style = vim.g.border_style,
+    },
+  },
 }
