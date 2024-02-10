@@ -34,7 +34,9 @@ return {
       luasnip.filetype_extend("javascriptreact", { "html" })
       luasnip.filetype_extend("typescriptreact", { "html" })
 
-      require("luasnip.loaders.from_vscode").lazy_load({
+      local load_snippets = require("luasnip.loaders.from_vscode")
+
+      load_snippets.lazy_load({
         include = {
           "javascript",
           -- "css",
@@ -51,7 +53,7 @@ return {
           -- "sql",
         },
       })
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.g.vscode_snippets_path or "" } })
+      load_snippets.lazy_load({ paths = { vim.g.vscode_snippets_path or "" } })
 
       luasnip.setup({
         history = true,

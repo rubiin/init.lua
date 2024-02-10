@@ -361,9 +361,10 @@ function M.table_length(t)
 end
 
 -- Search for TODOs in the project
----populate quickfixlist with the results
+-- Populate quickfixlist with the results
 function M.search_todos()
-  local result = fn.system("rg --json --case-sensitive -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:'")
+  -- Use ripgrep to search for TODOs in the project, without the end colon you will get a lot of false positives
+  local result = fn.system("rg --json --case-sensitive -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:'")
   if result == nil then
     return
   end
@@ -390,7 +391,7 @@ function M.search_todos()
   if next(qf_list) ~= nil then
     fn.setqflist(qf_list)
     cmd("copen")
-    M.notify("Added Todos to quickfixlist!", vim.log.levels.INFO, "TODOs")
+    M.notify("Added Todos to Quickfixlist!", vim.log.levels.INFO, "TODOs")
   else
     M.notify("No results found!", vim.log.levels.INFO, "TODOs")
   end

@@ -1,6 +1,6 @@
 # 💤 My neovim config
 
-Based on LazyVim as a starter. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal
+Based on LazyVim as a starter, though most stuffs are overridden to keep less dependency on LazyVim as possible. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal
 as a result of which this repo was born which was sooner or later bound to happen
 
 ## init.lua/(Always WIP)
