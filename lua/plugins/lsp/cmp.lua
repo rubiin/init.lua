@@ -1,7 +1,5 @@
--- 0.10 , can use native snippets
-
 local sourceIcons = {
-  buffer = "﬘",
+  buffer = "󰽙",
   cmdline = "󰘳",
   emoji = "󰞅",
   luasnip = "",
@@ -12,6 +10,7 @@ local sourceIcons = {
   zsh = "",
   spell = "暈",
 }
+-- 0.10 , can use native snippets
 
 return {
   {
@@ -93,6 +92,9 @@ return {
       local user_icons = require("utils.icons")
 
       opts = {
+        completion = {
+          completeopt = vim.o.completeopt,
+        },
         window = {
           completion = { border = vim.g.border_style, scrolloff = 2 },
           documentation = { border = vim.g.border_style, scrolloff = 2 },
