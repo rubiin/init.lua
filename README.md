@@ -62,6 +62,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - try WSL2 on Windows and pretend you're on Linux (it's better)
 
 ## Directory structure
+```
 ├── after
 │   └── ftplugin
 │       └── typescript.lua               # File for TypeScript filetype settings
@@ -95,7 +96,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 ├── setup.sh                             # Shell script for bootstrapping required tools
 ├── spell                                # Directory possibly containing spellcheck related files
 └── stylua.toml                          # Configuration file for Stylua
-
+```
 ## UI
 
 ### Start screen with dashboard-nvim
