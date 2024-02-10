@@ -61,6 +61,41 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - don't use Windows
 - try WSL2 on Windows and pretend you're on Linux (it's better)
 
+## Directory structure
+├── after
+│   └── ftplugin
+│       └── typescript.lua               # File for TypeScript filetype settings
+├── biome.json                           # Configuration file for a specific feature or plugin
+├── cspell.json                          # Configuration file for the cspell spellchecker
+├── cspell-tool.txt                      # Custom dictionary for cspell
+├── doc
+│   └── keymaps.md                       # Documentation file for keymaps
+├── init.lua                             # Initialization file for Vim or Neovim
+├── lazy-lock.json                       # Configuration file for a specific feature or plugin
+├── lazyvim.json                         # Configuration file for a specific feature or plugin
+├── LICENSE                              # File containing licensing information
+├── lua
+│   ├── config                           # Core configuration scripts
+│   ├── custom                           # Custom Lua scripts
+│   ├── plugins                          # Configurations for plugins
+│   │   ├── coding
+│   │   ├── disabled.lua
+│   │   ├── editor
+│   │   ├── extras
+│   │   ├── init.lua
+│   │   ├── lang
+│   │   ├── lsp
+│   │   └── ui
+│   └── utils                            # Utility scripts
+├── misc                                 # Misc folders
+│   ├── snippets
+│   └── undo
+├── README.md                            # Readme file for the project
+├── selene.toml                          # Possible configuration file for a tool or plugin
+├── setup.sh                             # Shell script for bootstrapping required tools
+├── spell                                # Directory possibly containing spellcheck related files
+└── stylua.toml                          # Configuration file for Stylua
+
 ## UI
 
 ### Start screen with dashboard-nvim
