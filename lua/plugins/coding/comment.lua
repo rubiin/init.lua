@@ -71,9 +71,6 @@ return {
       --    Or function (that returns lua regex)
       -- ignore = nil,
     },
-
-    --local comment_ft = require("Comment.ft")
-    --comment_ft.set("lua", { "--%s", "--[[%s]]" })
     config = function(_, opts)
       require("ts_context_commentstring").setup({
         enable_autocmd = false,

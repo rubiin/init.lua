@@ -17,7 +17,14 @@ return {
           javascript = { "string", "template_string" }, -- it will not add a pair on that treesitter node
           java = false, -- it will not add a pair on that treesitter node
         },
+
+        enable_check_bracket_line = false,
         disable_filetype = { "TelescopePrompt", "spectre_panel" },
+
+        ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
+        enable_moveright = true,
+        disable_in_macro = false,
+        enable_afterquote = true,
         fast_wrap = {
           map = "<M-e>",
           chars = { "{", "[", "(", '"', "'" },
@@ -26,8 +33,8 @@ return {
           end_key = "$",
           keys = "qwertyuiopzxcvbnmasdfghjkl",
           check_comma = true,
-          highlight = "PmenuSel",
-          highlight_grey = "LineNr",
+          highlight = "Search",
+          highlight_grey = "Comment",
         },
         map_cr = true,
         map_bs = true, -- map the <BS> key

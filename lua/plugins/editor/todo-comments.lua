@@ -15,10 +15,10 @@ return {
       TODO = { icon = icons.ui.BoxChecked, color = "info" },
       HACK = { icon = icons.ui.Fire, color = "warning" },
       WARN = { icon = icons.diagnostics.Warn, color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = icons.ui.Gear, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      PERF = { icon = icons.ui.Performance, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       NOTE = { icon = icons.ui.Note, color = "hint", alt = { "INFO" } },
       TEST = {
-        icon = icons.ui.Target,
+        icon = icons.ui.TEST,
         color = "test",
         alt = { "TESTING", "PASSED", "FAILED" },
       },

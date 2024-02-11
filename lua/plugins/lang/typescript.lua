@@ -6,6 +6,11 @@ return {
     ft = "json",
     opts = {},
   },
+  -- TODO: see if this is useful
+  -- {
+  --   "marilari88/twoslash-queries.nvim",
+  --   opts = {}
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = {
