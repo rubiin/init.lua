@@ -1,4 +1,4 @@
-local icons = require("custom.icons")
+local user_icons = require("custom.icons")
 
 return {
   "folke/todo-comments.nvim",
@@ -8,17 +8,17 @@ return {
   opts = {
     keywords = {
       FIX = {
-        icon = icons.ui.Bug, -- icon used for the sign, and in search results
+        icon = user_icons.ui.Bug, -- icon used for the sign, and in search results
         color = "error", -- can be a hex color, or a named color (see below)
         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       },
-      TODO = { icon = icons.ui.BoxChecked, color = "info" },
-      HACK = { icon = icons.ui.Fire, color = "warning" },
-      WARN = { icon = icons.diagnostics.Warn, color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = icons.ui.Performance, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-      NOTE = { icon = icons.ui.Note, color = "hint", alt = { "INFO" } },
+      TODO = { icon = user_icons.ui.BoxChecked, color = "info" },
+      HACK = { icon = user_icons.ui.Fire, color = "warning" },
+      WARN = { icon = user_icons.diagnostics.Warn, color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = user_icons.ui.Performance, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = user_icons.ui.Note, color = "hint", alt = { "INFO" } },
       TEST = {
-        icon = icons.ui.TEST,
+        icon = user_icons.ui.TEST,
         color = "test",
         alt = { "TESTING", "PASSED", "FAILED" },
       },

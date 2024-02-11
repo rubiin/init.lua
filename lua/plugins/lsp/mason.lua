@@ -1,4 +1,4 @@
-local icons = require("custom.icons")
+local user_icons = require("custom.icons")
 
 return {
   {
@@ -6,9 +6,9 @@ return {
     opts = function(_, opts)
       opts.ui = {
         icons = {
-          package_installed = icons.ui.Loaded,
-          package_pending = icons.ui.Pending,
-          package_uninstalled = icons.ui.NotLoaded,
+          package_installed = user_icons.ui.Loaded,
+          package_pending = user_icons.ui.Pending,
+          package_uninstalled = user_icons.ui.NotLoaded,
         },
         border = vim.g.border_style,
         height = 0.8,

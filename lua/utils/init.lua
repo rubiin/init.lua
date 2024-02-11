@@ -1,7 +1,7 @@
 local M = {}
 
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
-local icons = require("custom.icons")
+local user_icons = require("custom.icons")
 
 M.styles = {
   slanted = "slanted",
@@ -48,20 +48,19 @@ function M.lualine_styles(type)
     },
     {
       "diff",
-      cond = M.hide_in_width or M.is_git_repo,
       symbols = {
-        added = icons.git.LineAdded,
-        modified = icons.git.LineModified,
-        removed = icons.git.LineRemoved,
+        added = user_icons.git.LineAdded,
+        modified = user_icons.git.LineModified,
+        removed = user_icons.git.LineRemoved,
       },
     },
     {
       "diagnostics",
       symbols = {
-        error = icons.diagnostics.Error,
-        hint = icons.diagnostics.Hint,
-        info = icons.diagnostics.Info,
-        warn = icons.diagnostics.Warn,
+        error = user_icons.diagnostics.Error,
+        hint = user_icons.diagnostics.Hint,
+        info = user_icons.diagnostics.Info,
+        warn = user_icons.diagnostics.Warn,
       },
     },
   }
@@ -69,16 +68,23 @@ function M.lualine_styles(type)
   opts.sections.lualine_c = {
     {
       "filename",
-      cond = M.buffer_not_empty,
     },
   }
 
-  opts.sections.lualine_x =
-    { { "location", cond = M.buffer_not_empty, icon = "", padding = { left = 1, right = 1 } } }
+  opts.sections.lualine_x = {
+    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, padding = { left = 1, right = 1 } },
+    {
+      function()
+        local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
+        return user_icons.ui.Tab .. shiftwidth
+      end,
+      cond = M.hide_in_width,
+    },
+  }
   opts.sections.lualine_y = {
     {
       "o:encoding",
-      cond = M.hide_in_width or M.buffer_not_empty,
+      cond = M.hide_in_width,
       fmt = string.upper,
     },
 
@@ -242,7 +248,7 @@ end
 -- Check if window width is wide enough for lualine components
 ---@return boolean
 function M.hide_in_width()
-  return fn.winwidth(0) > 80
+  return fn.winwidth(0) > 100
 end
 
 --- Check if current directory is a git repo

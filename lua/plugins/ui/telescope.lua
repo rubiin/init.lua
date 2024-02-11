@@ -1,4 +1,4 @@
-local icons = require("custom.icons").ui
+local user_icons = require("custom.icons").ui
 
 return {
   {
@@ -62,8 +62,8 @@ return {
         color_devicons = true,
         sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = icons.Telescope, -- or $
-        selection_caret = icons.SelectionCaret,
+        prompt_prefix = user_icons.Telescope, -- or $
+        selection_caret = user_icons.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {
           "%.7z",
