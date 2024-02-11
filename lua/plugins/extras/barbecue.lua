@@ -14,7 +14,7 @@ return {
       return {
         theme = "catppuccin",
         show_modified = true,
-        kinds = require("utils.icons").kinds,
+        kinds = require("custom.icons").kinds,
         create_autocmd = false,
       }
     end,

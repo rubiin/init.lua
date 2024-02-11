@@ -89,7 +89,7 @@ return {
         { name = "nvim_lsp_signature_help" },
       })
 
-      local user_icons = require("utils.icons")
+      local user_icons = require("custom.icons")
 
       opts = {
         completion = {

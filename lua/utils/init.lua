@@ -1,7 +1,7 @@
 local M = {}
 
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
-local icons = require("utils.icons")
+local icons = require("custom.icons")
 
 M.styles = {
   slanted = "slanted",
@@ -95,7 +95,10 @@ function M.lualine_styles(type)
   }
   opts.sections.lualine_z = {
     "copilot",
-    "filetype",
+    {
+      "filetype",
+      fmt = M.capitalize,
+    },
   }
   opts.extensions = {}
 
@@ -329,7 +332,7 @@ function M.cowboy()
       end
       if count >= 10 and vim.bo.buftype ~= "nofile" then
         ok, id = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
-          icon = require("utils.icons").diagnostics.Warn,
+          icon = require("custom.icons").diagnostics.Warn,
           replace = id,
           keep = function()
             return count >= 10
@@ -348,6 +351,13 @@ function M.cowboy()
       end
     end, { expr = true, silent = true })
   end
+end
+
+-- Capitalize the first letter of a string
+---@param str string
+---@return string
+function M.capitalize(str)
+  return (str:gsub("^%l", string.upper))
 end
 
 -- Returns the length of a table

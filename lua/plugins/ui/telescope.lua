@@ -1,4 +1,4 @@
-local icons = require("utils.icons").ui
+local icons = require("custom.icons").ui
 
 return {
   {

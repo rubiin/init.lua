@@ -1,6 +1,6 @@
 local keys = { quit = { "<esc>", "q" }, toggle_or_jump = { "<cr>", "o" } }
 
-local user_icons = require("utils.icons")
+local user_icons = require("custom.icons")
 
 return {
   {
