@@ -48,7 +48,7 @@ function M.lualine_styles(type)
     },
     {
       "diff",
-      cond = M.hide_in_width,
+      cond = M.hide_in_width or M.is_git_repo,
       symbols = {
         added = icons.git.LineAdded,
         modified = icons.git.LineModified,
@@ -78,7 +78,7 @@ function M.lualine_styles(type)
   opts.sections.lualine_y = {
     {
       "o:encoding",
-      cond = M.hide_in_width,
+      cond = M.hide_in_width or M.buffer_not_empty,
       fmt = string.upper,
     },
 
@@ -98,6 +98,7 @@ function M.lualine_styles(type)
     {
       "filetype",
       fmt = M.capitalize,
+      cond = M.buffer_not_empty,
     },
   }
   opts.extensions = {}
@@ -156,7 +157,7 @@ end
 ---Checks if a command is available
 ---@param command string
 ---@return boolean
-function M.is_executable_available(command)
+function M.is_installed(command)
   return fn.executable(command) == 1
 end
 

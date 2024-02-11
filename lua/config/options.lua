@@ -178,3 +178,20 @@ o.spelllang = "en_us" -- set spell check language
 o.history = 10000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
 o.updatetime = 200 -- Decrease update time
+
+-- TODO: Move to a better place
+-- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+--   vim.lsp.handlers.hover, {
+--     border = 'rounded',
+--   }
+-- )
+
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+--   vim.lsp.handlers.signature_help, {
+--     border = 'rounded'
+--   }
+-- )
+
+-- vim.diagnostic.config {
+--   float = { border = 'rounded' }
+-- }
