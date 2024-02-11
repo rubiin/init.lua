@@ -12,7 +12,12 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    dependencies = {
+      "AndreM222/copilot-lualine",
+    },
     lazy = true,
     opts = lualine_styles,
   },
 }
+
+-- TODO: make the filetype Captial

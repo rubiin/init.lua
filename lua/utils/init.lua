@@ -94,6 +94,7 @@ function M.lualine_styles(type)
     },
   }
   opts.sections.lualine_z = {
+    "copilot",
     "filetype",
   }
   opts.extensions = {}
