@@ -19,7 +19,6 @@ function M.color_my_pencils(color)
   api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
---TODO: fix the diagonistics icons issue
 --- @param type string
 --- @return table
 function M.lualine_styles(type)
@@ -41,14 +40,10 @@ function M.lualine_styles(type)
     opts.options.section_separators = { left = "", right = "" }
   end
 
-  opts.sections.lualine_a =
-    { {
-      "mode",
-      icon = "",
-      fmt = function(str)
-        return str:sub(1, 1)
-      end,
-    } }
+  opts.sections.lualine_a = { {
+    "mode",
+    icon = "",
+  } }
   opts.sections.lualine_b = {
     {
       "branch",
@@ -136,7 +131,7 @@ end
 -- Open URL under cursor, supports http, https and www
 function M.open_url()
   -- Get the text under the cursor
-  local url = vim.fn.expand("<cWORD>")
+  local url = fn.expand("<cWORD>")
 
   -- Check if it resembles a URL
   if url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
@@ -195,7 +190,7 @@ end
 --- @return string
 function M.version()
   local version = vim.version()
-  local print_version = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
+  local print_version = version.major .. "." .. version.minor .. "." .. version.patch
 
   return " " .. print_version .. " "
 end
@@ -304,10 +299,10 @@ function M.is_not_empty(s)
 end
 
 -- Check if a variable is empty or nil
---- @param mode string|table
---- @param lhs string
---- @param rhs string|function
---- @param opts table?
+---@param mode string|table
+---@param lhs string
+---@param rhs string|function
+---@param opts table?
 function M.keymap(mode, lhs, rhs, opts)
   local defaults = {
     silent = true,

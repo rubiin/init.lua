@@ -5,6 +5,8 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
+        show_buffer_close_icons = false,
+        show_close_icon = false,
         offsets = {
           {
             filetype = "neo-tree",
@@ -40,7 +42,6 @@ return {
       popup_border_style = vim.g.border_style,
     },
   },
-
   {
     "RRethy/vim-illuminate",
     opts = {
