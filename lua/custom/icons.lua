@@ -82,7 +82,7 @@ return {
     BoldLineMiddle = "┃",
     BoldLineDashedMiddle = "┋",
     BookMark = "",
-    BoxChecked = " ",
+    BoxChecked = " ",
     Bug = " ",
     Buffer = "󰽙",
     Stacks = "",
