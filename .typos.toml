@@ -1,0 +1,13 @@
+# DOCS https://github.com/crate-ci/typos/blob/master/docs/reference.md
+#───────────────────────────────────────────────────────────────────────────────
+
+# ignore these words
+[default.extend-words]
+noice = "noice" # plugin name
+tre = "tre" # abbreviation for `then return end`
+ot = "ot" # keybinding
+
+# ignore these files
+# INFO (needs glob due to conform.nvim appending stuff for temporary file)
+[files]
+extend-exclude = ["*cspell-tool.txt"]
