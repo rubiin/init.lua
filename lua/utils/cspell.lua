@@ -88,5 +88,4 @@ function M.add_word_to_c_spell_dictionary()
     utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end
 end
-
 return M

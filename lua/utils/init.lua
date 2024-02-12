@@ -19,6 +19,8 @@ function M.color_my_pencils(color)
   api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
+
+--TODO: fix the diagonistics icons issue
 --- @param type string
 --- @return table
 function M.lualine_styles(type)

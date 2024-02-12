@@ -13,6 +13,11 @@ return {
       "toml",
       "vim",
     },
+    opts = {
+      autotag = {
+        enable = true,
+      },
+    },
   },
 }
 
