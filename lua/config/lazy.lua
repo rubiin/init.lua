@@ -57,9 +57,9 @@ require("lazy").setup({
   install = { colorscheme = { "catppuccin" } },
   checker = {
     -- automatically check for plugin updates
-    enabled = false,
-    notify = false, -- done on my own to use minimum condition for less noise
-    frequency = 60 * 60 * 24, -- = 1 day
+    enabled = true,
+    notify = true,
+    frequency = 60 * 60 * 4, -- = 4 hours
   },
   performance = {
     rtp = {
@@ -76,18 +76,3 @@ require("lazy").setup({
     },
   },
 })
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
-local function checkForPluginUpdates()
-  if not require("lazy.status").has_updates() then
-    return
-  end
-  local threshold = 20
-  local numberOfUpdates = tonumber(require("lazy.status").updates():match("%d+"))
-  if numberOfUpdates < threshold then
-    return
-  end
-  vim.notify("Lazy", ("󱧕 %s plugin updates"):format(numberOfUpdates))
-end
-vim.defer_fn(checkForPluginUpdates, 5000)

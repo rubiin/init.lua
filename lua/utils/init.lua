@@ -9,6 +9,12 @@ M.styles = {
   default = "default",
 }
 
+--- Check if a string is empty
+---@param s any
+function M.isempty(s)
+  return s == nil or s == ""
+end
+
 -- Taken from ThePrimeagen and modified
 --- @param color string
 function M.color_my_pencils(color)

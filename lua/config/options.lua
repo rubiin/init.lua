@@ -179,19 +179,11 @@ o.history = 10000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
 o.updatetime = 200 -- Decrease update time
 
--- TODO: Move to a better place
--- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
---   vim.lsp.handlers.hover, {
---     border = 'rounded',
---   }
--- )
+-- Setup neovim providers (`:h provider`)
 
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
---   vim.lsp.handlers.signature_help, {
---     border = 'rounded'
---   }
--- )
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_python3_provider = 0
 
--- vim.diagnostic.config {
---   float = { border = 'rounded' }
--- }
+-- TODO: what is self

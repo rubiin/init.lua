@@ -55,6 +55,9 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
   git clone https://github.com/rubiin/init.lua ~/.config/nvim
   nvim
   '
+
+ 
+
 ```
 
 - NOTE for Windows users:
