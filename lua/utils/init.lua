@@ -19,7 +19,6 @@ function M.color_my_pencils(color)
   api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-
 --TODO: fix the diagonistics icons issue
 --- @param type string
 --- @return table
@@ -33,7 +32,7 @@ function M.lualine_styles(type)
   opts.options.section_separators = ""
 
   if type == M.styles.slanted then
-    opts.options.component_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
   end
 
@@ -42,11 +41,19 @@ function M.lualine_styles(type)
     opts.options.section_separators = { left = "", right = "" }
   end
 
-  opts.sections.lualine_a = { { "mode", icon = "" } }
+  opts.sections.lualine_a =
+    { {
+      "mode",
+      icon = "",
+      fmt = function(str)
+        return str:sub(1, 1)
+      end,
+    } }
   opts.sections.lualine_b = {
     {
       "branch",
       cond = M.is_git_repo,
+      separator = { left = "", right = "" },
     },
     {
       "diff",
@@ -74,7 +81,7 @@ function M.lualine_styles(type)
   }
 
   opts.sections.lualine_x = {
-    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, padding = { left = 1, right = 1 } },
+    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { left = "", right = "" } },
     {
       function()
         local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
@@ -107,6 +114,7 @@ function M.lualine_styles(type)
       "filetype",
       fmt = M.capitalize,
       cond = M.buffer_not_empty,
+      separator = { left = "", right = "" },
     },
   }
   opts.extensions = {}
