@@ -3,6 +3,8 @@ local M = {
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 
+local util = require("utils")
+
 function M.config()
   require("oil").setup({
     float = {
@@ -10,7 +12,7 @@ function M.config()
       max_width = 60,
     },
   })
-  vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+  util.keymap("n", "-", "<CMD>Oil --float<CR>", { desc = "Open Parent Directory" })
 end
 
 return M

@@ -47,16 +47,4 @@ return {
       { "K", "<Cmd>Lspsaga hover_doc ++silent<CR>", desc = "Hover Doc" },
     },
   },
-  {
-    "RRethy/vim-illuminate",
-    opts = {
-      filetypes_denylist = {
-        "sagafinder",
-        "sagacallhierarchy",
-        "sagaincomingcalls",
-        "sagapeekdefinition",
-        "sagaoutline",
-      },
-    },
-  },
 }
