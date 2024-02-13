@@ -2,11 +2,13 @@
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
-    -- stylua: ignore
-    keys = {
-      { "<C-a>", function() return require("dial.map").inc_normal("mygroup") end, expr = true, desc = "Increment" },
-      { "<C-x>", function() return require("dial.map").dec_normal("mygroup") end, expr = true, desc = "Decrement" },
-    },
+  -- stylua: ignore
+  keys = {
+    { "<C-a>", function() return require("dial.map").inc_normal("custom") end, expr = true, desc = "Increment" },
+    { "<C-x>", function() return require("dial.map").dec_normal("custom") end, expr = true, desc = "Decrement" },
+    { "<C-a>", function() return require("dial.map").inc_normal("visual") end, mode = "v",  expr = true,       desc = "Increment" },
+    { "<C-x>", function() return require("dial.map").dec_normal("visual") end, mode = "v",  expr = true,       desc = "Decrement" },
+  },
   config = function()
     local augend = require("dial.augend")
     require("dial.config").augends:register_group({
@@ -33,7 +35,7 @@ return {
         augend.constant.alias.Alpha,
         augend.constant.alias.Alpha,
       },
-      mygroup = {
+      custom = {
         augend.constant.new({
           elements = { "and", "or" },
           word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
