@@ -18,7 +18,7 @@ return {
       PERF = { icon = user_icons.ui.Performance, color = "hint", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       NOTE = { icon = user_icons.ui.Note, color = "hint", alt = { "INFO" } },
       TEST = {
-        icon = user_icons.ui.TEST,
+        icon = user_icons.ui.Test,
         color = "test",
         alt = { "TESTING", "PASSED", "FAILED" },
       },
