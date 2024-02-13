@@ -6,11 +6,16 @@ return {
     ft = "json",
     opts = {},
   },
-  -- TODO: see if this is useful
-  -- {
-  --   "marilari88/twoslash-queries.nvim",
-  --   opts = {}
-  -- },
+  {
+    "marilari88/twoslash-queries.nvim",
+    config = function()
+      require("lspconfig")["tsserver"].setup({
+        on_attach = function(client, bufnr)
+          require("twoslash-queries").attach(client, bufnr)
+        end,
+      })
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = {
