@@ -7,7 +7,7 @@ return {
         function()
           require("neogen").generate({})
         end,
-        desc = "Neogen Comment",
+        desc = "Neogen Documentation",
       },
     },
     opts = { snippet_engine = "luasnip" },

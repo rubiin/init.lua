@@ -5,7 +5,7 @@ return {
     event = "LazyFile",
     lazy = true,
     dependencies = {
-      { "nvim-lua/plenary.nvim" },
+      "nvim-lua/plenary.nvim",
     },
     opts = {
       menu = {
