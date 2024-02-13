@@ -1,15 +1,3 @@
-local sourceIcons = {
-  buffer = "󰽙",
-  cmdline = "󰘳",
-  emoji = "󰞅",
-  luasnip = "",
-  nvim_lsp = "󰒕",
-  path = "",
-  nvim_lua = "",
-  treesitter = "",
-  zsh = "",
-  spell = "暈",
-}
 -- 0.10 , can use native snippets
 
 return {
@@ -68,7 +56,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "ray-x/cmp-treesitter", commit = "c8e3a74" },
-      { "f3fora/cmp-spell" },
+      "uga-rosa/cmp-dictionary",
       {
         "hrsh7th/cmp-cmdline",
         lazy = true,
@@ -81,19 +69,21 @@ return {
       },
     },
     opts = function(_, opts)
-      opts.sources = {
-        { name = "nvim_lsp", max_item_count = 350 },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "treesitter" },
-        { name = "spell" },
-        { name = "buffer" },
-      }
-
       local user_icons = require("custom.icons")
 
       opts = {
+        sources = {
+          { name = "nvim_lsp", max_item_count = 350 },
+          { name = "luasnip" },
+          { name = "path" },
+          { name = "treesitter" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
+          {
+            name = "dictionary",
+            keyword_length = 2,
+          },
+        },
         completion = {
           completeopt = vim.o.completeopt,
         },
@@ -108,7 +98,7 @@ return {
             vim_item.kind =
               string.format(" %s  %s", user_icons.kinds[vim_item.kind] or user_icons.kinds.Null, vim_item.kind or "")
 
-            vim_item.menu = setmetatable({
+            vim_item.menu = ({
               cmp_tabnine = "[TN]",
               copilot = "[CPLT]",
               buffer = "[BUF]",
@@ -120,11 +110,7 @@ return {
               treesitter = "[TS]",
               latex_symbols = "[LTEX]",
               luasnip = "[SNIP]",
-              spell = "[SPELL]",
-            }, {
-              __index = function()
-                return "[BTN]" -- builtin/unknown source names
-              end,
+              dictionary = "[SPELL]",
             })[entry.source.name]
 
             local label = vim_item.abbr
@@ -143,6 +129,7 @@ return {
       local cmp = require("cmp")
 
       cmp.setup(opts)
+
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
@@ -163,6 +150,12 @@ return {
             },
           },
         }),
+      })
+
+      -- source-specific setup
+
+      require("cmp_dictionary").setup({
+        paths = { vim.fn.stdpath("config") .. "/spell/en.utf-8.add" },
       })
     end,
   },

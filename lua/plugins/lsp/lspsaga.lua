@@ -11,9 +11,15 @@ return {
       definition = { enable = true, silent = true, keys = { quit = keys.quit } }, -- peek definition
       outline = { enable = true, silent = true, keys = keys }, -- symbols outline
       lightbulb = { enable = true }, -- bulb as the name says
-      hover = { enable = true, keys = { quit = keys.quit } }, -- hover doc
+      hover = {
+        enable = true,
+        max_width = 0.45,
+        max_height = 0.7,
+        open_link = "gl",
+        keys = { quit = keys.quit },
+      }, -- hover doc
       rename = { enable = true }, --  used telescope/inc-rename for this
-      code_action = { enable = true, extend_gitsigns = true, show_server_name = true }, -- might use actions-preview for this
+      code_action = { enable = true, extend_gitsigns = true, show_server_name = true, only_in_cursor = false }, -- might use actions-preview for this
       ui = {
         theme = "round",
         border = vim.g.border_style,
