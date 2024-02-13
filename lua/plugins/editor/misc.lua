@@ -42,7 +42,6 @@ return {
       popup_border_style = vim.g.border_style,
     },
   },
-  -- TODO: make git icons consistent
   {
     "RRethy/vim-illuminate",
     opts = {

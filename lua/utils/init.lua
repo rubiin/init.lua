@@ -11,7 +11,7 @@ M.styles = {
 
 --- Check if a string is empty
 ---@param s any
-function M.isempty(s)
+function M.is_empty(s)
   return s == nil or s == ""
 end
 
@@ -63,14 +63,24 @@ function M.lualine_styles(type)
         modified = user_icons.git.LineModified,
         removed = user_icons.git.LineRemoved,
       },
+      source = function()
+        local gitsigns = vim.b.gitsigns_status_dict
+        if gitsigns then
+          return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed,
+          }
+        end
+      end,
     },
     {
       "diagnostics",
       symbols = {
-        error = user_icons.diagnostics.Error,
-        hint = user_icons.diagnostics.Hint,
-        info = user_icons.diagnostics.Info,
-        warn = user_icons.diagnostics.Warn,
+        error = user_icons.diagnostics.BoldError,
+        hint = user_icons.diagnostics.BoldHint,
+        info = user_icons.diagnostics.BoldInfo,
+        warn = user_icons.diagnostics.BoldWarn,
       },
     },
   }
@@ -350,7 +360,7 @@ function M.cowboy()
       end
       if count >= 10 and vim.bo.buftype ~= "nofile" then
         ok, id = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
-          icon = require("custom.icons").diagnostics.Warn,
+          icon = require("custom.icons").diagnostics.BoldWarn,
           replace = id,
           keep = function()
             return count >= 10

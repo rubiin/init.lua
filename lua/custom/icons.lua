@@ -50,9 +50,9 @@ return {
     Variable = " ",
   },
   git = {
-    LineAdded = " ",
-    LineModified = " ",
-    LineRemoved = " ",
+    LineAdded = " ",
+    LineModified = " ",
+    LineRemoved = " ",
     FileDeleted = " ",
     FileIgnored = "◌",
     FileRenamed = " ",
@@ -164,7 +164,7 @@ return {
     TriangleShortArrowUp = "",
   },
   diagnostics = {
-    BoldError = "",
+    BoldError = " ",
     Error = " ",
     BoldWarn = " ",
     Warn = " ",

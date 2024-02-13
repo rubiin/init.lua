@@ -22,7 +22,7 @@ return {
         augend.integer.alias.hex,
         augend.constant.new({ elements = { "let", "const" } }),
         augend.constant.new({ elements = { "public", "private", "protected" } }),
-        augend.constant.new({ elements = { "any", "unknown","never" } }),
+        augend.constant.new({ elements = { "any", "unknown", "never" } }),
         augend.constant.new({ elements = { "null", "undefined" } }),
       },
       visual = {
