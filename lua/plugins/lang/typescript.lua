@@ -7,16 +7,6 @@ return {
     opts = {},
   },
   {
-    "marilari88/twoslash-queries.nvim",
-    config = function()
-      require("lspconfig")["tsserver"].setup({
-        on_attach = function(client, bufnr)
-          require("twoslash-queries").attach(client, bufnr)
-        end,
-      })
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = {
       "typescript",
@@ -29,14 +19,7 @@ return {
     event = { "BufReadPost *.ts,*.tsx,*.js,*.jsx", "BufNewFile *.ts,*.tsx,*.js,*.jsx" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
-      local lspconfig = require("lspconfig")
       require("typescript-tools").setup({
-        on_attach = function(client, bufnr)
-          lspconfig.on_attach(client, bufnr)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-        capabilities = lspconfig.common_capabilities(),
         settings = {
           -- spawn additional tsserver instance to calculate diagnostics on it
           separate_diagnostic_server = true,
