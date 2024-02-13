@@ -50,7 +50,7 @@ utils.keymap("n", "<leader>cs", function()
 end, { desc = "Add Word To Cspell Dictionary" })
 
 -- Add automaton keymap
-utils.keymap("n", "<leader>==", "<cmd>CellularAutomaton make_it_rain<CR>", {
+utils.keymap("n", "<leader>yc", "<cmd>CellularAutomaton make_it_rain<CR>", {
   desc = "Make It Rain Baby",
 })
 
