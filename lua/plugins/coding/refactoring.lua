@@ -13,7 +13,7 @@ return {
         function()
           require("telescope").extensions.refactoring.refactors()
         end,
-        mode = { "v" },
+        mode = "v",
         desc = "Refactor",
       },
       {
@@ -29,7 +29,6 @@ return {
         function()
           require("refactoring").refactor("Extract Block")
         end,
-        mode = { "n" },
         desc = "Extract Block",
       },
       {
@@ -37,7 +36,6 @@ return {
         function()
           require("refactoring").refactor("Extract Block To File")
         end,
-        mode = { "n" },
         desc = "Extract Block To File",
       },
       {
@@ -45,7 +43,6 @@ return {
         function()
           require("refactoring").debug.printf({ below = false })
         end,
-        mode = { "n" },
         desc = "Debug Print",
       },
       {
@@ -53,7 +50,6 @@ return {
         function()
           require("refactoring").debug.print_var({ normal = true })
         end,
-        mode = { "n" },
         desc = "Debug Print Variable",
       },
       {
@@ -61,7 +57,6 @@ return {
         function()
           require("refactoring").debug.cleanup({})
         end,
-        mode = { "n" },
         desc = "Debug Cleanup",
       },
       {
@@ -69,15 +64,15 @@ return {
         function()
           require("refactoring").refactor("Extract Function")
         end,
-        mode = { "v" },
+        mode = "v",
         desc = "Extract Function",
       },
       {
         "<leader>rF",
         function()
-          require("refactoring").refactor("Extract Function to File")
+          require("refactoring").refactor("Extract Function To File")
         end,
-        mode = { "v" },
+        mode = "v",
         desc = "Extract Function To File",
       },
       {
@@ -85,7 +80,7 @@ return {
         function()
           require("refactoring").refactor("Extract Variable")
         end,
-        mode = { "v" },
+        mode = "v",
         desc = "Extract Variable",
       },
       {
@@ -93,7 +88,7 @@ return {
         function()
           require("refactoring").debug.print_var()
         end,
-        mode = { "v" },
+        mode = "v",
         desc = "Debug Print Variable",
       },
     },
