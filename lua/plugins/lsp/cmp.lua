@@ -71,15 +71,16 @@ return {
         event = { "VeryLazy" },
       },
     },
-    opts = function(_, opts)
+    opts = function()
       local user_icons = require("custom.icons")
+      local cmp = require("cmp")
 
-      opts = {
+      return {
         sources = {
           { name = "nvim_lsp", max_item_count = 20 },
-          { name = "path" },
           { name = "luasnip" },
           { name = "buffer", keyword_length = 4, max_item_count = 10 },
+          { name = "path" },
           { name = "treesitter" },
           { name = "nvim_lua" },
           {
@@ -87,8 +88,20 @@ return {
             keyword_length = 2,
           },
         },
+        duplicates = {
+          nvim_lsp = 1,
+          luasnip = 1,
+          cmp_tabnine = 1,
+          copilot = 1,
+          buffer = 1,
+          path = 1,
+        },
         completion = {
           completeopt = vim.o.completeopt,
+        },
+        confirm_opts = {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
         },
         window = {
           completion = { border = vim.g.border_style, scrolloff = 2 },

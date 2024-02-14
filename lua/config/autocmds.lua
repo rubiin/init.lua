@@ -297,17 +297,17 @@ user_command("ToggleDarkMode", utils.toggle_light_dark_theme, {})
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
 -- Change working directory
 user_command("Cwd", function()
-  vim.cmd ":cd %:p:h"
-  vim.cmd ":pwd"
+  vim.cmd(":cd %:p:h")
+  vim.cmd(":pwd")
 end, { desc = "cd current file's directory" })
 
 -- Set working directory (alias)
 user_command("Swd", function()
-  vim.cmd ":cd %:p:h"
-  vim.cmd ":pwd"
+  vim.cmd(":cd %:p:h")
+  vim.cmd(":pwd")
 end, { desc = "cd current file's directory" })
 
 -- Write all buffers
 user_command("WriteAllBuffers", function()
-  vim.cmd "wa"
+  vim.cmd("wa")
 end, { desc = "Write all changed buffers" })
