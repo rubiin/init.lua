@@ -1,6 +1,6 @@
 local utils = require("utils")
 
-local used_style = utils.styles.slanted -- this is the default style, change it to the style you want to use from the list
+local used_style = utils.styles.bubbly -- this is the default style, change it to the style you want to use from the list
 local lualine_styles = utils.lualine_styles(used_style)
 
 return {

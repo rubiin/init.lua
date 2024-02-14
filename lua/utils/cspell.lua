@@ -84,6 +84,7 @@ function M.add_word_to_c_spell_dictionary()
     file:close()
     -- Reload buffer to update the dictionary
     vim.cmd("e!")
+    utils.notify("Word added to the dictionary", "info", "cSpell")
   else
     utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end

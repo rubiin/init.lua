@@ -73,10 +73,10 @@ return {
 
       opts = {
         sources = {
-          { name = 'nvim_lsp', max_item_count = 20 },
+          { name = "nvim_lsp", max_item_count = 20 },
           { name = "path" },
           { name = "luasnip" },
-          { name = 'buffer', keyword_length = 4, max_item_count = 10 },
+          { name = "buffer", keyword_length = 4, max_item_count = 10 },
           { name = "treesitter" },
           { name = "nvim_lua" },
           {
@@ -92,7 +92,7 @@ return {
           documentation = { border = vim.g.border_style, scrolloff = 2 },
         },
         formatting = {
-          fields = { "kind","abbr", "menu" },
+          fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
             -- load lspkind icons
             vim_item.kind =
