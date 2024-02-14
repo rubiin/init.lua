@@ -399,6 +399,15 @@ function M.table_length(t)
   return count
 end
 
+--- Always ask before exiting nvim, even if there is nothing to be saved.
+function M.confirm_quit()
+  local choice = vim.fn.confirm("Do you really want to exit nvim?", "&Yes\n&No", 2)
+  if choice == 1 then
+    -- If user confirms, but there are still files to be saved: Ask
+    vim.cmd("confirm quit")
+  end
+end
+
 -- Search for TODOs in the project
 -- Populate quickfixlist with the results
 function M.search_todos()

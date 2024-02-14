@@ -1,7 +1,7 @@
 local o = vim.opt
 
+-- Zen mode for distraction free editing
 return {
-  -- zen mode for distraction free editing
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
@@ -92,4 +92,4 @@ return {
   },
 }
 
--- TODO: look into this plugin
+-- TODO: look into this plugins

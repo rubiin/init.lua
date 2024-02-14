@@ -12,9 +12,9 @@ function _G.get_spectre_options(default_opts)
   return opts
 end
 
+-- Search and replace with pattern
 return {
   {
-    -- Search and replace with pattern
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
     lazy = true,
@@ -24,7 +24,8 @@ return {
       vim.api.nvim_set_hl(0, "SpectreSearch", { bg = theme.red, fg = theme.base })
       vim.api.nvim_set_hl(0, "SpectreReplace", { bg = theme.green, fg = theme.base })
       require("spectre").setup({
-        is_insert_mode = true,
+        is_insert_mode = true, -- start open panel on is_insert_mode
+        is_block_ui_break = true, -- prevent the UI from breaking
         highlight = {
           search = "SpectreSearch",
           replace = "SpectreReplace",

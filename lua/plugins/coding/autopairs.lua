@@ -7,7 +7,11 @@ return {
     },
     config = function()
       -- import nvim-autopairs
-      local autopairs = require("nvim-autopairs")
+
+      local setup, autopairs = pcall(require, "nvim-autopairs")
+      if not setup then
+        return
+      end
 
       -- configure autopairs
       autopairs.setup({

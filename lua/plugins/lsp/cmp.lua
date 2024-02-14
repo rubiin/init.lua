@@ -8,7 +8,6 @@ return {
     },
     config = function()
       local luasnip = require("luasnip")
-      local types = require("luasnip.util.types")
 
       luasnip.filetype_extend("typescript", { "tsdoc" })
       luasnip.filetype_extend("javascript", { "jsdoc" })
