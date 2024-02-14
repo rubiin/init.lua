@@ -9,6 +9,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
 
+      -- extend snippets to other filetypes
       luasnip.filetype_extend("typescript", { "tsdoc" })
       luasnip.filetype_extend("javascript", { "jsdoc" })
       luasnip.filetype_extend("lua", { "luadoc" })
@@ -20,7 +21,10 @@ return {
       luasnip.filetype_extend("javascriptreact", { "html" })
       luasnip.filetype_extend("typescriptreact", { "html" })
 
-      local load_snippets = require("luasnip.loaders.from_vscode")
+      local status_ok, load_snippets = pcall(require, "luasnip.loaders.from_vscode")
+      if not status_ok then
+        return
+      end
 
       load_snippets.lazy_load({
         include = {

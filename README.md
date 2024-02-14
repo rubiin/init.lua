@@ -56,7 +56,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
   nvim
   '
 
- 
+
 
 ```
 
@@ -144,6 +144,7 @@ g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vsc
 g.github_username = "rubiin" -- Github username
 g.random_banner = true -- Random banner
 g.fortune = true -- Fortune in start screen
+g.border_style = "single" ---@type "single"|"double"|"rounded"|"solid"|"none"
 
 ```
 

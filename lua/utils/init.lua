@@ -208,10 +208,10 @@ function M.version()
   local version = vim.version()
   local print_version = version.major .. "." .. version.minor .. "." .. version.patch
 
-  return " " .. print_version .. " "
+  return user_icons.ui.Neovim .. print_version
 end
 
----Notify
+-- Notify
 ---@param message string
 ---@param level string|integer
 ---@param title string
@@ -223,7 +223,7 @@ function M.notify(message, level, title, timeout)
   vim.notify(message, level, notify_options)
 end
 
---- Delete multiple keymaps
+-- Delete multiple keymaps.
 ---@param list table
 ---@return nil
 function M.delete_keymaps(list)
@@ -236,14 +236,14 @@ function M.delete_keymaps(list)
   end
 end
 
--- Trim trailing whitespace on save
+-- Trim trailing whitespace on save.
 function M.trim_trailing_whitespace()
   local pos = api.nvim_win_get_cursor(0)
   cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
   api.nvim_win_set_cursor(0, pos)
 end
 
--- Trim trailing blank lines on save
+-- Trim trailing blank lines on save.
 function M.trim_trailing_lines()
   local last_line = api.nvim_buf_line_count(0)
   local last_nonblank_line = fn.prevnonblank(last_line)
@@ -252,7 +252,7 @@ function M.trim_trailing_lines()
   end
 end
 
--- Trim trailing whitespace and blank lines on save
+-- Trim trailing whitespace and blank lines on save.
 function M.trim()
   if not o.binary and o.filetype ~= "diff" then
     M.trim_trailing_lines()
@@ -260,19 +260,19 @@ function M.trim()
   end
 end
 
--- Check if buffer is empty
+-- Check if buffer is empty.
 ---@return boolean
 function M.buffer_not_empty()
   return fn.empty(fn.expand("%:t")) ~= 1
 end
 
--- Check if window width is wide enough for lualine components
+-- Check if window width is wide enough for lualine components.
 ---@return boolean
 function M.hide_in_width()
   return fn.winwidth(0) > 100
 end
 
---- Check if current directory is a git repo
+--- Check if current directory is a git repo.
 ---@return boolean
 function M.is_git_repo()
   local filepath = fn.expand("%:p:h")
@@ -287,7 +287,7 @@ function M.get_git_root()
   return fn.fnamemodify(dot_git_path, ":h")
 end
 
--- Lua line component for lazy
+-- Lua line component for lazy.
 ---@return table
 function M.lazy_lua_component()
   return {
@@ -297,7 +297,7 @@ function M.lazy_lua_component()
   }
 end
 
---- Get root directory of git project or fallback to current directory
+--- Get root directory of git project or fallback to current directory.
 ---@return string|nil
 function M.get_root_directory()
   if M.is_git_repo() then
@@ -307,14 +307,14 @@ function M.get_root_directory()
   return fn.getcwd()
 end
 
--- Check if a variable is not empty nor nil
+-- Check if a variable is not empty nor nil.
 ---@param s string
 ---@return boolean
 function M.is_not_empty(s)
   return s ~= nil and s ~= ""
 end
 
--- Check if a variable is empty or nil
+-- Check if a variable is empty or nil.
 ---@param mode string|table
 ---@param lhs string
 ---@param rhs string|function
@@ -327,7 +327,7 @@ function M.keymap(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, M.merge(defaults, opts or {}))
 end
 
--- Merge two tables recursively
+-- Merge two tables recursively.
 ---@return table
 function M.merge(...)
   return vim.tbl_deep_extend("force", ...)
@@ -345,7 +345,7 @@ function M.extend_keys(table, keys, values)
   return table
 end
 
--- Taken from folke's dotfiles
+-- Taken from folke's dotfiles.
 function M.cowboy()
   ---@type table?
   local id
@@ -358,7 +358,7 @@ function M.cowboy()
       if vim.v.count > 0 then
         count = 0
       end
-      if count >= 10 and vim.bo.buftype ~= "nofile" then
+      if count >= 10 and bo.buftype ~= "nofile" then
         ok, id = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
           icon = require("custom.icons").diagnostics.BoldWarn,
           replace = id,
@@ -381,14 +381,14 @@ function M.cowboy()
   end
 end
 
--- Capitalize the first letter of a string
+-- Capitalize the first letter of a string.
 ---@param str string
 ---@return string
 function M.capitalize(str)
   return (str:gsub("^%l", string.upper))
 end
 
--- Returns the length of a table
+-- Returns the length of a table.
 ---@param t table
 ---@return integer
 function M.table_length(t)
