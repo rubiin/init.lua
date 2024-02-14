@@ -29,5 +29,3 @@ return {
     },
   },
 }
-
--- TODO:  look more on nvim_treesitter_objects

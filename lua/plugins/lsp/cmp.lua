@@ -93,12 +93,11 @@ return {
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },
-          format = function(entry, vim_item)
+          format = function(entry, item)
             -- load lspkind icons
-            vim_item.kind =
-              string.format(" %s  %s", user_icons.kinds[vim_item.kind] or user_icons.kinds.Null, vim_item.kind or "")
+            item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
 
-            vim_item.menu = ({
+            item.menu = ({
               cmp_tabnine = "[TN]",
               copilot = "[CPLT]",
               buffer = "[BUF]",
@@ -113,13 +112,13 @@ return {
               dictionary = "[SPELL]",
             })[entry.source.name]
 
-            local label = vim_item.abbr
-            local truncated_label = vim.fn.strcharpart(label, 0, 80)
+            local label = item.abbr
+            local truncated_label = vim.fn.strcharpart(label, 0, 50)
             if truncated_label ~= label then
-              vim_item.abbr = truncated_label .. "..."
+              item.abbr = truncated_label .. "..."
             end
 
-            return vim_item
+            return item
           end,
         },
       }

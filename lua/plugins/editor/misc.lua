@@ -26,7 +26,7 @@ return {
       manual_mode = false,
     },
   },
-  -- nvim notify
+  -- nvim-notify
   {
     "rcarriga/nvim-notify",
     opts = {
@@ -35,7 +35,7 @@ return {
       stages = "fade_in_slide_out",
     },
   },
-  -- neo tree
+  -- neotree
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {

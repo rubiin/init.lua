@@ -25,8 +25,8 @@ return {
         vsplit = "v",
         stoggleup = "M",
         stoggledown = "m",
-        stogglevm = "m",
         filterr = "f",
+        stogglevm = "m",
         filter = "F",
         prevhist = "<",
         nexthist = ">",
@@ -44,3 +44,5 @@ return {
     },
   },
 }
+
+-- TODO: look into this plugin

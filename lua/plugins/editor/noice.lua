@@ -1,3 +1,25 @@
+local all_routes = {
+  -- FIX lsp signature bug
+  { filter = { event = "msg_show", find = "lsp_signature? handler RPC" }, skip = true },
+  -- redirect to popup when message is long
+  { filter = { min_height = 10 }, view = "popup" },
+  -- code actions
+  { filter = { event = "notify", find = "No code actions available" }, view = "mini" },
+  { filter = { event = "notify", find = ":!setxkbmap -option ctrl:nocaps" }, view = "mini" },
+
+  {
+    filter = {
+      event = "msg_show",
+      any = {
+        { find = "%d+L, %d+B" },
+        { find = "; after #%d+" },
+        { find = "; before #%d+" },
+      },
+    },
+    view = "mini",
+  },
+}
+
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -9,19 +31,7 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
     },
-    routes = {
-      {
-        filter = {
-          event = "msg_show",
-          any = {
-            { find = "%d+L, %d+B" },
-            { find = "; after #%d+" },
-            { find = "; before #%d+" },
-          },
-        },
-        view = "mini",
-      },
-    },
+    routes = all_routes,
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search
       command_palette = true, -- position the cmdline and popupmenu together
@@ -29,15 +39,5 @@ return {
       inc_rename = true, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = true, -- add a border to hover docs and signature help
     },
-  },
-  -- stylua: ignore
-  keys = {
-    { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
-    { "<leader>snl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
-    { "<leader>snh", function() require("noice").cmd("history") end, desc = "Noice History" },
-    { "<leader>sna", function() require("noice").cmd("all") end, desc = "Noice All" },
-    { "<leader>snd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
-    { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = {"i", "n", "s"} },
-    { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = {"i", "n", "s"}},
   },
 }

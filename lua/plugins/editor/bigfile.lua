@@ -1,4 +1,4 @@
--- just another way to define plugin spec
+-- Just another way to define plugin spec
 
 local M = {
   "LunarVim/bigfile.nvim",
@@ -6,8 +6,8 @@ local M = {
   lazy = true,
 }
 
+-- Disables LSP/treesitter, etc for files above 5000 lines (even if they have really long lines)
 M.opts = {
-  -- Disables LSP/treesitter, etc for files above 5000 lines (even if they have really long lines)
   pattern = function(bufnr, filesize_mib)
     if filesize_mib >= 2 then
       return true
