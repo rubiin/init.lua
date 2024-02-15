@@ -15,4 +15,5 @@ return {
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.better-escape" },
   { import = "plugins.extras.neoscroll" },
+  { import = "plugins.extras.zen" },
 }

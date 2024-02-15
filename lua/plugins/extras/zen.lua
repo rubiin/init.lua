@@ -2,6 +2,13 @@ local o = vim.opt
 
 -- Zen mode for distraction free editing
 return {
+    -- Dims inactive portions of the code you're editing
+    {
+      "folke/twilight.nvim",
+      lazy = true,
+      event = "VeryLazy",
+      cmd = "Twilight",
+    },
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
@@ -17,9 +24,9 @@ return {
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
-          -- signcolumn = 'no', -- disable signcolumn
+          -- signcolumn = 'no', -- disable signcolumn -- handled on the on_open and on_close hooks
           -- number = false, -- disable number column
-          -- relativenumber = false, -- disable relative numbers
+          -- relativenumber = false, -- disable relative numbers -- handled on the on_open and on_close hooks
           -- cursorline = false, -- disable cursorline
           -- cursorcolumn = false, -- disable cursor column
           -- foldcolumn = '0', -- disable fold column
@@ -80,15 +87,8 @@ return {
       end,
     },
     keys = {
-      { "<leader>uX", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+      { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },
-  },
-  -- Dims inactive portions of the code you're editing
-  {
-    "folke/twilight.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    cmd = "Twilight",
   },
 }
 
