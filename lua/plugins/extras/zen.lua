@@ -2,13 +2,13 @@ local o = vim.opt
 
 -- Zen mode for distraction free editing
 return {
-    -- Dims inactive portions of the code you're editing
-    {
-      "folke/twilight.nvim",
-      lazy = true,
-      event = "VeryLazy",
-      cmd = "Twilight",
-    },
+  -- Dims inactive portions of the code you're editing
+  {
+    "folke/twilight.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    cmd = "Twilight",
+  },
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",

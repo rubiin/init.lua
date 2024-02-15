@@ -49,7 +49,6 @@ utils.keymap("n", "<leader>cs", function()
   require("utils.cspell").add_word_to_c_spell_dictionary()
 end, { desc = "Add Word To Cspell Dictionary" })
 
-
 -- Override LazyVim bindings for terminal
 utils.keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = "rounded" })

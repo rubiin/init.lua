@@ -14,6 +14,26 @@ local headers = {
     ╚═╝  ╚═══╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
     ]],
   [[
+        o                     #####
+                           ###     ####
+          o             ##             ###
+                      #                   ##
+             o       #                      #
+               oo   #                        #
+                   #            ##            #
+                   ###            ###         #
+                   ##  ##            ##        #
+               ####    #   ##                  #
+     ##########         #    ##                #
+  ##   #                 #   ####              #
+    #########             ###                  #
+             ############                     #
+                    #                        #
+                     #                     #
+                      ##               # #
+  =============================================
+    ]],
+  [[
                                      ██
                                     ░░
   ███████   █████   ██████  ██    ██ ██ ██████████
@@ -91,11 +111,7 @@ local headers = {
 -- Dashboard logo
 function M.dashboard()
   math.randomseed(os.time())
-  local logo = headers[1]
-
-  if g.random_banner then
-    logo = headers[math.random(#headers)]
-  end
+  local logo = headers[2]
 
   -- add padding to the top and bottom of the logo
   logo = string.rep("\n", 2) .. logo .. "\n"

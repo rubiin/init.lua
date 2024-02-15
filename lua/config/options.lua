@@ -181,9 +181,9 @@ o.updatetime = 200 -- Decrease update time
 
 -- Setup neovim providers (`:h provider`)
 
-g.loaded_node_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_python3_provider = 0
-
--- TODO: what is self
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_pythonx_provider = 0
+vim.g.loaded_ruby_provider = 0
