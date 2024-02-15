@@ -16,7 +16,7 @@ function M.is_empty(s)
 end
 
 -- Taken from ThePrimeagen and modified
---- @param color string
+---@param color string
 function M.color_my_pencils(color)
   color = color or "catppuccin"
   cmd.colorscheme(color)
@@ -25,8 +25,8 @@ function M.color_my_pencils(color)
   api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
---- @param type string
---- @return table
+---@param type string
+---@return table
 function M.lualine_styles(type)
   local opts = {
     options = {},
@@ -42,7 +42,7 @@ function M.lualine_styles(type)
   end
 
   if type == M.styles.bubbly then
-    opts.options.component_separators = "|"
+    opts.options.component_separators = ""
     opts.options.section_separators = { left = "", right = "" }
   end
 
@@ -128,6 +128,7 @@ function M.lualine_styles(type)
       separator = { left = "", right = "" },
     },
   }
+
   opts.extensions = {}
 
   return opts

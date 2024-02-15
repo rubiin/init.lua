@@ -11,10 +11,13 @@ local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_auto
 local utils = require("utils")
 
 -- autoheader for sh scripts
-require("custom.autoheader")
+local status_ok, _ = pcall(require, "custom.autoheader")
+if not status_ok then
+  return
+end
 
 -- autogroup function
---- @param name string
+---@param name string
 ---@param opts table?
 local function augroup(name, opts)
   opts = opts or { clear = true }
@@ -285,29 +288,36 @@ autocmd("InsertLeave", {
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
 
-local user_command = api.nvim_create_user_command
+local user_cmd = api.nvim_create_user_command
 
-user_command("TrimTrailingLines", utils.trim_trailing_lines, {})
+user_cmd("TrimTrailingLines", utils.trim_trailing_lines, {
+  desc = "Trim trailing lines",
+})
 
-user_command("TrimWhitespace", utils.trim_trailing_whitespace, {})
+user_cmd("TrimWhitespace", utils.trim_trailing_whitespace, {
+  desc = "Trim trailing whitespace",
+})
 
-user_command("ToggleDarkMode", utils.toggle_light_dark_theme, {})
+user_cmd("ToggleDarkMode", utils.toggle_light_dark_theme, {
+  desc = "Toggle dark mode",
+})
 
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
+
 -- Change working directory
-user_command("Cwd", function()
-  vim.cmd(":cd %:p:h")
-  vim.cmd(":pwd")
+user_cmd("Cwd", function()
+  cmd(":cd %:p:h")
+  cmd(":pwd")
 end, { desc = "cd current file's directory" })
 
 -- Set working directory (alias)
-user_command("Swd", function()
-  vim.cmd(":cd %:p:h")
-  vim.cmd(":pwd")
+user_cmd("Swd", function()
+  cmd(":cd %:p:h")
+  cmd(":pwd")
 end, { desc = "cd current file's directory" })
 
 -- Write all buffers
-user_command("WriteAllBuffers", function()
-  vim.cmd("wa")
+user_cmd("WriteAllBuffers", function()
+  cmd("wa")
 end, { desc = "Write all changed buffers" })

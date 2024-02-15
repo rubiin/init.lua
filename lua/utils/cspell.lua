@@ -52,29 +52,23 @@ function M.add_word_to_c_spell_dictionary()
 
   local file = io.open(dictionary_path, "r")
   if file then
-    -- read file to check the word exists or not
-
-    local wordFound = false
-    -- Loop through each line in the file
+    local word_found = false
     for line in file:lines() do
-      -- Check if the line contains only the word
       if line == word then
-        wordFound = true
-        break -- Stop reading further lines if the word is found
+        word_found = true
+        break
       end
     end
-    if wordFound then
+    if word_found then
       utils.notify("Word already exists in the dictionary", "info", "cSpell")
       return
     end
   else
     utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end
-
-  -- Append the word to the dictionary file
   file = io.open(dictionary_path, "a")
+
   if file then
-    -- Detect new line at the end of the file or not
     local last_char = file:seek("end", -1)
     if last_char ~= nil and last_char ~= "\n" then
       word = "\n" .. word
@@ -82,11 +76,14 @@ function M.add_word_to_c_spell_dictionary()
 
     file:write(word .. "")
     file:close()
-    -- Reload buffer to update the dictionary
+
+    -- Reload the dictionary
     vim.cmd("e!")
+
     utils.notify("Word added to the dictionary", "info", "cSpell")
   else
     utils.notify("Could not open cSpell dictionary", "error", "cSpell")
   end
 end
+
 return M

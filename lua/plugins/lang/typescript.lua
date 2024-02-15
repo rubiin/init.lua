@@ -9,9 +9,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = {
-      "typescript",
       "tsx",
       "javascript",
+      "typescript",
     },
   },
   {
@@ -33,7 +33,6 @@ return {
 
           -- described below
           -- tsserver_format_options = {},
-
           tsserver_file_preferences = {
             includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
@@ -43,13 +42,10 @@ return {
             includeInlayPropertyDeclarationTypeHints = true,
             includeInlayFunctionLikeReturnTypeHints = true,
             includeInlayEnumMemberValueHints = true,
-
             includeCompletionsForModuleExports = true,
             quotePreference = "auto",
-
             -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
           },
-
           jsx_close_tag = {
             enable = true,
             filetypes = { "javascriptreact", "typescriptreact" },
