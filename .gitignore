@@ -41,3 +41,5 @@ luac.out
 *.hex
 
 misc/undo/*
+
+lazy-lock.json
