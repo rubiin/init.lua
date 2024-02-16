@@ -66,9 +66,8 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 
 ## Directory structure
 ```
-├── after
-│   └── ftplugin
-│       └── typescript.lua               # File for TypeScript filetype settings
+├── ftplugin                             # Override filetype settings
+└── plugin                               # Plugin configurations
 ├── biome.json                           # Configuration file for a specific feature or plugin
 ├── cspell.json                          # Configuration file for the cspell spellchecker
 ├── cspell-tool.txt                      # Custom dictionary for cspell
