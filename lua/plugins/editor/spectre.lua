@@ -38,7 +38,7 @@ return {
         function()
           require("spectre").open()
         end,
-        desc = "Replace Un Files",
+        desc = "Replace In Files",
       },
       {
         "<leader>sf",

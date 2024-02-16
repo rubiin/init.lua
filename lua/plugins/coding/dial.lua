@@ -6,8 +6,8 @@ return {
   keys = {
     { "<C-a>", function() return require("dial.map").inc_normal("custom") end, expr = true, desc = "Increment" },
     { "<C-x>", function() return require("dial.map").dec_normal("custom") end, expr = true, desc = "Decrement" },
-    { "<C-a>", function() return require("dial.map").inc_normal("visual") end, mode = "v",  expr = true,       desc = "Increment" },
-    { "<C-x>", function() return require("dial.map").dec_normal("visual") end, mode = "v",  expr = true,       desc = "Decrement" },
+    { "<C-a>", function() return require("dial.map").inc_normal("visual") end, mode = "v",  expr = true, desc = "Increment" },
+    { "<C-x>", function() return require("dial.map").dec_normal("visual") end, mode = "v",  expr = true, desc = "Decrement" },
   },
   config = function()
     local augend = require("dial.augend")
