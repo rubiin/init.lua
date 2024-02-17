@@ -6,14 +6,6 @@ return {
     lazy = true,
     event = "VeryLazy",
       --stylua: ignore
-      keys = {
-        {
-          '<leader>uz',
-          function()
-            require('mini.misc').zoom()
-          end,
-          desc = 'Toggle Zoom'
-        }
-      },
+    keys = require("config.keymaps").zoom,
   },
 }

@@ -39,17 +39,6 @@ return {
         "oil",
       },
     },
-    keys = {
-      {
-        "<leader>uh",
-        "<cmd>Hardtime toggle<CR>",
-        desc = "Toggle Hardtime",
-      },
-      {
-        "<leader>hr",
-        "<cmd>Hardtime report<CR>",
-        desc = "Hardtime Report",
-      },
-    },
+    keys = require("config.keymaps").hardtime,
   },
 }

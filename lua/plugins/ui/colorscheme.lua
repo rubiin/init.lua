@@ -30,7 +30,7 @@ local builtins = {
   "tokyonight",
 }
 
-local get_colorsheme = function()
+function _G.get_colorsheme(default_opts)
   local target = vim.fn.getcompletion
 
   vim.fn.getcompletion = function()
@@ -47,60 +47,45 @@ return {
   {
     "Mofiqul/dracula.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
   },
   --  add nord
   {
     "gbprod/nord.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
   -- one dark theme
   {
     "olimorris/onedarkpro.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
 
   -- add vscode
   {
     "Mofiqul/vscode.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
 
   -- add material
   {
     "marko-cerovac/material.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
   -- add everforest
   {
     "neanias/everforest-nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
 
   -- add kanagawa
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
+    keys = require("config.keymaps").colorscheme,
   },
 
   -- add catppuccin

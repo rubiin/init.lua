@@ -86,10 +86,6 @@ return {
         gitsigns.refresh()
       end,
     },
-    keys = {
-      { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
-    },
+    keys = require("config.keymaps").zen_mode,
   },
 }
-
--- TODO: look into this plugins

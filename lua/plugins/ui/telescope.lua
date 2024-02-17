@@ -126,25 +126,6 @@ return {
         },
       },
     },
-    keys = {
-      {
-        "<leader>sB",
-        "<cmd>Telescope find_files cwd=%:p:h<cr>",
-        desc = "Browse Files (cwd)",
-      },
-      {
-        "<leader>cu",
-        "<cmd>Telescope undo<cr>",
-        desc = "Undo History",
-      },
-      {
-        "<leader>sN",
-        function()
-          require("telescope").extensions.notify.notify()
-        end,
-        desc = "Search Notifications",
-      },
-    },
 
     config = function(_, opts)
       local lazy_util = require("lazyvim.util")

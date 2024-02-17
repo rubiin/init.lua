@@ -32,47 +32,5 @@ return {
         },
       })
     end,
-    keys = {
-      {
-        "<leader>sr",
-        function()
-          require("spectre").open()
-        end,
-        desc = "Replace In Files",
-      },
-      {
-        "<leader>sf",
-        function()
-          require("spectre").open_file_search()
-        end,
-        desc = "Replace In Current File",
-      },
-
-      {
-        "<leader>sp",
-        function()
-          require("spectre").open(_G.get_spectre_options())
-        end,
-        desc = "Replace In Files (Root dir)",
-      },
-      -- Search current word
-      {
-        "<leader>sP",
-        function()
-          require("spectre").open_visual(_G.get_spectre_options({ select_word = true }))
-        end,
-        desc = "Replace Current Word (Root dir)",
-      },
-      -- Open search with select word in visual mode
-      {
-        "<leader>sr",
-        function()
-          require("spectre").open_visual(_G.get_spectre_options())
-        end,
-        mode = "v",
-        silent = true,
-        desc = "Replace Current Word (Root dir)",
-      },
-    },
   },
 }

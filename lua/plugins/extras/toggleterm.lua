@@ -1,48 +1,8 @@
-local cwd = vim.loop.cwd()
-
 return {
   {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",
     cmd = { "ToggleTerm" },
-    keys = {
-      {
-        "<leader>Tf",
-        function()
-          local count = vim.v.count1
-          require("toggleterm").toggle(count, 0, cwd, "float")
-        end,
-        desc = "ToggleTerm (float cwd)",
-      },
-      {
-        "<leader>Th",
-        function()
-          local count = vim.v.count1
-          require("toggleterm").toggle(count, 15, cwd, "horizontal")
-        end,
-        desc = "ToggleTerm (horizontal cwd)",
-      },
-      {
-        "<leader>Tv",
-        function()
-          local count = vim.v.count1
-          require("toggleterm").toggle(count, vim.o.columns * 0.4, cwd, "vertical")
-        end,
-        desc = "ToggleTerm (vertical cwd)",
-      },
-      {
-        "<leader>Ts",
-        "<cmd>TermSelect<cr>",
-        desc = "Select term",
-      },
-      {
-        "<leader>Tt",
-        function()
-          require("toggleterm").toggle(1, 100, cwd, "tab")
-        end,
-        desc = "ToggleTerm (tab cwd)",
-      },
-    },
     opts = {
       -- size can be a number or function which is passed the current terminal
       size = function(term)
@@ -77,5 +37,6 @@ return {
         },
       },
     },
+    keys = require("config.keymaps").toggleterm,
   },
 }

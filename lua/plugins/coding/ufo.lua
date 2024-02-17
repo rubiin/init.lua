@@ -44,31 +44,6 @@ return {
         return new_virtual_text
       end,
     },
-    keys = {
-      {
-        "zR",
-        function()
-          require("ufo").openAllFolds()
-        end,
-        desc = "Open All Folds",
-      },
-      {
-        "zM",
-        function()
-          require("ufo").closeAllFolds()
-        end,
-        desc = "Close All Folds",
-      },
-      {
-        "zp",
-        function()
-          local winid = require("ufo").peekFoldedLinesUnderCursor()
-          if not winid then
-            vim.lsp.buf.hover()
-          end
-        end,
-        desc = "Peek Fold",
-      },
-    },
+    keys = require("config.keymaps").ufo,
   },
 }
