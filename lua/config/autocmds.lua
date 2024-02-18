@@ -19,13 +19,13 @@ end
 -- autogroup function
 ---@param name string
 ---@param opts table?
-local function augroup(name, opts)
+local function augrp(name, opts)
   opts = opts or { clear = true }
   return api.nvim_create_augroup(name, opts)
 end
 
-local aufilewrite = augroup("FileWrite")
-local augeneral = augroup("GeneralSettings")
+local aufilewrite = augrp("FileWrite")
+local augeneral = augrp("GeneralSettings")
 
 local patterns = {
   "dap-float",
@@ -175,20 +175,20 @@ autocmd("BufWritePost", {
 
 -- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
-  group = augroup("trim_on_save"),
+  group = augrp("trim_on_save"),
   callback = utils.trim,
 })
 
 -- Start terminal in insert mode
 autocmd("TermOpen", {
-  group = augroup("terminalSetting"),
+  group = augrp("terminalSetting"),
   pattern = "*",
   command = "startinsert | set winfixheight",
 })
 
 -- Disable foldcolumn and signcolumn for terinals
 autocmd("TermOpen", {
-  group = augroup("terminalSetting"),
+  group = augrp("terminalSetting"),
   pattern = "*",
   callback = function()
     opt_local.foldcolumn = "0"
@@ -199,7 +199,7 @@ autocmd("TermOpen", {
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = augroup("lazyvim_checktime"),
+  group = augrp("lazyvim_checktime"),
   callback = function()
     if vim.o.buftype ~= "nofile" then
       cmd("checktime")
@@ -209,7 +209,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 
 -- Resize splits if window got resized
 autocmd({ "VimResized" }, {
-  group = augroup("lazyvim_resize_splits"),
+  group = augrp("lazyvim_resize_splits"),
   callback = function()
     local current_tab = fn.tabpagenr()
     cmd("tabdo wincmd =")
@@ -219,7 +219,7 @@ autocmd({ "VimResized" }, {
 
 -- Go to last loc when opening a buffer
 autocmd("BufReadPost", {
-  group = augroup("lazyvim_last_loc"),
+  group = augrp("lazyvim_last_loc"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -237,7 +237,7 @@ autocmd("BufReadPost", {
 
 -- Fix conceallevel for json files
 autocmd({ "FileType" }, {
-  group = augroup("lazyvim_json_conceal"),
+  group = augrp("lazyvim_json_conceal"),
   pattern = { "json", "jsonc", "json5" },
   callback = function()
     opt_local.conceallevel = 0
@@ -246,7 +246,7 @@ autocmd({ "FileType" }, {
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 autocmd({ "BufWritePre" }, {
-  group = augroup("lazyvim_auto_create_dir"),
+  group = augrp("lazyvim_auto_create_dir"),
   callback = function(event)
     if event.match:match("^%w%w+://") then
       return
@@ -256,7 +256,7 @@ autocmd({ "BufWritePre" }, {
   end,
 })
 
-local fold_augroup = augroup("remember_folds")
+local fold_augroup = augrp("remember_folds")
 
 autocmd({ "BufLeave", "BufWinLeave" }, {
   pattern = "*",
@@ -279,7 +279,7 @@ autocmd("BufReadPost", {
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
   pattern = { "fzf", "lspinfo" },
-  group = augroup("DisableIndentScope"),
+  group = augrp("DisableIndentScope"),
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
@@ -289,12 +289,12 @@ autocmd("FileType", {
 -- Disable caps lock while vim is running
 autocmd("InsertEnter", {
   pattern = "*",
-  group = augroup("ToggleCapsLock"),
+  group = augrp("ToggleCapsLock"),
   command = "!setxkbmap -option",
 })
 
 autocmd("InsertLeave", {
-  group = augroup("ToggleCapsLock"),
+  group = augrp("ToggleCapsLock"),
   pattern = "*",
   command = "!setxkbmap -option ctrl:nocaps",
 })

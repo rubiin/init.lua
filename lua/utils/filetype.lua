@@ -38,5 +38,6 @@ vim.filetype.add({
     [".*/waybar/config"] = "jsonc",
     [".*/mako/config"] = "dosini",
     [".*/kitty/*.conf"] = "bash",
+    [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
   },
 })

@@ -5,22 +5,35 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
   },
+  keys = {
+    { '[b', '<Plug>(CybuPrev)' },
+    { ']b', '<Plug>(CybuNext)' },
+    { '<C-S-Tab>', '<Plug>(CybuLastusedPrev)' },
+    { '<C-Tab>', '<Plug>(CybuLastusedNext)' },
+  },
   config = function()
     require("cybu").setup({
-      display_time = 500,
       position = {
-        anchor = "centerright",
+        anchor = "center",
         max_win_height = 8,
         max_win_width = 0.5,
       },
       style = {
         border = "rounded",
-        hide_buffer_id = true,
+        path = "relative",
+      },
+      devicons = {
+        enabled = true,
+        colored = true,
       },
       exclude = { -- filetypes
         "qf",
         "help",
       },
+      display_time = 750,
+      fallback = function()
+        vim.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO)
+      end,
     })
   end,
 }

@@ -169,6 +169,7 @@ o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
 o.spell = true -- Enable spell check by default
 o.encoding = "UTF-8" -- set encoding
+o.fileencoding = "UTF-8" -- set encoding
 o.spelllang = "en_us" -- set spell check language
 
 -- ========================================================================== --
