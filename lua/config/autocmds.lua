@@ -10,11 +10,11 @@ local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_auto
 
 local utils = require("utils")
 
--- -- autoheader for sh scripts
--- local status_ok, _ = pcall(require, "custom.autoheader")
--- if not status_ok then
---   return
--- end
+-- autoheader for sh scripts
+local status_ok, _ = pcall(require, "custom.autoheader")
+if not status_ok then
+  return
+end
 
 -- autogroup function
 ---@param name string

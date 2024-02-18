@@ -136,7 +136,6 @@ return {
         neotest = true,
         neotree = true,
         noice = true,
-        noices = true,
         notify = true,
         semantic_tokens = true,
         telescope = true,
