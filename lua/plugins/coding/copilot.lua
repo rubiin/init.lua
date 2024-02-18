@@ -17,8 +17,7 @@ return {
         lua = true,
         python = true,
         rust = true,
-
       },
     },
-  }
+  },
 }

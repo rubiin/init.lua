@@ -6,10 +6,10 @@ return {
     "nvim-lua/plenary.nvim",
   },
   keys = {
-    { '[b', '<Plug>(CybuPrev)' },
-    { ']b', '<Plug>(CybuNext)' },
-    { '<C-S-Tab>', '<Plug>(CybuLastusedPrev)' },
-    { '<C-Tab>', '<Plug>(CybuLastusedNext)' },
+    { "[b", "<Plug>(CybuPrev)" },
+    { "]b", "<Plug>(CybuNext)" },
+    { "<C-S-Tab>", "<Plug>(CybuLastusedPrev)" },
+    { "<C-Tab>", "<Plug>(CybuLastusedNext)" },
   },
   config = function()
     require("cybu").setup({
