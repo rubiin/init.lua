@@ -446,29 +446,7 @@ function M.search_todos()
   end
 end
 
--- Check for possible keymap conflicts, just checks the mappings for now , doesnt check whichkey mappings
-function M.check_duplicate_keys()
-  local all_modes = { "n", "i", "v" } -- normal, insert, visual
 
-  local all_keys = {}
 
-  -- Get all keymaps for each mode
-  for _, mode in ipairs(all_modes) do
-    local keymaps = vim.api.nvim_get_keymap(mode)
-    for _, keymap in ipairs(keymaps) do
-      -- Store the mode along with the key to track the origin of the key
-      local key = keymap["lhs"]
-      all_keys[key] = all_keys[key] or {}
-      table.insert(all_keys[key], mode)
-    end
-  end
-
-  -- Check for duplicates
-  for key, modes in pairs(all_keys) do
-    if #modes > 1 then
-      print("Duplicate key detected:", key, "in modes:", table.concat(modes, ", "))
-    end
-  end
-end
 
 return M

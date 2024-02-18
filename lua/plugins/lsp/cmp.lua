@@ -1,4 +1,6 @@
 -- 0.10 , can use native snippets
+local cmp = require("cmp")
+local user_icons = require("custom.icons")
 
 return {
   {
@@ -58,8 +60,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      { "ray-x/cmp-treesitter", commit = "c8e3a74" },
-      "uga-rosa/cmp-dictionary",
       {
         "hrsh7th/cmp-cmdline",
         lazy = true,
@@ -70,79 +70,72 @@ return {
         lazy = true,
         event = { "VeryLazy" },
       },
+      { "ray-x/cmp-treesitter", commit = "c8e3a74" },
     },
-    opts = function()
-      local user_icons = require("custom.icons")
-      local cmp = require("cmp")
+    opts = {
+      confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      },
+      duplicates = {
+        nvim_lsp = 1,
+        luasnip = 1,
+        cmp_tabnine = 1,
+        copilot = 1,
+        buffer = 1,
+        path = 1,
+      },
+      sources = {
+        { name = "nvim_lsp",  max_item_count = 20 },
+        { name = "luasnip" },
+        { name = "buffer",    keyword_length = 4, max_item_count = 10 },
+        { name = "path" },
+        { name = "treesitter" },
+        { name = "nvim_lua" },
 
-      return {
-        sources = {
-          { name = "nvim_lsp", max_item_count = 20 },
-          { name = "luasnip" },
-          { name = "buffer", keyword_length = 4, max_item_count = 10 },
-          { name = "path" },
-          { name = "treesitter" },
-          { name = "nvim_lua" },
-          {
-            name = "dictionary",
-            keyword_length = 2,
-          },
-        },
-        duplicates = {
-          nvim_lsp = 1,
-          luasnip = 1,
-          cmp_tabnine = 1,
-          copilot = 1,
-          buffer = 1,
-          path = 1,
-        },
-        completion = {
-          completeopt = vim.o.completeopt,
-        },
-        confirm_opts = {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        },
-        window = {
-          completion = { border = vim.g.border_style, scrolloff = 2 },
-          documentation = { border = vim.g.border_style, scrolloff = 2 },
-        },
-        formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = function(entry, item)
-            -- load lspkind icons
-            item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
+      },
+      completion = {
+        completeopt = vim.o.completeopt,
+      },
 
-            item.menu = ({
-              cmp_tabnine = "[TN]",
-              copilot = "[CPLT]",
-              buffer = "[BUF]",
-              orgmode = "[ORG]",
-              nvim_lsp = "[LSP]",
-              nvim_lua = "[LUA]",
-              path = "[PATH]",
-              tmux = "[TMUX]",
-              treesitter = "[TS]",
-              latex_symbols = "[LTEX]",
-              luasnip = "[SNIP]",
-              dictionary = "[SPELL]",
-            })[entry.source.name]
+      window = {
+        completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff },
+        documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff },
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, item)
+          -- load lspkind icons
+          item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
 
-            local label = item.abbr
-            local truncated_label = vim.fn.strcharpart(label, 0, 50)
-            if truncated_label ~= label then
-              item.abbr = truncated_label .. "..."
-            end
+          item.menu = ({
+            cmp_tabnine = "[TN]",
+            copilot = "[CPLT]",
+            buffer = "[BUF]",
+            orgmode = "[ORG]",
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[LUA]",
+            path = "[PATH]",
+            tmux = "[TMUX]",
+            treesitter = "[TS]",
+            latex_symbols = "[LTEX]",
+            luasnip = "[SNIP]",
+            dictionary = "[SPELL]",
+          })[entry.source.name]
 
-            return item
-          end,
-        },
-      }
-    end,
+          local label = item.abbr
+          local truncated_label = vim.fn.strcharpart(label, 0, 50)
+          if truncated_label ~= label then
+            item.abbr = truncated_label .. "..."
+          end
+
+          return item
+        end,
+      },
+
+    },
 
     config = function(_, opts)
-      local cmp = require("cmp")
-
       cmp.setup(opts)
 
       -- `/` cmdline setup.
@@ -165,12 +158,6 @@ return {
             },
           },
         }),
-      })
-
-      -- source-specific setup
-
-      require("cmp_dictionary").setup({
-        paths = { vim.fn.stdpath("config") .. "/spell/en.utf-8.add" },
       })
     end,
   },
