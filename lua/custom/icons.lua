@@ -115,6 +115,8 @@ return {
     Hover = "  ",
     Ellipsis = "󰇘 ",
     EmptyFolder = " ",
+    CmdLine = "󰘳",
+    Emoji = "󰞅",
     EmptyFolderOpen = " ",
     File = " ",
     FileBold = " ",
@@ -165,6 +167,7 @@ return {
     Squirrel = " ",
     Sleep = "󰒲  ",
     Tag = " ",
+
     Watch = " ",
     Smiley = " ",
     CircuitBoard = " ",

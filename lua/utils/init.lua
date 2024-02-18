@@ -466,7 +466,4 @@ function M.search_todos()
   end
 end
 
-
-
-
 return M

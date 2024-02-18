@@ -65,6 +65,7 @@ return {
         lazy = true,
         event = { "VeryLazy" },
       },
+      "octaltree/cmp-look",
       {
         "hrsh7th/cmp-nvim-lua",
         lazy = true,
@@ -86,13 +87,21 @@ return {
         path = 1,
       },
       sources = {
-        { name = "nvim_lsp",  max_item_count = 20 },
+        { name = "nvim_lsp", max_item_count = 20 },
         { name = "luasnip" },
-        { name = "buffer",    keyword_length = 4, max_item_count = 10 },
+        { name = "buffer", keyword_length = 4, max_item_count = 10 },
         { name = "path" },
+        {
+          name = "look",
+          keyword_length = 2,
+          option = {
+            convert_case = true,
+            loud = true,
+            dict = "/usr/share/dict/words",
+          },
+        },
         { name = "treesitter" },
         { name = "nvim_lua" },
-
       },
       completion = {
         completeopt = vim.o.completeopt,
@@ -109,18 +118,18 @@ return {
           item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
 
           item.menu = ({
-            cmp_tabnine = "[TN]",
-            copilot = "[CPLT]",
-            buffer = "[BUF]",
-            orgmode = "[ORG]",
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[LUA]",
-            path = "[PATH]",
-            tmux = "[TMUX]",
-            treesitter = "[TS]",
-            latex_symbols = "[LTEX]",
-            luasnip = "[SNIP]",
-            dictionary = "[SPELL]",
+            cmp_tabnine = "[tabnine]",
+            copilot = "[copilot]",
+            buffer = "[buffer]",
+            orgmode = "[org]",
+            look = "[dictionary]",
+            nvim_lsp = "[lsp]",
+            nvim_lua = "[lua]",
+            path = "[path]",
+            tmux = "[tmux]",
+            treesitter = "[treesitter]",
+            latex_symbols = "[latex]",
+            luasnip = "[snippet]",
           })[entry.source.name]
 
           local label = item.abbr
@@ -132,7 +141,6 @@ return {
           return item
         end,
       },
-
     },
 
     config = function(_, opts)
