@@ -81,6 +81,7 @@ return {
       duplicates = {
         nvim_lsp = 1,
         luasnip = 1,
+        look = 1,
         cmp_tabnine = 1,
         copilot = 1,
         buffer = 1,
