@@ -15,6 +15,26 @@ function M.is_empty(s)
   return s == nil or s == ""
 end
 
+-- Checks if a keymap exists
+---@param mode string|table
+---@param lhs string
+---@param rhs string|function
+---@return boolean
+function M.check_if_keymap_exists(mode, lhs, rhs)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  local modes = type(mode) == "string" and { mode } or mode
+
+  ---@param m string
+  modes = vim.tbl_filter(function(m)
+    return not (keys.have and keys:have(lhs, m))
+  end, modes)
+  if #modes > 0 then
+    return true
+  end
+  return false
+end
+
 -- Taken from ThePrimeagen and modified
 ---@param color string
 function M.color_my_pencils(color)

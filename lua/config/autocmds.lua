@@ -10,11 +10,11 @@ local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_auto
 
 local utils = require("utils")
 
--- autoheader for sh scripts
-local status_ok, _ = pcall(require, "custom.autoheader")
-if not status_ok then
-  return
-end
+-- -- autoheader for sh scripts
+-- local status_ok, _ = pcall(require, "custom.autoheader")
+-- if not status_ok then
+--   return
+-- end
 
 -- autogroup function
 ---@param name string
@@ -107,6 +107,20 @@ autocmd("FileType", {
     opt_local.wrap = true
     opt_local.spell = true
   end,
+})
+
+-- Use the more sane snippet session leave logic. Copied from:
+-- https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436
+autocmd('ModeChanged', {
+  pattern = '*',
+  callback = function()
+    if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+        and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+        and not require('luasnip').session.jump_active
+    then
+      require('luasnip').unlink_current()
+    end
+  end
 })
 
 -- Disable swap/undo/backup files in temp directories or shm
