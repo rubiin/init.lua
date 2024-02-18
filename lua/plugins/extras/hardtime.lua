@@ -14,6 +14,18 @@ return {
     "m4xshen/hardtime.nvim",
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    keys = {
+      {
+        "<leader>uh",
+        "<cmd>Hardtime toggle<CR>",
+        desc = "Toggle Hardtime",
+      },
+      {
+        "<leader>hr",
+        "<cmd>Hardtime report<CR>",
+        desc = "Hardtime Report",
+      },
+    },
     opts = {
       restriction_mode = "hint", -- block or hint
       -- default values is disabled the arrow keys
@@ -37,18 +49,6 @@ return {
         "netrw",
         "NvimTree",
         "oil",
-      },
-    },
-    keys = {
-      {
-        "<leader>uh",
-        "<cmd>Hardtime toggle<CR>",
-        desc = "Toggle Hardtime",
-      },
-      {
-        "<leader>hr",
-        "<cmd>Hardtime report<CR>",
-        desc = "Hardtime Report",
       },
     },
   },

@@ -18,17 +18,6 @@ if lazyvim_util.has("gitsigns.nvim") then
   })
 end
 
--- Delete LazyVim default bindings which are nuisance for me
-local keymaps_to_delete = {
-  { "n", "<leader>l" },
-  { "n", "<leader>L" },
-  { "n", "<leader>-" },
-  { "n", "<leader>|" },
-  { "n", "<leader>fT" },
-  { "n", "<leader>ft" },
-}
-utils.delete_keymaps(keymaps_to_delete)
-
 -- Copy whole file content to clipboard with C-1
 utils.keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
@@ -46,12 +35,12 @@ utils.keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
 -- Add spell check to cspell
 utils.keymap("n", "<leader>cs", function()
-  require("utils.cspell").add_word_to_c_spell_dictionary()
+  require("utils.cspell").add_word_to_cspell_dictionary()
 end, { desc = "Add Word To Cspell Dictionary" })
 
 -- Override LazyVim bindings for terminal
 utils.keymap("n", "<C-/>", function()
-  lazyvim_util.terminal(nil, { border = "rounded" })
+  lazyvim_util.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
 -- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'

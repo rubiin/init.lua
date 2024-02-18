@@ -248,7 +248,7 @@ end
 ---@param list table
 ---@return nil
 function M.delete_keymaps(list)
-  if list == {} or list == nil then
+  if list == {} then
     return
   end
 
@@ -354,6 +354,30 @@ function M.merge(...)
   return vim.tbl_deep_extend("force", ...)
 end
 
+--- Opens the given url in the default browser.
+---@param url string: The url to open.
+function M.open_in_browser(url)
+  local open_cmd
+  if fn.executable("xdg-open") == 1 then
+    open_cmd = "xdg-open"
+  elseif fn.executable("explorer") == 1 then
+    open_cmd = "explorer"
+  elseif fn.executable("open") == 1 then
+    open_cmd = "open"
+  elseif fn.executable("wslview") == 1 then
+    open_cmd = "wslview"
+  end
+
+  local ret = fn.jobstart({ open_cmd, url }, { detach = true })
+  if ret <= 0 then
+    vim.notify(
+      string.format("[utils]: Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
+      vim.log.levels.ERROR,
+      { title = "utils" }
+    )
+  end
+end
+
 --- Extend a table of lists by key.
 ---@param table table The table to extend.
 ---@param keys table List of keys to extend.
@@ -433,7 +457,10 @@ end
 -- Populate quickfixlist with the results
 function M.search_todos()
   -- Use ripgrep to search for TODOs in the project, without the end colon you will get a lot of false positives
-  local result = fn.system("rg --json --case-sensitive -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:'")
+  -- This is taken from the todo-comments.nvim source code
+  local result = fn.system(
+    "rg --json --color=never --no-heading --with-filename --line-number --column -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:'"
+  )
   if result == nil then
     return
   end

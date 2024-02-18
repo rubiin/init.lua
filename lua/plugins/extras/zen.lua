@@ -1,6 +1,5 @@
 local o = vim.opt
 
--- Zen mode for distraction free editing
 return {
   -- Dims inactive portions of the code you're editing
   {
@@ -9,10 +8,14 @@ return {
     event = "VeryLazy",
     cmd = "Twilight",
   },
+  -- Zen mode for distraction free editing
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     lazy = true,
+    keys = {
+      { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
     opts = {
       window = {
         backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
@@ -85,9 +88,6 @@ return {
         o.signcolumn = "yes:2"
         gitsigns.refresh()
       end,
-    },
-    keys = {
-      { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },
   },
 }

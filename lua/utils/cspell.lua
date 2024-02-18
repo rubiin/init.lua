@@ -44,7 +44,7 @@ function M.create_cspell_json_if_not_exist()
 end
 
 -- Add word to cSpell dictionary file
-function M.add_word_to_c_spell_dictionary()
+function M.add_word_to_cspell_dictionary()
   M.create_cspell_json_if_not_exist()
 
   local word = vim.fn.expand("<cword>")

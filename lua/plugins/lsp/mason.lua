@@ -24,7 +24,6 @@ return {
         "eslint_d",
         "prettier",
         "prettierd",
-        "prettierd",
         "biome",
         "selene",
 
@@ -34,6 +33,7 @@ return {
 
         -- markdown
         "markdownlint",
+
         -- rustywind for tailwindcss
         "rustywind",
       })

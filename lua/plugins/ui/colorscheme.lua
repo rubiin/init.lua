@@ -147,5 +147,3 @@ return {
     },
   },
 }
-
--- TODO: use glow for matkdown

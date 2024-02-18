@@ -5,15 +5,15 @@ return {
     config = true,
     lazy = true,
     event = "VeryLazy",
-      --stylua: ignore
-      keys = {
-        {
-          '<leader>uz',
-          function()
-            require('mini.misc').zoom()
-          end,
-          desc = 'Toggle Zoom'
-        }
-      },
+    --stylua: ignore
+    keys = {
+      {
+        '<leader>uz',
+        function()
+          require('mini.misc').zoom()
+        end,
+        desc = 'Toggle Zoom'
+      }
+    },
   },
 }

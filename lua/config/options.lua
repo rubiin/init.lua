@@ -35,7 +35,7 @@ o.incsearch = true -- incremental search
 o.ignorecase = true -- ignore case when searching
 o.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 o.grepformat = "%f:%l:%c:%m" -- format for grep
-o.grepprg = "rg --vimgrep" -- use ripgrep for grep
+o.grepprg = "rg --vimgrep --no-heading --smart-case" -- use ripgrep for grep
 
 -- ========================================================================== --
 -- ==                          WINDOW SETTINGS                             == --
@@ -164,7 +164,7 @@ end
 o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 
 -- ========================================================================== --
--- ==                  SPELL AND ENCODING                                 == --
+-- ==                  SPELL AND ENCODING                                  == --
 -- ========================================================================== --
 
 o.spell = true -- Enable spell check by default
@@ -173,18 +173,20 @@ o.fileencoding = "UTF-8" -- set encoding
 o.spelllang = "en_us" -- set spell check language
 
 -- ========================================================================== --
--- ==                  Performance Settings                                == --
+-- ==                  PERFORMANCE SETTINGS                                == --
 -- ========================================================================== --
 
-o.history = 10000 -- Number of command-lines that are remembered
+o.history = 1000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
 o.updatetime = 200 -- Decrease update time
 
--- Setup neovim providers (`:h provider`)
+-- ========================================================================== --
+-- ==                  PROVIDER                                            == --
+-- ========================================================================== --
 
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_python_provider = 0
-vim.g.loaded_pythonx_provider = 0
-vim.g.loaded_ruby_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_python_provider = 0
+g.loaded_pythonx_provider = 0
+g.loaded_ruby_provider = 0
