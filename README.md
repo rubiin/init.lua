@@ -9,7 +9,7 @@ as a result of which this repo was born which was sooner or later bound to happe
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugin-manager?style=flat" /></a>
 
-## ⚡️ Requirements
+## ⚡ Requirements
 
 - Neovim >= **0.9.4** (needs to be built with **LuaJIT**)
 - Git >= **2.19.0** (for partial clones support)
@@ -65,6 +65,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - try WSL2 on Windows and pretend you're on Linux (it's better)
 
 ## Directory structure
+
 ```
 ├── ftplugin                             # Override filetype settings
 └── plugin                               # Plugin configurations
@@ -99,6 +100,7 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 ├── spell                                # Directory possibly containing spellcheck related files
 └── stylua.toml                          # Configuration file for Stylua
 ```
+
 ## UI
 
 ### Start screen with dashboard-nvim

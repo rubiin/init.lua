@@ -6,6 +6,9 @@ return {
     "folke/which-key.nvim",
     optional = true,
     opts = {
+      window = {
+        border = vim.g.border_style,
+      },
       defaults = {
         ["<leader>b"] = { name = user_icons.ui.Buffer .. "buffer" },
         ["<leader>c"] = { name = user_icons.ui.Code .. "code" },

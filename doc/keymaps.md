@@ -53,3 +53,20 @@ Use zo or zc for single folds.
 press d in tree to delete a file in neotree
 press a to create a file
 pres ? for help
+
+```javascript
+
+console.log("Hello World")
+```
+
+### Solar System Exploration, 1950s – 1960s
+
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley

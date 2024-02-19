@@ -43,7 +43,7 @@ utils.keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
--- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
+-- Search for TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:
 utils.keymap("n", "<leader>ct", function()
   utils.search_todos()
 end, { desc = "List Todos On QuickFix" })

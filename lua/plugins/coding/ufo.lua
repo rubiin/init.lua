@@ -42,7 +42,7 @@ return {
       fold_virt_text_handler = function(virtual_text, left_number, end_line_number, width, truncate)
         local new_virtual_text = {}
         local fn = vim.fn
-        local suffix = (" %s %d "):format(user_icons.ui.Ellipsis, end_line_number - left_number)
+        local suffix = (" %s %d lines"):format(user_icons.ui.Ellipsis, end_line_number - left_number)
         local suffix_width = fn.strdisplaywidth(suffix)
         local target_width = width - suffix_width
         local current_width = 0
