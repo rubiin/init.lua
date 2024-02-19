@@ -180,9 +180,9 @@ function M.open_url()
 end
 
 -- Splits a string into a table
---- @param value string
---- @param sep string
---- @return table
+---@param value string
+---@param sep string
+---@return table
 function M.str_split(value, sep)
   if sep == nil then
     sep = "%s"
@@ -195,14 +195,14 @@ function M.str_split(value, sep)
 end
 
 -- Check if the minimum Neovim version is satisfied
---- Expects only the minor version, e.g. '9' for 0.9.1
---- @param version number
+-- Expects only the minor version, e.g. '9' for 0.9.1
+---@param version number
 ---@return boolean
 function M.is_neovim_version_satisfied(version)
   return version <= tonumber(vim.version().minor)
 end
 
----Checks if a command is available
+-- Checks if a command is available
 ---@param command string
 ---@return boolean
 function M.is_installed(command)
@@ -210,8 +210,8 @@ function M.is_installed(command)
 end
 
 -- Disable plugins
---- @param list table
---- @return table
+---@param list table
+---@return table
 function M.disable_plugins(list)
   local disabled_plugins = {}
   for _, plugin in ipairs(list) do
@@ -224,7 +224,7 @@ function M.disable_plugins(list)
 end
 
 -- Get the version of neovim
---- @return string
+---@return string
 function M.version()
   local version = vim.version()
   local print_version = version.major .. "." .. version.minor .. "." .. version.patch
@@ -354,7 +354,7 @@ function M.merge(...)
   return vim.tbl_deep_extend("force", ...)
 end
 
---- Opens the given url in the default browser.
+-- Opens the given url in the default browser.
 ---@param url string: The url to open.
 function M.open_in_browser(url)
   local open_cmd
@@ -378,7 +378,7 @@ function M.open_in_browser(url)
   end
 end
 
---- Extend a table of lists by key.
+-- Extend a table of lists by key.
 ---@param table table The table to extend.
 ---@param keys table List of keys to extend.
 ---@param values table The values to extend the table with.
@@ -444,7 +444,7 @@ function M.table_length(t)
   return count
 end
 
---- Always ask before exiting nvim, even if there is nothing to be saved.
+-- Always ask before exiting nvim, even if there is nothing to be saved.
 function M.confirm_quit()
   local choice = vim.fn.confirm("Do you really want to exit nvim?", "&Yes\n&No", 2)
   if choice == 1 then

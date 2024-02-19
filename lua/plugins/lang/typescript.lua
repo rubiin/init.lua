@@ -1,3 +1,5 @@
+local util = require("utils")
+
 return {
   {
     "David-Kunz/cmp-npm",
@@ -19,7 +21,14 @@ return {
     event = { "BufReadPost *.ts,*.tsx,*.js,*.jsx", "BufNewFile *.ts,*.tsx,*.js,*.jsx" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
+      local api = require("typescript-tools.api")
       require("typescript-tools").setup({
+        handlers = {
+          ["textDocument/publishDiagnostics"] = api.filter_diagnostics(
+            -- Ignore 'This may be converted to an async function' diagnostics.
+            { 6133 }
+          ),
+        },
         settings = {
           -- spawn additional tsserver instance to calculate diagnostics on it
           separate_diagnostic_server = true,
@@ -34,6 +43,8 @@ return {
           -- described below
           -- tsserver_format_options = {},
           tsserver_file_preferences = {
+            importModuleSpecifierPreference = "non-relative",
+            importModuleSpecifierEnding = "auto",
             includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
             includeInlayFunctionParameterTypeHints = true,
@@ -52,6 +63,9 @@ return {
           },
         },
       })
+
+      util.keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<cr>", { desc = "Organize Imports" })
+      util.keymap("n", "<leader>cR", "<cmd>TSToolsRemoveUnusedImports<cr>", { desc = "Remove Unused Imports" })
     end,
   },
   {
