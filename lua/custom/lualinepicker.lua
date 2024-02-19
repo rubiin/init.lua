@@ -3,14 +3,15 @@ local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
-local lualine_styles = require("utils").lualine_styles
+local set_lualine_styles = require("utils").set_lualine_styles
+local lualine_styles = require("utils.constants").styles
 
 -- our picker function: styles
 local linepicker = function(opts)
   opts = opts or {}
 
   local selection_to_style = function(selection)
-    local style = lualine_styles(selection["ordinal"])
+    local style = set_lualine_styles(selection["ordinal"])
     require("lualine").setup(style)
   end
 
@@ -31,9 +32,9 @@ local linepicker = function(opts)
       prompt_title = "Lualine styles",
       finder = finders.new_table({
         results = {
-          { "slanted", require("utils").styles.slanted },
-          { "bubbly", require("utils").styles.bubbly },
-          { "default", require("utils").styles.default },
+          { "slanted", lualine_styles.slanted },
+          { "bubbly", lualine_styles.bubbly },
+          { "default", lualine_styles.default },
         },
         entry_maker = function(entry)
           return {

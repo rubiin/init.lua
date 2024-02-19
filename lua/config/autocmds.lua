@@ -8,6 +8,7 @@
 
 local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
 
+local constants = require("utils.constants")
 local utils = require("utils")
 
 -- autoheader for sh scripts
@@ -26,28 +27,6 @@ end
 
 local aufilewrite = augroup("FileWrite")
 local augeneral = augroup("GeneralSettings")
-
-local common_patterns = {
-  "dap-float",
-  "fugitive",
-  "fugitiveblame",
-  "git",
-  "help",
-  "lspinfo",
-  "man",
-  "notify",
-  "null-ls-info",
-  "none-ls-info",
-  "PlenaryTestPopup",
-  "qf",
-  "query", -- :InspectTree
-  "spectre_panel",
-  "startuptime",
-  "tsplayground",
-  "lir",
-  "DressingSelect",
-  "Jaq",
-}
 
 -- Start git messages in insert mode
 autocmd("FileType", {
@@ -81,7 +60,7 @@ autocmd("TextYankPost", {
 -- Also disable number and cursorline
 autocmd("FileType", {
   group = augeneral,
-  pattern = common_patterns,
+  pattern = constants.exclude_file_types,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.o.number = false
@@ -278,7 +257,7 @@ autocmd("BufReadPost", {
 
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
-  pattern = common_patterns,
+  pattern = constants.exclude_file_types,
   group = augroup("DisableIndentScope"),
   callback = function()
     vim.b.miniindentscope_disable = true

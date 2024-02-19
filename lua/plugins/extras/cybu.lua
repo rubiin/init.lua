@@ -1,3 +1,5 @@
+local util = require("utils")
+
 return {
   "ghillb/cybu.nvim",
   cond = #vim.api.nvim_list_uis() > 0,
@@ -24,13 +26,14 @@ return {
         enabled = true,
         colored = true,
       },
-      exclude = { -- filetypes
+      exclude = {
+        -- filetypes
         "qf",
         "help",
       },
       display_time = 750,
       fallback = function()
-        vim.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO)
+        util.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
       end,
     })
   end,

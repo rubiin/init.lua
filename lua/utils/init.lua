@@ -1,13 +1,8 @@
 local M = {}
 
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
+local constants = require("utils.constants")
 local user_icons = require("custom.icons")
-
-M.styles = {
-  slanted = "slanted",
-  bubbly = "bubbly",
-  default = "default",
-}
 
 -- Check if a string is empty
 ---@param s any
@@ -47,7 +42,7 @@ end
 
 ---@param type string
 ---@return table
-function M.lualine_styles(type)
+function M.set_lualine_styles(type)
   local opts = {
     options = {},
     sections = {},
@@ -56,12 +51,12 @@ function M.lualine_styles(type)
   opts.options.component_separators = "|"
   opts.options.section_separators = ""
 
-  if type == M.styles.slanted then
+  if type == constants.styles.slanted then
     opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
   end
 
-  if type == M.styles.bubbly then
+  if type == constants.styles.bubbly then
     opts.options.component_separators = ""
     opts.options.section_separators = { left = "", right = "" }
   end
@@ -356,10 +351,10 @@ function M.open_in_browser(url)
 
   local ret = fn.jobstart({ open_cmd, url }, { detach = true })
   if ret <= 0 then
-    vim.notify(
+    M.notify(
       string.format("Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
       vim.log.levels.ERROR,
-      { title = "utils" }
+      "Utils"
     )
   end
 end
@@ -374,7 +369,7 @@ function M.open_url()
     -- Open the URL in the default browser
     M.open_in_browser(url)
   else
-    print("No URL found under cursor")
+    M.notify("No URL found under cursor or the URL is not supported", vim.log.levels.ERROR, "utils")
   end
 end
 
