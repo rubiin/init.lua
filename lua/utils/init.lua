@@ -9,7 +9,7 @@ M.styles = {
   default = "default",
 }
 
---- Check if a string is empty
+-- Check if a string is empty
 ---@param s any
 function M.is_empty(s)
   return s == nil or s == ""
@@ -165,20 +165,6 @@ function M.toggle_light_dark_theme()
   end
 end
 
--- Open URL under cursor, supports http, https and www
-function M.open_url()
-  -- Get the text under the cursor
-  local url = fn.expand("<cWORD>")
-
-  -- Check if it resembles a URL
-  if url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
-    -- Open the URL in the default browser
-    fn.jobstart({ "xdg-open", url })
-  else
-    print("No URL found under cursor")
-  end
-end
-
 -- Splits a string into a table
 ---@param value string
 ---@param sep string
@@ -293,7 +279,7 @@ function M.hide_in_width()
   return fn.winwidth(0) > 100
 end
 
---- Check if current directory is a git repo.
+-- Check if current directory is a git repo.
 ---@return boolean
 function M.is_git_repo()
   local filepath = fn.expand("%:p:h")
@@ -301,7 +287,7 @@ function M.is_git_repo()
   return gitdir and #gitdir > 0 and #gitdir < #filepath
 end
 
---- Get root directory of git project
+-- Get root directory of git project
 ---@return string|nil
 function M.get_git_root()
   local dot_git_path = fn.finddir(".git", ".;")
@@ -318,7 +304,7 @@ function M.lazy_lua_component()
   }
 end
 
---- Get root directory of git project or fallback to current directory.
+-- Get root directory of git project or fallback to current directory.
 ---@return string|nil
 function M.get_root_directory()
   if M.is_git_repo() then
@@ -371,10 +357,24 @@ function M.open_in_browser(url)
   local ret = fn.jobstart({ open_cmd, url }, { detach = true })
   if ret <= 0 then
     vim.notify(
-      string.format("[utils]: Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
+      string.format("Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
       vim.log.levels.ERROR,
       { title = "utils" }
     )
+  end
+end
+
+-- Open URL under cursor, supports http, https and www
+function M.open_url()
+  -- Get the text under the cursor
+  local url = fn.expand("<cWORD>")
+
+  -- Check if it resembles a URL
+  if url:match("^http://") or url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
+    -- Open the URL in the default browser
+    M.open_in_browser(url)
+  else
+    print("No URL found under cursor")
   end
 end
 
@@ -446,10 +446,10 @@ end
 
 -- Always ask before exiting nvim, even if there is nothing to be saved.
 function M.confirm_quit()
-  local choice = vim.fn.confirm("Do you really want to exit nvim?", "&Yes\n&No", 2)
+  local choice = fn.confirm("Do you really want to exit nvim?", "&Yes\n&No", 2)
   if choice == 1 then
     -- If user confirms, but there are still files to be saved: Ask
-    vim.cmd("confirm quit")
+    cmd("confirm quit")
   end
 end
 
