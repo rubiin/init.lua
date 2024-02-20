@@ -11,12 +11,6 @@ local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_auto
 local constants = require("utils.constants")
 local utils = require("utils")
 
--- autoheader for sh scripts
-local status_ok, _ = pcall(require, "custom.autoheader")
-if not status_ok then
-  return
-end
-
 -- autogroup function
 ---@param name string
 ---@param opts table?
@@ -38,7 +32,7 @@ autocmd("FileType", {
 -- Fix comment, dont add comment on new line
 autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
-  pattern = { "*" },
+  pattern = "*",
   callback = function()
     cmd([[set formatoptions-=cro]])
   end,
@@ -76,7 +70,12 @@ autocmd({ "InsertLeave", "WinEnter" }, {
   command = "set cursorline",
 })
 
-autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = augeneral })
+-- Hide cursor line when in insert mode or when leaving the window
+autocmd({ "InsertEnter", "WinLeave" }, {
+  group = augeneral,
+  pattern = "*",
+  command = "set nocursorline",
+})
 
 -- This autocmd sets the wrap and spell options to true for filetypes
 autocmd("FileType", {
@@ -239,10 +238,10 @@ local fold_augroup = augroup("remember_folds")
 
 autocmd({ "BufLeave", "BufWinLeave" }, {
   pattern = "*",
+  group = fold_augroup,
   callback = function()
     cmd("silent! mkview")
   end,
-  group = fold_augroup,
   desc = "Remember folds on buffer exit",
 })
 
@@ -298,8 +297,6 @@ user_cmd("ToggleDarkMode", utils.toggle_light_dark_theme, {
 
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
-
--- Change working directory
 user_cmd("Cwd", function()
   cmd(":cd %:p:h")
   cmd(":pwd")

@@ -46,7 +46,6 @@ end
 function M.add_word_to_cspell_dictionary()
   M.create_cspell_json_if_not_exist()
 
-
   local word = vim.fn.expand("<cword>")
   local dictionary_path = utils.get_root_directory() .. "/cspell-tool.txt"
 
@@ -79,7 +78,6 @@ function M.add_word_to_cspell_dictionary()
 
     -- Save the current cursor position
     local current_cursor = vim.api.nvim_win_get_cursor(0)
-
 
     -- Reload the dictionary
     vim.cmd("e!")

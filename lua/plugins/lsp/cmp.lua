@@ -65,13 +65,21 @@ return {
         lazy = true,
         event = { "VeryLazy" },
       },
-      "octaltree/cmp-look",
+      {
+        "octaltree/cmp-look",
+        lazy = true,
+        event = { "VeryLazy" },
+      },
       {
         "hrsh7th/cmp-nvim-lua",
         lazy = true,
         event = { "VeryLazy" },
       },
-      { "ray-x/cmp-treesitter", commit = "c8e3a74" },
+      {
+        "ray-x/cmp-treesitter",
+        lazy = true,
+        event = { "VeryLazy" },
+      },
     },
     opts = {
       confirm_opts = {
@@ -89,8 +97,8 @@ return {
       },
       sources = {
         { name = "nvim_lsp", max_item_count = 20 },
-        { name = "luasnip" },
         { name = "buffer", keyword_length = 4, max_item_count = 10 },
+        { name = "luasnip" },
         { name = "path" },
         {
           name = "look",
