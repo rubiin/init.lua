@@ -9,16 +9,6 @@ local utils = require("utils")
 
 utils.cowboy()
 
--- Add toggle gitsigns blame line
-if lazyvim_util.has("gitsigns.nvim") then
-  utils.keymap("n", "<leader>uB", function()
-    require("gitsigns").toggle_current_line_blame()
-  end, {
-    desc = "Toggle Current Line Blame",
-  })
-end
-
--- Copy whole file content to clipboard with C-1
 utils.keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
 -- Select all text in buffer with C-2
