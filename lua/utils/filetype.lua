@@ -7,6 +7,9 @@
 vim.filetype.add({
   extension = {
     profile = "sh",
+    rasi = "rasi",
+    rofi = "rasi",
+    wofi = "rasi",
     env = "dotenv",
     json = "jsonc",
     ejs = "html",
@@ -18,7 +21,6 @@ vim.filetype.add({
     svx = "markdown",
     mdx = "markdown",
     svelte = "svelte",
-    rasi = "css",
     norg = "norg",
     patch = "patch",
   },
