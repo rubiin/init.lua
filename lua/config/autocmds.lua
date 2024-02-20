@@ -165,7 +165,7 @@ autocmd("TermOpen", {
   command = "startinsert | set winfixheight",
 })
 
--- Disable foldcolumn and signcolumn for terinals
+-- Disable foldcolumn and signcolumn for terminals
 autocmd("TermOpen", {
   group = augroup("terminalSetting"),
   pattern = "*",
@@ -207,8 +207,8 @@ autocmd("BufReadPost", {
     end
     vim.b[buf].lazyvim_last_loc = true
     local mark = api.nvim_buf_get_mark(buf, '"')
-    local lcount = api.nvim_buf_line_count(buf)
-    if mark[1] > 0 and mark[1] <= lcount then
+    local line_count = api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= line_count then
       pcall(api.nvim_win_set_cursor, 0, mark)
     end
   end,

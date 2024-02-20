@@ -4,7 +4,6 @@ local M = {}
 
 -- Original code from lazyvim-ide but modified to use cspell
 -- Create cSpell.json if not exist
-
 function M.create_cspell_json_if_not_exist()
   local cspell_json_path = utils.get_root_directory() .. "/cspell.json"
 
@@ -47,6 +46,7 @@ end
 function M.add_word_to_cspell_dictionary()
   M.create_cspell_json_if_not_exist()
 
+
   local word = vim.fn.expand("<cword>")
   local dictionary_path = utils.get_root_directory() .. "/cspell-tool.txt"
 
@@ -77,8 +77,15 @@ function M.add_word_to_cspell_dictionary()
     file:write(word .. "")
     file:close()
 
+    -- Save the current cursor position
+    local current_cursor = vim.api.nvim_win_get_cursor(0)
+
+
     -- Reload the dictionary
     vim.cmd("e!")
+
+    -- Set the cursor back to its original position
+    vim.api.nvim_win_set_cursor(0, current_cursor)
 
     utils.notify("Word added to the dictionary", "info", "cSpell")
   else
