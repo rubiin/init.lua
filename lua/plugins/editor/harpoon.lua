@@ -7,90 +7,67 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    keys = {
-      {
-        "<leader>fm",
-        "<cmd>Telescope harpoon marks<cr>",
-        desc = "Telescope Harpoon Marks",
-      },
-      {
-        "<leader>hh",
-        function()
-          require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-        end,
-        desc = "Toggle menu",
-      },
-      {
-        "<leader>ha",
-        function()
-          require("harpoon"):list():append()
-        end,
-        desc = "Add File",
-      },
-      {
-        "<leader>hc",
-        function()
-          require("harpoon").mark.clear_all()
-        end,
-        desc = "Clear All",
-      },
-      {
-        "<leader>hl",
-        function()
-          require("harpoon").ui.toggle_quick_menu()
-        end,
-        desc = "Toggle Quick Menu",
-      },
-      {
-        "<leader>hn",
-        function()
-          require("harpoon").ui.nav_next()
-        end,
-        desc = "Next File",
-      },
-      {
-        "<leader>hp",
-        function()
-          require("harpoon").ui.nav_prev()
-        end,
-        desc = "Previous File",
-      },
-      {
-        "<leader>hp",
-        function()
-          require("harpoon").mark.rm_file()
-        end,
-        desc = "Remove File From Harpoon",
-      },
-      {
-        "<leader>h1",
-        function()
-          require("harpoon").ui.nav_file(1)
-        end,
-        desc = "Navigate To File 1",
-      },
-      {
-        "<leader>h2",
-        function()
-          require("harpoon").ui.nav_file(2)
-        end,
-        desc = "Navigate To File 2",
-      },
-      {
-        "<leader>h3",
-        function()
-          require("harpoon").ui.nav_file(3)
-        end,
-        desc = "Navigate To File 3",
-      },
-      {
-        "<leader>h4",
-        function()
-          require("harpoon").ui.nav_file(4)
-        end,
-        desc = "Navigate To File 4",
-      },
-    },
+    keys = function()
+      local keys = {
+        {
+          "<leader>fm",
+          "<cmd>Telescope harpoon marks<cr>",
+          desc = "Telescope Harpoon Marks",
+        },
+        {
+          "<leader>hh",
+          function()
+            require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+          end,
+          desc = "Toggle menu",
+        },
+        {
+          "<leader>ha",
+          function()
+            require("harpoon"):list():append()
+          end,
+          desc = "Add File",
+        },
+        {
+          "<leader>hc",
+          function()
+            require("harpoon").mark.clear_all()
+          end,
+          desc = "Clear All",
+        },
+        {
+          "<leader>hl",
+          function()
+            require("harpoon").ui.toggle_quick_menu()
+          end,
+          desc = "Toggle Quick Menu",
+        },
+        {
+          "<leader>hn",
+          function()
+            require("harpoon").ui.nav_next()
+          end,
+          desc = "Next File",
+        },
+        {
+          "<leader>hp",
+          function()
+            require("harpoon").ui.nav_prev()
+          end,
+          desc = "Previous File",
+        },
+      }
+      for i = 1, 5 do
+        table.insert(keys, {
+          "<leader>" .. i,
+          function()
+            require("harpoon").nav.go_to_mark(i)
+          end,
+          desc = "Go to mark " .. i,
+        })
+      end
+      return keys
+    end,
     opts = {
       menu = {
         width = vim.api.nvim_win_get_width(0) - 4,
@@ -106,3 +83,5 @@ return {
     end,
   },
 }
+
+-- TODO: debug this
