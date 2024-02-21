@@ -2,7 +2,7 @@ local utils = require("utils")
 
 local M = {}
 
--- Original code from lazyvim-ide but modified to use cspell
+-- Original code from lazyvim-ide but better
 -- Create cSpell.json if not exist
 function M.create_cspell_json_if_not_exist()
   local cspell_json_path = utils.get_root_directory() .. "/cspell.json"
@@ -23,14 +23,13 @@ function M.create_cspell_json_if_not_exist()
   "dictionaryDefinitions": [
     {
       "name": "workspace",
-      "path": "./cspell-dict.txt",  
+      "path": "./cspell-dict.txt",
       "description": "Custom Workspace Dictionary",
       "addWords": true
     }
   ],
   "dictionaries": [
     "workspace",
-    "typescript",
     "softwareTerms",
     "node",
     "en_US",
@@ -83,7 +82,7 @@ function M.create_cspell_json_if_not_exist()
       file:write(default_content)
       file:close()
     else
-      utils.notify("Could not open cSpell dictionary", "error", "cSpell")
+      utils.notify("Could not write cSpell configuration", "error", "cSpell")
     end
   end
 end
@@ -93,7 +92,7 @@ function M.add_word_to_cspell_dictionary()
   M.create_cspell_json_if_not_exist()
 
   local word = vim.fn.expand("<cword>")
-  local dictionary_path = utils.get_root_directory() .. "/cspell-tool.txt"
+  local dictionary_path = utils.get_root_directory() .. "/cspell-dict.txt"
 
   local file = io.open(dictionary_path, "r")
   if file then
@@ -105,11 +104,11 @@ function M.add_word_to_cspell_dictionary()
       end
     end
     if word_found then
-      utils.notify("Word already exists in the dictionary", "info", "cSpell")
+      utils.notify("Word already exists in the workspace dictionary", "info", "cSpell")
       return
     end
   else
-    utils.notify("Could not open cSpell dictionary", "error", "cSpell")
+    utils.notify("Could not open workspace dictionary", "error", "cSpell")
   end
   file = io.open(dictionary_path, "a")
 
@@ -131,9 +130,9 @@ function M.add_word_to_cspell_dictionary()
     -- Set the cursor back to its original position
     vim.api.nvim_win_set_cursor(0, current_cursor)
 
-    utils.notify("Word added to the dictionary", "info", "cSpell")
+    utils.notify("Word added to the workspace dictionary", "info", "cSpell")
   else
-    utils.notify("Could not open cSpell dictionary", "error", "cSpell")
+    utils.notify("Could not open workspace dictionary", "error", "cSpell")
   end
 end
 
