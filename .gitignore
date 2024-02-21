@@ -1,6 +1,8 @@
 # Compiled Lua sources
 luac.out
 
+.cspell/
+
 
 # luarocks build files
 *.src.rock

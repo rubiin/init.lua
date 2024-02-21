@@ -20,16 +20,23 @@ function M.create_cspell_json_if_not_exist()
     "cacheLocation": "./.cspell/.cspellcache",
     "cacheStrategy": "content"
 },
-  "globRoot": ".",
   "dictionaryDefinitions": [
     {
-      "name": "cspell-tool",
-      "path": "./cspell-tool.txt",
+      "name": "workspace",
+      "path": "./cspell-dict.txt",  
+      "description": "Custom Workspace Dictionary",
       "addWords": true
     }
   ],
   "dictionaries": [
-    "cspell-tool"
+    "workspace",
+    "typescript",
+    "softwareTerms",
+    "node",
+    "en_US",
+    "npm",
+    "misc",
+    "filetypes"
   ],
   "features": {
     "weighted-suggestions": true
