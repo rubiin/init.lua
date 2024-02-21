@@ -1,5 +1,10 @@
 return {
   {
+    "nvim-treesitter/playground",
+    cmd = "TSPlaygroundToggle",
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = {
       "bash",
@@ -7,13 +12,19 @@ return {
       "diff",
       "html",
       "javascript",
-      "lua",
-      "query",
       "regex",
       "toml",
+      -- these five should always be installed, https://github.com/nvim-treesitter/nvim-treesitter#modules
+      "c",
+      "lua",
       "vim",
+      "vimdoc",
+      "query"
     },
     opts = {
+      playground = { enable = true },
+      -- Enable Rainbow Parentheses
+      rainbow = { enable = true },
       autotag = {
         enable = true,
       },

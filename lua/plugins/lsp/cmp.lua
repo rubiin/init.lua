@@ -60,26 +60,10 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      {
-        "hrsh7th/cmp-cmdline",
-        lazy = true,
-        event = { "VeryLazy" },
-      },
-      {
-        "octaltree/cmp-look",
-        lazy = true,
-        event = { "VeryLazy" },
-      },
-      {
-        "hrsh7th/cmp-nvim-lua",
-        lazy = true,
-        event = { "VeryLazy" },
-      },
-      {
-        "ray-x/cmp-treesitter",
-        lazy = true,
-        event = { "VeryLazy" },
-      },
+      "hrsh7th/cmp-cmdline",
+      "octaltree/cmp-look",
+      "hrsh7th/cmp-nvim-lua",
+      "ray-x/cmp-treesitter",
     },
     opts = {
       confirm_opts = {

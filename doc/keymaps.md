@@ -68,12 +68,7 @@ pres ? for help
   - Sub-item 2.1
   - Sub-item 2.2
 
-## Block Quotes
 
-> This is a block quote.
-> It can span multiple lines.
-
-## Fenced Code Blocks
 
 ```javascript
 function greet() {
