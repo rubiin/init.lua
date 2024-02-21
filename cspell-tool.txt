@@ -2143,3 +2143,4 @@ smartcase
 incsearch
 ignorecase
 hlsearch
+for

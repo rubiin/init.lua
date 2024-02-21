@@ -55,9 +55,6 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
   git clone https://github.com/rubiin/init.lua ~/.config/nvim
   nvim
   '
-
-
-
 ```
 
 - NOTE for Windows users:
@@ -146,7 +143,6 @@ g.github_username = "rubiin" -- Github username
 g.random_banner = true -- Random banner
 g.fortune = true -- Fortune in start screen
 g.border_style = "single" ---@type "single"|"double"|"rounded"|"solid"|"none"
-
 ```
 
 If you want to start neovim with no plugins whatsoever you can use the `--clean` flag. For example, if you want

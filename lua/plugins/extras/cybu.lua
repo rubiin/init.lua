@@ -31,7 +31,7 @@ return {
         "qf",
         "help",
       },
-      display_time = 750,
+      display_time = 500,
       fallback = function()
         util.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
       end,

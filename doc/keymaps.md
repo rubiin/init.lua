@@ -5,10 +5,10 @@ them all the time.
 
 > Note: Few keymaps may be for this config only.
 
-
 - Refer to the this for more: https://github.com/gitig/Practical-Vim-Notes
 
 Vim motions:
+
 - (left) h
 - (down) j
 - (up) k
@@ -54,19 +54,49 @@ press d in tree to delete a file in neotree
 press a to create a file
 pres ? for help
 
-```javascript
+# Sample Markdown Document
 
-console.log("Hello World")
+## Checkboxes
+
+- [x] This is a checked checkbox
+- [ ] This is an unchecked checkbox
+
+## List Markers/Bullet Points
+
+- Item 1
+- Item 2
+  - Sub-item 2.1
+  - Sub-item 2.2
+
+## Block Quotes
+
+> This is a block quote.
+> It can span multiple lines.
+
+## Fenced Code Blocks
+
+```javascript
+function greet() {
+  console.log("Hello, world!");
+}
 ```
 
-### Solar System Exploration, 1950s – 1960s
+```json
+{
+  "key": "value",
+  "nested": {
+    "key": "value"
+  }
+}
+```
 
-- [ ] Mercury
-- [x] Venus
-- [x] Earth (Orbit/Moon)
-- [x] Mars
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
+```lua
+function factorial(n)
+  if n == 0 then
+    return 1
+  else
+    return n * factorial(n - 1)
+  end
+end
+``
+```
