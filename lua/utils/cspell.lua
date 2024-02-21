@@ -15,6 +15,11 @@ function M.create_cspell_json_if_not_exist()
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
   "language": "en",
+  "cache": {
+    "useCache": true,
+    "cacheLocation": "./.cspell/.cspellcache",
+    "cacheStrategy": "content"
+},
   "globRoot": ".",
   "dictionaryDefinitions": [
     {
@@ -26,10 +31,44 @@ function M.create_cspell_json_if_not_exist()
   "dictionaries": [
     "cspell-tool"
   ],
+  "features": {
+    "weighted-suggestions": true
+},
   "ignorePaths": [
-    "node_modules",
-    "dist",
-    "build",
+    ".eslintignore",
+    ".git",
+    ".gitattributes",
+    ".gitignore",
+    ".github/integrations.json",
+    ".pnp.{js,cjs}",
+    ".prettierignore",
+    ".yarn",
+    "*.{png,jpg,pdf,svg}",
+    "*.cpuprofile",
+    "*.heapprofile",
+    "**/.docusaurus/**",
+    "**/.gitignore",
+    "**/.vscode/**",
+    "**/{cspell.*,cSpell.*,.cspell.*,cspell.config.*}",
+    "**/*.schema.json",
+    "**/*.snap",
+    "**/*.trie",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/jest.config.js",
+    "**/node_modules/**",
+    "**/tsconfig.json",
+    "/tools/*/lib/**",
+    "/cspell-dict.txt",
+    "/cspell-ignore-words.txt",
+    "/docs/docsV2/**",
+    "/docs/types/cspell-types",
+    "/.cspell",
+    "cspell*.{json,yaml}",
+    "lcov.info",
+    "package.json",
+    "*-lock.{json,yaml}",
+    "temp",
     "/cspell-tool.txt"
   ]
 }
