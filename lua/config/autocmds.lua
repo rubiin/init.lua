@@ -136,13 +136,6 @@ autocmd("BufWritePre", {
   end,
 })
 
--- Show `` in specific files
-autocmd({ "BufRead", "BufNewFile" }, {
-  group = augeneral,
-  pattern = { "*.txt", "*.md", "*.json" },
-  command = "setlocal conceallevel=0",
-})
-
 -- Disable diagnostics in a .env file and node_modules (0 is current buffer only)
 autocmd("BufRead", {
   group = augeneral,
@@ -235,10 +228,10 @@ autocmd("BufReadPost", {
   end,
 })
 
--- Fix conceallevel for json files
+-- Fix conceallevel for specific files
 autocmd({ "FileType" }, {
   group = augroup("lazyvim_json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
+  pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
   callback = function()
     opt_local.conceallevel = 0
   end,
