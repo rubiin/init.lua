@@ -99,6 +99,7 @@ return {
     ChevronShortRight = " ",
     ChevronShortUp = " ",
     Circle = " ",
+    Color = " ",
     Close = "󰅖 ",
     CloudDownload = " ",
     Code = " ",
@@ -167,7 +168,6 @@ return {
     Squirrel = " ",
     Sleep = "󰒲  ",
     Tag = " ",
-
     Watch = " ",
     Smiley = " ",
     CircuitBoard = " ",
@@ -193,6 +193,7 @@ return {
     BoldHint = " ",
     Hint = "󰌶 ",
     Debug = " ",
+    DebugBold = " ",
     Trace = "✎ ",
   },
 }
