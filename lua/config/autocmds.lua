@@ -29,6 +29,28 @@ autocmd("FileType", {
   command = "startinsert | 1",
 })
 
+-- Start git messages in insert mode
+autocmd("FileType", {
+  group = augeneral,
+  pattern = { "typescript" },
+  callback = function()
+    utils.keymap("n", "<C-a>", function()
+      return require("dial.map").inc_normal("typescript")
+    end, { expr = true, desc = "Increment" })
+    utils.keymap("n", "<C-x>", function()
+      return require("dial.map").dec_normal("typescript")
+    end, { expr = true, desc = "Descrement" })
+    utils.keymap("v", "<C-a>", function()
+      return require("dial.map").inc_normal("typescript")
+    end, { expr = true, desc = "Increment" })
+    utils.keymap("v", "<C-x>", function()
+      return require("dial.map").dec_normal("typescript")
+    end, { expr = true, desc = "Increment" })
+  end,
+})
+
+-- TODO: test this setup
+
 -- Fix comment, dont add comment on new line
 autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
