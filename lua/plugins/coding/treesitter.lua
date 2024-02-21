@@ -19,7 +19,7 @@ return {
       "lua",
       "vim",
       "vimdoc",
-      "query"
+      "query",
     },
     opts = {
       playground = { enable = true },

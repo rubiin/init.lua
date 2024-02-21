@@ -1,4 +1,4 @@
--- Better increase/descrease
+-- Better increase/decrease
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
@@ -115,6 +115,10 @@ return {
         augend.constant.new({
           elements = { "&&", "||" },
           word = false,
+          cyclic = true,
+        }),
+        augend.case.new({
+          types = { "camelCase", "snake_case", "PascalCase", "kebab-case" },
           cyclic = true,
         }),
         augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
