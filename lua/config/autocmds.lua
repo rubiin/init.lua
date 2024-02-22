@@ -51,7 +51,7 @@ autocmd("FileType", {
 
 -- TODO: test this setup
 
--- Fix comment, dont add comment on new line
+-- Fix comment, don't add comment on new line
 autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
   pattern = "*",
@@ -124,7 +124,7 @@ autocmd("ModeChanged", {
   end,
 })
 
--- Disable swap/undo/backup files in temp directories or shm
+-- Disable swap/undo/backup files in temp directories or some files
 autocmd("BufWritePre", {
   group = augeneral,
   pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
