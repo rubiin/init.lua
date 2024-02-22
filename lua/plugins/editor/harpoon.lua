@@ -36,23 +36,16 @@ return {
           desc = "Clear All",
         },
         {
-          "<leader>hl",
-          function()
-            require("harpoon").ui.toggle_quick_menu()
-          end,
-          desc = "Toggle Quick Menu",
-        },
-        {
           "<leader>hn",
           function()
-            require("harpoon").ui.nav_next()
+            require("harpoon"):list():next()
           end,
           desc = "Next File",
         },
         {
           "<leader>hp",
           function()
-            require("harpoon").ui.nav_prev()
+            require("harpoon"):list():prev()
           end,
           desc = "Previous File",
         },
@@ -61,9 +54,9 @@ return {
         table.insert(keys, {
           "<leader>" .. i,
           function()
-            require("harpoon").nav.go_to_mark(i)
+            require("harpoon"):list():select(i)
           end,
-          desc = "Go to mark " .. i,
+          desc = "Go To Mark " .. i,
         })
       end
       return keys
