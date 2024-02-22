@@ -67,8 +67,6 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 ├── ftplugin                             # Override filetype settings
 └── plugin                               # Plugin configurations
 ├── biome.json                           # Configuration file for a specific feature or plugin
-├── cspell.json                          # Configuration file for the cspell spellchecker
-├── cspell-tool.txt                      # Custom dictionary for cspell
 ├── doc
 │   └── keymaps.md                       # Documentation file for keymaps
 ├── init.lua                             # Initialization file for Vim or Neovim

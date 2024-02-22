@@ -13,11 +13,12 @@ return {
         prefix = "",
       },
       servers = {
-        typos_lsp = {
-          settings = {
-            diagnosticSeverity = "Warning",
-          },
-        },
+        -- uncomment to if you want to use typos-lsp
+        -- typos_lsp = {
+        --   settings = {
+        --     diagnosticSeverity = "Warning",
+        --   },
+        -- },
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
           -- Use this to add any additional keymaps

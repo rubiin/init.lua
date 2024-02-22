@@ -23,11 +23,6 @@ utils.keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" 
 utils.keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
 utils.keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
--- Add spell check to cspell
-utils.keymap("n", "<leader>cs", function()
-  require("utils.cspell").add_word_to_cspell_dictionary()
-end, { desc = "Add Word To Cspell Dictionary" })
-
 -- Override LazyVim bindings for terminal
 utils.keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })

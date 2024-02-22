@@ -28,7 +28,6 @@ return {
         "selene",
 
         -- code spell
-        "cspell",
         "typos-lsp",
 
         -- markdown
