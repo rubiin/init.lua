@@ -74,12 +74,7 @@ return {
           "--glob=!.git/",
           "--glob=!node_modules/",
         },
-        layout_config = {
-          horizontal = { prompt_position = "top", results_width = 0.8 },
-          vertical = { mirror = false },
-        },
         color_devicons = true,
-        sorting_strategy = "ascending",
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         prompt_prefix = user_icons.Telescope, -- or $
         selection_caret = user_icons.SelectionCaret,
