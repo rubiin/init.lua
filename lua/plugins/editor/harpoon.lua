@@ -31,7 +31,7 @@ return {
         {
           "<leader>hc",
           function()
-            require("harpoon").mark.clear_all()
+            require("harpoon"):list():clear()
           end,
           desc = "Clear All",
         },
