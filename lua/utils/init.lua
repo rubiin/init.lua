@@ -77,7 +77,6 @@ function M.set_lualine_styles(type)
     {
       "branch",
       cond = M.is_git_repo,
-      separator = { left = "", right = "" },
     },
     {
       "diff",
