@@ -64,6 +64,7 @@ return {
       "octaltree/cmp-look",
       "hrsh7th/cmp-nvim-lua",
       "ray-x/cmp-treesitter",
+      "petertriho/cmp-git",
     },
     opts = {
       confirm_opts = {
@@ -117,6 +118,7 @@ return {
             orgmode = "[org]",
             look = "[dictionary]",
             nvim_lsp = "[lsp]",
+            git = "[git]",
             nvim_lua = "[lua]",
             path = "[path]",
             tmux = "[tmux]",
@@ -139,6 +141,14 @@ return {
     config = function(_, opts)
       cmp.setup(opts)
 
+      -- Set configuration for specific filetype.
+      cmp.setup.filetype("gitcommit", {
+        sources = cmp.config.sources({
+          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+        }, {
+          { name = "buffer" },
+        }),
+      })
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
