@@ -18,26 +18,6 @@ function M.is_empty(s)
   return s == nil or s == ""
 end
 
--- Checks if a keymap exists
----@param mode string|table
----@param lhs string
----@param rhs string|function
----@return boolean
-function M.check_if_keymap_exists(mode, lhs, rhs)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  local modes = type(mode) == "string" and { mode } or mode
-
-  ---@param m string
-  modes = vim.tbl_filter(function(m)
-    return not (keys.have and keys:have(lhs, m))
-  end, modes)
-  if #modes > 0 then
-    return true
-  end
-  return false
-end
-
 -- Taken from ThePrimeagen and modified
 ---@param color string
 function M.color_my_pencils(color)
@@ -69,10 +49,12 @@ function M.set_lualine_styles(type)
     opts.options.section_separators = { left = "", right = "" }
   end
 
-  opts.sections.lualine_a = { {
-    "mode",
-    icon = "",
-  } }
+  opts.sections.lualine_a = {
+    {
+      "mode",
+      icon = "",
+    },
+  }
   opts.sections.lualine_b = {
     {
       "branch",
@@ -223,10 +205,11 @@ end
 -- Notify
 ---@param message string
 ---@param level string|integer
----@param title string
+---@param title? string
+---@param timeout? integer
 function M.notify(message, level, title, timeout)
   local notify_options = {
-    title = title,
+    title = title or "notification",
     timeout = timeout or 2000,
   }
   vim.notify(message, level, notify_options)
@@ -236,7 +219,7 @@ end
 ---@param list table
 ---@return nil
 function M.delete_keymaps(list)
-  if list == {} then
+  if #list == 0 then
     return
   end
 
