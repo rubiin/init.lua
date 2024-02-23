@@ -4,6 +4,14 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
+-- Create augroup
+---@param name string
+---@param opts? table
+function M.augroup(name, opts)
+  opts = opts or { clear = true }
+  return api.nvim_create_augroup(name, opts)
+end
+
 -- Check if a string is empty
 ---@param s any
 function M.is_empty(s)

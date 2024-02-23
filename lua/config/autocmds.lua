@@ -10,14 +10,7 @@ local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_auto
 
 local constants = require("utils.constants")
 local utils = require("utils")
-
--- autogroup function
----@param name string
----@param opts table?
-local function augroup(name, opts)
-  opts = opts or { clear = true }
-  return api.nvim_create_augroup(name, opts)
-end
+local augroup = require("utils").augroup
 
 local aufilewrite = augroup("FileWrite")
 local augeneral = augroup("GeneralSettings")
