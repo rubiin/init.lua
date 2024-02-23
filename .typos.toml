@@ -4,3 +4,4 @@
 # ignore these words
 [default.extend-words]
 noice = "noice" # plugin name
+iterm = "iterm" # iterm 
