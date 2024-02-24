@@ -61,18 +61,5 @@ return {
       end
       return keys
     end,
-    opts = {
-      menu = {
-        width = vim.api.nvim_win_get_width(0) - 4,
-      },
-    },
-    config = function(_, options)
-      local status_ok, harpoon = pcall(require, "harpoon")
-      if not status_ok then
-        return
-      end
-
-      harpoon.setup(options)
-    end,
   },
 }

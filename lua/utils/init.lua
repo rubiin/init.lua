@@ -418,17 +418,6 @@ function M.capitalize(str)
   return (str:gsub("^%l", string.upper))
 end
 
--- Returns the length of a table.
----@param t table
----@return integer
-function M.table_length(t)
-  local count = 0
-  for _ in pairs(t) do
-    count = count + 1
-  end
-  return count
-end
-
 -- Always ask before exiting nvim, even if there is nothing to be saved.
 function M.confirm_quit()
   local choice = fn.confirm("Do you really want to exit nvim?", "&Yes\n&No", 2)
