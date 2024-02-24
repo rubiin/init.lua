@@ -1,3 +1,5 @@
+local constant = require("utils.constants")
+
 return {
   {
     "nvim-treesitter/playground",
@@ -6,21 +8,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    ensure_installed = {
-      "bash",
-      "css",
-      "diff",
-      "html",
-      "javascript",
-      "regex",
-      "toml",
-      -- these five should always be installed, https://github.com/nvim-treesitter/nvim-treesitter#modules
-      "c",
-      "lua",
-      "vim",
-      "vimdoc",
-      "query",
-    },
+    ensure_installed = constant.ts_parsers,
     opts = {
       playground = { enable = true },
       -- Enable Rainbow Parentheses
