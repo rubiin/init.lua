@@ -4,9 +4,15 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      "olimorris/persisted.nvim",
+      "rcarriga/nvim-notify",
+      {
+        "ThePrimeagen/harpoon",
+        lazy = true,
+        event = "VeryLazy",
+      },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
         lazy = true,
         event = "VeryLazy",
       },
@@ -20,13 +26,11 @@ return {
         lazy = true,
         event = "VeryLazy",
       },
-      "ThePrimeagen/harpoon",
       {
         "nvim-telescope/telescope-file-browser.nvim",
         lazy = true,
         event = "VeryLazy",
       },
-      "rcarriga/nvim-notify",
       {
         "kkharji/sqlite.lua",
         lazy = true,
@@ -37,7 +41,6 @@ return {
         "prochri/telescope-all-recent.nvim",
         lazy = true,
         event = "VeryLazy",
-        opts = {},
       },
     },
     lazy = true,
@@ -154,6 +157,7 @@ return {
         telescope.load_extension("file_browser")
         telescope.load_extension("ui-select")
         telescope.load_extension("harpoon")
+        telescope.load_extension("persisted")
       end)
     end,
   },
