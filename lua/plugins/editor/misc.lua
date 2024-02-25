@@ -1,4 +1,5 @@
 -- this file holds all the overrides from lazyvim config
+local constant = require("utils.constants")
 
 return {
   {
@@ -69,34 +70,7 @@ return {
   {
     "RRethy/vim-illuminate",
     opts = {
-      filetypes_denylist = {
-        "mason",
-        "harpoon",
-        "qf",
-        "dirvish",
-        "oil",
-        "minifiles",
-        "fugitive",
-        "alpha",
-        "NvimTree",
-        "lazy",
-        "NeogitStatus",
-        "Trouble",
-        "netrw",
-        "lir",
-        "DiffviewFiles",
-        "Outline",
-        "Jaq",
-        "spectre_panel",
-        "toggleterm",
-        "sagafinder",
-        "DressingSelect",
-        "TelescopePrompt",
-        "sagacallhierarchy",
-        "sagaincomingcalls",
-        "sagapeekdefinition",
-        "sagaoutline",
-      },
+      filetypes_denylist = constant.common_file_types,
     },
   },
 }

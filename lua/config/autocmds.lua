@@ -41,8 +41,6 @@ autocmd("FileType", {
   end,
 })
 
--- TODO: test this setup
-
 -- Fix comment, don't add comment on new line
 autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
@@ -135,27 +133,6 @@ autocmd("BufRead", {
   callback = function()
     vim.diagnostic.disable(0)
   end,
-})
-
--- Reload tmux on config save
-autocmd("BufWritePost", {
-  group = aufilewrite,
-  pattern = { "*tmux.conf" },
-  command = "!tmux source <afile>;notify-send -i reload 'Reloading tmux'",
-})
-
--- Reload zsh on save
-autocmd("BufWritePost", {
-  group = aufilewrite,
-  pattern = { ".zshrc", ".bash_aliases", ".zshenv" },
-  command = "!source .zshrc;notify-send -i reload 'Reloading zshrc'",
-})
-
--- Reload bash on save
-autocmd("BufWritePost", {
-  group = aufilewrite,
-  pattern = { ".bashrc", ".bash_aliases", ".bashenv" },
-  command = "!source .bashrc;notify-send -i reload 'Reloading bashrc'",
 })
 
 -- Trim trailing whitespace and trailing blank lines on save
@@ -263,7 +240,7 @@ autocmd("BufReadPost", {
 
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
-  pattern = constants.exclude_file_types,
+  pattern = constants.common_file_types,
   group = utils.augroup("DisableIndentScope"),
   callback = function()
     vim.b.miniindentscope_disable = true
