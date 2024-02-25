@@ -4,6 +4,14 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
+local OS = vim.loop.os_uname().sysname
+M.os = {
+  name = OS,
+  is_macos = OS == "Darwin",
+  is_windows = OS:match("Windows"),
+  is_linux = not (OS == "Darwin" and OS:match("Windows")),
+}
+
 -- Create augroup
 ---@param name string
 ---@param opts? table
@@ -150,18 +158,15 @@ function M.toggle_light_dark_theme()
 end
 
 -- Splits a string into a table
----@param value string
----@param sep string
+---@param str string
+---@param delimiter string
 ---@return table
-function M.str_split(value, sep)
-  if sep == nil then
-    sep = "%s"
+function M.strsplit(str, delimiter)
+  local result = {}
+  for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
+    table.insert(result, match)
   end
-  local t = {}
-  for str in string.gmatch(value, "([^" .. sep .. "]+)") do
-    table.insert(t, str)
-  end
-  return t
+  return result
 end
 
 -- Check if the minimum Neovim version is satisfied
@@ -325,6 +330,37 @@ function M.merge(...)
   return vim.tbl_deep_extend("force", ...)
 end
 
+--- Checks whether the buffer is valid.
+-- Checks if buffer is valid and listed.
+---@param buf_id buffer id to be checked.
+---@treturn bool
+function M.is_valid_buffer(buf_id)
+  return api.nvim_buf_is_valid(buf_id) and fn.getbufvar(buf_id, "&buflisted") == 1
+end
+
+--- Checks whether the buffer is a regular file buffer.
+-- It also checks if buffer is valid and listed.
+---@param buf_id buffer id to be checked.
+---@treturn bool
+function M.is_file_buffer(buf_id)
+  return M.is_valid_buffer(buf_id) and fn.getbufvar(buf_id, "&buftype") ~= "terminal"
+end
+
+-- Checks whether the buffer is regular file buffer.
+--- It also checks if buffer is valid and listed.
+function M.get_active_buffers()
+  local bufs = api.nvim_list_bufs()
+  local active_buffers = {}
+  local count = 0
+  for idx, buf_id in pairs(bufs) do
+    if M.is_file_buffer(buf_id) then
+      count = count + 1
+      active_buffers[count] = buf_id
+    end
+  end
+  return active_buffers
+end
+
 -- Opens the given url in the default browser.
 ---@param url string: The url to open.
 function M.open_in_browser(url)
@@ -466,5 +502,55 @@ function M.search_todos()
     M.notify("No results found!", vim.log.levels.INFO, "TODOs")
   end
 end
+
+-- ========================================================================== --
+-- ==                          GLOBLA FUNCTIONS                               == --
+-- ========================================================================== --
+
+function M.P(v)
+  print(vim.inspect(v))
+  return v
+end
+
+_G.P = M.P
+
+-- Debug Notification
+-- (value, context_message)
+function M.DN(v, cm)
+  local time = os.date("%H:%M")
+  local context_msg = cm or " "
+  local msg = context_msg .. " " .. time
+  require("notify")(vim.inspect(v), "debug", { title = { "Debug Output", msg } })
+  return v
+end
+
+_G.DN = M.DN
+
+function M.RELOAD(...)
+  return require("plenary.reload").reload_module(...)
+end
+
+_G.RELOAD = M.RELOAD
+
+function M.R(name)
+  M.RELOAD(name)
+  return require(name)
+end
+
+_G.R = M.R
+
+-- pcall require
+---comment
+---@param m any
+function M.prequire(m)
+  local ok, err = pcall(require, m)
+  if not ok then
+    return nil, err
+  end
+  -- if ok, err == m
+  return err
+end
+
+_G.prequire = M.prequire
 
 return M

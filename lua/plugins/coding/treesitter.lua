@@ -5,7 +5,6 @@ return {
     "nvim-treesitter/playground",
     cmd = "TSPlaygroundToggle",
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     ensure_installed = constant.ts_parsers,
