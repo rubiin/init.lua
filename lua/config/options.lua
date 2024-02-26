@@ -119,8 +119,8 @@ o.fillchars = {
 }
 
 -- Scrolling settings
-o.scrolloff = 4 -- Lines of context
-o.sidescrolloff = 8 -- Columns of context
+o.scrolloff = 10 -- Lines of context
+o.sidescrolloff = 5 -- Columns of context
 
 -- ========================================================================== --
 -- ==                  UNDO AND SWAP                                       == --
@@ -134,6 +134,7 @@ o.undolevels = 10000
 o.inccommand = "nosplit" -- preview incremental substitute
 o.laststatus = 3 -- global statusline
 o.list = true -- Show some invisible characters (tabs...
+o.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 o.mouse = "a" -- Enable mouse mode
 
 o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
@@ -178,7 +179,7 @@ o.spelllang = "en" -- set spell check language
 
 o.history = 1000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
-o.updatetime = 200 -- Decrease update time
+o.updatetime = 250 -- Decrease update time
 
 -- ========================================================================== --
 -- ==                  PROVIDER                                            == --

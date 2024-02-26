@@ -15,6 +15,9 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         lazy = true,
+        cond = function()
+          return vim.fn.executable("make") == 1
+        end,
         build = "make",
         event = "VeryLazy",
       },
@@ -25,11 +28,6 @@ return {
       },
       {
         "nvim-telescope/telescope-ui-select.nvim",
-        lazy = true,
-        event = "VeryLazy",
-      },
-      {
-        "nvim-telescope/telescope-file-browser.nvim",
         lazy = true,
         event = "VeryLazy",
       },
@@ -47,11 +45,6 @@ return {
     },
     lazy = true,
     keys = {
-      {
-        "<leader>sB",
-        "<cmd>Telescope find_files cwd=%:p:h<cr>",
-        desc = "Browse Files (cwd)",
-      },
       {
         "<leader>cu",
         "<cmd>Telescope undo<cr>",
@@ -156,7 +149,6 @@ return {
           require("telescope").load_extension("notify")
         end
         telescope.load_extension("undo")
-        telescope.load_extension("file_browser")
         telescope.load_extension("ui-select")
         telescope.load_extension("harpoon")
         telescope.load_extension("persisted")
