@@ -249,6 +249,7 @@ autocmd("FileType", {
 })
 
 -- Disable caps lock while vim is running
+-- FIX: fix this for wayland as well
 autocmd("InsertEnter", {
   pattern = "*",
   group = utils.augroup("ToggleCapsLock"),
