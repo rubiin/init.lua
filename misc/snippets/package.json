@@ -8,6 +8,13 @@
     "snippets": [
       {
         "language": [
+          "global",
+          "all"
+        ],
+        "path": "global.json"
+      },
+      {
+        "language": [
           "javascript",
           "typescript"
         ],
