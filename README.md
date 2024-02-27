@@ -131,6 +131,9 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
 - Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
 
+There are more plugins on extras folder that are not loaded by default. You can enable them by adding the require line on `lua/plugins/init.lua`.
+Some are disabled by default because they are not used by me but I keep them there for reference.
+
 ## Personalization
 
 You can customize the banner with the globals on `lua/rubiin/globals.lua`:
