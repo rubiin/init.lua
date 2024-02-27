@@ -80,7 +80,7 @@
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
-  "promise-async": { "branch": "main", "commit": "be4d4be2158212717a41e92d4773e88058f7b178" },
+  "promise-async": { "branch": "main", "commit": "93540c168c5ed2b030ec3e6c40ab8bbb85e36355" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "64b7006a36cec099da7eaeb056c4a27dd5d73342" },
   "refactoring.nvim": { "branch": "master", "commit": "94444558fc651b7e36f39d86c518e44b4de15123" },
   "sqlite.lua": { "branch": "master", "commit": "40701b6151f8883980c1548647116de39b763540" },

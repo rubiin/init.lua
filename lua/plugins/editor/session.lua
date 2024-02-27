@@ -31,3 +31,5 @@ return {
     },
   },
 }
+-- FIX: check autoload property not working
+-- FIX: Also check the dashboard entry
