@@ -38,8 +38,11 @@ Clone the repository and install the plugins:
 
 ```sh
 git clone git@github.com:rubiin/init.lua ~/.config/rubiin/init.lua
-NVIM_APPNAME=rubiin/init.lua/ nvim --headless +"Lazy! sync" +qa
-```
+NVIM_APPNAME=rubiin/init.lua/ nvim --headless +"Lazy! sync" +qa```
+
+Replace local plugins specs with the ones from the remote repository:
+```~/personal-vim-plugs/xyz``` becomes  ```rubiin/xyz```
+
 
 Open Neovim with this config:
 
@@ -152,6 +155,8 @@ to use neovim as your git editor you can add this to your `.gitconfig`:
 ```sh
 core.editor = nvim --clean
 ```
+
+If anything is not working as expected, please open an issue.
 
 ## Credits and Further reading/learning
 
