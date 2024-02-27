@@ -218,22 +218,20 @@ autocmd({ "BufWritePre" }, {
   end,
 })
 
-
-
 -- source lua files in config folder
-autocmd({ "AutoSaveWritePost" }, {
-  pattern = "lua",
-  group = augeneral,
-  callback = function()
-  -- if lua file and is in nvim config dir :so the file
-	local current_file_path = vim.api.nvim_buf_get_name(0)
-	local is_in_config = current_file_path:find("^"..vim.fn.stdpath("config")) ~= nil
-	if (is_in_config) then
-		cmd.so()
-	end
-  end,
-  desc = "Source config lua files on save",
-})
+-- autocmd({ "AutoSaveWritePost" }, {
+--   pattern = "lua",
+--   group = augeneral,
+--   callback = function()
+--   -- if lua file and is in nvim config dir :so the file
+-- 	local current_file_path = vim.api.nvim_buf_get_name(0)
+-- 	local is_in_config = current_file_path:find("^"..vim.fn.stdpath("config")) ~= nil
+-- 	if (is_in_config) then
+-- 		cmd.so()
+-- 	end
+--   end,
+--   desc = "Source config lua files on save",
+-- })
 
 local fold_augroup = utils.augroup("remember_folds")
 
@@ -283,34 +281,28 @@ autocmd("InsertLeave", {
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
 
-local user_cmd = api.nvim_create_user_command
+local usercmd = api.nvim_create_user_command
 
-user_cmd("TrimTrailingLines", utils.trim_trailing_lines, {
+usercmd("TrimTrailingLines", utils.trim_trailing_lines, {
   desc = "Trim trailing lines",
 })
 
-user_cmd("TrimWhitespace", utils.trim_trailing_whitespace, {
+usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
   desc = "Trim trailing whitespace",
 })
 
-user_cmd("ToggleDarkMode", utils.toggle_light_dark_theme, {
+usercmd("ToggleDarkMode", utils.toggle_light_dark_theme, {
   desc = "Toggle dark mode",
 })
 
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
-user_cmd("Cwd", function()
+usercmd("Cwd", function()
   cmd(":cd %:p:h")
   cmd(":pwd")
-end, { desc = "cd current file's directory" })
-
--- Set working directory (alias)
-user_cmd("Swd", function()
-  cmd(":cd %:p:h")
-  cmd(":pwd")
-end, { desc = "cd current file's directory" })
+end, { desc = "Cd current file's directory" })
 
 -- Write all buffers
-user_cmd("WriteAllBuffers", function()
+usercmd("WriteAllBuffers", function()
   cmd("wa")
 end, { desc = "Write all changed buffers" })
