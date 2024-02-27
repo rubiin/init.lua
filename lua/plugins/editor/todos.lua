@@ -5,6 +5,18 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
   lazy = true,
+  keys = {
+    {
+      "<leader>sT",
+      "<cmd>TodoTelescope keywords=TODO,FIX,WARN,HACK,PERF,NOTE,TEST<cr>",
+      desc = "Search Todos (Telescope)",
+    },
+    {
+      "<leader>xT",
+      "<cmd>TodoTrouble keywords=TODO,FIX,WARN,HACK,PERF,NOTE,TEST<cr>",
+      desc = "Search Todos (Trouble)",
+    },
+  },
   opts = {
     keywords = {
       FIX = {

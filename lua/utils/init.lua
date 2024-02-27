@@ -465,6 +465,7 @@ end
 
 -- Search for TODOs in the project
 -- Populate quickfixlist with the results
+-- Alternative to this is to use trouble.nvim
 function M.search_todos()
   -- Use ripgrep to search for TODOs in the project, without the end colon you will get a lot of false positives
   -- This is taken from the todo-comments.nvim source code
