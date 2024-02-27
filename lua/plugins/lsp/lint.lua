@@ -13,5 +13,11 @@ return {
         svelte = { "eslint_d" },
       },
     },
+    init = function()
+      local eslint_d = require('lint').linters.eslint_d
+      eslint_d.args = {
+        "--cache"
+      }
+    end,
   },
 }
