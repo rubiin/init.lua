@@ -5,9 +5,6 @@ return {
     dir = "~/personal-vim-plugs/fortune.nvim",
     lazy = true,
     event = "VimEnter",
-    enabled = function()
-      return vim.g.fortune
-    end,
     opts = {
       max_width = 60,
       content_type = "tips",
