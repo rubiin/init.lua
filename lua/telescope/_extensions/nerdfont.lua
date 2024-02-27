@@ -23,7 +23,7 @@ for key, value in pairs(icons) do
 end
 
 -- our picker function: icons
-local icon_picker = function(opts)
+local nerdfont  = function(opts)
   opts = opts or {}
 
   pickers
@@ -55,5 +55,5 @@ local icon_picker = function(opts)
 end
 
 return require("telescope").register_extension({
-  exports = { icon_picker = icon_picker },
+  exports = { nerdfont = nerdfont },
 })

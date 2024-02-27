@@ -41,3 +41,5 @@ end, { desc = "Open URL Under Cursor" })
 utils.keymap("n", "z=", function()
   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
 end, { desc = "Open URL Under Cursor" })
+
+
