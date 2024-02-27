@@ -14,9 +14,9 @@ return {
       },
     },
     init = function()
-      local eslint_d = require('lint').linters.eslint_d
+      local eslint_d = require("lint").linters.eslint_d
       eslint_d.args = {
-        "--cache"
+        "--cache",
       }
     end,
   },

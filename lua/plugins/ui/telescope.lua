@@ -1,5 +1,5 @@
-local user_icons = require("custom.icons").ui
 local constant = require("utils.constants")
+local user_icons = require("custom.icons")
 
 return {
   {
@@ -74,8 +74,8 @@ return {
         },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        prompt_prefix = user_icons.Telescope, -- or $
-        selection_caret = user_icons.SelectionCaret,
+        prompt_prefix = user_icons.ui.Telescope, -- or $
+        selection_caret = user_icons.ui.SelectionCaret,
         path_display = { "smart" },
         file_ignore_patterns = {
           "%.7z",
