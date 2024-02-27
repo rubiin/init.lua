@@ -8,7 +8,7 @@ return {
     --stylua: ignore
     keys = {
       {
-        '<leader>uz',
+        '<leader>uZ',
         function()
           require('mini.misc').zoom()
         end,

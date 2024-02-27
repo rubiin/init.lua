@@ -28,11 +28,6 @@ utils.keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
--- Search for TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:
-utils.keymap("n", "<leader>ct", function()
-  utils.search_todos()
-end, { desc = "List Todos On QuickFix" })
-
 -- Add keymap to open URL under cursor
 utils.keymap("n", "gx", function()
   utils.open_url()
@@ -40,4 +35,4 @@ end, { desc = "Open URL Under Cursor" })
 
 utils.keymap("n", "z=", function()
   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
-end, { desc = "Open URL Under Cursor" })
+end, { desc = "Open Telescope Spell Suggest" })
