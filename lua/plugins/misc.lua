@@ -3,3 +3,5 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" }, -- This plugin enables . repeat support on some plugins
   { "ThePrimeagen/vim-be-good", event = "VeryLazy" }, -- This plugin is a game to help you get better at Vim
 }
+
+-- TODO: vim-fugitive, diffview

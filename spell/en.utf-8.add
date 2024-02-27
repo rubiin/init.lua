@@ -106,3 +106,4 @@ augroup
 string
 parsers
 TreeSitter
+repeat

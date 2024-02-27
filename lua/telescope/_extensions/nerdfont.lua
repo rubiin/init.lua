@@ -23,7 +23,7 @@ for key, value in pairs(icons) do
 end
 
 -- our picker function: icons
-local nerdfont  = function(opts)
+local nerdfont = function(opts)
   opts = opts or {}
 
   pickers
