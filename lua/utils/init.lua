@@ -321,13 +321,7 @@ function M.keymap(mode, lhs, rhs, opts)
     silent = true,
     noremap = true,
   }
-  vim.keymap.set(mode, lhs, rhs, M.merge(defaults, opts or {}))
-end
-
--- Merge two tables recursively.
----@return table
-function M.merge(...)
-  return vim.tbl_deep_extend("force", ...)
+  vim.keymap.set(mode, lhs, rhs, vim.tbl_deep_extend("force", defaults, opts or {}))
 end
 
 --- Checks whether the buffer is valid.
