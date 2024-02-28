@@ -149,7 +149,7 @@ return {
     Project = " ",
     Loaded = " ",
     NotLoaded = " ",
-    Pending = " ",
+    Pending = "󰔟 ",
     SelectionCaret = " ",
     Refactor = "󰲽 ",
     Search = " ",

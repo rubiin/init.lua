@@ -36,8 +36,15 @@ return {
     },
     opts = {
       -- Use treesitter as a main provider
-      provider_selector = function(bufnr, filetype, buftype)
-        return { "treesitter", "indent" }
+      provider_selector = function(_, ft, _)
+        -- INFO some filetypes only allow indent, some only LSP, some only
+        -- treesitter. However, ufo only accepts two kinds as priority,
+        -- therefore making this function necessary :/
+        local lsp_without_folding = { "markdown", "sh", "css", "html", "python" }
+        if vim.tbl_contains(lsp_without_folding, ft) then
+          return { "treesitter", "indent" }
+        end
+        return { "lsp", "indent" }
       end,
       fold_virt_text_handler = function(virtual_text, left_number, end_line_number, width, truncate)
         local new_virtual_text = {}
