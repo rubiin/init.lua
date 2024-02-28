@@ -166,7 +166,7 @@ return {
     Test = "󰙨 ",
     Robot = "󰚩 ",
     Squirrel = " ",
-    Sleep = "󰒲",
+    Sleep = "󰒲 ",
     Tag = " ",
     Watch = " ",
     Smiley = " ",
