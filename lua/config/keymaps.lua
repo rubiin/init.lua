@@ -36,3 +36,8 @@ end, { desc = "Open URL Under Cursor" })
 utils.keymap("n", "z=", function()
   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
 end, { desc = "Open Telescope Spell Suggest" })
+
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')

@@ -21,15 +21,6 @@ autocmd("FileType", {
   desc = "Start Insert Mode",
 })
 
-autocmd({ "BufEnter", "BufWinEnter" }, {
-  group = augeneral,
-  pattern = "*",
-  callback = function()
-    cmd([[set formatoptions-=cro]])
-  end,
-  desc = "Fix Comment",
-})
-
 autocmd("TextYankPost", {
   group = augeneral,
   callback = function()

@@ -7,38 +7,17 @@ return {
     dependencies = {
       "olimorris/persisted.nvim",
       "rcarriga/nvim-notify",
-      {
-        "ThePrimeagen/harpoon",
-        lazy = true,
-        event = "VeryLazy",
-      },
+      "ThePrimeagen/harpoon",
+      "debugloop/telescope-undo.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      "prochri/telescope-all-recent.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        lazy = true,
-        cond = function()
-          return vim.fn.executable("make") == 1
-        end,
         build = "make",
-        event = "VeryLazy",
-      },
-      {
-        "debugloop/telescope-undo.nvim",
-        lazy = true,
-        event = "VeryLazy",
-      },
-      {
-        "nvim-telescope/telescope-ui-select.nvim",
-        lazy = true,
-        event = "VeryLazy",
       },
       {
         "kkharji/sqlite.lua",
-        lazy = true,
         enabled = not jit.os:find("Windows"),
-        event = "VeryLazy",
-      },
-      {
-        "prochri/telescope-all-recent.nvim",
       },
     },
     lazy = true,

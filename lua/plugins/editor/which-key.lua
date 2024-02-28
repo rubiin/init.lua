@@ -9,6 +9,9 @@ return {
       window = {
         border = vim.g.border_style,
       },
+      icons = {
+        group = "", -- symbol prepended to a group
+      },
       defaults = {
         ["<leader>b"] = { name = user_icons.ui.Buffer .. "buffer" },
         ["<leader>c"] = { name = user_icons.ui.Code .. "code" },
