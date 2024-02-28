@@ -66,9 +66,9 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 
 ## Directory structure
 
-```
-├── ftplugin                             # Override filetype settings
-└── plugin                               # Plugin configurations
+```                             
+├── after
+│   └── ftplugin                         # Override filetype settings
 ├── biome.json                           # Configuration file for a specific feature or plugin
 ├── doc
 │   └── keymaps.md                       # Documentation file for keymaps
