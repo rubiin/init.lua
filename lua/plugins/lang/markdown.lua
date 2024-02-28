@@ -14,10 +14,8 @@ return {
       },
     },
     config = function()
-      local ok, glow = pcall(require, "glow")
-      if not ok then
-        return
-      end
+      local glow = prequire("glow")
+
       local config = {
         glow_install_path = "~/.local/bin", -- default path for installing glow binary
         style = "dark", -- filled automatically with your current editor background, you can override using glow json style

@@ -52,17 +52,11 @@ return {
       },
       -- callback where you can add custom code when the Zen window opens
       on_open = function()
-        local status_ok, gitsigns = pcall(require, "gitsigns.actions")
-        if not status_ok then
-          return
-        end
+        local gitsigns = prequire("gitsigns.actions")
 
         gitsigns.toggle_current_line_blame()
 
-        local status_ok, indent_blankline = pcall(require, "indent_blankline.commands")
-        if not status_ok then
-          return
-        end
+        local indent_blankline = prequire("indent_blankline.commands")
 
         indent_blankline.disable()
 
@@ -72,15 +66,9 @@ return {
       end,
       -- callback where you can add custom code when the Zen window closes
       on_close = function()
-        local status_ok, gitsigns = pcall(require, "gitsigns.actions")
-        if not status_ok then
-          return
-        end
+        local gitsigns = prequire("gitsigns.actions")
 
-        local status_ok, indent_blankline = pcall(require, "indent_blankline.commands")
-        if not status_ok then
-          return
-        end
+        local indent_blankline = prequire("indent_blankline.commands")
 
         gitsigns.toggle_current_line_blame()
         indent_blankline.enable()

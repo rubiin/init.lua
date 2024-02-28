@@ -16,7 +16,8 @@
 
 -- this is supposed to make loading faster
 vim.loader.enable()
+local prequire = require("utils").prequire
 
-require("config.globals") -- user and lazy globals
-require("config.lazy")
-require("utils.filetype")
+prequire("config.globals") -- user and lazy globals
+prequire("config.lazy")
+prequire("utils.filetype")

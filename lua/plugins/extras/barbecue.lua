@@ -32,10 +32,8 @@ return {
       }, {
         group = vim.api.nvim_create_augroup("barbecue.updater", { clear = true }),
         callback = function()
-          local status_ok, barbeque_ui = pcall(require, "barbecue.ui")
-          if not status_ok then
-            return
-          end
+          local barbeque_ui = prequire("barbecue.ui")
+
           barbeque_ui.update()
         end,
       })

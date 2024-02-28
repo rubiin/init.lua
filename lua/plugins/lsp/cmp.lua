@@ -23,10 +23,7 @@ return {
       luasnip.filetype_extend("javascriptreact", { "html" })
       luasnip.filetype_extend("typescriptreact", { "html" })
 
-      local status_ok, load_snippets = pcall(require, "luasnip.loaders.from_vscode")
-      if not status_ok then
-        return
-      end
+      local load_snippets = prequire("luasnip.loaders.from_vscode")
 
       load_snippets.lazy_load({
         include = {

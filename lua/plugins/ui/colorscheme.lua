@@ -15,6 +15,7 @@ local get_colorsheme = function()
   lazy_util.telescope("colorscheme", { enable_preview = true })()
   vim.fn.getcompletion = target
 end
+
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 return {
   {

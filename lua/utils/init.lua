@@ -361,42 +361,12 @@ function M.get_active_buffers()
   return active_buffers
 end
 
--- Opens the given url in the default browser.
----@param url string: The url to open.
-function M.open_in_browser(url)
-  local open_cmd
-  if fn.executable("xdg-open") == 1 then
-    open_cmd = "xdg-open"
-  elseif fn.executable("explorer") == 1 then
-    open_cmd = "explorer"
-  elseif fn.executable("open") == 1 then
-    open_cmd = "open"
-  elseif fn.executable("wslview") == 1 then
-    open_cmd = "wslview"
-  end
-
-  local ret = fn.jobstart({ open_cmd, url }, { detach = true })
-  if ret <= 0 then
-    M.notify(
-      string.format("Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
-      vim.log.levels.ERROR,
-      "Utils"
-    )
-  end
-end
-
--- Open URL under cursor, supports http, https and www
-function M.open_url()
-  -- Get the text under the cursor
-  local url = fn.expand("<cWORD>")
-
-  -- Check if it resembles a URL
-  if url:match("^http://") or url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
-    -- Open the URL in the default browser
-    M.open_in_browser(url)
-  else
-    M.notify("No URL found under cursor or the URL is not supported", vim.log.levels.ERROR, "utils")
-  end
+-- Very useful for polygot programmers correct their habits
+-- from
+function M.ft_abbr(lhs, rhs)
+  -- TODO: update on nvim 0.10
+  -- vim.keymap.set("ia", lhs, rhs, { buffer = true })
+  vim.cmd.inoreabbrev(("<buffer> %s %s"):format(lhs, rhs))
 end
 
 -- Extend a table of lists by key.
@@ -540,16 +510,21 @@ end
 
 _G.R = M.R
 
--- pcall require
----comment
----@param m any
-function M.prequire(m)
-  local ok, err = pcall(require, m)
-  if not ok then
-    return nil, err
+---Try to require the module, and do not error out when one of them cannot be
+---loaded, but do notify if there was an error.
+---@param module string
+---@return any
+function M.prequire(module)
+  local success, module = pcall(require, module)
+
+  if success then
+    return module
+  else
+    local msg = ("Error loading %s\n%s"):format(module, module)
+    vim.defer_fn(function()
+      vim.notify(msg, vim.log.levels.ERROR)
+    end, 1000)
   end
-  -- if ok, err == m
-  return err
 end
 
 _G.prequire = M.prequire

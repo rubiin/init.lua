@@ -1,43 +1,43 @@
 -- ========================================================================== --
--- ==                          Key Maps                                    == --
+-- ==                          KEYMAPS                                     == --
 -- ========================================================================== --
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Not everything needs to be a keymap, you can also use `user_commands`
 
 local lazyvim_util = require("lazyvim.util")
-local utils = require("utils")
+local keymap = require("utils").keymap
+local nano = require("utils.nano-plugins")
 
-utils.cowboy()
+-- Copy all text in buffer to clipboard with Ctrl-1
+keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 
-utils.keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
-
--- Select all text in buffer with C-2
-utils.keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
+-- Select all text in buffer with Ctrl-2
+keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
 
 -- Add LazyVim bindings for meta information
-utils.keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-utils.keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
-utils.keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
-utils.keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-utils.keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
-utils.keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
-utils.keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
+keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
+keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
+keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
+keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
 -- Override LazyVim bindings for terminal
-utils.keymap("n", "<C-/>", function()
+keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
 -- Add keymap to open URL under cursor
-utils.keymap("n", "gx", function()
-  utils.open_url()
+keymap("n", "gx", function()
+  nano.open_url()
 end, { desc = "Open URL Under Cursor" })
 
-utils.keymap("n", "z=", function()
+keymap("n", "z=", function()
   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
 end, { desc = "Open Telescope Spell Suggest" })
 
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')

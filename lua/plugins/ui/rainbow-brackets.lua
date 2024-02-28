@@ -4,10 +4,7 @@ return {
     event = "LazyFile",
     lazy = true,
     init = function()
-      local status_ok, rainbow_delimiters = pcall(require, "rainbow-delimiters")
-      if not status_ok then
-        return
-      end
+      local rainbow_delimiters = prequire("rainbow-delimiters")
 
       vim.g.rainbow_delimiters = {
         strategy = {

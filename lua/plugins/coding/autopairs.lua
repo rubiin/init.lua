@@ -7,10 +7,7 @@ return {
     },
     config = function()
       -- import nvim-autopairs
-      local status_ok, autopairs = pcall(require, "nvim-autopairs")
-      if not status_ok then
-        return
-      end
+      local autopairs = prequire("nvim-autopairs")
 
       -- configure autopairs
       autopairs.setup({
@@ -45,16 +42,10 @@ return {
       })
 
       -- Import nvim-autopairs completion functionality safely
-      local status_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-      if not status_ok then
-        return
-      end
+      local cmp_autopairs = prequire("nvim-autopairs.completion.cmp")
 
       -- Import nvim-cmp plugin safely (completions plugin)
-      local status_ok, cmp = pcall(require, "cmp")
-      if not status_ok then
-        return
-      end
+      local cmp = prequire("cmp")
 
       -- Make autopairs and completion work together
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
