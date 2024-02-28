@@ -1,22 +1,15 @@
 -- Better increase/decrease
-local utils = require("utils")
 
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
   -- stylua: ignore
-  keys = {
-    { "<C-a>", function() return require("dial.map").inc_normal("default") end, expr = true, desc = "Increment" },
-    { "<C-x>", function() return require("dial.map").dec_normal("default") end, expr = true, desc = "Decrement" },
-    { "<C-a>", function() return require("dial.map").inc_normal("default") end, mode = "v",  expr = true, desc = "Increment" },
-    { "<C-x>", function() return require("dial.map").dec_normal("default") end, mode = "v",  expr = true, desc = "Decrement" },
-  },
   config = function()
     local augend = require("dial.augend")
     local default = {
       augend.constant.new({
         elements = { "and", "or" },
-        word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+        word = true,   -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
         cyclic = true, -- "or" is incremented into "and".
       }),
       augend.constant.new({
@@ -90,13 +83,13 @@ return {
         cyclic = true,
       }),
       augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
-      augend.constant.alias.bool, -- boolean value (true <-> false)
+      augend.constant.alias.bool,    -- boolean value (true <-> false)
       augend.integer.alias.decimal,
       augend.integer.alias.hex,
       augend.semver.alias.semver,
     }
 
-    local typescript = utils.merge(default, {
+    local typescript = vim.list_extend(default, {
       augend.constant.new({ elements = { "let", "const" } }),
       augend.constant.new({ elements = { "public", "private", "protected" } }),
       augend.constant.new({ elements = { "any", "unknown", "never" } }),
@@ -107,5 +100,17 @@ return {
       typescript = typescript,
       default = default,
     })
+    local map = require "dial.map"
+    -- change augends in VISUAL mode
+    vim.api.nvim_set_keymap("n", "<C-a>", map.inc_normal "default", { noremap = true })
+    vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal "default", { noremap = true })
+    vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal "default", { noremap = true })
+    vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal "default", { noremap = true })
+
+
+--     vim.cmd [[
+--   " enable only for specific FileType
+--   autocmd FileType typescript,javascript lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("typescript"), {noremap = true})
+-- ]]
   end,
 }
