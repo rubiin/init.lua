@@ -39,8 +39,6 @@ return {
       },
       {
         "prochri/telescope-all-recent.nvim",
-        lazy = true,
-        event = "VeryLazy",
       },
     },
     lazy = true,

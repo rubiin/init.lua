@@ -14,36 +14,33 @@ local utils = require("utils")
 local aufilewrite = utils.augroup("FileWrite")
 local augeneral = utils.augroup("GeneralSettings")
 
--- Start git messages in insert mode
 autocmd("FileType", {
   group = augeneral,
   pattern = { "gitcommit", "gitrebase" },
   command = "startinsert | 1",
+  desc = "Start Insert Mode",
 })
 
--- Fix comment, don't add comment on new line
 autocmd({ "BufEnter", "BufWinEnter" }, {
   group = augeneral,
   pattern = "*",
   callback = function()
     cmd([[set formatoptions-=cro]])
   end,
+  desc = "Fix Comment",
 })
 
--- Highlight on yank
 autocmd("TextYankPost", {
   group = augeneral,
   callback = function()
     vim.highlight.on_yank({
       higroup = "Visual",
       timeout = 400,
-      on_visual = false,
     })
   end,
+  desc = "Highlight On Yank",
 })
 
--- Close some filetypes with just <q> key
--- Also disable number and cursorline
 autocmd("FileType", {
   group = augeneral,
   pattern = constants.exclude_file_types,
@@ -53,23 +50,23 @@ autocmd("FileType", {
     opt_local.cursorline = false
     utils.keymap("n", "q", "<cmd>close<cr>")
   end,
+  desc = "Close Some Filetypes With Just <q> Key",
 })
 
--- Show cursor line only in active window
 autocmd({ "InsertLeave", "WinEnter" }, {
   group = augeneral,
   pattern = "*",
   command = "set cursorline",
+  desc = "Set Cursorline On Active Window",
 })
 
--- Hide cursor line when in insert mode or when leaving the window
 autocmd({ "InsertEnter", "WinLeave" }, {
   group = augeneral,
   pattern = "*",
   command = "set nocursorline",
+  desc = "Set Nocursorline On Inactive Window",
 })
 
--- This autocmd sets the wrap and spell options to true for filetypes
 autocmd("FileType", {
   group = augeneral,
   pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
@@ -77,6 +74,7 @@ autocmd("FileType", {
     opt_local.wrap = true
     opt_local.spell = true
   end,
+  desc = "Set Wrap And Spell For Text Files",
 })
 
 -- Use the more sane snippet session leave logic. Copied from:
@@ -94,7 +92,6 @@ autocmd("ModeChanged", {
   end,
 })
 
--- Disable swap/undo/backup files in temp directories or some files
 autocmd("BufWritePre", {
   group = augeneral,
   pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
@@ -104,31 +101,31 @@ autocmd("BufWritePre", {
       opt_local.swapfile = false
     end
   end,
+  desc = "Disable swap/undo/backup Files In Temp Directories",
 })
 
--- Disable diagnostics in a .env file and node_modules (0 is current buffer only)
 autocmd("BufRead", {
   group = augeneral,
   pattern = { ".env", "*/node_modules/*" },
   callback = function()
     vim.diagnostic.disable(0)
   end,
+  desc = "Disable Diagnostics For .env And Node_modules",
 })
 
--- Trim trailing whitespace and trailing blank lines on save
 autocmd("BufWritePre", {
   group = utils.augroup("trim_on_save"),
   callback = utils.trim,
+  desc = "Trim Trailing Whitespace And Blank Lines On Save",
 })
 
--- Start terminal in insert mode
 autocmd("TermOpen", {
   group = utils.augroup("terminalSetting"),
   pattern = "*",
   command = "startinsert | set winfixheight",
+  desc = "Start Terminal In Insert Mode",
 })
 
--- Disable foldcolumn and signcolumn for terminals
 autocmd("TermOpen", {
   group = utils.augroup("terminalSetting"),
   pattern = "*",
@@ -137,9 +134,9 @@ autocmd("TermOpen", {
     opt_local.signcolumn = "no"
     opt_local.number = false
   end,
+  desc = "Disable Foldcolumn And Signcolumn For Terminals",
 })
 
--- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = utils.augroup("lazyvim_checktime"),
   callback = function()
@@ -147,9 +144,9 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
       cmd("checktime")
     end
   end,
+  desc = "Check If We Need To Reload The File When It Changed",
 })
 
--- Resize splits if window got resized
 autocmd({ "VimResized" }, {
   group = utils.augroup("lazyvim_resize_splits"),
   callback = function()
@@ -157,9 +154,9 @@ autocmd({ "VimResized" }, {
     cmd("tabdo wincmd =")
     cmd("tabnext " .. current_tab)
   end,
+  desc = "Resize Splits On VimResized",
 })
 
--- Go to last loc when opening a buffer
 autocmd("BufReadPost", {
   group = utils.augroup("lazyvim_last_loc"),
   callback = function(event)
@@ -175,18 +172,18 @@ autocmd("BufReadPost", {
       pcall(api.nvim_win_set_cursor, 0, mark)
     end
   end,
+  desc = "Go To Last Loc When Opening A Buffer",
 })
 
--- Fix conceallevel for specific files
 autocmd({ "FileType" }, {
   group = utils.augroup("lazyvim_json_conceal"),
   pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
   callback = function()
     opt_local.conceallevel = 0
   end,
+  desc = "Fix Conceallevel For Specific Files",
 })
 
--- Auto create dir when saving a file, in case some intermediate directory does not exist
 autocmd({ "BufWritePre" }, {
   group = utils.augroup("lazyvim_auto_create_dir"),
   callback = function(event)
@@ -196,6 +193,7 @@ autocmd({ "BufWritePre" }, {
     local file = vim.loop.fs_realpath(event.match) or event.match
     fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
   end,
+  desc = "Auto Create Directory Before Writing File",
 })
 
 -- source lua files in config folder
@@ -221,7 +219,7 @@ autocmd({ "BufLeave", "BufWinLeave" }, {
   callback = function()
     cmd("silent! mkview")
   end,
-  desc = "Remember folds on buffer exit",
+  desc = "Remember Folds On Buffer Exit",
 })
 
 autocmd("BufReadPost", {
@@ -230,7 +228,7 @@ autocmd("BufReadPost", {
   callback = function()
     cmd("silent! loadview")
   end,
-  desc = "Restore folds on buffer enter",
+  desc = "Restore Folds On Buffer Enter",
 })
 
 autocmd("FileType", {
@@ -248,7 +246,7 @@ autocmd("FileType", {
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
-  desc = "Disable `mini.indentscope` for specific filetypes",
+  desc = "Disable `mini.indentscope` For Specific Filetypes",
 })
 
 -- Disable caps lock while vim is running
