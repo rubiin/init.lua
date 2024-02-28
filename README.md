@@ -117,11 +117,11 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - Better escaping from insert mode via [better-escape](https://github.com/nvim-zh/better-escape.vim).
 - Better code folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo).
 - Ultra-fast project-wide fuzzy searching via [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
-- Faster code commenting via [mini-comment](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md).
+- Faster code commenting via [comment](https://github.com/numToStr/Comment.nvim).
 - Faster matching pair insertion and jump via [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim).
 - Fast buffer jump via [flash.nvim](https://github.com/folke/flash.nvim).
 - Powerful snippet insertion via [Luasnip](https://github.com/L3MON4D3/LuaSnip).
-- Better quickfix list with [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf).
+- Better quickfix list with [trouble](https://github.com/folke/trouble.nvim).
 - Beautiful statusline via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim).
 - File tree explorer via [neo-tree.lua](https://github.com/nvim-neo-tree/neo-tree.nvim).
 - User-defined mapping hint via [which-key.nvim](https://github.com/folke/which-key.nvim).
@@ -129,10 +129,10 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 - Beautiful colorscheme via [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim) and other colorschemes.
 - LaTeX editing and previewing via [vimtex](https://github.com/lervag/vimtex)
 - Animated GUI style notification via [nvim-notify](https://github.com/rcarriga/nvim-notify).
-- Code formatting via [Conform](https://github.com/stevearc/conform.nvim).
+- Code formatting via [conform](https://github.com/stevearc/conform.nvim).
 - Asynchronous code execution via [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim).
 - Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
-- Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim).
+- Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [glow.nvim](https://github.com/ellisonleao/glow.nvim).
 
 There are more plugins on extras folder that are not loaded by default. You can enable them by adding the require line on `lua/plugins/init.lua`.
 Some are disabled by default because they are not used by me but I keep them there for reference.
