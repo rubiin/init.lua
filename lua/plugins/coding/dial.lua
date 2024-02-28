@@ -1,8 +1,6 @@
 -- Better increase/decrease
 local utils = require("utils")
 
--- TODO: set filetype for typescript
-
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",

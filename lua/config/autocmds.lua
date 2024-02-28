@@ -236,8 +236,8 @@ autocmd({ "BufWritePre" }, {
 local fold_augroup = utils.augroup("remember_folds")
 
 autocmd({ "BufLeave", "BufWinLeave" }, {
-  pattern = "*",
   group = fold_augroup,
+  pattern = "*",
   callback = function()
     cmd("silent! mkview")
   end,
@@ -245,18 +245,26 @@ autocmd({ "BufLeave", "BufWinLeave" }, {
 })
 
 autocmd("BufReadPost", {
-  pattern = "*",
   group = fold_augroup,
+  pattern = "*",
   callback = function()
     cmd("silent! loadview")
   end,
   desc = "Restore folds on buffer enter",
 })
 
+autocmd("FileType", {
+  group = utils.augroup("man_unlisted"),
+  pattern = { "man" },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+  end,
+})
+
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
-  pattern = constants.common_file_types,
   group = utils.augroup("DisableIndentScope"),
+  pattern = constants.common_file_types,
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
@@ -264,16 +272,19 @@ autocmd("FileType", {
 })
 
 -- Disable caps lock while vim is running
--- FIX: fix this for wayland as well
+-- FIX: fix this for wayland as WriteAllBuffers
+
+local capslock_augroup = utils.augroup("ToggleCapsLock")
+
 autocmd("InsertEnter", {
+  group = capslock_augroup,
   pattern = "*",
-  group = utils.augroup("ToggleCapsLock"),
   command = "!setxkbmap -option",
 })
 
 autocmd("InsertLeave", {
-  group = utils.augroup("ToggleCapsLock"),
   pattern = "*",
+  group = capslock_augroup,
   command = "!setxkbmap -option ctrl:nocaps",
 })
 
