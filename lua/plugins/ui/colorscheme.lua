@@ -1,34 +1,7 @@
 local lazy_util = require("lazyvim.util")
 
-local builtins = {
-  "zellner",
-  "torte",
-  "slate",
-  "shine",
-  "ron",
-  "quiet",
-  "peachpuff",
-  "pablo",
-  "murphy",
-  "lunaperche",
-  "koehler",
-  "industry",
-  "evening",
-  "elflord",
-  "desert",
-  "delek",
-  "default",
-  "darkblue",
-  "blue",
-  "morning",
-  "retrobox",
-  "sorbet",
-  "zaibatsu",
-  "wildcharm",
-  "vim",
-  "habamax",
-  "tokyonight",
-}
+-- add builtin themes to ignore
+local builtins = {}
 
 local get_colorsheme = function()
   local target = vim.fn.getcompletion
@@ -72,6 +45,18 @@ return {
   {
     "Mofiqul/vscode.nvim",
     lazy = true,
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
+  -- add rosepine
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = true,
+    opts = {
+      disable_background = true,
+    },
     keys = {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },

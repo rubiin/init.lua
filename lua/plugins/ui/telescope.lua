@@ -152,7 +152,10 @@ return {
         telescope.load_extension("ui-select")
         telescope.load_extension("harpoon")
         telescope.load_extension("persisted")
+
+        -- custom telescope extensions
         telescope.load_extension("nerdfont")
+        telescope.load_extension("lualine")
       end)
     end,
   },

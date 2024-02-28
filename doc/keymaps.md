@@ -54,44 +54,18 @@ press d in tree to delete a file in neotree
 press a to create a file
 pres ? for help
 
-# Sample Markdown Document
-
-## Checkboxes
-
-- [x] This is a checked checkbox
-- [ ] This is an unchecked checkbox
-
-## List Markers/Bullet Points
-
-- Item 1
-- Item 2
-  - Sub-item 2.1
-  - Sub-item 2.2
-
-
-
 ```javascript
-function greet() {
-  console.log("Hello, world!");
-}
+console.log("Hello World");
 ```
 
-```json
-{
-  "key": "value",
-  "nested": {
-    "key": "value"
-  }
-}
-```
+### Solar System Exploration, 1950s – 1960s
 
-```lua
-function factorial(n)
-  if n == 0 then
-    return 1
-  else
-    return n * factorial(n - 1)
-  end
-end
-``
-```
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley

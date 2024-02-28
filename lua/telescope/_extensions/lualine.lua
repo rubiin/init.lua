@@ -7,7 +7,7 @@ local set_lualine_styles = require("utils").set_lualine_styles
 local lualine_styles = require("utils.constants").styles
 
 -- our picker function: styles
-local linepicker = function(opts)
+local lualine = function(opts)
   opts = opts or {}
 
   local selection_to_style = function(selection)
@@ -60,4 +60,6 @@ local linepicker = function(opts)
     :find()
 end
 
-return linepicker
+return require("telescope").register_extension({
+  exports = { lualine = lualine },
+})
