@@ -3,10 +3,29 @@ return {
   {
     "olimorris/persisted.nvim",
     -- stylua: ignore
+    lazy=false,
     keys = {
-      { "<leader>qs", function() require("persisted").load() end, desc = "Restore Session" },
-      { "<leader>ql", function() require("persisted").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persisted").stop() end, desc = "Don't Save Current Session" },
+      {
+        "<leader>qs",
+        function()
+          require("persisted").load()
+        end,
+        desc = "Restore Session",
+      },
+      {
+        "<leader>ql",
+        function()
+          require("persisted").load({ last = true })
+        end,
+        desc = "Restore Last Session",
+      },
+      {
+        "<leader>qd",
+        function()
+          require("persisted").stop()
+        end,
+        desc = "Don't Save Current Session",
+      },
       {
         "<leader>fs",
         "<cmd>Telescope persisted<cr>",
@@ -46,5 +65,3 @@ return {
     },
   },
 }
--- FIX: check autoload property not working
--- FIX: Also check the dashboard entry
