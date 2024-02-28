@@ -19,7 +19,6 @@ return {
       use_git_branch = false, -- create session files based on the branch of a git enabled repository
       default_branch = "main", -- the branch to load if a session file is not found for the current branch
       autosave = true, -- automatically save session files when exiting Neovim
-      should_autosave = nil, -- function to determine if a session should be autosaved
       autoload = true, -- automatically load the session for the cwd on Neovim startup
       on_autoload_no_session = nil, -- function to run when `autoload = true` but there is no session to load
       follow_cwd = true, -- change session file name to match current working directory if it changes
@@ -28,6 +27,22 @@ return {
       telescope = {
         reset_prompt = true, -- Reset the Telescope prompt after an action?
       },
+      should_autosave = function()
+        local excluded_filetypes = {
+          "alpha",
+          "oil",
+          "lazy",
+          "",
+        }
+
+        for _, filetype in ipairs(excluded_filetypes) do
+          if vim.bo.filetype == filetype then
+            return false
+          end
+        end
+
+        return true
+      end,
     },
   },
 }
