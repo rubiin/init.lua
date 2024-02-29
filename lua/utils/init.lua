@@ -4,13 +4,20 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
-local OS = vim.loop.os_uname().sysname
-M.os = {
-  name = OS,
-  is_macos = OS == "Darwin",
-  is_windows = OS:match("Windows"),
-  is_linux = not (OS == "Darwin" and OS:match("Windows")),
-}
+-- Gets the operating system
+function M.get_os()
+  local os = vim.loop.os_uname().sysname
+  if  os == "Darwin" then
+    return "macOS"
+  end
+  if  os:match("Windows") then
+    return "Windows"
+  end
+
+  return os
+end
+
+_G.get_os = M.get_os
 
 -- Create augroup
 ---@param name string
