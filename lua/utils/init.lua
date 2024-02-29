@@ -543,4 +543,12 @@ end
 
 _G.prequire = M.prequire
 
+function M.get_resiters()
+  -- Execute the :registers command to get the list of registers and store the output in a variable
+  local registers_output = vim.fn.getreg('"0')
+
+  -- Print the output
+  vim.notify(vim.inspect(registers_output))
+end
+
 return M
