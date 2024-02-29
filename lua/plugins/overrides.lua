@@ -24,6 +24,8 @@ return {
     },
     opts = {
       current_line_blame = true,
+      attach_to_untracked = true,
+      max_file_length = 12000, -- lines
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'

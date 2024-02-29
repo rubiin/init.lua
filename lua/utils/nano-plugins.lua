@@ -23,7 +23,7 @@ function M.open_in_browser(url)
 
   local ret = fn.jobstart({ open_cmd, url }, { detach = true })
   if ret <= 0 then
-    utils.notify(
+    M.notify(
       string.format("Failed to open '%s'\nwith command: '%s' (ret: '%d')", url, open_cmd, ret),
       vim.log.levels.ERROR,
       "Utils"
@@ -31,17 +31,23 @@ function M.open_in_browser(url)
   end
 end
 
--- Open URL under cursor, supports http, https and www
+-- Open URL under cursor, supports the following formats:
+-- - http://google.com
+-- - https://google.com
+-- - https://www.google.com
+-- - http://www.google.com
 function M.open_url()
   -- Get the text under the cursor
   local url = fn.expand("<cWORD>")
 
   -- Check if it resembles a URL
-  if url:match("^http://") or url:match("^https?://") or url:match("^www%.[%w_-]+%.%w+") then
-    -- Open the URL in the default browser
+  local matched_url = url:match("^https?://[%w_-]+%.%w+")
+
+  if matched_url then
+    vim.notify("Opening URL: " .. matched_url)
     M.open_in_browser(url)
   else
-    M.notify("No URL found under cursor or the URL is not supported", vim.log.levels.ERROR, "utils")
+    vim.notify("No URL found under the cursor")
   end
 end
 

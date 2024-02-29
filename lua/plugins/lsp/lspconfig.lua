@@ -15,7 +15,7 @@ return {
       servers = {
         typos_lsp = {
           settings = {
-            diagnosticSeverity = "Warning",
+            diagnosticSeverity = "information",
           },
         },
         lua_ls = {
