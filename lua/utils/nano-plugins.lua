@@ -4,8 +4,13 @@
 -- the helper functions included here, and should be assigned to a keymap for easy access.
 
 local M = {}
-local fn = vim.fn
+local fn, cmd = vim.fn, vim.cmd
 local utils = require("utils")
+
+---@param cmd string
+local function normal(cmd)
+  vim.cmd.normal({ cmd, bang = true })
+end
 
 -- Opens the given url in the default browser.
 ---@param url string: The url to open.
@@ -48,6 +53,43 @@ function M.open_url()
   else
     vim.notify("💁 Woops, no URL found under the cursor")
   end
+end
+
+--- Open the next regex at https://regex101.com/
+function M.open_at_regex_101()
+  local lang = vim.bo.filetype
+  local text, pattern, replace, flags
+
+  if utils.list_contains({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, lang) then
+    cmd.TSTextobjectSelect("@regex.outer")
+    normal('"zy')
+    cmd.TSTextobjectSelect("@regex.inner") -- reselect for easier pasting
+    text = vim.fn.getreg("z")
+    pattern = text:match("/(.*)/")
+    flags = text:match("/.*/(%l*)") or "gm"
+    replace = vim.api.nvim_get_current_line():match('replace ?%(/.*/.*, ?"(.-)"')
+  elseif lang == "python" then
+    normal('"zyi"vi"') -- yank & reselect inside quotes
+    pattern = fn.getreg("z")
+    local flagInLine = vim.api.nvim_get_current_line():match("re%.([MIDSUA])")
+    flags = flagInLine and "g" .. flagInLine:gsub("D", "S"):lower() or "g"
+  else
+    M.notify("Unsupported filetype.", vim.log.levels.ERROR, "Utils")
+    return
+  end
+
+  -- `+` is the only character regex101 does not escape on its own. But for it
+  -- to work, `\` needs to be escaped as well (SIC)
+  pattern = pattern:gsub("%+", "%%2B"):gsub("\\", "%%5C")
+
+  -- DOCS https://github.com/firasdib/Regex101/wiki/FAQ#how-to-prefill-the-fields-on-the-interface-via-url
+  local url = ("https://regex101.com/?regex=%s&flags=%s&flavor=%s%s"):format(
+    pattern,
+    flags,
+    lang,
+    (replace and "&subst=" .. replace or "")
+  )
+  M.open_in_browser(url)
 end
 
 return M

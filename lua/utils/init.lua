@@ -411,6 +411,18 @@ function M.cowboy()
   end
 end
 
+-- Checks if a list contains a value.
+---@param list table
+---@param val any
+function M.list_contains(list, val)
+  for i = 1, #list do
+    if list[i] == val then
+      return true
+    end
+  end
+  return false
+end
+
 -- Capitalize the first letter of a string.
 ---@param str string
 ---@return string
