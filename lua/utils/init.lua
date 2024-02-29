@@ -7,10 +7,10 @@ local user_icons = require("custom.icons")
 -- Gets the operating system
 function M.get_os()
   local os = vim.loop.os_uname().sysname
-  if  os == "Darwin" then
+  if os == "Darwin" then
     return "macOS"
   end
-  if  os:match("Windows") then
+  if os:match("Windows") then
     return "Windows"
   end
 

@@ -37,6 +37,12 @@ keymap("n", "z=", function()
   require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
 end, { desc = "Open Telescope Spell Suggest" })
 
+-- do not clutter the register if blank line is deleted
+-- keymap("n", "dd", function()
+-- 	if vim.api.nvim_get_current_line():find("^%s*$") then return '"_dd' end
+-- 	return "dd"
+-- end, { expr = true })
+
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
@@ -45,3 +51,16 @@ keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 keymap("n", "<leader>yx", function()
   nano.open_at_regex_101()
 end, { desc = "Open Regex At Regex101" })
+
+-- keeps registers clean
+keymap({ "n", "x" }, "x", '"_x')
+keymap({ "n", "x" }, "c", '"_c')
+keymap("n", "C", '"_C')
+
+-- do not clutter the register if blank line is deleted
+keymap("n", "dd", function()
+  if vim.api.nvim_get_current_line():find("^%s*$") then
+    return '"_dd'
+  end
+  return "dd"
+end, { expr = true })
