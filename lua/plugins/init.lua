@@ -16,5 +16,6 @@ return {
   { import = "plugins.extras.better-escape" },
   { import = "plugins.extras.neoscroll" },
   { import = "plugins.extras.cellular" },
+  { import = "plugins.extras.cybu" },
   { import = "plugins.extras.zen" },
 }

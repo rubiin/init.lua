@@ -127,6 +127,7 @@ M.ts_parsers = {
   "javascript",
   "regex",
   "toml",
+  "gitcommit",
   -- these five should always be installed, https://github.com/nvim-treesitter/nvim-treesitter#modules
   "c",
   "lua",
