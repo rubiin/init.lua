@@ -3,6 +3,15 @@ local constant = require("utils.constants")
 
 return {
   {
+    "echasnovski/mini.indentscope",
+    opts = {
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     keys = {
       {
