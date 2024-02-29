@@ -44,6 +44,18 @@ return {
           end,
         },
         prettier = {
+          prepend_args = {
+            "--cache",
+          },
+          condition = function(ctx)
+            return not vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
+              and not vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+        prettierd = {
+          prepend_args = {
+            "--cache",
+          },
           condition = function(ctx)
             return not vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
               and not vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
