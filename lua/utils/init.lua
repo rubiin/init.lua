@@ -472,6 +472,7 @@ end
 -- ==                          GLOBAL FUNCTIONS                               == --
 -- ========================================================================== --
 
+-- Print a value
 function M.P(v)
   print(vim.inspect(v))
   return v
@@ -485,7 +486,7 @@ function M.DN(v, cm)
   local time = os.date("%H:%M")
   local context_msg = cm or " "
   local msg = context_msg .. " " .. time
-  require("notify")(vim.inspect(v), "debug", { title = { "Debug Output", msg } })
+  vim.notify(vim.inspect(v), "debug", { title = { "Debug Output", msg } })
   return v
 end
 

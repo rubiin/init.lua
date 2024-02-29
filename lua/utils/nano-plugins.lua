@@ -39,15 +39,14 @@ end
 function M.open_url()
   -- Get the text under the cursor
   local url = fn.expand("<cWORD>")
-
   -- Check if it resembles a URL
   local matched_url = url:match("^https?://[%w_-]+%.%w+")
 
   if matched_url then
-    vim.notify("Opening URL: " .. matched_url)
-    M.open_in_browser(url)
+    vim.notify("🌐 Opening URL: " .. matched_url)
+    M.open_in_browser(matched_url)
   else
-    vim.notify("No URL found under the cursor")
+    vim.notify("💁 Woops, no URL found under the cursor")
   end
 end
 
