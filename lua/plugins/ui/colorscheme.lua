@@ -50,19 +50,6 @@ return {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
-  -- add rosepine
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = true,
-    opts = {
-      disable_background = true,
-    },
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
-
   -- add material
   {
     "marko-cerovac/material.nvim",
@@ -97,18 +84,29 @@ return {
     opts = {
       flavour = "mocha",
       integrations = {
+        barbecue = {
+          dim_dirname = true, -- directory name is dimmed by default
+          bold_basename = true,
+          dim_context = false,
+          alt_background = false,
+        },
         cmp = true,
         dashboard = true,
-        flash = true,
+        dropbar = {
+          enabled = true,
+          color_mode = true, -- enable color for kind's texts, not just kind's icons
+        },
         gitsigns = true,
         headlines = true,
         illuminate = true,
-        indent_blankline = { enabled = true },
         leap = true,
         lsp_trouble = true,
+        lsp_saga = true,
         mason = true,
         markdown = true,
-        mini = true,
+        mini = {
+          enabled = true,
+        },
         native_lsp = {
           enabled = true,
           underlines = {
@@ -118,7 +116,7 @@ return {
             information = { "undercurl" },
           },
         },
-        navic = { enabled = false, custom_bg = "lualine" },
+        navic = { enabled = true, custom_bg = "lualine" },
         neotest = true,
         neotree = true,
         noice = true,
@@ -127,6 +125,7 @@ return {
         telescope = true,
         treesitter = true,
         treesitter_context = true,
+        ufo = true,
         rainbow_delimiters = true,
         which_key = true,
       },
