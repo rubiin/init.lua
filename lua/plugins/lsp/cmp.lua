@@ -57,11 +57,14 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-cmdline",
       "octaltree/cmp-look",
-      "hrsh7th/cmp-nvim-lua",
-      "ray-x/cmp-treesitter",
       "petertriho/cmp-git",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-buffer",
+      "L3MON4D3/LuaSnip",
     },
     opts = {
       confirm_opts = {
@@ -85,13 +88,13 @@ return {
         {
           name = "look",
           keyword_length = 2,
+          max_item_count = 10,
           option = {
             convert_case = true,
             loud = true,
             dict = "/usr/share/dict/words",
           },
         },
-        { name = "treesitter" },
         { name = "nvim_lua" },
       },
       completion = {
@@ -109,19 +112,19 @@ return {
           item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
 
           item.menu = ({
-            cmp_tabnine = "[tabnine]",
-            copilot = "[copilot]",
-            buffer = "[buffer]",
-            orgmode = "[org]",
-            look = "[dictionary]",
-            nvim_lsp = "[lsp]",
-            git = "[git]",
-            nvim_lua = "[lua]",
-            path = "[path]",
-            tmux = "[tmux]",
-            treesitter = "[treesitter]",
-            latex_symbols = "[latex]",
-            luasnip = "[snippet]",
+            cmp_tabnine = "[Tabnine]",
+            copilot = "[Copilot]",
+            buffer = "[Buffer]",
+            orgmode = "[oOg]",
+            look = "[Dictionary]",
+            nvim_lsp = "[LSP]",
+            git = "[Git]",
+            nvim_lua = "[Lua]",
+            path = "[Path]",
+            tmux = "[Tmux]",
+            treesitter = "[Treesitter]",
+            latex_symbols = "[Latex]",
+            luasnip = "[Snippet]",
           })[entry.source.name]
 
           local label = item.abbr
