@@ -61,15 +61,15 @@ return {
       },
     },
     config = function()
-      local theme = require("catppuccin.palettes").get_palette("macchiato")
 
-      vim.api.nvim_set_hl(0, "SpectreSearch", { bg = theme.red, fg = theme.base })
-      vim.api.nvim_set_hl(0, "SpectreReplace", { bg = theme.green, fg = theme.base })
+      -- for vscode like search highlight, use bg=#323c1c and bg=#461313 respectively
+      vim.api.nvim_set_hl(0, "SpectreChange", { bg = "#99cf95", fg = "black" })
+      vim.api.nvim_set_hl(0, "SpectreReplace", { bg = "#f38ba8", fg = "black" })
       require("spectre").setup({
         is_insert_mode = true, -- start open panel on is_insert_mode
         is_block_ui_break = true, -- prevent the UI from breaking
         highlight = {
-          search = "SpectreSearch",
+          search = "SpectreChange",
           replace = "SpectreReplace",
         },
       })
