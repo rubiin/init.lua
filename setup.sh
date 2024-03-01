@@ -33,7 +33,7 @@ update_and_install_arch() {
 # Update and install packages on macOS using Homebrew
 update_and_install_macos() {
   brew update
-  brew install xclip neovim lazygit alacritty ripgrep
+  brew install xclip neovim lazygit alacritty ripgrep gnu-sed
 }
 
 # Check the package manager, update the system, and install specified packages

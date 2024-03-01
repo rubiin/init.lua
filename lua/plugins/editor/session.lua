@@ -2,8 +2,7 @@ return {
   { "folke/persistence.nvim", enabled = false },
   {
     "olimorris/persisted.nvim",
-    -- stylua: ignore
-    lazy=false,
+    lazy = false,
     keys = {
       {
         "<leader>qs",
@@ -51,6 +50,7 @@ return {
           "alpha",
           "oil",
           "lazy",
+          "spectre_panel",
           "",
         }
 

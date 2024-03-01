@@ -2,6 +2,7 @@ return {
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
+    lazy = true,
     opts = {
       ---Add a space b/w comment and the line
       ---@type boolean
