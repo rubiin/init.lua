@@ -1,14 +1,42 @@
 local lazy_util = require("lazyvim.util")
 
--- add builtin themes to ignore
-local builtins = {}
-
+-- these are neovim built-in colorscheme
+local builtins = {
+  "zellner",
+  "torte",
+  "slate",
+  "shine",
+  "ron",
+  "quiet",
+  "peachpuff",
+  "pablo",
+  "murphy",
+  "lunaperche",
+  "koehler",
+  "industry",
+  "evening",
+  "elflord",
+  "desert",
+  "delek",
+  "default",
+  "darkblue",
+  "blue",
+  "morning",
+  "retrobox",
+  "sorbet",
+  "zaibatsu",
+  "wildcharm",
+  "vim",
+  "habamax",
+}
 local get_colorsheme = function()
   local target = vim.fn.getcompletion
 
+  ---@diagnostic disable-next-line: duplicate-set-field
   vim.fn.getcompletion = function()
     return vim.tbl_filter(function(color)
       return not vim.tbl_contains(builtins, color)
+      ---@diagnostic disable-next-line: param-type-mismatch
     end, target("", "color"))
   end
 
