@@ -69,7 +69,7 @@ return {
       shell = vim.o.shell, -- change the default shell
       -- This field is only relevant if direction is set to 'float'
       float_opts = {
-        border = "curved",
+        border = vim.g.border_style,
         winblend = 0,
         highlights = {
           border = "Normal",

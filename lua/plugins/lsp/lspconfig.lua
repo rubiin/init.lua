@@ -7,7 +7,7 @@ return {
         focus = false,
         focusable = false,
         style = "minimal",
-        border = "shadow",
+        border = vim.g.border_style,
         source = "always",
         header = "",
         prefix = "",
