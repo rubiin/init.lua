@@ -4,4 +4,10 @@
 # ignore these words
 [default.extend-words]
 noice = "noice" # plugin name
-iterm = "iterm" # iterm 
+iterm = "iterm" # iterm
+
+
+# ignore these files
+# INFO (needs glob due to conform.nvim appending stuff for temporary file)
+[files]
+extend-exclude = ["*spellfixes.lua"]
