@@ -5,6 +5,7 @@
 local g = vim.g
 local fn = vim.fn
 
+g.skip_ts_context_commentstring_module = true -- Skip ts_context_commentstring module to speed up loading
 g.vscode_snippets_path = fn.stdpath("config") .. "/misc/snippets" -- Path to vscode snippets
 g.github_username = "rubiin" -- Github username
 g.random_banner = true ---@type boolean -- Random banner

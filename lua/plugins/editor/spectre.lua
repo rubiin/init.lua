@@ -61,7 +61,6 @@ return {
       },
     },
     config = function()
-
       -- for vscode like search highlight, use bg=#323c1c and bg=#461313 respectively
       vim.api.nvim_set_hl(0, "SpectreChange", { bg = "#99cf95", fg = "black" })
       vim.api.nvim_set_hl(0, "SpectreReplace", { bg = "#f38ba8", fg = "black" })
