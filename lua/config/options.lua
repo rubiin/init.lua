@@ -78,7 +78,6 @@ o.confirm = true -- Confirm to save changes before exiting modified buffer
 -- ========================================================================== --
 
 o.expandtab = true -- Use spaces instead of tabs
-o.formatoptions = "jcroqlnt" -- tcqj
 o.shiftround = true -- Round indent
 o.shiftwidth = 2 -- Size of an indent
 o.smartindent = true -- Insert indents automatically

@@ -71,6 +71,7 @@ autocmd("FileType", {
 -- Use the more sane snippet session leave logic. Copied from:
 -- https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436
 autocmd("ModeChanged", {
+  group = utils.augroup("luasnip_unlink"),
   pattern = "*",
   callback = function()
     if
@@ -230,9 +231,16 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions = { c = false, r = false, o = false }
+  end,
+  desc = "Disable Auto Comment",
+})
+
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
-  group = utils.augroup("DisableIndentScope"),
+  group = utils.augroup("disable_mini_indentscope"),
   pattern = constants.common_file_types,
   callback = function()
     vim.b.miniindentscope_disable = true
@@ -243,7 +251,7 @@ autocmd("FileType", {
 -- Disable caps lock while vim is running
 -- FIX: fix this for wayland as WriteAllBuffers
 
-local capslock_augroup = utils.augroup("ToggleCapsLock")
+local capslock_augroup = utils.augroup("toggle_capslock")
 
 autocmd("InsertEnter", {
   group = capslock_augroup,
@@ -269,10 +277,6 @@ usercmd("TrimTrailingLines", utils.trim_trailing_lines, {
 
 usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
   desc = "Trim trailing whitespace",
-})
-
-usercmd("ToggleDarkMode", utils.toggle_light_dark_theme, {
-  desc = "Toggle dark mode",
 })
 
 usercmd("NerdFontPicker", function()

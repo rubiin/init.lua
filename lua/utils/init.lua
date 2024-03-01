@@ -153,17 +153,6 @@ function M.set_lualine_styles(type)
   return opts
 end
 
--- Toggle dark mode
-function M.toggle_light_dark_theme()
-  if o.background == "light" then
-    o.background = "dark"
-    cmd([[Catppuccin mocha]])
-  else
-    o.background = "light"
-    cmd([[Catppuccin latte]])
-  end
-end
-
 -- Splits a string into a table
 ---@param str string
 ---@param delimiter string
