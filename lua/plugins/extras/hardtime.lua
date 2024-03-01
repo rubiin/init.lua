@@ -28,13 +28,6 @@ return {
     },
     opts = {
       restriction_mode = "hint", -- block or hint
-      -- default values is disabled the arrow keys
-      disabled_keys = { ["<Left>"] = {}, ["<Right>"] = {} },
-      -- Allow j k but restrict gj gk
-      restricted_keys = {
-        ["j"] = {},
-        ["k"] = {},
-      },
       disable_mouse = false,
       disabled_filetypes = {
         "dapui",

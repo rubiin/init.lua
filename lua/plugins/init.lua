@@ -18,4 +18,5 @@ return {
   { import = "plugins.extras.cellular" },
   { import = "plugins.extras.cybu" },
   { import = "plugins.extras.zen" },
+  { import = "plugins.extras.hardtime" },
 }
