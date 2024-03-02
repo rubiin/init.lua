@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = { virtual_text = { prefix = "icons" } },
       -- if you use native lsp, you can use the following. Otherwise, its pretty much handled by lspsaga
       float = {
         focus = false,
