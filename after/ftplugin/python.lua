@@ -1,11 +1,13 @@
 --------------------------------------------------------------------------------
 -- fix habits
 
-local ft_abbr = require("utils").ft_abbr
-ft_abbr("true", "True")
-ft_abbr("false", "False")
-ft_abbr("//", "#")
-ft_abbr("--", "#")
-ft_abbr("null", "None")
-ft_abbr("nil", "None")
-ft_abbr("none", "None")
+local utils = require("utils")
+
+
+utils.ft_abbr("true", "True")
+utils.ft_abbr("false", "False")
+utils.ft_abbr("//", "#")
+utils.ft_abbr("--", "#")
+utils.ft_abbr("null", "None")
+utils.ft_abbr("nil", "None")
+utils.ft_abbr("none", "None")

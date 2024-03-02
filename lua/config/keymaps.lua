@@ -14,6 +14,12 @@ keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 -- Select all text in buffer with Ctrl-2
 keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
 
+-- Block
+keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
 -- Add LazyVim bindings for meta information
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })

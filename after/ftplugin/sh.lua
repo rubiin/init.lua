@@ -1,8 +1,8 @@
-local u = require("utils")
+local utils = require("utils")
 --------------------------------------------------------------------------------
 
 -- fix my habits
-u.ft_abbr("//", "#")
-u.ft_abbr("--", "#")
-u.ft_abbr("delay", "sleep")
-u.ft_abbr("const", "local")
+utils.ft_abbr("//", "#")
+utils.ft_abbr("--", "#")
+utils.ft_abbr("delay", "sleep")
+utils.ft_abbr("const", "local")

@@ -1,7 +1,7 @@
-local u = require("utils")
+local utils = require("utils")
 --------------------------------------------------------------------------------
 
 -- fix my habits
-u.ft_abbr("cosnt", "const")
-u.ft_abbr("local", "const")
-u.ft_abbr("--", "//")
+utils.ft_abbr("cosnt", "const")
+utils.ft_abbr("local", "const")
+utils.ft_abbr("--", "//")
