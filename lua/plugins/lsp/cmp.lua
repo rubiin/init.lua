@@ -104,6 +104,7 @@ return {
       window = {
         completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
         documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
+        preview = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },

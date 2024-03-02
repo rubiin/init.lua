@@ -60,6 +60,18 @@ function M.open_at_regex_101()
   local lang = vim.bo.filetype
   local text, pattern, replace, flags
 
+  local supported_filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "python",
+  }
+
+  if not utils.list_contains(supported_filetypes, lang) then
+    M.notify("Unsupported filetype.", vim.log.levels.ERROR, "Utils")
+  end
+
   if utils.list_contains({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, lang) then
     cmd.TSTextobjectSelect("@regex.outer")
     normal('"zy')
@@ -73,9 +85,6 @@ function M.open_at_regex_101()
     pattern = fn.getreg("z")
     local flagInLine = vim.api.nvim_get_current_line():match("re%.([MIDSUA])")
     flags = flagInLine and "g" .. flagInLine:gsub("D", "S"):lower() or "g"
-  else
-    M.notify("Unsupported filetype.", vim.log.levels.ERROR, "Utils")
-    return
   end
 
   -- `+` is the only character regex101 does not escape on its own. But for it

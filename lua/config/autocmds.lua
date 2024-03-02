@@ -14,9 +14,12 @@ local utils = require("utils")
 
 local aufilewrite = utils.augroup("file_write")
 local augeneral = utils.augroup("general_settings")
+local aufiletype = utils.augroup("file_type")
+local auterminal = utils.augroup("terminal_setting")
+local fold_augroup = utils.augroup("remember_folds")
 
 autocmd("FileType", {
-  group = augeneral,
+  group = aufiletype,
   pattern = { "gitcommit", "gitrebase" },
   command = "startinsert | 1",
   desc = "Start Insert Mode",
@@ -34,7 +37,7 @@ autocmd("TextYankPost", {
 })
 
 autocmd("FileType", {
-  group = augeneral,
+  group = aufiletype,
   pattern = constants.exclude_file_types,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -60,7 +63,7 @@ autocmd({ "InsertEnter", "WinLeave" }, {
 })
 
 autocmd("FileType", {
-  group = augeneral,
+  group = aufiletype,
   pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
   callback = function()
     opt_local.wrap = true
@@ -113,14 +116,14 @@ autocmd("BufWritePre", {
 })
 
 autocmd("TermOpen", {
-  group = utils.augroup("terminal_setting"),
+  group = auterminal,
   pattern = "*",
   command = "startinsert | set winfixheight",
   desc = "Start Terminal In Insert Mode",
 })
 
 autocmd("TermOpen", {
-  group = utils.augroup("terminalSetting"),
+  group = auterminal,
   pattern = "*",
   callback = function()
     opt_local.foldcolumn = "0"
@@ -169,7 +172,7 @@ autocmd("BufReadPost", {
 })
 
 autocmd({ "FileType" }, {
-  group = utils.augroup("lazyvim_json_conceal"),
+  group = aufiletype,
   pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
   callback = function()
     opt_local.conceallevel = 0
@@ -204,8 +207,6 @@ autocmd({ "BufWritePre" }, {
 --   desc = "Source config lua files on save",
 -- })
 
-local fold_augroup = utils.augroup("remember_folds")
-
 autocmd({ "BufLeave", "BufWinLeave" }, {
   group = fold_augroup,
   pattern = "*",
@@ -225,7 +226,7 @@ autocmd("BufReadPost", {
 })
 
 autocmd("FileType", {
-  group = utils.augroup("man_unlisted"),
+  group = aufiletype,
   pattern = { "man" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -233,6 +234,7 @@ autocmd("FileType", {
 })
 
 autocmd("BufEnter", {
+  group = augeneral,
   callback = function()
     vim.opt.formatoptions = { c = false, r = false, o = false }
   end,
@@ -241,7 +243,7 @@ autocmd("BufEnter", {
 
 -- Disable `mini.indentscope` for specific filetypes
 autocmd("FileType", {
-  group = utils.augroup("disable_mini_indentscope"),
+  group = aufiletype,
   pattern = constants.common_file_types,
   callback = function()
     vim.b.miniindentscope_disable = true
@@ -261,8 +263,8 @@ autocmd("InsertEnter", {
 })
 
 autocmd("InsertLeave", {
-  pattern = "*",
   group = capslock_augroup,
+  pattern = "*",
   command = "silent !setxkbmap -option ctrl:nocaps",
 })
 
