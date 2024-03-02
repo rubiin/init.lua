@@ -7,12 +7,13 @@
 -- Add any additional autocmds here
 
 local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
+local usercmd = api.nvim_create_user_command
 
 local constants = require("utils.constants")
 local utils = require("utils")
 
-local aufilewrite = utils.augroup("FileWrite")
-local augeneral = utils.augroup("GeneralSettings")
+local aufilewrite = utils.augroup("file_write")
+local augeneral = utils.augroup("general_settings")
 
 autocmd("FileType", {
   group = augeneral,
@@ -112,7 +113,7 @@ autocmd("BufWritePre", {
 })
 
 autocmd("TermOpen", {
-  group = utils.augroup("terminalSetting"),
+  group = utils.augroup("terminal_setting"),
   pattern = "*",
   command = "startinsert | set winfixheight",
   desc = "Start Terminal In Insert Mode",
@@ -251,7 +252,7 @@ autocmd("FileType", {
 -- Disable caps lock while vim is running
 -- FIX: fix this for wayland as WriteAllBuffers
 
-local capslock_augroup = utils.augroup("ToggleCapsLock")
+local capslock_augroup = utils.augroup("toggle_capslock")
 
 autocmd("InsertEnter", {
   group = capslock_augroup,
@@ -265,31 +266,28 @@ autocmd("InsertLeave", {
   command = "silent !setxkbmap -option ctrl:nocaps",
 })
 
-
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
 
-local usercmd = api.nvim_create_user_command
-
 usercmd("TrimTrailingLines", utils.trim_trailing_lines, {
-  desc = "Trim trailing lines",
+  desc = "Trim Trailing Lines",
 })
 
 usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
-  desc = "Trim trailing whitespace",
+  desc = "Trim Trailing Whitespace",
 })
 
 usercmd("NerdFontPicker", function()
   require("telescope").extensions.nerdfont.nerdfont()
 end, {
-  desc = "Select nerd fonts",
+  desc = "Select Nerd Fonts",
 })
 
 usercmd("LuaLinePicker", function()
   require("telescope").extensions.lualine.lualine()
 end, {
-  desc = "Select lua line styles",
+  desc = "Select LuaLine Styles",
 })
 
 -- Change current working directory locally and print cwd after that,
@@ -297,9 +295,9 @@ end, {
 usercmd("Cwd", function()
   cmd(":cd %:p:h")
   cmd(":pwd")
-end, { desc = "Cd current file's directory" })
+end, { desc = "Cd Current File's Directory" })
 
 -- Write all buffers
 usercmd("WriteAllBuffers", function()
   cmd("wa")
-end, { desc = "Write all changed buffers" })
+end, { desc = "Write All Changed Buffers" })
