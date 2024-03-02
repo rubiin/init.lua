@@ -57,7 +57,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "octaltree/cmp-look",
+      "f3fora/cmp-spell",
       "petertriho/cmp-git",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
@@ -85,14 +85,14 @@ return {
         { name = "buffer", keyword_length = 4, max_item_count = 10 },
         { name = "luasnip" },
         { name = "path" },
+
         {
-          name = "look",
-          keyword_length = 2,
-          max_item_count = 10,
+          name = "spell",
           option = {
-            convert_case = true,
-            loud = true,
-            dict = "/usr/share/dict/words",
+            keep_all_entries = false,
+            enable_in_context = function()
+              return true
+            end,
           },
         },
         { name = "nvim_lua" },
@@ -100,7 +100,6 @@ return {
       completion = {
         completeopt = vim.o.completeopt,
       },
-
       window = {
         completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
         documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
@@ -115,15 +114,15 @@ return {
           item.menu = ({
             cmp_tabnine = "[Tabnine]",
             copilot = "[Copilot]",
+            spell = "[Spell]",
             buffer = "[Buffer]",
-            orgmode = "[oOg]",
+            orgmode = "[Org]",
             look = "[Dictionary]",
             nvim_lsp = "[LSP]",
             git = "[Git]",
             nvim_lua = "[Lua]",
             path = "[Path]",
             tmux = "[Tmux]",
-            treesitter = "[Treesitter]",
             latex_symbols = "[Latex]",
             luasnip = "[Snippet]",
           })[entry.source.name]

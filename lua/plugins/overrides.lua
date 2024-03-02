@@ -72,7 +72,7 @@ return {
       "pyproject.toml",
       "poetry.lock",
       "go.mod",
-      "Cargo.lock"
+      "Cargo.lock",
     },
     opts = {
       manual_mode = false,
