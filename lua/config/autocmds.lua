@@ -233,6 +233,13 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("InsertLeave", {
+  group = augeneral,
+  pattern = "*",
+  command = "set nopaste",
+  desc = "Turn Off Paste Mode When Leaving Insert",
+})
+
 autocmd("BufEnter", {
   group = augeneral,
   callback = function()
