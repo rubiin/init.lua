@@ -10,6 +10,7 @@ return {
     },
     opts = {
       formatters_by_ft = {
+        bash = { "shfmt" },
         css = { "biome", "prettierd", "prettier" },
         go = { "goimports", "gofmt" },
         graphql = { "biome", "prettierd", "prettier" },
@@ -31,6 +32,7 @@ return {
         vue = { "biome", "prettierd", "prettier" },
         xml = { "biome", "prettierd", "prettier" },
         yaml = { "biome", "prettierd", "prettier" },
+        zsh = { "shfmt" },
       },
       formatters = {
         biome = {
