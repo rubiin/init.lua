@@ -2,7 +2,6 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = {
-      -- TODO: fix some issue with eslint_d
       linters_by_ft = {
         markdown = { "markdownlint" },
         lua = { "selene", "luacheck" },
@@ -22,6 +21,18 @@ return {
           condition = function(ctx)
             return vim.fs.find({ ".luacheckrc" }, { path = ctx.filename, upward = true })[1]
           end,
+        },
+        eslint_d = {
+          args = {
+            "--format",
+            "--cache",
+            "json",
+            "--stdin",
+            "--stdin-filename",
+            function()
+              return vim.api.nvim_buf_get_name(0)
+            end,
+          },
         },
       },
     },

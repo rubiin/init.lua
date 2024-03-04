@@ -8,13 +8,18 @@ local icons = require("nvim-web-devicons").get_icons()
 
 local resultTable = {}
 
-local function action(icon)
-  vim.fn.setreg("*", icon)
-  print([[Press p or "*p to paste this icon]] .. icon)
+local function yank_user_choice_normal(choice)
+  if choice then
+    local split = vim.split(choice, " ")
+
+    vim.schedule(function()
+      vim.cmd("let @+='" .. split[1] .. "'")
+    end)
+  end
 end
 
 -- Iterate over the original table
-for key, value in pairs(icons) do
+for _, value in pairs(icons) do
   -- Check if the value is a table (ignoring the first entry which is also a table)
   if type(value) == "table" then
     -- Insert {icon, name} into the result table
@@ -40,12 +45,11 @@ local nerdfont = function(opts)
         end,
       }),
       sorter = conf.generic_sorter(opts),
-
-      attach_mappings = function(prompt_bufnr, map)
+      attach_mappings = function(prompt_bufnr, _)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
-          action(selection.value[2])
+          yank_user_choice_normal(selection.value[2])
         end)
 
         return true

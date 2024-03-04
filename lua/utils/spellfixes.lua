@@ -24,6 +24,7 @@ local spellfixes = {
   fodler = "folder",
   hwo = "how",
   ignroe = "ignore",
+  guthib = "github",
   keybaord = "keyboard",
   lien = "line",
   markdwon = "markdown",

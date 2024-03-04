@@ -10,4 +10,4 @@ return {
   },
 }
 
--- TODO: vim-fugitive, diffview
+-- TODO: vim-fugitive
