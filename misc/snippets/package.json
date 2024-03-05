@@ -18,26 +18,26 @@
           "javascript",
           "typescript"
         ],
-        "path": "./nestjs.json"
+        "path": "./snips/nestjs.json"
       },
       {
         "language": [
           "javascriptreact",
           "typescriptreact"
         ],
-        "path": "./react.json"
+        "path": "./snips/react.json"
       },
       {
         "language": [
           "lua"
         ],
-        "path": "./lua.json"
+        "path": "./snips/lua.json"
       },
       {
         "language": [
           "sh"
         ],
-        "path": "./sh.json"
+        "path": "./snips/sh.json"
       }
     ]
   }
