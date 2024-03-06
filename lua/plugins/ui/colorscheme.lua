@@ -1,5 +1,7 @@
 local lazy_util = require("lazyvim.util")
 
+local util = require("utils")
+
 -- these are neovim built-in colorscheme
 local builtins = {
   "zellner",
@@ -94,21 +96,67 @@ return {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
-
   -- add kanagawa
   {
     "rebelot/kanagawa.nvim",
+    lazy = true,
+    opts = {
+      -- Remove gutter background
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      variant = "moon",
+      disable_background = util.is_transparent,
+      disable_float_background = util.is_transparent,
+      styles = {
+        bold = true,
+        italic = true,
+        transparency = util.is_transparent,
+      },
+    },
     lazy = true,
     keys = {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
   },
-
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = {
+      style = "moon",
+      transparent = util.is_transparent,
+      styles = util.is_transparent and {
+        sidebars = "transparent",
+        floats = "transparent",
+      } or {},
+    },
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
   -- add catppuccin
   {
     "catppuccin/nvim",
     lazy = true,
     name = "catppuccin",
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
     opts = {
       flavour = "mocha",
       integrations = {

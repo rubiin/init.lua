@@ -1,10 +1,15 @@
 return {
   {
     "sindrets/diffview.nvim",
+    lazy = true,
+    event = "VeryLazy",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
   },
   {
     "akinsho/git-conflict.nvim",
+    lazy = true,
+    event = "VeryLazy",
+
     init = function()
       require("git-conflict").setup({
         default_mappings = false,

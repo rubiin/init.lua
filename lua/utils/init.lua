@@ -4,6 +4,28 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
+--- Check if it's weekend
+---@return boolean
+function M.is_weekend()
+  local day = tonumber(os.date("%w"))
+  return day == 0 or day == 6
+end
+
+--- Check if it's day time
+---@return boolean
+function M.is_day_time()
+  local hour = tonumber(os.date("%H"))
+  return hour >= 9 and hour < 19
+end
+
+M.is_transparent = M.is_day_time() and not M.is_weekend()
+
+--- Check if it's WarpTerminal
+---@return boolean
+function M.is_warp_terminal()
+  return os.getenv("TERM_PROGRAM") == "WarpTerminal"
+end
+
 -- Gets the operating system
 function M.get_os()
   local os = vim.loop.os_uname().sysname

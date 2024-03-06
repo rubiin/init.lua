@@ -1,0 +1,14 @@
+{
+  "diagnostics.globals": ["vim", "log", "cmp_mappings", "vim", "jit"],
+  "diagnostics.disable": [
+    "unused-local",
+    "different-requires",
+    "undefined-field",
+    "redundant-parameter",
+    "undefined-doc-name",
+    "redefined-local",
+    "need-check-nil",
+    "no-unknown"
+  ],
+  "workspace.checkThirdParty": false
+}

@@ -33,15 +33,6 @@ return {
         end,
         desc = "Replace In Current File",
       },
-
-      {
-        "<leader>sp",
-        function()
-          require("spectre").open(_G.get_spectre_options())
-        end,
-        desc = "Replace In Files (Root dir)",
-      },
-      -- Search current word
       {
         "<leader>sP",
         function()
