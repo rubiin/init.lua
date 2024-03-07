@@ -258,23 +258,6 @@ autocmd("FileType", {
   desc = "Disable `mini.indentscope` For Specific Filetypes",
 })
 
--- Disable caps lock while vim is running
--- FIX: fix this for wayland as WriteAllBuffers
-
-local capslock_augroup = utils.augroup("toggle_capslock")
-
-autocmd("InsertEnter", {
-  group = capslock_augroup,
-  pattern = "*",
-  command = "silent !setxkbmap -option",
-})
-
-autocmd("InsertLeave", {
-  group = capslock_augroup,
-  pattern = "*",
-  command = "silent !setxkbmap -option ctrl:nocaps",
-})
-
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --

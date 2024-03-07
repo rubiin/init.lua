@@ -78,7 +78,6 @@ return {
     },
     init = function()
       local keymaps = require("lazyvim.plugins.lsp.keymaps").get()
-      keymaps[#keymaps + 1] = { "K", false }
       keymaps[#keymaps + 1] = { "<leader>ca", false }
       keymaps[#keymaps + 1] = { "<leader>cl", false }
       keymaps[#keymaps + 1] = { "<leader>cA", false }

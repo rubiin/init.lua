@@ -18,7 +18,6 @@ return {
         desc = "Code Action (Source)",
       },
       { "<leader>uo", "<Cmd>Lspsaga outline<CR>", desc = "Outline Toggle" },
-      { "K", "<Cmd>Lspsaga hover_doc ++silent<CR>", desc = "Hover Doc" },
     },
     opts = {
       definition = { enable = true, silent = true, keys = { quit = all_keys.quit } }, -- peek definition
