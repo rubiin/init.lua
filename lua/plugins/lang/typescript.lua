@@ -18,44 +18,46 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
-    event = { "BufReadPost *.ts,*.tsx,*.js,*.jsx", "BufNewFile *.ts,*.tsx,*.js,*.jsx" },
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
       local api = require("typescript-tools.api")
       require("typescript-tools").setup({
         handlers = {
-          ["textDocument/publishDiagnostics"] = api.filter_diagnostics(
-            -- Ignore 'This may be converted to an async function' diagnostics.
-            { 6133 }
-          ),
+          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = vim.g.border_style,
+          }),
         },
         settings = {
           -- spawn additional tsserver instance to calculate diagnostics on it
-          -- separate_diagnostic_server = true,
-          expose_as_code_action = "all",
-          -- tsserver_plugins = {},
-          tsserver_max_memory = "auto",
-          -- complete_function_calls = true,
-          include_completions_with_insert_text = true,
-          -- code_lens = "all",
-          -- disable_member_code_lens = true,
+          separate_diagnostic_server = true,
+          composite_mode = "separate_diagnostic",
+          -- "change"|"insert_leave" determine when the client asks the server about diagnostic
+          publish_diagnostic_on = "insert_leave",
+          -- array of strings("fix_all"|"add_missing_imports"|"remove_unused"|
+          -- "remove_unused_imports"|"organize_imports") -- or string "all"
+          -- to include all supported code actions
+          -- specify commands exposed as code_actions
+          expose_as_code_action = {},
 
-          -- described below
-          -- tsserver_format_options = {},
+          tsserver_plugins = {},
+          tsserver_max_memory = "auto",
+          tsserver_format_options = {},
+
+          -- locale of all tsserver messages, supported locales you can find here:
+          -- https://github.com/microsoft/TypeScript/blob/3c221fc086be52b19801f6e8d82596d04607ede6/src/compiler/utilitiesPublic.ts#L620
+          tsserver_locale = "en",
+          complete_function_calls = true,
+          include_completions_with_insert_text = true,
+          -- CodeLens
+          -- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
+          -- possible values: ("off"|"all"|"implementations_only"|"references_only")
+          code_lens = "off",
+          -- by default code lenses are displayed on all referencable values and for some of you it can
+          -- be too much this option reduce count of them by removing member references from lenses
+          disable_member_code_lens = true,
           tsserver_file_preferences = {
             importModuleSpecifierPreference = "non-relative",
-            importModuleSpecifierEnding = "auto",
-            includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-            includeCompletionsForModuleExports = true,
-            quotePreference = "auto",
-            -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
           },
           jsx_close_tag = {
             enable = true,
@@ -63,10 +65,53 @@ return {
           },
         },
       })
-
-      util.keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<cr>", { desc = "Organize Imports" })
-      util.keymap("n", "<leader>cR", "<cmd>TSToolsRemoveUnusedImports<cr>", { desc = "Remove Unused Imports" })
     end,
+  },
+  -- correctly setup lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      -- make sure mason installs the server
+      servers = {
+        ---@type lspconfig.options.tsserver
+        tsserver = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cR",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.removeUnused.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Remove Unused Imports",
+            },
+          },
+          ---@diagnostic disable-next-line: missing-fields
+          settings = {
+            completions = {
+              completeFunctionCalls = true,
+            },
+          },
+        },
+      },
+    },
   },
   {
     "mfussenegger/nvim-dap",

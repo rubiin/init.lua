@@ -3,16 +3,21 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = { virtual_text = { prefix = "icons" } },
-      -- if you use native lsp, you can use the following. Otherwise, its pretty much handled by lspsaga
       float = {
-        focus = false,
-        focusable = false,
-        style = "minimal",
-        border = vim.g.border_style,
+        show_header = true,
         source = "always",
-        header = "",
-        prefix = "",
+        border = "rounded",
+        focusable = false,
+        format = function(d)
+          local t = vim.deepcopy(d)
+          local code = d.code or (d.user_data and d.user_data.lsp.code)
+          if code and not string.find(t.message, code, 1, true) then
+            t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
+          end
+          return t.message
+        end,
       },
+      -- if you use native lsp, you can use the following. Otherwise, its pretty much handled by lspsaga
       servers = {
         typos_lsp = {
           settings = {
