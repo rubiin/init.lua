@@ -12,6 +12,5 @@ return {
   { import = "plugins.extras.barbecue" },
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.better-escape" },
-  { import = "plugins.extras.cybu" },
   { import = "plugins.extras.zen" },
 }

@@ -43,6 +43,7 @@ autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.o.number = false
     opt_local.cursorline = false
+    vim.opt.spell = false
     utils.keymap("n", "q", "<cmd>close<cr>")
   end,
   desc = "Close Some Filetypes With Just <q> Key",

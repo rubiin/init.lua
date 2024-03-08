@@ -19,7 +19,7 @@ return {
           max_win_width = 0.5,
         },
         style = {
-          border = vim.g.border_style,
+          border = "rounded",
           path = "relative",
         },
         devicons = {
@@ -31,7 +31,7 @@ return {
           "qf",
           "help",
         },
-        display_time = 500,
+        display_time = 800,
         fallback = function()
           util.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
         end,
