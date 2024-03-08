@@ -7,8 +7,8 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    ensure_installed = constant.ts_parsers,
     opts = {
+      ensure_installed = constant.ts_parsers,
       playground = { enable = true },
       -- Enable Rainbow Parentheses
       rainbow = { enable = true },

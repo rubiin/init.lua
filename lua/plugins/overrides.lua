@@ -67,21 +67,22 @@ return {
   {
     "ahmedkhalf/project.nvim",
     lazy = false,
-    pattern = {
-      ".git",
-      "_darcs",
-      ".hg",
-      ".bzr",
-      ".svn",
-      "Makefile",
-      "package.json",
-      "pyproject.toml",
-      "poetry.lock",
-      "go.mod",
-      "Cargo.lock",
-    },
+
     opts = {
       manual_mode = false,
+      patterns = {
+        ".git",
+        "_darcs",
+        ".hg",
+        ".bzr",
+        ".svn",
+        "Makefile",
+        "package.json",
+        "pyproject.toml",
+        "poetry.lock",
+        "go.mod",
+        "Cargo.lock",
+      },
     },
   },
   -- nvim-notify
