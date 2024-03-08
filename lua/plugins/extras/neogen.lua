@@ -1,6 +1,7 @@
 return {
   {
     "danymat/neogen",
+    lazy = true,
     keys = {
       {
         "<leader>cc",
@@ -10,7 +11,6 @@ return {
         desc = "Neogen Documentation",
       },
     },
-
     opts = {
 
       --- Enables Neogen capabilities

@@ -3,6 +3,7 @@
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
+  lazy = true,
   -- stylua: ignore
   config = function()
     local augend = require("dial.augend")

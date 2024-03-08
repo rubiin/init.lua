@@ -2,11 +2,11 @@ return {
   {
     "utilyre/barbecue.nvim",
     event = "VeryLazy",
+    lazy = true,
     dependencies = {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
-    lazy = true,
     enabled = function()
       return not require("utils").is_neovim_version_satisfied(10)
     end,

@@ -2,6 +2,7 @@ return {
   {
     "michaelb/sniprun",
     event = "VeryLazy",
+    lazy = true,
     build = "bash ./install.sh",
     opts = {
       live_mode_toggle = "enable",

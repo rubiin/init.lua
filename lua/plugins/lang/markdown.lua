@@ -4,6 +4,7 @@ return {
   -- Markdown preview
   {
     "ellisonleao/glow.nvim",
+    lazy = true,
     cmd = "Glow",
     keys = {
       {
