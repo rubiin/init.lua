@@ -48,18 +48,27 @@ end
 
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 return {
-
+  -- add onedarkpro
   {
-    "folke/tokyonight.nvim",
+    "olimorris/onedarkpro.nvim",
     lazy = true,
-    opts = {
-      style = "moon",
-      transparent = util.is_transparent,
-      styles = util.is_transparent and {
-        sidebars = "transparent",
-        floats = "transparent",
-      } or {},
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
+  },
+
+  -- add vscode
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
+  -- add material
+  {
+    "marko-cerovac/material.nvim",
+    lazy = true,
     keys = {
       { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
     },
