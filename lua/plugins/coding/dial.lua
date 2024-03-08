@@ -79,10 +79,6 @@ return {
         word = false,
         cyclic = true,
       }),
-      augend.case.new({
-        types = { "camelCase", "snake_case", "PascalCase", "kebab-case" },
-        cyclic = true,
-      }),
       augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
       augend.constant.alias.bool,    -- boolean value (true <-> false)
       augend.integer.alias.decimal,
@@ -100,6 +96,12 @@ return {
     require("dial.config").augends:register_group({
       typescript = typescript,
       default = default,
+      case = {
+        augend.case.new({
+          types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
+          cyclic = true,
+        }),
+      },
     })
     local map = require "dial.map"
     -- change augends in VISUAL mode
@@ -107,7 +109,8 @@ return {
     vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal "default", { noremap = true })
     vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal "default", { noremap = true })
     vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal "default", { noremap = true })
-
+    vim.keymap.set("n", "~", map.inc_normal("case"), { silent = true, noremap = true })
+    vim.keymap.set("v", "~", map.inc_visual("case"), { silent = true, noremap = true })
 
 --     vim.cmd [[
 --   " enable only for specific FileType
