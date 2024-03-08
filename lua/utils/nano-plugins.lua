@@ -12,6 +12,23 @@ local function normal(cmd)
   vim.cmd.normal({ cmd, bang = true })
 end
 
+-- mini misc zoom function
+function M.zoom(buf_id, config)
+  local H = {}
+  if H.zoom_winid and vim.api.nvim_win_is_valid(H.zoom_winid) then
+    vim.api.nvim_win_close(H.zoom_winid, true)
+    H.zoom_winid = nil
+  else
+    buf_id = buf_id or 0
+    -- Currently very big `width` and `height` get truncated to maximum allowed
+    local default_config = { relative = "editor", row = 0, col = 0, width = 1000, height = 1000 }
+    config = vim.tbl_deep_extend("force", default_config, config or {})
+    H.zoom_winid = vim.api.nvim_open_win(buf_id, true, config)
+    vim.wo.winblend = 0
+    vim.cmd("normal! zz")
+  end
+end
+
 -- Opens the given url in the default browser.
 ---@param url string: The url to open.
 function M.open_in_browser(url)
