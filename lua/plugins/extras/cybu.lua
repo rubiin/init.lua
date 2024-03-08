@@ -3,7 +3,6 @@ local util = require("utils")
 return {
   {
     "ghillb/cybu.nvim",
-    cond = #vim.api.nvim_list_uis() > 0,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "nvim-lua/plenary.nvim",
