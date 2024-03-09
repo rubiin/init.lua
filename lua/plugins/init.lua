@@ -13,4 +13,5 @@ return {
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.better-escape" },
   { import = "plugins.extras.zen" },
+  { import = "plugins.extras.cybu" },
 }
