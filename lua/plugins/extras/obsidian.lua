@@ -2,7 +2,8 @@ local vault_path = vim.fn.expand("~/Documents")
 
 return {
   "epwalsh/obsidian.nvim",
-  lazy = false,
+  event = "LazyFile",
+  lazy = true,
   ft = "markdown",
   dependencies = {
     -- Required.

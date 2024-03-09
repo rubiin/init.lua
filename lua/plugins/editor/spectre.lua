@@ -17,6 +17,7 @@ return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
+    event = "LazyFile",
     lazy = true,
     keys = {
       {

@@ -58,6 +58,7 @@ return {
     ft = "qf",
     cmd = "BqfAutoToggle",
     event = "QuickFixCmdPost",
+    lazy = true,
     opts = {
       auto_enable = true,
       magic_window = true,

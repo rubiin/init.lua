@@ -3,6 +3,8 @@ local util = require("utils")
 return {
   {
     "ghillb/cybu.nvim",
+    event = "LazyFile",
+    lazy = true,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "nvim-lua/plenary.nvim",

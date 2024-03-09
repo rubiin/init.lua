@@ -36,10 +36,10 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "dotenv",
     ["ignore$"] = "ignore",
     ["rc$"] = "ignore",
-    ["%.json"] = "jsonc",
     [".*/waybar/config"] = "jsonc",
     [".*/mako/config"] = "dosini",
     [".*/kitty/*.conf"] = "bash",
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
+    [".tmux.*"] = "conf",
   },
 })

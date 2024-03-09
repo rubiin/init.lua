@@ -1,6 +1,7 @@
 return {
   {
     "danymat/neogen",
+    event = "LazyFile",
     lazy = true,
     keys = {
       {

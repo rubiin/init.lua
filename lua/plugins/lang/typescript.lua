@@ -4,6 +4,7 @@ return {
   {
     "David-Kunz/cmp-npm",
     event = "VeryLazy",
+    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "json",
     opts = {},
@@ -18,6 +19,8 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
+    event = "VeryLazy",
+    lazy = true,
     ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
