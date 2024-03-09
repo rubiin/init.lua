@@ -10,8 +10,8 @@ return {
       "nvim-lua/plenary.nvim",
     },
     keys = {
-      { "<C-S-Tab>", "<Plug>(CybuLastusedPrev)", desc = "CybuLastusedPrev" },
-      { "<C-Tab>", "<Plug>(CybuLastusedNext)", desc = "CybuLastusedNext" },
+      { "<C-S-Tab>", "<Plug>(CybuLastusedPrev)", mode = { "n", "v" }, desc = "CybuLastusedPrev" },
+      { "<C-Tab>", "<Plug>(CybuLastusedNext)", mode = { "n", "v" }, desc = "CybuLastusedNext" },
     },
     config = function()
       require("cybu").setup({
@@ -38,6 +38,9 @@ return {
           util.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
         end,
       })
+
+      vim.keymap.set({ "n", "v" }, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
+      vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
     end,
   },
 }
