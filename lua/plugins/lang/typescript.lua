@@ -11,11 +11,23 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    ensure_installed = {
-      "tsx",
-      "javascript",
-      "typescript",
-    },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "tsx", "javascript", "typescript" })
+      end
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed or {}, {
+        -- formatters & linters
+        "eslint_d",
+        "prettier",
+        "prettierd",
+        "biome",
+      })
+    end,
   },
   {
     "pmizio/typescript-tools.nvim",

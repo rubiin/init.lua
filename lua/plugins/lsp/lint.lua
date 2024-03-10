@@ -3,6 +3,7 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
+        bash = { "shellcheck" },
         markdown = { "markdownlint" },
         lua = { "selene", "luacheck" },
         javascript = { "eslint_d" },
@@ -10,6 +11,8 @@ return {
         javascriptreact = { "eslint_d" },
         typescriptreact = { "eslint_d" },
         svelte = { "eslint_d" },
+        sh = { "shellcheck" },
+        zsh = { "shellcheck" },
       },
       linters = {
         selene = {

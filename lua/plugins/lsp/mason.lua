@@ -16,22 +16,11 @@ return {
 
       opts.max_concurrent_installers = 10
       vim.list_extend(opts.ensure_installed or {}, {
-        "goimports",
         "stylua",
-        "shfmt",
-
-        -- formatters & linters
-        "eslint_d",
-        "prettier",
-        "prettierd",
-        "biome",
         "selene",
 
         -- code spell
         "typos-lsp",
-
-        -- markdown
-        "markdownlint",
 
         -- rustywind for tailwindcss
         "rustywind",
