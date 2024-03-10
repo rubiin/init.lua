@@ -1,5 +1,3 @@
-local util = require("utils")
-
 return {
   {
     "David-Kunz/cmp-npm",
@@ -44,7 +42,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
       local api = require("typescript-tools.api")
-      require("utils.lsp").on_attach(function(client, bufnr)
+      require("lazyvim.util.lsp").on_attach(function(client, bufnr)
         if client.name == "tsserver" then
           vim.keymap.set(
             "n",

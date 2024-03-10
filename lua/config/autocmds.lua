@@ -193,20 +193,19 @@ autocmd({ "BufWritePre" }, {
   desc = "Auto Create Directory Before Writing File",
 })
 
--- source lua files in config folder
--- autocmd({ "AutoSaveWritePost" }, {
---   pattern = "lua",
---   group = augeneral,
---   callback = function()
---   -- if lua file and is in nvim config dir :so the file
--- 	local current_file_path = vim.api.nvim_buf_get_name(0)
--- 	local is_in_config = current_file_path:find("^"..vim.fn.stdpath("config")) ~= nil
--- 	if (is_in_config) then
--- 		cmd.so()
--- 	end
---   end,
---   desc = "Source config lua files on save",
--- })
+autocmd({ "BufWritePost" }, {
+  pattern = "lua",
+  group = augeneral,
+  callback = function()
+    -- if lua file and is in nvim config dir :so the file
+    local current_file_path = vim.api.nvim_buf_get_name(0)
+    local is_in_config = current_file_path:find("^" .. vim.fn.stdpath("config")) ~= nil
+    if is_in_config then
+      cmd.so()
+    end
+  end,
+  desc = "Source Config Lua Files On Save",
+})
 
 autocmd({ "BufLeave", "BufWinLeave" }, {
   group = fold_augroup,

@@ -1,7 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-local user_icons = require("custom.icons")
-
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
@@ -32,13 +30,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.leap" },
     -- import/override with your plugins
     { import = "plugins" },
-  },
-  ui = {
-    icons = {
-      loaded = user_icons.ui.Loaded,
-      not_loaded = user_icons.ui.NotLoaded,
-    },
-    border = vim.g.border_style,
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

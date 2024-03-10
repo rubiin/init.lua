@@ -14,8 +14,6 @@ return {
       end
 
       opts.playground = { enable = true }
-      -- Enable Rainbow Parentheses
-      opts.rainbow = { enable = true }
       opts.autotag = {
         enable = true,
       }

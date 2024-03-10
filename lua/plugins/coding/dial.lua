@@ -105,16 +105,16 @@ return {
     })
     local map = require "dial.map"
     -- change augends in VISUAL mode
-    vim.api.nvim_set_keymap("n", "<C-a>", map.inc_normal "default", { noremap = true })
-    vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal "default", { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal "default", { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal "default", { noremap = true })
-    vim.keymap.set("n", "~", map.inc_normal("case"), { silent = true, noremap = true })
-    vim.keymap.set("v", "~", map.inc_visual("case"), { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("n", "<C-a>", map.inc_normal("default"), { noremap = true })
+    vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal("default"), { noremap = true })
+    vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal("default"), { noremap = true })
+    vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal("default"), { noremap = true })
+    vim.keymap.set("n", "~", map.inc_normal("case"), { noremap = true })
+    vim.keymap.set("v", "~", map.inc_visual("case"), { noremap = true })
 
---     vim.cmd [[
---   " enable only for specific FileType
---   autocmd FileType typescript,javascript lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("typescript"), {noremap = true})
--- ]]
+    --     vim.cmd [[
+    --   " enable only for specific FileType
+    --   autocmd FileType typescript,javascript lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("typescript"), {noremap = true})
+    -- ]]
   end,
 }
