@@ -1,3 +1,39 @@
+local formatters_by_ft = {
+  bash = { "shfmt" },
+  go = { "goimports", "gofmt" },
+  lua = { "stylua" },
+  sh = { "shfmt" },
+  zsh = { "shfmt" },
+}
+
+local prettier_file_types = {
+  "angular",
+  "css",
+  "flow",
+  "graphql",
+  "handlebars",
+  "html",
+  "javascript",
+  "javascriptreact",
+  "json",
+  "jsonc",
+  "less",
+  "markdown",
+  "markdown.mdx",
+  "sass",
+  "scss",
+  "typescript",
+  "typescriptreact",
+  "vue",
+  "xml",
+  "yaml",
+}
+
+local P = { "biome", "prettierd", "prettier" }
+for _, ft in pairs(prettier_file_types) do
+  formatters_by_ft[ft] = P
+end
+
 return {
   -- Setup config for formatter
   {
@@ -9,31 +45,7 @@ return {
       "williamboman/mason.nvim",
     },
     opts = {
-      formatters_by_ft = {
-        bash = { "shfmt" },
-        css = { "biome", "prettierd", "prettier" },
-        go = { "goimports", "gofmt" },
-        graphql = { "biome", "prettierd", "prettier" },
-        handlebars = { "biome", "prettierd", "prettier" },
-        html = { "biome", "prettierd", "prettier" },
-        javascript = { "biome", "deno_fmt", "prettier" },
-        javascriptreact = { "rustywind", "biome", "deno_fmt", "prettierd" },
-        json = { "biome", "prettierd", "prettier" },
-        jsonc = { "biome", "prettierd", "prettier" },
-        less = { "biome", "prettierd", "prettier" },
-        lua = { "stylua" },
-        markdown = { "biome", "prettierd", "prettier" },
-        sass = { "biome", "prettierd", "prettier" },
-        scss = { "biome", "prettierd", "prettier" },
-        sh = { "shfmt" },
-        svelte = { "rustywind", "biome", "deno_fmt", "prettierd", "prettier" },
-        typescript = { "biome", "deno_fmt", "prettierd", "prettier" },
-        typescriptreact = { "rustywind", "biome", "deno_fmt", "prettierd", "prettier" },
-        vue = { "biome", "prettierd", "prettier" },
-        xml = { "biome", "prettierd", "prettier" },
-        yaml = { "biome", "prettierd", "prettier" },
-        zsh = { "shfmt" },
-      },
+      formatters_by_ft = formatters_by_ft,
       formatters = {
         biome = {
           condition = function(ctx)
