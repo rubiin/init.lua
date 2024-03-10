@@ -32,6 +32,9 @@ end
 ---@return boolean
 function M.keymap_exists(mode, lhs)
   local keymaps = vim.api.nvim_get_keymap(mode)
+  if #keymaps == 0 then
+    return false
+  end
   for _, keymap in ipairs(keymaps) do
     if keymap.lhs == lhs then
       return true
@@ -256,9 +259,7 @@ end
 ---@param keymap list
 ---@return nil
 function M.delete_keymap(keymap)
-  if M.keymap_exists(keymap[1], keymap[2]) then
-    vim.keymap.del(keymap[1], keymap[2])
-  end
+  vim.keymap.del(keymap[1], keymap[2])
 end
 
 -- Trim trailing whitespace on save.

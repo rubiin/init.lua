@@ -32,12 +32,39 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     config = function()
       local api = require("typescript-tools.api")
+      require("utils.lsp").on_attach(function(client, bufnr)
+        if client.name == "tsserver" then
+          vim.keymap.set(
+            "n",
+            "<leader>lo",
+            "<cmd>TSToolsOrganizeImports<cr>",
+            { buffer = bufnr, desc = "Organize Imports" }
+          )
+          vim.keymap.set("n", "<leader>lO", "<cmd>TSToolsSortImports<cr>", { buffer = bufnr, desc = "Sort Imports" })
+          vim.keymap.set("n", "<leader>lu", "<cmd>TSToolsRemoveUnused<cr>", { buffer = bufnr, desc = "Removed Unused" })
+          vim.keymap.set(
+            "n",
+            "<leader>lz",
+            "<cmd>TSToolsGoToSourceDefinition<cr>",
+            { buffer = bufnr, desc = "Go To Source Definition" }
+          )
+          vim.keymap.set(
+            "n",
+            "<leader>lR",
+            "<cmd>TSToolsRemoveUnusedImports<cr>",
+            { buffer = bufnr, desc = "Removed Unused Imports" }
+          )
+          vim.keymap.set("n", "<leader>lF", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
+          vim.keymap.set(
+            "n",
+            "<leader>lA",
+            "<cmd>TSToolsAddMissingImports<cr>",
+            { buffer = bufnr, desc = "Add Missing Imports" }
+          )
+        end
+      end)
       require("typescript-tools").setup({
-        handlers = {
-          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = vim.g.border_style,
-          }),
-        },
+
         settings = {
           -- spawn additional tsserver instance to calculate diagnostics on it
           separate_diagnostic_server = true,
@@ -76,52 +103,6 @@ return {
         },
       })
     end,
-  },
-  -- correctly setup lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- make sure mason installs the server
-      servers = {
-        ---@type lspconfig.options.tsserver
-        tsserver = {
-          keys = {
-            {
-              "<leader>co",
-              function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = {
-                    only = { "source.organizeImports.ts" },
-                    diagnostics = {},
-                  },
-                })
-              end,
-              desc = "Organize Imports",
-            },
-            {
-              "<leader>cR",
-              function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = {
-                    only = { "source.removeUnused.ts" },
-                    diagnostics = {},
-                  },
-                })
-              end,
-              desc = "Remove Unused Imports",
-            },
-          },
-          ---@diagnostic disable-next-line: missing-fields
-          settings = {
-            completions = {
-              completeFunctionCalls = true,
-            },
-          },
-        },
-      },
-    },
   },
   {
     "mfussenegger/nvim-dap",
