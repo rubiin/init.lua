@@ -10,7 +10,6 @@ return {
   -- plugin.<file name without extension> to require it.
   { import = "plugins.extras.wakatime" },
   { import = "plugins.extras.barbecue" },
-  { import = "plugins.extras.autosave" },
   { import = "plugins.extras.better-escape" },
   { import = "plugins.extras.zen" },
   { import = "plugins.extras.cybu" },

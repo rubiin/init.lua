@@ -8,15 +8,18 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = constant.ts_parsers,
-      playground = { enable = true },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "dockerfile" })
+      end
+
+      opts.playground = { enable = true }
       -- Enable Rainbow Parentheses
-      rainbow = { enable = true },
-      autotag = {
+      opts.rainbow = { enable = true }
+      opts.autotag = {
         enable = true,
-      },
-      textobjects = {
+      }
+      opts.textobjects = {
         move = {
           enable = true,
           goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
@@ -24,7 +27,7 @@ return {
           goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
           goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
         },
-      },
-    },
+      }
+    end,
   },
 }

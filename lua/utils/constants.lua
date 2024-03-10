@@ -120,13 +120,9 @@ M.ignore_dirs = {
 
 --- TreeSitter parsers to keep installed
 M.ts_parsers = {
-  "bash",
   "css",
   "diff",
   "html",
-  "javascript",
-  "typescript",
-  "tsx",
   "svelte",
   "astro",
   "regex",
