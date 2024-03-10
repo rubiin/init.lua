@@ -26,6 +26,20 @@ function M.is_warp_terminal()
   return os.getenv("TERM_PROGRAM") == "WarpTerminal"
 end
 
+---Checks if given keymap exists
+---@param mode string
+---@param lhs  string
+---@return boolean
+function M.keymap_exists(mode, lhs)
+  local keymaps = vim.api.nvim_get_keymap(mode)
+  for _, keymap in ipairs(keymaps) do
+    if keymap.lhs == lhs then
+      return true
+    end
+  end
+  return false
+end
+
 -- Gets the operating system
 function M.get_os()
   local os = vim.loop.os_uname().sysname
@@ -238,15 +252,11 @@ function M.notify(message, level, title, timeout)
   vim.notify(message, level, notify_options)
 end
 
--- Delete multiple keymaps.
----@param list table
+-- Delete keymap.
+---@param keymap list
 ---@return nil
-function M.delete_keymaps(list)
-  if #list == 0 then
-    return
-  end
-
-  for _, keymap in ipairs(list) do
+function M.delete_keymap(keymap)
+  if M.keymap_exists(keymap[1], keymap[2]) then
     vim.keymap.del(keymap[1], keymap[2])
   end
 end

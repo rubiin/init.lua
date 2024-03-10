@@ -5,7 +5,7 @@
 -- Not everything needs to be a keymap, you can also use `user_commands`
 
 local lazyvim_util = require("lazyvim.util")
-local keymap = require("utils").keymap
+local keymap, delete_keymap = require("utils").keymap, require("utils").delete_keymap
 local nano = require("utils.nano-plugins")
 
 -- Copy all text in buffer to clipboard with Ctrl-1
@@ -19,6 +19,20 @@ keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
+-- Delete LazyVim default bindings which are nuisance for me
+local keymaps_to_delete = {
+  { "n", "<leader>l" },
+  { "n", "<leader>L" },
+  { "n", "<leader>-" },
+  { "n", "<leader>|" },
+  { "n", "<leader>fT" },
+  { "n", "<leader>ft" },
+}
+
+for _, value in pairs(keymaps_to_delete) do
+  delete_keymap(value)
+end
 
 -- Add LazyVim bindings for meta information
 keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
