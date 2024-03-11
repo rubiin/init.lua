@@ -1,5 +1,7 @@
 -- Better increase/decrease
 
+local keymap = vim.keymap.set
+
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
@@ -103,18 +105,15 @@ return {
         }),
       },
     })
-    local map = require "dial.map"
+    local map = require("dial.map")
     -- change augends in VISUAL mode
-    vim.api.nvim_set_keymap("n", "<C-a>", map.inc_normal("default"), { noremap = true })
-    vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal("default"), { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal("default"), { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal("default"), { noremap = true })
-    vim.keymap.set("n", "~", map.inc_normal("case"), { noremap = true })
-    vim.keymap.set("v", "~", map.inc_visual("case"), { noremap = true })
+    keymap("n", "<C-a>", map.inc_normal("default"), { noremap = true })
+    keymap("n", "<C-x>", map.dec_normal("default"), { noremap = true })
+    keymap("v", "<C-a>", map.inc_visual("default"), { noremap = true })
+    keymap("v", "<C-x>", map.dec_visual("default"), { noremap = true })
+    keymap("n", "~", map.inc_normal("case"), { noremap = true })
+    keymap("v", "~", map.inc_visual("case"), { noremap = true })
 
-    --     vim.cmd [[
-    --   " enable only for specific FileType
-    --   autocmd FileType typescript,javascript lua vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("typescript"), {noremap = true})
-    -- ]]
+
   end,
 }

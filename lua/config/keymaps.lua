@@ -8,13 +8,11 @@ local lazyvim_util = require("lazyvim.util")
 local keymap, delete_keymap = require("utils").keymap, require("utils").delete_keymap
 local nano = require("utils.nano-plugins")
 
--- Copy all text in buffer to clipboard with Ctrl-1
+-- Copy / Select All
 keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
-
--- Select all text in buffer with Ctrl-2
 keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
 
--- Block
+-- Block Arrow Keys
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')

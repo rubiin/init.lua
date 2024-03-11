@@ -11,4 +11,4 @@ vim.keymap.set("n", "<leader>i", function()
 		line = line:gsub(";?$", " !important;", 1)
 	end
 	vim.api.nvim_set_current_line(line)
-end, { buffer = true, desc = " Toggle !important", nowait = true })
+end, { buffer = true, desc = "Toggle !important", nowait = true })
