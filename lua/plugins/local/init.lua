@@ -11,8 +11,7 @@ return {
     },
   },
   {
-    "~/personal-vim-plugs/vimwordlist.nvim",
-    version = "*",
+    dir = "~/personal-vim-plugs/vimwordlist.nvim",
     build = function()
       require("vimwordlist").update_spell_file()
     end,
