@@ -21,3 +21,4 @@ package.loaded["lazyvim.config.options"] = true
 prequire("config.globals") -- user and lazy globals
 prequire("config.lazy")
 prequire("filetype")
+prequire("spellfixes")

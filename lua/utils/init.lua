@@ -4,13 +4,6 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
---- Check if it's weekend
----@return boolean
-function M.is_weekend()
-  local day = tonumber(os.date("%w"))
-  return day == 0 or day == 6
-end
-
 --- Check if it's day time
 ---@return boolean
 function M.is_day_time()
@@ -18,45 +11,11 @@ function M.is_day_time()
   return hour >= 9 and hour < 19
 end
 
-M.is_transparent = M.is_day_time() and not M.is_weekend()
-
 --- Check if it's WarpTerminal
 ---@return boolean
 function M.is_warp_terminal()
   return os.getenv("TERM_PROGRAM") == "WarpTerminal"
 end
-
----Checks if given keymap exists
----@param mode string
----@param lhs  string
----@return boolean
-function M.keymap_exists(mode, lhs)
-  local keymaps = vim.api.nvim_get_keymap(mode)
-  if #keymaps == 0 then
-    return false
-  end
-  for _, keymap in ipairs(keymaps) do
-    if keymap.lhs == lhs then
-      return true
-    end
-  end
-  return false
-end
-
--- Gets the operating system
-function M.get_os()
-  local os = vim.loop.os_uname().sysname
-  if os == "Darwin" then
-    return "macOS"
-  end
-  if os:match("Windows") then
-    return "Windows"
-  end
-
-  return os
-end
-
-_G.get_os = M.get_os
 
 -- Create augroup
 ---@param name string
@@ -572,5 +531,20 @@ function M.get_resiters()
   -- Print the output
   vim.notify(vim.inspect(registers_output))
 end
+
+-- Gets the operating system
+function M.get_os()
+  local os = vim.loop.os_uname().sysname
+  if os == "Darwin" then
+    return "macOS"
+  end
+  if os:match("Windows") then
+    return "Windows"
+  end
+
+  return os
+end
+
+_G.get_os = M.get_os
 
 return M

@@ -11,6 +11,7 @@ local spellfixes = {
   cleitn = "client",
   curosr = "cursor",
   defualt = "default",
+  definately = "definitely",
   doesnt = "doesn't",
   doestn = "doesn't",
   dont = "don't",

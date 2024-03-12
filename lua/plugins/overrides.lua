@@ -108,7 +108,6 @@ return {
     },
   },
 
-  -- TODO: limit messages
   -- messages, cmdline and the popupmenu
   {
     "folke/noice.nvim",
