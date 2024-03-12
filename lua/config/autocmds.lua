@@ -243,7 +243,7 @@ autocmd("InsertLeave", {
 autocmd("BufEnter", {
   group = augeneral,
   callback = function()
-    vim.opt.formatoptions = { c = false, r = false, o = false }
+    vim.cmd("set formatoptions-=cro")
   end,
   desc = "Disable Auto Comment",
 })

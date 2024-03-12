@@ -1,11 +1,14 @@
 return {
   { import = "plugins.editor" },
   { import = "plugins.ui" },
-  { import = "plugins.lang" },
   { import = "plugins.coding" },
   { import = "plugins.lsp" },
   { import = "plugins.local" },
 
+  -- LSP setup
+  { import = "plugins.extras.lang.sh" },
+  { import = "plugins.extras.lang.typescript" },
+  { import = "plugins.extras.lang.markdown" },
   -- install from extras if you need them
   -- plugin.<file name without extension> to require it.
   { import = "plugins.extras.wakatime" },

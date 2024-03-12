@@ -190,7 +190,3 @@ g.loaded_python3_provider = 0
 g.loaded_python_provider = 0
 g.loaded_pythonx_provider = 0
 g.loaded_ruby_provider = 0
-
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
