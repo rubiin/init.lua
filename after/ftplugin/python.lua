@@ -3,7 +3,6 @@
 
 local utils = require("utils")
 
-
 utils.ft_abbr("true", "True")
 utils.ft_abbr("false", "False")
 utils.ft_abbr("//", "#")

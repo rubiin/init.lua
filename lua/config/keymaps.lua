@@ -61,8 +61,6 @@ end, { desc = "Open Regex At Regex101" })
 
 -- keeps registers clean
 keymap({ "n", "x" }, "x", '"_x')
-keymap({ "n", "x" }, "c", '"_c')
-keymap("n", "C", '"_C')
 
 -- do not clutter the register if blank line is deleted
 keymap("n", "dd", function()
