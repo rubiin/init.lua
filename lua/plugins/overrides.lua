@@ -112,6 +112,9 @@ return {
   {
     "folke/noice.nvim",
     opts = function(_, opts)
+      opts.health = {
+        checker = true, -- Disable if you don't want health checks to run
+      }
       table.insert(opts.routes, {
         filter = {
           event = "notify",
