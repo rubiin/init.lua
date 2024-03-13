@@ -38,17 +38,15 @@ Clone the repository and install the plugins:
 
 ```sh
 git clone git@github.com:rubiin/init.lua ~/.config/rubiin/init.lua
-NVIM_APPNAME=rubiin/init.lua/ nvim --headless +"Lazy! sync" +qa```
-
-Replace local plugins specs with the ones from the remote repository:
-```~/personal-vim-plugs/xyz``` becomes  ```rubiin/xyz```
-
+NVIM_APPNAME=rubiin/init.lua/ nvim --headless +"Lazy! sync" +qa
+```
 
 Open Neovim with this config:
 
 ```sh
 NVIM_APPNAME=rubiin/init.lua/ nvim
 ```
+
 
 ## Docker Instructions
 
@@ -60,16 +58,18 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
   '
 ```
 
+## Post installation
+Replace local plugins specs with the ones from the remote repository:
+```~/personal-vim-plugs/xyz``` becomes  ```rubiin/xyz```
 
 
-
-- NOTE for Windows users:
+NOTE for Windows users:
 - don't use Windows
 - try WSL2 on Windows and pretend you're on Linux (it's better)
 
 ## Directory structure
 
-```                             
+```
 ├── after
 │   └── ftplugin                         # Override filetype settings
 ├── biome.json                           # Configuration file for a specific feature or plugin
