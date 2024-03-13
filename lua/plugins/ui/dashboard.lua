@@ -22,6 +22,7 @@ return {
             { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
             { action = 'Telescope oldfiles', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
             { action = [[lua require('lazyvim.util').telescope.config_files()()]], desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
+            { action = [[lua require('telescope').extensions.projects.projects()]], desc = " Projects", icon = user_icons.ui.Project, key = "p" },
             { action = 'SessionLoadLast', desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
             { action = 'Lazy', desc = ' Lazy', icon = user_icons.ui.Sleep, key = 'p' },
             { action = 'Mason', desc = ' Mason', icon = user_icons.ui.PackageAdd, key = 'm' },

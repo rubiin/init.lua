@@ -6,7 +6,7 @@ return {
   {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
-    event = "LazyFile",
+    event = "BufReadPost",
     lazy = true,
     keys = {
       {

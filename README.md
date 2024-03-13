@@ -72,6 +72,8 @@ NOTE for Windows users:
 ```
 ├── after
 │   └── ftplugin                         # Override filetype settings
+│   └── queries                         # Override filetype settings
+├── autoload
 ├── biome.json                           # Configuration file for a specific feature or plugin
 ├── doc
 │   └── keymaps.md                       # Documentation file for keymaps
@@ -83,20 +85,19 @@ NOTE for Windows users:
 │   ├── config                           # Core configuration scripts
 │   ├── custom                           # Custom Lua scripts
 │   ├── plugins                          # Configurations for plugins
-│   │   ├── coding
-│   │   ├── disabled.lua
-│   │   ├── editor
-│   │   ├── extras
+│   │   ├── coding                       # Coding related plugins
+│   │   ├── disabled.lua                 # Disabled plugins
+│   │   ├── editor                       # Editor related plugins
+│   │   ├── extras                       # Extra plugins that are not loaded by default
 │   │   ├── init.lua
-│   │   ├── lang
-│   │   ├── lsp
-│   │   └── ui
+│   │   ├── lsp                          # Language server protocol related plugins
+│   │   └── ui                           # UI related plugins
 │   └── utils                            # Utility scripts
+│   └── telescope                        # Custom telescope extension
 ├── misc                                 # Misc folders
 │   ├── snippets
 │   └── undo
 ├── README.md                            # Readme file for the project
-├── selene.toml                          # Possible configuration file for a tool or plugin
 ├── setup.sh                             # Shell script for bootstrapping required tools
 ├── spell                                # Directory possibly containing spellcheck related files
 └── stylua.toml                          # Configuration file for Stylua

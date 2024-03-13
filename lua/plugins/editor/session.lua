@@ -32,7 +32,7 @@ return {
       },
     },
     opts = {
-      save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+      save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved,resolves to ~/.local/share/nvim/my-sessions/
       silent = false, -- silent nvim message when sourcing session file
       use_git_branch = false, -- create session files based on the branch of a git enabled repository
       default_branch = "main", -- the branch to load if a session file is not found for the current branch

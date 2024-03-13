@@ -1,13 +1,17 @@
+-- Only load those plugins if the current buffer is a git repository
+local util = require("utils")
+
 return {
   {
     "sindrets/diffview.nvim",
-    lazy = true,
+    lazy = not util.is_git_repo(),
     event = "VeryLazy",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Git Diff" } },
   },
   {
     "akinsho/git-conflict.nvim",
-    lazy = true,
+    lazy = not util.is_git_repo(),
     event = "VeryLazy",
     init = function()
       require("git-conflict").setup({
