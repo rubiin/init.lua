@@ -44,7 +44,7 @@ require("lazy").setup({
   checker = {
     -- automatically check for plugin updates
     enabled = true,
-    notify = true,
+    notify = false, -- done on my own to use minimum condition for less noise
     frequency = 60 * 60 * 4, -- = 4 hours
   },
   performance = {
@@ -62,3 +62,20 @@ require("lazy").setup({
     },
   },
 })
+
+local function checkForPluginUpdates()
+  if not require("lazy.status").has_updates() then
+    return
+  end
+  local threshold = 5
+  local numberOfUpdates = tonumber(require("lazy.status").updates():match("%d+"))
+  if numberOfUpdates < threshold then
+    return
+  end
+  vim.notify(("󱧕 %s plugin updates"):format(numberOfUpdates, vim.log.levels.INFO, {
+    title = "Lazy",
+    timeout = 2000,
+  }))
+end
+
+vim.defer_fn(checkForPluginUpdates, 5000)
