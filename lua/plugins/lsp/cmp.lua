@@ -1,5 +1,7 @@
 -- 0.10 , can use native snippets
+
 local cmp = require("cmp")
+local compare = require("cmp.config.compare")
 local user_icons = require("custom.icons")
 
 return {
@@ -100,6 +102,20 @@ return {
       completion = {
         completeopt = vim.o.completeopt,
       },
+      sorting = {
+        comparators = {
+          -- Original order: https://github.com/hrsh7th/nvim-cmp/blob/538e37ba87284942c1d76ed38dd497e54e65b891/lua/cmp/config/default.lua#L65-L74
+          -- Definitions of compare function https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
+          compare.offset,
+          compare.recently_used, -- higher
+          compare.score,
+          compare.exact, -- lower
+          compare.kind, -- higher (prioritize snippets)
+          compare.locality,
+          compare.length,
+          compare.order,
+        },
+      },
       window = {
         completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
         documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
@@ -149,11 +165,29 @@ return {
           { name = "buffer" },
         }),
       })
+
+      -- LUA: disable annoying `--#region` suggestions
+      cmp.setup.filetype("lua", {
+        enabled = function()
+          local line = vim.api.nvim_get_current_line()
+          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
+        end,
+      })
+
+      -- SHELL: disable `\[` suggestions at EoL
+      cmp.setup.filetype("sh", {
+        enabled = function()
+          local col = vim.fn.col(".") - 1
+          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
+          return charBefore ~= "\\"
+        end,
+      })
+
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = "buffer" },
+          { name = "buffer", max_item_count = 3, keyword_length = 2 },
         },
       })
       -- `:` cmdline setup.
