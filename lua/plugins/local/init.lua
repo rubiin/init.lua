@@ -12,6 +12,7 @@ return {
   },
   {
     dir = "~/personal-vim-plugs/vimwordlist.nvim",
+    lazy = true,
     build = function()
       require("vimwordlist").update_spell_file()
     end,
