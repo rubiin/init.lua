@@ -1,5 +1,6 @@
-local Util = require("lazyvim.util")
+local lazy_util = require("lazyvim.util")
 local user_icons = require("custom.icons")
+local util = require("utils")
 
 return {
   {
@@ -18,7 +19,7 @@ return {
           header = vim.split(logo, "\n"),
           -- stylua: ignore
           center = {
-            { action = Util.telescope("files"), desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
+            { action = lazy_util.telescope("files"), desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
             { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
             { action = 'Telescope oldfiles', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
             { action = [[lua require('lazyvim.util').telescope.config_files()()]], desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
@@ -32,7 +33,16 @@ return {
             local stats = require("lazy").stats()
             local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
             local info = {}
-            info[1] = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+            info[1] = "⚡ Neovim loaded "
+              .. stats.loaded
+              .. "/"
+              .. stats.count
+              .. " plugins in "
+              .. ms
+              .. "ms"
+              .. " on "
+              .. user_icons.ui.Neovim
+              .. util.neovim_version()
             info[2] = ""
 
             if vim.g.fortune then

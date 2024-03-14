@@ -170,6 +170,13 @@ function M.is_neovim_version_satisfied(version)
   return version <= tonumber(vim.version().minor)
 end
 
+--- Get neovim version
+---@return string
+function M.neovim_version()
+  local version = vim.version()
+  return version.major .. "." .. version.minor .. "." .. version.patch
+end
+
 -- Checks if a command is available
 ---@param command string
 ---@return boolean
