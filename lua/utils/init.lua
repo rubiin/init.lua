@@ -109,7 +109,7 @@ function M.set_lualine_styles(type)
   }
 
   opts.sections.lualine_x = {
-    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { left = "", right = "" } },
+    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { right = "" } },
     {
       function()
         local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
@@ -130,20 +130,19 @@ function M.set_lualine_styles(type)
       icons_enabled = true,
       cond = M.buffer_not_empty,
       symbols = {
-        unix = "LF ",
-        dos = "CRLF ",
-        mac = "CR ",
+        unix = "LF  ",
+        dos = "CRLF  ",
+        mac = "CR  ",
       },
     },
   }
   opts.sections.lualine_z = {
-    "copilot",
     {
       "filetype",
       fmt = M.capitalize,
       cond = M.buffer_not_empty,
-      separator = { left = "", right = "" },
     },
+    "copilot",
   }
 
   opts.extensions = {}
