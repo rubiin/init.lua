@@ -2,6 +2,7 @@ local formatters_by_ft = {
   bash = { "shfmt" },
   go = { "goimports", "gofmt" },
   lua = { "stylua" },
+  toml = { "taplo" },
   sh = { "shfmt" },
   zsh = { "shfmt" },
 }
