@@ -35,6 +35,9 @@ return {
       },
     },
     opts = {
+      close_fold_kinds_for_ft = {
+        default = { "imports", "comment" },
+      },
       -- Use treesitter as a main provider
       provider_selector = function(_, ft, _)
         -- INFO some filetypes only allow indent, some only LSP, some only
