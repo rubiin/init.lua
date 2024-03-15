@@ -54,6 +54,28 @@ keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
+-- keeps registers clean
+
+keymap({ "n", "x" }, "x", '"_x')
+-- Change text without putting it into the vim register,
+-- see https://stackoverflow.com/q/54255/6064933
+keymap("n", "c", '"_c')
+keymap("n", "C", '"_C')
+keymap("n", "cc", '"_cc')
+keymap("x", "c", '"_c')
+
+
+-- do not clutter the register if blank line is deleted
+keymap("n", "dd", function()
+  if vim.api.nvim_get_current_line():find("^%s*$") then
+    return '"_dd'
+  end
+  return "dd"
+end, { expr = true })
+
+-- Go to beginning of command in command-line mode
+keymap("c", "<C-A>", "<HOME>")
+
 -- Override LazyVim bindings for terminal
 keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })
@@ -71,24 +93,3 @@ end, { desc = "Open Telescope Spell Suggest" })
 keymap("n", "<leader>yx", function()
   nano.open_at_regex_101()
 end, { desc = "Open Regex At Regex101" })
-
--- keeps registers clean
-keymap({ "n", "x" }, "x", '"_x')
-
--- Change text without putting it into the vim register,
--- see https://stackoverflow.com/q/54255/6064933
-keymap("n", "c", '"_c')
-keymap("n", "C", '"_C')
-keymap("n", "cc", '"_cc')
-keymap("x", "c", '"_c')
-
--- Go to beginning of command in command-line mode
-keymap("c", "<C-A>", "<HOME>")
-
--- do not clutter the register if blank line is deleted
-keymap("n", "dd", function()
-  if vim.api.nvim_get_current_line():find("^%s*$") then
-    return '"_dd'
-  end
-  return "dd"
-end, { expr = true })

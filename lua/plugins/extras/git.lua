@@ -7,7 +7,9 @@ return {
     lazy = not util.is_git_repo(),
     event = "VeryLazy",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Git Diff" } },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Git Diff" },
+    },
   },
   {
     "akinsho/git-conflict.nvim",
@@ -26,6 +28,19 @@ return {
       { "<leader>gc0", ":GitConflictChooseNone<cr>" },
       { "]x", ":GitConflictNextConflict<cr>" },
       { "[x", ":GitConflictPrevConflict<cr>" },
+    },
+  },
+  -- Git command inside vim
+  --TODO: check this plugin
+  {
+    "tpope/vim-fugitive",
+    lazy = not util.is_git_repo(),
+    event = "VeryLazy",
+    keys = {
+      { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
+      { "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git Add" },
+      { "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit" },
+      { "<leader>gpl", "<cmd>Git pull<cr>", desc = "Git Pull" },
     },
   },
 }
