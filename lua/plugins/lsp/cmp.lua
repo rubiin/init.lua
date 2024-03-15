@@ -171,34 +171,11 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      cmp.setup(opts)
-
-      -- Set configuration for specific filetype.
-      cmp.setup.filetype("gitcommit", {
-        sources = cmp.config.sources({
-          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-        }, {
-          { name = "buffer" },
-        }),
-      })
-
-      -- LUA: disable annoying `--#region` suggestions
-      cmp.setup.filetype("lua", {
-        enabled = function()
-          local line = vim.api.nvim_get_current_line()
-          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
-        end,
-      })
-
-      -- SHELL: disable `\[` suggestions at EoL
-      cmp.setup.filetype("sh", {
-        enabled = function()
-          local col = vim.fn.col(".") - 1
-          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
-          return charBefore ~= "\\"
-        end,
-      })
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    config = function()
+      local cmp = require("cmp")
 
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
@@ -219,6 +196,38 @@ return {
               ignore_cmds = { "Man", "!" },
             },
           },
+        }),
+      })
+
+      -- LUA: disable annoying `--#region` suggestions
+      cmp.setup.filetype("lua", {
+        enabled = function()
+          local line = vim.api.nvim_get_current_line()
+          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
+        end,
+      })
+
+      -- SHELL: disable `\[` suggestions at EoL
+      cmp.setup.filetype("sh", {
+        enabled = function()
+          local col = vim.fn.col(".") - 1
+          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
+          return charBefore ~= "\\"
+        end,
+      })
+    end,
+  },
+  {
+    "petertriho/cmp-git",
+    config = function()
+      local cmp = require("cmp")
+
+      -- Set configuration for specific filetype.
+      cmp.setup.filetype("gitcommit", {
+        sources = cmp.config.sources({
+          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+        }, {
+          { name = "buffer" },
         }),
       })
     end,
