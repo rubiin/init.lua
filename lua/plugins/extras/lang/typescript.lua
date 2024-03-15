@@ -1,6 +1,8 @@
 local keymap = vim.keymap.set
 
 return {
+  { "marilari88/twoslash-queries.nvim" },
+  { "dmmulroy/ts-error-translator.nvim" },
   {
     "David-Kunz/cmp-npm",
     event = "VeryLazy",
@@ -69,6 +71,8 @@ return {
           )
 
           keymap("n", "<leader>lF", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
+          require("twoslash-queries").attach(client, bufnr)
+          require("ts-error-translator").setup()
         end
       end)
       require("typescript-tools").setup({
@@ -76,15 +80,14 @@ return {
         settings = {
           -- spawn additional tsserver instance to calculate diagnostics on it
           separate_diagnostic_server = true,
-          composite_mode = "separate_diagnostic",
           -- "change"|"insert_leave" determine when the client asks the server about diagnostic
           publish_diagnostic_on = "insert_leave",
           -- array of strings("fix_all"|"add_missing_imports"|"remove_unused"|
           -- "remove_unused_imports"|"organize_imports") -- or string "all"
           -- to include all supported code actions
           -- specify commands exposed as code_actions
-          expose_as_code_action = {},
-
+          expose_as_code_action = { "all" },
+          tsserver_path = nil,
           tsserver_plugins = {},
           tsserver_max_memory = "auto",
           tsserver_format_options = {},
@@ -92,7 +95,7 @@ return {
           -- locale of all tsserver messages, supported locales you can find here:
           -- https://github.com/microsoft/TypeScript/blob/3c221fc086be52b19801f6e8d82596d04607ede6/src/compiler/utilitiesPublic.ts#L620
           tsserver_locale = "en",
-          complete_function_calls = true,
+          complete_function_calls = false,
           include_completions_with_insert_text = true,
           -- CodeLens
           -- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
@@ -216,4 +219,3 @@ return {
   },
 }
 
---TODO: translate error
