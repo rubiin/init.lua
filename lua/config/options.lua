@@ -179,14 +179,3 @@ o.spelllang = "en" -- set spell check language
 o.history = 1000 -- Number of command-lines that are remembered
 o.redrawtime = 100 -- Decrease redraw time
 o.updatetime = 250 -- Decrease update time
-
--- ========================================================================== --
--- ==                  PROVIDER                                            == --
--- ========================================================================== --
-
-g.loaded_node_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_python_provider = 0
-g.loaded_pythonx_provider = 0
-g.loaded_ruby_provider = 0

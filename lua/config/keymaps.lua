@@ -75,6 +75,16 @@ end, { desc = "Open Regex At Regex101" })
 -- keeps registers clean
 keymap({ "n", "x" }, "x", '"_x')
 
+-- Change text without putting it into the vim register,
+-- see https://stackoverflow.com/q/54255/6064933
+keymap("n", "c", '"_c')
+keymap("n", "C", '"_C')
+keymap("n", "cc", '"_cc')
+keymap("x", "c", '"_c')
+
+-- Go to beginning of command in command-line mode
+keymap("c", "<C-A>", "<HOME>")
+
 -- do not clutter the register if blank line is deleted
 keymap("n", "dd", function()
   if vim.api.nvim_get_current_line():find("^%s*$") then
