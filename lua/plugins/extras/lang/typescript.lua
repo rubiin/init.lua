@@ -1,8 +1,26 @@
 local keymap = vim.keymap.set
 
 return {
-  { "marilari88/twoslash-queries.nvim" },
-  { "dmmulroy/ts-error-translator.nvim", config = true },
+  {
+    "marilari88/twoslash-queries.nvim",
+    lazy = true,
+    ft = {
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    config = true,
+  },
+  {
+    "dmmulroy/ts-error-translator.nvim",
+    lazy = true,
+    ft = {
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    config = true,
+  },
 
   {
     "David-Kunz/cmp-npm",
