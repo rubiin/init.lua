@@ -2,7 +2,8 @@ local keymap = vim.keymap.set
 
 return {
   { "marilari88/twoslash-queries.nvim" },
-  { "dmmulroy/ts-error-translator.nvim" },
+  { "dmmulroy/ts-error-translator.nvim", config = true },
+
   {
     "David-Kunz/cmp-npm",
     event = "VeryLazy",
@@ -72,7 +73,6 @@ return {
 
           keymap("n", "<leader>lF", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
           require("twoslash-queries").attach(client, bufnr)
-          require("ts-error-translator").setup()
         end
       end)
       require("typescript-tools").setup({
@@ -218,4 +218,3 @@ return {
     },
   },
 }
-

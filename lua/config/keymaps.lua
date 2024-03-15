@@ -64,7 +64,6 @@ keymap("n", "C", '"_C')
 keymap("n", "cc", '"_cc')
 keymap("x", "c", '"_c')
 
-
 -- do not clutter the register if blank line is deleted
 keymap("n", "dd", function()
   if vim.api.nvim_get_current_line():find("^%s*$") then
