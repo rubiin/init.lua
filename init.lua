@@ -15,9 +15,9 @@
 -- ░░░░░░░░░░
 -- this is supposed to make loading faster
 vim.loader.enable()
-local prequire = require("utils").prequire
 
 package.loaded["lazyvim.config.options"] = true
-prequire("config.globals") -- user and lazy globals
-prequire("config.lazy")
-prequire("filetype")
+require("config.globals") -- user and lazy globals
+require("config.lazy")
+require("filetype")
+require("spellfixes")
