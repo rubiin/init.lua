@@ -92,3 +92,7 @@ end, { desc = "Open Telescope Spell Suggest" })
 keymap("n", "<leader>yx", function()
   nano.open_at_regex_101()
 end, { desc = "Open Regex At Regex101" })
+
+keymap("n", "<leader>yy", function()
+  nano.add_author_details()
+end, { desc = "Add Author Details" })

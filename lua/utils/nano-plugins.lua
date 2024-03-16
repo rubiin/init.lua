@@ -118,4 +118,94 @@ function M.open_at_regex_101()
   M.open_in_browser(url)
 end
 
+function M.add_author_details()
+  -- Define author details
+  local author = {
+    name = "Rubin Bhandari",
+    email = "roobin.bhandari@gmail.com",
+    github = "rubiin",
+    twitter = "RubinCodes",
+  }
+
+  -- Get current buffer's file type
+  local filetype = vim.bo.filetype
+
+  local double_slash_based = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "c",
+    "cpp",
+    "go",
+    "java",
+    "rust",
+    "dart",
+    "kotlin",
+    "swift",
+    "css",
+    "sass",
+    "php",
+    "scala",
+  }
+
+  local hash_based = {
+    "perl",
+    "sh",
+    "zsh",
+    "python",
+    "ruby",
+    "r",
+    "bash",
+  }
+  local comment_syntax = {}
+
+  for _, value in ipairs(hash_based) do
+    comment_syntax[value] = "# "
+  end
+
+  for _, value in ipairs(double_slash_based) do
+    comment_syntax[value] = "// "
+  end
+
+  comment_syntax["lua"] = "-- "
+
+  -- Get the comment syntax for the current file type
+  local comment = comment_syntax[filetype]
+
+  -- If comment syntax not found, use default
+  if not comment then
+    vim.notify("File format not supported for now")
+    return
+  end
+
+  -- Format the comment with author details
+  local comment_details = string.format(
+    "%s Author: %s <%s>\n%s GitHub: https://github.com/%s\n%s Twitter: https://twitter.com/%s\n",
+    comment,
+    author.name,
+    author.email,
+    comment,
+    author.github,
+    comment,
+    author.twitter
+  )
+
+  -- Get current buffer
+  local bufnr = vim.api.nvim_get_current_buf()
+  -- Get existing buffer lines
+  local existing_lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+  -- Split the replacement string into lines
+  local replacement_lines = {}
+  for line in comment_details:gmatch("[^\r\n]+") do
+    table.insert(replacement_lines, line)
+  end
+
+  -- Insert the new lines at the beginning of the buffer
+  vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, replacement_lines)
+
+  -- Append the existing lines after the new lines
+  vim.api.nvim_buf_set_lines(bufnr, #replacement_lines, -1, false, existing_lines)
+end
 return M
