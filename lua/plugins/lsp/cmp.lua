@@ -69,113 +69,155 @@ return {
       "L3MON4D3/LuaSnip",
     },
     opts = function(_, opts)
-      return {
-        mapping = vim.tbl_extend("force", opts.mapping, {
-          ["<Tab>"] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              fallback()
-            end
-          end,
-          ["<S-Tab>"] = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            else
-              fallback()
-            end
-          end,
-        }),
-        confirm_opts = {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        },
-        duplicates = {
-          nvim_lsp = 1,
-          luasnip = 1,
-          look = 1,
-          cmp_tabnine = 1,
-          copilot = 1,
-          buffer = 1,
-          path = 1,
-        },
-        sources = {
-          { name = "nvim_lsp", max_item_count = 20 },
-          { name = "buffer", keyword_length = 4, max_item_count = 10 },
-          { name = "luasnip" },
-          { name = "path" },
+      opts.confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      }
 
-          {
-            name = "spell",
-            option = {
-              keep_all_entries = false,
-              enable_in_context = function()
-                return true
-              end,
-            },
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+
+      local luasnip = require("luasnip")
+      local cmp = require("cmp")
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
+            cmp.select_next_item()
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- this way you will only jump inside the snippet region
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      })
+
+      opts.duplicates = {
+        nvim_lsp = 1,
+        luasnip = 1,
+        look = 1,
+        cmp_tabnine = 1,
+        copilot = 1,
+        buffer = 1,
+        path = 1,
+      }
+      opts.sources = {
+        { name = "nvim_lsp", max_item_count = 20 },
+        { name = "buffer", keyword_length = 4, max_item_count = 10 },
+        { name = "luasnip" },
+        { name = "path" },
+
+        {
+          name = "spell",
+          option = {
+            keep_all_entries = false,
+            enable_in_context = function()
+              return true
+            end,
           },
-          { name = "nvim_lua" },
         },
-        completion = {
-          completeopt = vim.o.completeopt,
-        },
-        sorting = {
-          comparators = {
-            -- Original order: https://github.com/hrsh7th/nvim-cmp/blob/538e37ba87284942c1d76ed38dd497e54e65b891/lua/cmp/config/default.lua#L65-L74
-            -- Definitions of compare function https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
-            compare.offset,
-            compare.recently_used, -- higher
-            compare.score,
-            compare.exact, -- lower
-            compare.kind, -- higher (prioritize snippets)
-            compare.locality,
-            compare.length,
-            compare.order,
-          },
-        },
-        window = {
-          completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
-          documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
-          preview = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
-        },
-        formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = function(entry, item)
-            -- load lspkind icons
-            item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
-
-            item.menu = ({
-              cmp_tabnine = "[Tabnine]",
-              copilot = "[Copilot]",
-              spell = "[Spell]",
-              buffer = "[Buffer]",
-              orgmode = "[Org]",
-              look = "[Dictionary]",
-              nvim_lsp = "[LSP]",
-              git = "[Git]",
-              nvim_lua = "[Lua]",
-              path = "[Path]",
-              tmux = "[Tmux]",
-              latex_symbols = "[Latex]",
-              luasnip = "[Snippet]",
-            })[entry.source.name]
-
-            local label = item.abbr
-            local truncated_label = vim.fn.strcharpart(label, 0, 50)
-            if truncated_label ~= label then
-              item.abbr = truncated_label .. "..."
-            end
-
-            return item
-          end,
+        { name = "nvim_lua" },
+      }
+      opts.completion = {
+        completeopt = vim.o.completeopt,
+      }
+      opts.sorting = {
+        comparators = {
+          -- Original order: https://github.com/hrsh7th/nvim-cmp/blob/538e37ba87284942c1d76ed38dd497e54e65b891/lua/cmp/config/default.lua#L65-L74
+          -- Definitions of compare function https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
+          compare.offset,
+          compare.recently_used, -- higher
+          compare.score,
+          compare.exact, -- lower
+          compare.kind, -- higher (prioritize snippets)
+          compare.locality,
+          compare.length,
+          compare.order,
         },
       }
+      opts.window = {
+        completion = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
+        documentation = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
+        preview = { border = vim.g.border_style, scrolloff = vim.o.scrolloff, scrollbar = "║" },
+      }
+      opts.formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, item)
+          -- load lspkind icons
+          item.kind = string.format(" %s  %s", user_icons.kinds[item.kind], item.kind)
+
+          item.menu = ({
+            cmp_tabnine = "[Tabnine]",
+            copilot = "[Copilot]",
+            spell = "[Spell]",
+            buffer = "[Buffer]",
+            orgmode = "[Org]",
+            look = "[Dictionary]",
+            nvim_lsp = "[LSP]",
+            git = "[Git]",
+            nvim_lua = "[Lua]",
+            path = "[Path]",
+            tmux = "[Tmux]",
+            latex_symbols = "[Latex]",
+            luasnip = "[Snippet]",
+          })[entry.source.name]
+
+          local label = item.abbr
+          local truncated_label = vim.fn.strcharpart(label, 0, 50)
+          if truncated_label ~= label then
+            item.abbr = truncated_label .. "..."
+          end
+
+          return item
+        end,
+      }
     end,
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-    config = function()
-      local cmp = require("cmp")
+
+    config = function(_, opts)
+      cmp.setup(opts)
+
+      -- Set configuration for specific filetype.
+      cmp.setup.filetype("gitcommit", {
+        sources = cmp.config.sources({
+          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+        }, {
+          { name = "buffer" },
+        }),
+      })
+
+      -- LUA: disable annoying `--#region` suggestions
+      cmp.setup.filetype("lua", {
+        enabled = function()
+          local line = vim.api.nvim_get_current_line()
+          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
+        end,
+      })
+
+      -- SHELL: disable `\[` suggestions at EoL
+      cmp.setup.filetype("sh", {
+        enabled = function()
+          local col = vim.fn.col(".") - 1
+          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
+          return charBefore ~= "\\"
+        end,
+      })
 
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
@@ -196,38 +238,6 @@ return {
               ignore_cmds = { "Man", "!" },
             },
           },
-        }),
-      })
-
-      -- LUA: disable annoying `--#region` suggestions
-      cmp.setup.filetype("lua", {
-        enabled = function()
-          local line = vim.api.nvim_get_current_line()
-          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
-        end,
-      })
-
-      -- SHELL: disable `\[` suggestions at EoL
-      cmp.setup.filetype("sh", {
-        enabled = function()
-          local col = vim.fn.col(".") - 1
-          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
-          return charBefore ~= "\\"
-        end,
-      })
-    end,
-  },
-  {
-    "petertriho/cmp-git",
-    config = function()
-      local cmp = require("cmp")
-
-      -- Set configuration for specific filetype.
-      cmp.setup.filetype("gitcommit", {
-        sources = cmp.config.sources({
-          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-        }, {
-          { name = "buffer" },
         }),
       })
     end,

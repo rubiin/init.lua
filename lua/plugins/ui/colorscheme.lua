@@ -48,6 +48,9 @@ end
 
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 return {
+  {
+    "tjdevries/colorbuddy.nvim",
+  },
   -- add onedarkpro
   {
     "olimorris/onedarkpro.nvim",

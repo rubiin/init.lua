@@ -47,7 +47,7 @@ o.splitright = true -- Put new windows right of current
 o.winminwidth = 5 -- Minimum window width
 
 -- ========================================================================== --
--- ==                          CUSRSOR LINE                                == --
+-- ==                          CURSOR LINE                                == --
 -- ========================================================================== --
 
 o.cursorline = true -- highlight the current cursor line
@@ -170,7 +170,7 @@ o.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 o.spell = true -- Enable spell check by default
 o.encoding = "UTF-8" -- set encoding
 o.fileencoding = "UTF-8" -- set encoding
-o.spelllang = "en" -- set spell check language
+o.spelllang = { "en" } -- set spell check language
 
 -- ========================================================================== --
 -- ==                  PERFORMANCE SETTINGS                                == --
