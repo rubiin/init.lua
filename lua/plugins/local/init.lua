@@ -1,9 +1,10 @@
 -- Load local plugins here
--- If you are not rubiin, replace ~/personal-vim-plugs with rubiin
+-- If you are not rubiin, replace dev=true with dev=false
 return {
   {
-    dir = "~/personal-vim-plugs/fortune.nvim",
+    dir = "rubiin/fortune.nvim",
     lazy = true,
+    dev = true,
     event = "VimEnter",
     opts = {
       max_width = 60,
@@ -11,8 +12,9 @@ return {
     },
   },
   {
-    dir = "~/personal-vim-plugs/vimwordlist.nvim",
+    dir = "rubiin/vimwordlist.nvim",
     lazy = true,
+    dev = true,
     build = function()
       require("vimwordlist").update_spell_file()
     end,

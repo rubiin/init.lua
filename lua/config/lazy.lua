@@ -51,6 +51,7 @@ require("lazy").setup({
     -- version = '*', -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "catppuccin" } },
+  dev = { path = "~/personal-vim-plugs" },
   checker = {
     -- automatically check for plugin updates
     enabled = true,
