@@ -11,6 +11,13 @@ function M.is_day_time()
   return hour >= 9 and hour < 19
 end
 
+---Check if buffer is valid
+---@param buf_id number
+---@return boolean
+M.is_valid_buf = function(buf_id)
+  return type(buf_id) == "number" and vim.api.nvim_buf_is_valid(buf_id)
+end
+
 --- Check if it's WarpTerminal
 ---@return boolean
 function M.is_warp_terminal()
@@ -20,6 +27,7 @@ end
 -- Create augroup
 ---@param name string
 ---@param opts? table
+---@return number
 function M.augroup(name, opts)
   opts = opts or { clear = true }
   return api.nvim_create_augroup(name, opts)
@@ -27,6 +35,7 @@ end
 
 -- Check if a string is empty
 ---@param s any
+---@return boolean
 function M.is_empty(s)
   return s == nil or s == ""
 end
@@ -154,7 +163,7 @@ end
 ---@param str string
 ---@param delimiter string
 ---@return table
-function M.strsplit(str, delimiter)
+function M.str_split(str, delimiter)
   local result = {}
   for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
     table.insert(result, match)
@@ -209,9 +218,9 @@ end
 
 -- Notify
 ---@param message string
----@param level string|integer
+---@param level string|number
 ---@param title? string
----@param timeout? integer
+---@param timeout? number
 function M.notify(message, level, title, timeout)
   local notify_options = {
     title = title or "notification",
@@ -321,7 +330,7 @@ end
 --- Checks whether the buffer is valid.
 -- Checks if buffer is valid and listed.
 ---@param buf_id buffer id to be checked.
----@treturn bool
+---@return boolean
 function M.is_valid_buffer(buf_id)
   return api.nvim_buf_is_valid(buf_id) and fn.getbufvar(buf_id, "&buflisted") == 1
 end
@@ -329,7 +338,7 @@ end
 --- Checks whether the buffer is a regular file buffer.
 -- It also checks if buffer is valid and listed.
 ---@param buf_id buffer id to be checked.
----@treturn bool
+---@return boolean
 function M.is_file_buffer(buf_id)
   return M.is_valid_buffer(buf_id) and fn.getbufvar(buf_id, "&buftype") ~= "terminal"
 end
@@ -408,6 +417,7 @@ end
 -- Checks if a list contains a value.
 ---@param list table
 ---@param val any
+---@return boolean
 function M.list_contains(list, val)
   for i = 1, #list do
     if list[i] == val then
