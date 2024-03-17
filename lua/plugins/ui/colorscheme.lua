@@ -50,6 +50,7 @@ end
 return {
   {
     "tjdevries/colorbuddy.nvim",
+    lazy = "true",
   },
   -- add onedarkpro
   {

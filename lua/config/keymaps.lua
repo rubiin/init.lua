@@ -96,3 +96,7 @@ end, { desc = "Open Regex At Regex101" })
 keymap("n", "<leader>yy", function()
   nano.add_author_details()
 end, { desc = "Add Author Details" })
+
+keymap("n", "<leader>yz", function()
+  nano.zoom()
+end, { desc = "Zoom" })
