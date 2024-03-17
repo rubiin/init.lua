@@ -118,6 +118,7 @@ function M.open_at_regex_101()
   M.open_in_browser(url)
 end
 
+-- Adds author details to files
 function M.add_author_details()
   -- Define author details
   local author = {
@@ -131,33 +132,34 @@ function M.add_author_details()
   local filetype = vim.bo.filetype
 
   local double_slash_based = {
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
     "c",
-    "cpp",
     "go",
+    "css",
+    "php",
     "java",
     "rust",
-    "dart",
-    "kotlin",
-    "swift",
-    "css",
     "sass",
-    "php",
     "scala",
+    "dart",
+    "swift",
+    "kotlin",
+    "javascript",
+    "typescript",
+    "cpp",
+    "javascriptreact",
+    "typescriptreact",
   }
 
   local hash_based = {
-    "perl",
+    "r",
     "sh",
+    "perl",
+    "bash",
+    "ruby",
     "zsh",
     "python",
-    "ruby",
-    "r",
-    "bash",
   }
+
   local comment_syntax = {}
 
   for _, value in ipairs(hash_based) do
@@ -175,23 +177,24 @@ function M.add_author_details()
 
   -- If comment syntax not found, use default
   if not comment then
-    vim.notify("File format not supported for now")
+    vim.notify("💁 Woops, file format not supported for now")
     return
   end
 
   -- Format the comment with author details
+  -- Get current buffer
   local comment_details = string.format(
-    "%s Author: %s <%s>\n%s GitHub: https://github.com/%s\n%s Twitter: https://twitter.com/%s\n",
+    "%s Author: %s <%s>\n%s Date: %s\n%s GitHub: https://github.com/%s\n%s Twitter: https://twitter.com/%s\n",
     comment,
     author.name,
     author.email,
+    comment,
+    os.date("%Y-%m-%d"), -- Add the date here using os.date() function with appropriate format
     comment,
     author.github,
     comment,
     author.twitter
   )
-
-  -- Get current buffer
   local bufnr = vim.api.nvim_get_current_buf()
   -- Get existing buffer lines
   local existing_lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
@@ -207,5 +210,7 @@ function M.add_author_details()
 
   -- Append the existing lines after the new lines
   vim.api.nvim_buf_set_lines(bufnr, #replacement_lines, -1, false, existing_lines)
+
+  vim.notify("✅ Added author details")
 end
 return M
