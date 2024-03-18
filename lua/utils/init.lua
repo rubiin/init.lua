@@ -74,7 +74,9 @@ function M.set_lualine_styles(type)
   opts.sections.lualine_a = {
     {
       "mode",
-      icon = "",
+      fmt = function(str)
+        return user_icons.ui.Target .. (str == "V-LINE" and "VL" or (str == "V-BLOCK" and "VB" or str:sub(1, 1)))
+      end,
     },
   }
   opts.sections.lualine_b = {
