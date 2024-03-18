@@ -1,8 +1,9 @@
 -- Load local plugins here
 -- If you are not rubiin, replace dev=true with dev=false
+
 return {
   {
-    dir = "rubiin/fortune.nvim",
+    "rubiin/fortune.nvim",
     lazy = true,
     dev = true,
     event = "VimEnter",
@@ -12,8 +13,9 @@ return {
     },
   },
   {
-    dir = "rubiin/vimwordlist.nvim",
+    "rubiin/vimwordlist.nvim",
     lazy = true,
+    cmd = "GenerateVimSpell",
     dev = true,
     build = function()
       require("vimwordlist").update_spell_file()
@@ -21,5 +23,9 @@ return {
     config = function()
       vim.opt.spelllang:append("vim")
     end,
+  },
+  {
+    "rubiin/highlighturl.nvim",
+    dev = true,
   },
 }
