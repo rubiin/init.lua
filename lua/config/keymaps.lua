@@ -80,6 +80,7 @@ keymap("c", "<C-A>", "<HOME>")
 keymap("n", "<C-/>", function()
   lazyvim_util.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
+keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
 
 -- Add keymap to open URL under cursor
 keymap("n", "gx", function()
