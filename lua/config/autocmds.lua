@@ -266,6 +266,15 @@ usercmd("TrimTrailingLines", utils.trim_trailing_lines, {
   desc = "Trim Trailing Lines",
 })
 
+-- ## COOL HACKS ------------------------------------------------------------
+-- 6. Effect: URL underline.
+vim.api.nvim_set_hl(0, 'HighlightURL', { underline = true })
+autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
+  desc = "URL Highlighting",
+  callback = function() utils.set_url_effect() end,
+})
+
+
 usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
   desc = "Trim Trailing Whitespace",
 })
