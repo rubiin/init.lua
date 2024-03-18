@@ -21,6 +21,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- testing and debugging
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.test.core" },
