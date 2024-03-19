@@ -3,7 +3,6 @@ local keymap = vim.keymap.set
 return {
   {
     "marilari88/twoslash-queries.nvim",
-    lazy = true,
     ft = {
       "typescript",
       "typescriptreact",
@@ -13,7 +12,6 @@ return {
   },
   {
     "dmmulroy/ts-error-translator.nvim",
-    lazy = true,
     ft = {
       "typescript",
       "typescriptreact",
@@ -25,7 +23,6 @@ return {
   {
     "David-Kunz/cmp-npm",
     event = "VeryLazy",
-    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "json",
     opts = {},
@@ -53,7 +50,6 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     event = "VeryLazy",
-    lazy = true,
     ft = {
       "javascript",
       "javascriptreact",

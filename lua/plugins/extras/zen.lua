@@ -4,7 +4,6 @@ return {
   -- Dims inactive portions of the code you're editing
   {
     "folke/twilight.nvim",
-    lazy = true,
     event = "VeryLazy",
     cmd = "Twilight",
   },
@@ -13,7 +12,6 @@ return {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     event = "VeryLazy",
-    lazy = true,
     keys = {
       { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },

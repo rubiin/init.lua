@@ -20,7 +20,6 @@ return {
         enabled = not jit.os:find("Windows"),
       },
     },
-    lazy = true,
     keys = {
       {
         "<leader>cu",

@@ -3,7 +3,6 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     event = "LazyFile",
-    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

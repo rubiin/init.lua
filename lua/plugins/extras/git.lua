@@ -4,7 +4,6 @@ local util = require("utils")
 return {
   {
     "sindrets/diffview.nvim",
-    lazy = not util.is_git_repo(),
     event = "VeryLazy",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     keys = {
@@ -13,7 +12,6 @@ return {
   },
   {
     "akinsho/git-conflict.nvim",
-    lazy = not util.is_git_repo(),
     event = "VeryLazy",
     init = function()
       require("git-conflict").setup({
@@ -34,7 +32,6 @@ return {
   --TODO: check this plugin
   {
     "tpope/vim-fugitive",
-    lazy = not util.is_git_repo(),
     event = "VeryLazy",
     keys = {
       { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },

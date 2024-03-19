@@ -4,7 +4,6 @@ return {
   {
     "nvim-treesitter/playground",
     cmd = "TSPlaygroundToggle",
-    lazy = true,
   },
   {
     "nvim-treesitter/nvim-treesitter",

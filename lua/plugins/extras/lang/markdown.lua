@@ -5,7 +5,6 @@ return {
   {
     "ellisonleao/glow.nvim",
     event = "VeryLazy",
-    lazy = true,
     cmd = "Glow",
     keys = {
       {
