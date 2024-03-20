@@ -5,8 +5,6 @@ return {
     build = ":Copilot auth",
     event = "InsertEnter",
     opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
       filetypes = {
         ["*"] = false,
         yaml = false,
@@ -18,6 +16,14 @@ return {
         lua = true,
         python = true,
         rust = true,
+      },
+      keymap = {
+        accept = "<Tab>",
+        close = "<Esc>",
+        next = "<C-J>",
+        prev = "<C-K>",
+        select = "<CR>",
+        dismiss = "<C-X>",
       },
     },
   },
