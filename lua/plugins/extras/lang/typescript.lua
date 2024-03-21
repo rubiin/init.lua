@@ -89,6 +89,7 @@ return {
           require("twoslash-queries").attach(client, bufnr)
         end
       end)
+      require("typescript-tools").setup({})
     end,
   },
   {

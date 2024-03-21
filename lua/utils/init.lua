@@ -153,7 +153,6 @@ function M.set_lualine_styles(type)
       fmt = M.capitalize,
       cond = M.buffer_not_empty,
     },
-    "copilot",
   }
 
   opts.extensions = {}
