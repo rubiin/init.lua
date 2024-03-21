@@ -119,7 +119,7 @@ return {
       opts.sources = {
         { name = "nvim_lsp" },
         { name = "path" },
-        { name = "buffer"},
+        { name = "buffer" },
         { name = "luasnip" },
         {
           name = "spell",

@@ -89,7 +89,6 @@ return {
         end
       end)
       require("typescript-tools").setup({})
-
     end,
   },
   {

@@ -13,6 +13,7 @@ return {
   { import = "plugins.extras.zen" },
   { import = "plugins.extras.cybu" },
   { import = "plugins.extras.autosave" },
+  { import = "plugins.extras.runner" },
 
   -- language setup
   { import = "plugins.extras.lang.sh" },
