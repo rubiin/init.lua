@@ -89,44 +89,6 @@ return {
           require("twoslash-queries").attach(client, bufnr)
         end
       end)
-      require("typescript-tools").setup({
-
-        settings = {
-          -- spawn additional tsserver instance to calculate diagnostics on it
-          separate_diagnostic_server = true,
-          -- "change"|"insert_leave" determine when the client asks the server about diagnostic
-          publish_diagnostic_on = "insert_leave",
-          -- array of strings("fix_all"|"add_missing_imports"|"remove_unused"|
-          -- "remove_unused_imports"|"organize_imports") -- or string "all"
-          -- to include all supported code actions
-          -- specify commands exposed as code_actions
-          expose_as_code_action = { "all" },
-          tsserver_path = nil,
-          tsserver_plugins = {},
-          tsserver_max_memory = "auto",
-          tsserver_format_options = {},
-
-          -- locale of all tsserver messages, supported locales you can find here:
-          -- https://github.com/microsoft/TypeScript/blob/3c221fc086be52b19801f6e8d82596d04607ede6/src/compiler/utilitiesPublic.ts#L620
-          tsserver_locale = "en",
-          complete_function_calls = false,
-          include_completions_with_insert_text = true,
-          -- CodeLens
-          -- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
-          -- possible values: ("off"|"all"|"implementations_only"|"references_only")
-          code_lens = "off",
-          -- by default code lenses are displayed on all referenceable values and for some of you it can
-          -- be too much this option reduce count of them by removing member references from lenses
-          disable_member_code_lens = true,
-          tsserver_file_preferences = {
-            importModuleSpecifierPreference = "non-relative",
-          },
-          jsx_close_tag = {
-            enable = true,
-            filetypes = { "javascriptreact", "typescriptreact" },
-          },
-        },
-      })
     end,
   },
   {
