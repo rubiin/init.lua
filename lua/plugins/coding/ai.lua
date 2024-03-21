@@ -1,30 +1,8 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
+    "github/copilot.vim",
     cmd = "Copilot",
-    build = ":Copilot auth",
+    build = ":Copilot setup",
     event = "InsertEnter",
-    opts = {
-      filetypes = {
-        ["*"] = false,
-        yaml = false,
-        markdown = true,
-        help = true,
-        go = true,
-        html = true,
-        javascript = true,
-        lua = true,
-        python = true,
-        rust = true,
-      },
-      keymap = {
-        accept = "<Tab>",
-        close = "<Esc>",
-        next = "<C-J>",
-        prev = "<C-K>",
-        select = "<CR>",
-        dismiss = "<C-X>",
-      },
-    },
   },
 }
