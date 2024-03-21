@@ -62,10 +62,10 @@ return {
     config = function()
       local api = require("typescript-tools.api")
       require("lazyvim.util.lsp").on_attach(function(client, bufnr)
-        if client.name == "tsserver" then
+        if client.name == "typescript-tools" then
           keymap(
             "n",
-            "<leader>lA",
+            "<leader>la",
             "<cmd>TSToolsAddMissingImports<cr>",
             { buffer = bufnr, desc = "Add Missing Imports" }
           )
@@ -74,18 +74,17 @@ return {
           keymap("n", "<leader>lu", "<cmd>TSToolsRemoveUnused<cr>", { buffer = bufnr, desc = "Removed Unused" })
           keymap(
             "n",
-            "<leader>lR",
+            "<leader>lr",
             "<cmd>TSToolsRemoveUnusedImports<cr>",
             { buffer = bufnr, desc = "Removed Unused Imports" }
           )
           keymap(
             "n",
-            "<leader>lz",
+            "<leader>ld",
             "<cmd>TSToolsGoToSourceDefinition<cr>",
             { buffer = bufnr, desc = "Go To Source Definition" }
           )
-
-          keymap("n", "<leader>lF", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
+          keymap("n", "<leader>lf", "<cmd>TSToolsFixAll<cr>", { buffer = bufnr, desc = "Fix All" })
           require("twoslash-queries").attach(client, bufnr)
         end
       end)
