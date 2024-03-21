@@ -50,8 +50,6 @@ return {
         history = true,
         region_check_events = "InsertEnter",
         delete_check_events = "TextChanged",
-        -- This one is cool cause if you have dynamic snippets, it updates as you type!
-        updateevents = "TextChanged,TextChangedI",
       })
     end,
   },
@@ -119,13 +117,13 @@ return {
         path = 1,
       }
       opts.sources = {
-        { name = "nvim_lsp", max_item_count = 20 },
-        { name = "buffer", keyword_length = 4, max_item_count = 10 },
-        { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "path" },
-
+        { name = "buffer"},
+        { name = "luasnip" },
         {
           name = "spell",
+          group_index = 2,
           option = {
             keep_all_entries = false,
             enable_in_context = function()
@@ -191,6 +189,9 @@ return {
     end,
 
     config = function(_, opts)
+      for _, source in ipairs(opts.sources) do
+        source.group_index = source.group_index or 1
+      end
       cmp.setup(opts)
 
       -- Set configuration for specific filetype.
