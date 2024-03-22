@@ -8,16 +8,6 @@ local icons = require("nvim-web-devicons").get_icons()
 
 local resultTable = {}
 
-local function yank_user_choice_normal(choice)
-  if choice then
-    local split = vim.split(choice, " ")
-
-    vim.schedule(function()
-      vim.cmd("let @+='" .. split[1] .. "'")
-    end)
-  end
-end
-
 -- Iterate over the original table
 for _, value in pairs(icons) do
   -- Check if the value is a table (ignoring the first entry which is also a table)
@@ -49,7 +39,15 @@ local nerdfont = function(opts)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
-          yank_user_choice_normal(selection.value[2])
+          local icon = selection.value[2]
+
+          local cursor_position = vim.api.nvim_win_get_cursor(0)
+          local row = cursor_position[1]
+          local column = cursor_position[2]
+          -- insert icon after cursor
+          vim.api.nvim_buf_set_text(0, row - 1, column, row - 1, column, { icon })
+          -- move cursor to the end of the inserted icon
+          vim.api.nvim_win_set_cursor(0, { row, column + #icon })
         end)
 
         return true
