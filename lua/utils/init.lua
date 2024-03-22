@@ -4,6 +4,37 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
+
+-- update configs on the fly
+function M.update()
+  local Job = require('plenary.job')
+  local path = M.get_install_dir()
+  local errors = {}
+
+  Job
+    :new({
+      command = 'git',
+      args = { 'pull', '--ff-only' },
+      cwd = path,
+      on_start = function()
+        vim.notify('Updating...')
+      end,
+      on_exit = function()
+        if vim.tbl_isempty(errors) then
+          vim.notify('Updated! Successfully...')
+        else
+          table.insert(errors, 1, 'Something went wrong! Please pull changes manually.')
+          table.insert(errors, 2, '')
+          vim.notify('Update failed!', vim.log.levels.ERROR)
+        end
+      end,
+      on_stderr = function(_, err)
+        table.insert(errors, err)
+      end,
+    })
+    :sync()
+end
+
 --- Check if it's day time
 ---@return boolean
 function M.is_day_time()
@@ -33,12 +64,6 @@ function M.augroup(name, opts)
   return api.nvim_create_augroup(name, opts)
 end
 
--- Check if a string is empty
----@param s any
----@return boolean
-function M.is_empty(s)
-  return s == nil or s == ""
-end
 
 -- Taken from ThePrimeagen and modified
 ---@param color string
@@ -444,46 +469,6 @@ function M.confirm_quit()
   end
 end
 
--- Search for TODOs in the project
--- Populate quickfixlist with the results
--- Alternative to this is to use trouble.nvim
-function M.search_todos()
-  -- Use ripgrep to search for TODOs in the project, without the end colon you will get a lot of false positives
-  -- This is taken from the todo-comments.nvim source code
-  local result = fn.system(
-    "rg --json --color=never --no-heading --with-filename --line-number --column -w 'TODO:|HACK:|WARN:|PERF:|FIX:|NOTE:|TEST:'"
-  )
-  if result == nil then
-    return
-  end
-  local lines = vim.split(result, "\n")
-  local qf_list = {}
-
-  for _, line in ipairs(lines) do
-    if line ~= "" then
-      local data = fn.json_decode(line)
-      if data ~= nil then
-        if data.type == "match" then
-          local submatches = data.data.submatches[1]
-          table.insert(qf_list, {
-            filename = data.data.path.text,
-            lnum = data.data.line_number,
-            col = submatches.start,
-            text = data.data.lines.text,
-          })
-        end
-      end
-    end
-  end
-
-  if next(qf_list) ~= nil then
-    fn.setqflist(qf_list)
-    cmd("copen")
-    M.notify("Added Todos to Quickfixlist!", vim.log.levels.INFO, "TODOs")
-  else
-    M.notify("No results found!", vim.log.levels.INFO, "TODOs")
-  end
-end
 
 -- ========================================================================== --
 -- ==                          GLOBAL FUNCTIONS                               == --
