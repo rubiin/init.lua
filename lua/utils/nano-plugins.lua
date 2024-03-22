@@ -35,15 +35,19 @@ end
 -- Opens the given url in the default browser.
 ---@param url string: The url to open.
 function M.open_in_browser(url)
-  local open_cmd
-  if fn.executable("xdg-open") == 1 then
-    open_cmd = "xdg-open"
-  elseif fn.executable("explorer") == 1 then
-    open_cmd = "explorer"
-  elseif fn.executable("open") == 1 then
-    open_cmd = "open"
-  elseif fn.executable("wslview") == 1 then
-    open_cmd = "wslview"
+  local executables = { "xdg-open", "explorer", "open", "wslview" }
+  local open_cmd = ""
+
+  for _, value in ipairs(executables) do
+    if fn.executable(value) == 1 then
+      open_cmd = value
+      break
+    end
+  end
+
+  if open_cmd == "" then
+    M.notify("No browser found to open the URL", vim.log.levels.ERROR, "Utils")
+    return
   end
 
   local ret = fn.jobstart({ open_cmd, url }, { detach = true })
@@ -217,4 +221,5 @@ function M.add_author_details()
 
   vim.notify("✅ Added author details")
 end
+
 return M

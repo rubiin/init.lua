@@ -4,35 +4,32 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
-
 -- update configs on the fly
 function M.update()
-  local Job = require('plenary.job')
+  local Job = require("plenary.job")
   local path = M.get_install_dir()
   local errors = {}
 
-  Job
-    :new({
-      command = 'git',
-      args = { 'pull', '--ff-only' },
-      cwd = path,
-      on_start = function()
-        vim.notify('Updating...')
-      end,
-      on_exit = function()
-        if vim.tbl_isempty(errors) then
-          vim.notify('Updated! Successfully...')
-        else
-          table.insert(errors, 1, 'Something went wrong! Please pull changes manually.')
-          table.insert(errors, 2, '')
-          vim.notify('Update failed!', vim.log.levels.ERROR)
-        end
-      end,
-      on_stderr = function(_, err)
-        table.insert(errors, err)
-      end,
-    })
-    :sync()
+  Job:new({
+    command = "git",
+    args = { "pull", "--ff-only" },
+    cwd = path,
+    on_start = function()
+      vim.notify("Updating...")
+    end,
+    on_exit = function()
+      if vim.tbl_isempty(errors) then
+        vim.notify("✅  Updated! Successfully...")
+      else
+        table.insert(errors, 1, "Something went wrong! Please pull changes manually.")
+        table.insert(errors, 2, "")
+        vim.notify("💁 Woops, update failed!", vim.log.levels.ERROR)
+      end
+    end,
+    on_stderr = function(_, err)
+      table.insert(errors, err)
+    end,
+  }):sync()
 end
 
 --- Check if it's day time
@@ -63,7 +60,6 @@ function M.augroup(name, opts)
   opts = opts or { clear = true }
   return api.nvim_create_augroup(name, opts)
 end
-
 
 -- Taken from ThePrimeagen and modified
 ---@param color string
@@ -468,7 +464,6 @@ function M.confirm_quit()
     cmd("confirm quit")
   end
 end
-
 
 -- ========================================================================== --
 -- ==                          GLOBAL FUNCTIONS                               == --
