@@ -1,5 +1,6 @@
 return {
   "hkupty/iron.nvim",
+  cmd = { "IronRepl", "IronReplHere", "IronSend" },
   config = function(plugins, opts)
     local iron = require("iron.core")
 
@@ -9,15 +10,15 @@ return {
         scratch_repl = true,
         -- Your repl definitions come here
         repl_definition = {
-          python = {
-            -- Can be a table or a function that
-            -- returns a table (see below)
-            command = { "python" },
+          go = {
+            command = { "go" },
           },
+          python = require("iron.fts.python").python,
+          lua = require("iron.fts.lua").lua,
         },
         -- How the repl window will be displayed
         -- See below for more information
-        repl_open_cmd = require("iron.view").right(60),
+        repl_open_cmd = "rightbelow 10 split",
       },
       -- Iron doesn't set keymaps by default anymore.
       -- You can set them here or manually add keymaps to the functions in iron.core
