@@ -11,10 +11,12 @@ return {
         -- Your repl definitions come here
         repl_definition = {
           go = {
-            command = { "go" },
+            command = { "gore" },
           },
           python = require("iron.fts.python").python,
-          lua = require("iron.fts.lua").lua,
+          lua = {
+            command = { "luajit" },
+          },
         },
         -- How the repl window will be displayed
         -- See below for more information
@@ -45,9 +47,9 @@ return {
     })
 
     -- iron also has a list of commands, see :h iron-commands for all available commands
-    vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
-    vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
-    vim.keymap.set("n", "<space>rF", "<cmd>IronFocus<cr>")
-    vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+    -- vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
+    -- vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
+    -- vim.keymap.set("n", "<space>rF", "<cmd>IronFocus<cr>")
+    -- vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
   end,
 }
