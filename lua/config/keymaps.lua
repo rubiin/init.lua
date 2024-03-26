@@ -31,6 +31,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+
+keymap("v", "<leader>ct", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", { desc = "Visual Formatting" })
+
+
 -- Delete LazyVim default bindings which are nuisance for me
 local keymaps_to_delete = {
   { "n", "<leader>l" },
