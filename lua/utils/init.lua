@@ -4,6 +4,19 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
 
+-- Gets the operating system
+function M.get_os()
+  local os = vim.loop.os_uname().sysname
+  if os == "Darwin" then
+    return "macOS"
+  end
+  if os:match("Windows") then
+    return "Windows"
+  end
+
+  return os
+end
+
 -- update configs on the fly
 function M.update()
   local Job = require("plenary.job")
@@ -465,17 +478,11 @@ function M.confirm_quit()
   end
 end
 
--- ========================================================================== --
--- ==                          GLOBAL FUNCTIONS                               == --
--- ========================================================================== --
-
 -- Print a value
 function M.P(v)
   print(vim.inspect(v))
   return v
 end
-
-_G.P = M.P
 
 -- Debug Notification
 -- (value, context_message)
@@ -487,20 +494,14 @@ function M.DN(v, cm)
   return v
 end
 
-_G.DN = M.DN
-
 function M.RELOAD(...)
   return require("plenary.reload").reload_module(...)
 end
-
-_G.RELOAD = M.RELOAD
 
 function M.R(name)
   M.RELOAD(name)
   return require(name)
 end
-
-_G.R = M.R
 
 ---Try to require the module, and do not error out when one of them cannot be
 ---loaded, but do notify if there was an error.
@@ -519,8 +520,6 @@ function M.prequire(module)
   end
 end
 
-_G.prequire = M.prequire
-
 function M.get_resiters()
   -- Execute the :registers command to get the list of registers and store the output in a variable
   local registers_output = vim.fn.getreg('"0')
@@ -528,20 +527,5 @@ function M.get_resiters()
   -- Print the output
   vim.notify(vim.inspect(registers_output))
 end
-
--- Gets the operating system
-function M.get_os()
-  local os = vim.loop.os_uname().sysname
-  if os == "Darwin" then
-    return "macOS"
-  end
-  if os:match("Windows") then
-    return "Windows"
-  end
-
-  return os
-end
-
-_G.get_os = M.get_os
 
 return M

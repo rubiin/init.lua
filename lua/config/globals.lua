@@ -29,3 +29,15 @@ g.markdown_recommended_style = 0 -- Fix markdown indentation settings
 g.autoformat = false ---@type boolean -- Enable LazyVim auto format
 g.border_style = "rounded" ---@type "single"|"double"|"rounded"|"solid"|"none"
 g.highlighturl = true
+
+-- ========================================================================== --
+-- ==                       FUNCTIONS                                         == --
+-- ========================================================================== --
+
+local utils = require("utils")
+_G.get_os = utils.get_os
+_G.prequire = utils.prequire
+_G.R = utils.R
+_G.RELOAD = utils.RELOAD
+_G.DN = utils.DN
+_G.P = utils.P
