@@ -14,10 +14,11 @@
 - check if `lua.vim` ftplugin includes `:---` as comment:
   <https://github.com/neovim/neovim/blob/master/runtime/ftplugin/lua.vim#L18>
 - `vim.fn.getregion()`
-- uninstall `lsp-inlayhints.nvim`
 - load `symbol-usage.nvim` and `ray-x/lsp_signature.nvim` only on `LspAttach`
 - checkout whether `lsp_workspace_symbols` now finally works in lua
 - move from barbecue to dropbar
 - o.smoothscroll = true
 -   o.foldmethod = "expr"
   o.foldexpr = 'v:lua.require"lazyvim.util".ui.foldexpr()'
+
+Fix this: https://i.imgur.com/gyqU1aL.png
