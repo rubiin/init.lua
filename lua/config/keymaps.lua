@@ -40,6 +40,7 @@ local keymaps_to_delete = {
   { "n", "<leader>|" },
   { "n", "<leader>fT" },
   { "n", "<leader>ft" },
+  { "n", "<leader>cm" },
 }
 
 for _, value in pairs(keymaps_to_delete) do

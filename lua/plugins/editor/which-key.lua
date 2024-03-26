@@ -18,7 +18,7 @@ return {
         ["<leader>d"] = { name = user_icons.diagnostics.DebugBold .. "debug" },
         ["<leader>f"] = { name = user_icons.ui.FindFile .. "file/find" },
         ["<leader>g"] = { name = user_icons.git.Git .. "git" },
-        ["<leader>gh"] = { "git hunk" },
+        ["<leader>gh"] = { "Git hunk" },
         ["<leader>h"] = { name = user_icons.ui.Harpoon .. "harpoon" },
         ["<leader>l"] = { name = user_icons.ui.Lsp .. "lsp" },
         ["<leader>q"] = { name = user_icons.ui.Quit .. "quit/session" },
