@@ -1,4 +1,3 @@
-local lazy_util = require("lazyvim.util")
 local user_icons = require("custom.icons")
 local util = require("utils")
 
@@ -19,7 +18,7 @@ return {
           header = vim.split(logo, "\n"),
           -- stylua: ignore
           center = {
-            { action = lazy_util.telescope("files"), desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
+            { action = LazyVim.telescope("files"), desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
             { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
             { action = 'Telescope oldfiles', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
             { action = [[lua require('lazyvim.util').telescope.config_files()()]], desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },

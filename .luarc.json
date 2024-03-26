@@ -1,5 +1,6 @@
 {
-  "diagnostics.globals": ["vim", "log", "cmp_mappings", "vim", "jit"],
+  "diagnostics.globals": ["vim", "log", "cmp_mappings", "vim", "jit",
+        "LazyVim"],
   "diagnostics.disable": [
     "unused-local",
     "different-requires",

@@ -115,13 +115,11 @@ return {
       },
     },
     config = function(_, opts)
-      local lazy_util = require("lazyvim.util")
-
       local telescope = require("telescope")
       telescope.setup(opts)
 
-      lazy_util.on_load("telescope.nvim", function()
-        if lazy_util.has("nvim-notify") then
+      LazyVim.on_load("telescope.nvim", function()
+        if LazyVim.has("nvim-notify") then
           require("telescope").load_extension("notify")
         end
         telescope.load_extension("undo")

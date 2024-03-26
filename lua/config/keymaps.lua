@@ -4,7 +4,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Not everything needs to be a keymap, you can also use `user_commands`
 
-local lazyvim_util = require("lazyvim.util")
 local util = require("utils")
 local keymap, delete_keymap = util.keymap, util.delete_keymap
 local nano = require("utils.nano-plugins")
@@ -53,7 +52,7 @@ keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]"
 keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
 keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
-keymap("n", "<leader>;c", lazyvim_util.news.changelog, { desc = "Changelog [LazyVim]" })
+keymap("n", "<leader>;c", LazyVim.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
 -- keeps registers clean
@@ -79,7 +78,7 @@ keymap("c", "<C-A>", "<HOME>")
 
 -- Override LazyVim bindings for terminal
 keymap("n", "<C-/>", function()
-  lazyvim_util.terminal(nil, { border = vim.g.border_style })
+  LazyVim.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
 

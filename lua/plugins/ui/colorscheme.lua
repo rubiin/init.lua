@@ -1,5 +1,3 @@
-local lazy_util = require("lazyvim.util")
-
 local util = require("utils")
 
 -- these are neovim built-in colorscheme
@@ -42,7 +40,7 @@ local get_colorsheme = function()
     end, target("", "color"))
   end
 
-  lazy_util.telescope("colorscheme", { enable_preview = true })()
+  LazyVim.telescope("colorscheme", { enable_preview = true })()
   vim.fn.getcompletion = target
 end
 
