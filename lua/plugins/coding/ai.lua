@@ -51,7 +51,7 @@ return {
       copilot_cmp.setup(opts)
       -- attach cmp source whenever copilot attaches
       -- fixes lazy-loading issues with the copilot cmp source
-      require("lazyvim.LazyVim").lsp.on_attach(function(client)
+      LazyVim.lsp.on_attach(function(client)
         if client.name == "copilot" then
           copilot_cmp._on_insert_enter({})
         end
@@ -79,7 +79,8 @@ return {
           if not package.loaded["copilot"] then
             return
           end
-          local ok, clients = pcall(require("lazyvim.LazyVim").lsp.get_clients, { name = "copilot", bufnr = 0 })
+          local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
+
           if not ok then
             return false
           end

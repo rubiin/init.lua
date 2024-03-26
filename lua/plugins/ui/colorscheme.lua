@@ -1,34 +1,17 @@
 local util = require("utils")
 
 -- these are neovim built-in colorscheme
-local builtins = {
-  "zellner",
-  "torte",
-  "slate",
-  "shine",
-  "ron",
-  "quiet",
-  "peachpuff",
-  "pablo",
-  "murphy",
-  "lunaperche",
-  "koehler",
-  "industry",
-  "evening",
-  "elflord",
-  "desert",
-  "delek",
-  "default",
-  "darkblue",
-  "blue",
-  "morning",
-  "retrobox",
-  "sorbet",
-  "zaibatsu",
-  "wildcharm",
-  "vim",
-  "habamax",
-}
+local builtins = {}
+
+for name, _ in vim.fs.dir("$VIMRUNTIME/colors/") do
+  if name:match("*.txt") then
+    break
+  else
+    name = name:match("(.*).lua$") or name:match("(.*).vim$")
+    table.insert(builtins, name)
+  end
+end
+
 local get_colorsheme = function()
   local target = vim.fn.getcompletion
 
