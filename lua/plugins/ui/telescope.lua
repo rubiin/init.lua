@@ -3,6 +3,15 @@ local user_icons = require("custom.icons")
 
 return {
   {
+    "prochri/telescope-all-recent.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "kkharji/sqlite.lua",
+      "stevearc/dressing.nvim",
+    },
+    opts = {},
+  },
+  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "olimorris/persisted.nvim",
@@ -10,7 +19,6 @@ return {
       "ThePrimeagen/harpoon",
       "debugloop/telescope-undo.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
-      "prochri/telescope-all-recent.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
