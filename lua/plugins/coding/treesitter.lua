@@ -1,5 +1,3 @@
-local constant = require("utils.constants")
-
 return {
   {
     "nvim-treesitter/playground",
@@ -8,10 +6,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "dockerfile" })
-      end
-
       opts.playground = { enable = true }
       opts.autotag = {
         enable = true,

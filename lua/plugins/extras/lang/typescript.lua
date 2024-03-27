@@ -41,7 +41,6 @@ return {
       vim.list_extend(opts.ensure_installed or {}, {
         -- formatters & linters
         "eslint_d",
-        "prettier",
         "prettierd",
         "biome",
       })

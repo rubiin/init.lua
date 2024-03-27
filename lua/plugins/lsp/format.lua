@@ -30,7 +30,7 @@ local prettier_file_types = {
   "yaml",
 }
 
-local P = { "biome", "prettierd", "prettier" }
+local P = { "biome", "prettierd" }
 for _, ft in pairs(prettier_file_types) do
   formatters_by_ft[ft] = P
 end
