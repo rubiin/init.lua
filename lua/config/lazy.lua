@@ -29,6 +29,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.editor.dial" },
+    { import = "lazyvim.plugins.extras.util.dot" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
@@ -57,7 +58,7 @@ require("lazy").setup({
   checker = {
     -- automatically check for plugin updates
     enabled = true,
-    notify = false, -- done on my own to use minimum condition for less noise
+    notify = false,          -- done on my own to use minimum condition for less noise
     frequency = 60 * 60 * 4, -- = 4 hours
   },
   performance = {

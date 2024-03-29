@@ -12,6 +12,28 @@ local function normal(cmd)
   vim.cmd.normal({ cmd, bang = true })
 end
 
+
+--> Run the current file according to filetype
+---@param ht? number for height or "v" for vertical
+M.run_file = function(ht)
+  local fts = {
+      rust       = "cargo run",
+      python     = "python %",
+      javascript = "npm start",
+      c          = "make",
+      cpp        = "make",
+      java       = "java %"
+  }
+
+  local cmd = fts[vim.bo.ft]
+  vim.cmd(
+      cmd and ("w | " .. (ht or "") .. "sp | term " .. cmd)
+      or "echo 'No command for this filetype'"
+  )
+end
+
+
+
 --TODO: add code to restore as well
 -- mini misc zoom function
 ---@param buf_id? number
