@@ -16,7 +16,6 @@ return {
   { import = "plugins.extras.tmux" },
 
   -- language setup
-  { import = "plugins.extras.lang.sh" },
   { import = "plugins.extras.lang.typescript" },
   { import = "plugins.extras.lang.markdown" },
 }
