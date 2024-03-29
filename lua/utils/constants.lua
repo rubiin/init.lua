@@ -23,7 +23,6 @@ M.common_file_types = {
   "none-ls-info",
   "PlenaryTestPopup",
   "qf",
-  "query", -- :InspectTree
   "spectre_panel",
   "startuptime",
   "tsplayground",
