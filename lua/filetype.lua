@@ -34,12 +34,6 @@ vim.filetype.add({
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "dotenv",
-    ["ignore$"] = "ignore",
-    ["rc$"] = "ignore",
-    [".*/waybar/config"] = "jsonc",
-    [".*/mako/config"] = "dosini",
-    [".*/kitty/*.conf"] = "bash",
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
-    [".tmux.*"] = "conf",
   },
 })
