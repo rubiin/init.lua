@@ -125,7 +125,7 @@ M.ts_parsers = {
   "svelte",
   "astro",
   "regex",
-  "toml",
+  "bash",
   "gitcommit",
   -- these five should always be installed, https://github.com/nvim-treesitter/nvim-treesitter#modules
   "c",
