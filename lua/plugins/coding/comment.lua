@@ -1,7 +1,7 @@
 return {
   {
     "numToStr/Comment.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     lazy = true,
     opts = {
       ---Add a space b/w comment and the line

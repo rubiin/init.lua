@@ -12,7 +12,7 @@ return {
   },
   {
     "akinsho/git-conflict.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     init = function()
       require("git-conflict").setup({
         default_mappings = false,
@@ -32,7 +32,7 @@ return {
   --TODO: check this plugin
   {
     "tpope/vim-fugitive",
-    event = "VeryLazy",
+    event = "BufReadPre",
     keys = {
       { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
       { "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git Add" },

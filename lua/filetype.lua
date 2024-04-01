@@ -14,11 +14,10 @@ vim.filetype.add({
     eta = "html",
     svx = "markdown",
     mdx = "markdown",
-    svelte = "svelte",
   },
   filename = {
     [".env"] = "dotenv",
-    ["tsconfig.tsbuildinfo"] = "jsonc",
+    ["tsconfig.tsbuildinfo"] = "json",
     ["vifmrc"] = "vim",
     ["LICENCE"] = "markdown",
   },
