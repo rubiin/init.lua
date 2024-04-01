@@ -61,7 +61,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
-    event = "VeryLazy",
     opts = function(_, opts)
       local colors = {
         [""] = LazyVim.ui.fg("Special"),

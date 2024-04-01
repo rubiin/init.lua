@@ -4,6 +4,7 @@ local user_icons = require("custom.icons")
 return {
   {
     "prochri/telescope-all-recent.nvim",
+    event = "BufReadPre",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "kkharji/sqlite.lua",
@@ -21,6 +22,7 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
+        event = "BufReadPre",
         build = "make",
       },
       {

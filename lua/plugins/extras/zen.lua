@@ -4,14 +4,12 @@ return {
   -- Dims inactive portions of the code you're editing
   {
     "folke/twilight.nvim",
-    event = "VeryLazy",
     cmd = "Twilight",
   },
   -- Zen mode for distraction free editing
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    event = "VeryLazy",
     keys = {
       { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
     },

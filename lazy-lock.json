@@ -94,7 +94,6 @@
   "ts-error-translator.nvim": { "branch": "main", "commit": "1d24a38427fd2030c5f4e82156c87ab7d6d44814" },
   "twoslash-queries.nvim": { "branch": "main", "commit": "e000134c7ca3ea44f1095df3ceea89e485b7bdd5" },
   "typescript-tools.nvim": { "branch": "master", "commit": "c43d9580c3ff5999a1eabca849f807ab33787ea7" },
-  "vim-be-good": { "branch": "master", "commit": "4fa57b7957715c91326fcead58c1fa898b9b3625" },
   "vim-illuminate": { "branch": "master", "commit": "305bf07b919ac526deb5193280379e2f8b599926" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },

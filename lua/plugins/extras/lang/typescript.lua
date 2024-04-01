@@ -22,7 +22,6 @@ return {
 
   {
     "David-Kunz/cmp-npm",
-    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "json",
     opts = {},
@@ -48,7 +47,6 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
-    event = "VeryLazy",
     ft = {
       "javascript",
       "javascriptreact",
