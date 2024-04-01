@@ -7,8 +7,7 @@ local lualine_styles = utils.set_lualine_styles(used_style)
 return {
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    lazy = true,
     opts = lualine_styles,
+    event = "BufReadPre",
   },
 }
