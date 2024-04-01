@@ -17,6 +17,8 @@ return {
           lua = {
             command = { "luajit" },
           },
+          sh = { command = { "zsh" } },
+          typescript = { command = { "node" } },
         },
         -- How the repl window will be displayed
         -- See below for more information

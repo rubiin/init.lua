@@ -123,13 +123,45 @@ return {
       opts.health = {
         checker = true, -- Disable if you don't want health checks to run
       }
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
+
+      local routes = {
+        -- Word added to spellfile via `zg`
+        { filter = { event = "msg_show", find = "^Word .*%.add$" }, view = "mini" },
+        -- nvim-treesitter
+        { filter = { event = "msg_show", find = "^%[nvim%-treesitter%]" }, view = "mini" },
+        { -- Mason
+          filter = {
+            event = "notify",
+            cond = function(msg)
+              return msg.opts and (msg.opts.title or ""):find("mason")
+            end,
+          },
+          view = "mini",
         },
-        opts = { skip = true },
-      })
+        -----------------------------------------------------------------------------
+        -- SKIP
+        -- FIX LSP bugs?
+        { filter = { event = "msg_show", find = "lsp_signature? handler RPC" }, skip = true },
+        {
+          filter = { event = "msg_show", find = "^%s*at process.processTicksAndRejections" },
+          skip = true,
+        },
+
+        -- code actions
+        { filter = { event = "notify", find = "No code actions available" }, skip = true },
+        {
+          filter = {
+            event = "notify",
+            find = "No information available",
+          },
+          opts = { skip = true },
+        },
+      }
+
+      for _, value in ipairs(routes) do
+        table.insert(opts.routes, value)
+      end
+
       local focused = true
       vim.api.nvim_create_autocmd("FocusGained", {
         callback = function()
@@ -165,14 +197,25 @@ return {
         },
       }
 
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
-        callback = function(event)
-          vim.schedule(function()
-            require("noice.text.markdown").keys(event.buf)
-          end)
-        end,
-      })
+      opts.views =
+        {
+          cmdline_popup = {
+            border = { style = vim.g.border_style },
+          },
+          hover = {
+            border = { style = vim.g.border_style },
+          },
+          popup = {
+            border = { style = vim.g.border_style },
+          },
+        }, vim.api.nvim_create_autocmd("FileType", {
+          pattern = "markdown",
+          callback = function(event)
+            vim.schedule(function()
+              require("noice.text.markdown").keys(event.buf)
+            end)
+          end,
+        })
     end,
   },
 }
