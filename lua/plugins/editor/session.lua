@@ -2,7 +2,7 @@ return {
   { "folke/persistence.nvim", enabled = false },
   {
     "olimorris/persisted.nvim",
-    lazy = false,
+    event="BufReadPre",
     keys = {
       {
         "<leader>qs",
