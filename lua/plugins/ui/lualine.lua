@@ -8,6 +8,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = lualine_styles,
-    event = "BufReadPre",
+    event = { 'BufReadPre', 'BufNewFile' },
   },
 }

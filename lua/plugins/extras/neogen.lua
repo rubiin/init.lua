@@ -1,7 +1,7 @@
 return {
   {
     "danymat/neogen",
-    event = "LazyFile",
+    event = { 'BufReadPre', 'BufNewFile' },
     keys = {
       {
         "<leader>cc",
