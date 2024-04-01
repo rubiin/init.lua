@@ -1,4 +1,3 @@
-
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
@@ -8,8 +7,6 @@ local utils = require("utils")
 
 local scriptsTable = {}
 
-local packageJson = utils.get_root_directory().."/package.json"
-
+local packageJson = utils.get_root_directory() .. "/package.json"
 
 -- TODO: Implement this
-

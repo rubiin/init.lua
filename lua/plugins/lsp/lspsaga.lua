@@ -6,7 +6,7 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     cmd = "Lspsaga",
-    event = "BufReadPost",
+    event = "BufReadPre",
     keys = {
       { "<leader>cp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
       { "<leader>ca", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },

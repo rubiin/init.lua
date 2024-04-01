@@ -12,7 +12,7 @@ return {
   ]]
   {
     "m4xshen/hardtime.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     keys = {
       {

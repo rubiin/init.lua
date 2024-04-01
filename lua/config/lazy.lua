@@ -59,7 +59,7 @@ require("lazy").setup({
   checker = {
     -- automatically check for plugin updates
     enabled = true,
-    notify = false,          -- done on my own to use minimum condition for less noise
+    notify = false, -- done on my own to use minimum condition for less noise
     frequency = 60 * 60 * 4, -- = 4 hours
   },
   performance = {

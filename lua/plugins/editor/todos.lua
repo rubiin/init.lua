@@ -4,7 +4,7 @@ return {
   -- TODO: check for triuble-v3
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  event = "VeryLazy",
+  event = "BufReadPre",
   keys = {
     {
       "<leader>sT",

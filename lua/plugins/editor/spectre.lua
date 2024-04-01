@@ -17,7 +17,7 @@ return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    event = "LazyFile",
+    event = "BufReadPre",
     keys = {
       {
         "<leader>sr",
