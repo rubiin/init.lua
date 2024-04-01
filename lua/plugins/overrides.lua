@@ -125,6 +125,15 @@ return {
       }
 
       local routes = {
+        -- REDIRECT TO MINI
+
+        -- write/deletion messages
+        { filter = { event = "msg_show", find = "%d+B written$" }, view = "mini" },
+        { filter = { event = "msg_show", find = "%d+L, %d+B$" }, view = "mini" },
+        { filter = { event = "msg_show", find = "%-%-No lines in buffer%-%-" }, view = "mini" },
+
+        -- unneeded info on search patterns
+        { filter = { event = "msg_show", find = "^E486: Pattern not found" }, view = "mini" },
         -- Word added to spellfile via `zg`
         { filter = { event = "msg_show", find = "^Word .*%.add$" }, view = "mini" },
         -- nvim-treesitter
@@ -197,25 +206,25 @@ return {
         },
       }
 
-      opts.views =
-        {
-          cmdline_popup = {
-            border = { style = vim.g.border_style },
-          },
-          hover = {
-            border = { style = vim.g.border_style },
-          },
-          popup = {
-            border = { style = vim.g.border_style },
-          },
-        }, vim.api.nvim_create_autocmd("FileType", {
-          pattern = "markdown",
-          callback = function(event)
-            vim.schedule(function()
-              require("noice.text.markdown").keys(event.buf)
-            end)
-          end,
-        })
+      opts.views = {
+        cmdline_popup = {
+          border = { style = vim.g.border_style },
+        },
+        hover = {
+          border = { style = vim.g.border_style },
+        },
+        popup = {
+          border = { style = vim.g.border_style },
+        },
+      }
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function(event)
+          vim.schedule(function()
+            require("noice.text.markdown").keys(event.buf)
+          end)
+        end,
+      })
     end,
   },
 }
