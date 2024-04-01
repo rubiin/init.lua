@@ -8,6 +8,7 @@ local spellfixes = {
   ahve = "have",
   brwoser = "browser",
   cant = "can't",
+  chnage = "change",
   cleitn = "client",
   curosr = "cursor",
   defualt = "default",

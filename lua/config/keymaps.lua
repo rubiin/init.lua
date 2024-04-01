@@ -104,3 +104,6 @@ end, { desc = "Add Author Details" })
 keymap("n", "<leader>yz", function()
   nano.zoom()
 end, { desc = "Zoom" })
+
+-- QUITTING
+keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })

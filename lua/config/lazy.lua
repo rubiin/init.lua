@@ -37,6 +37,7 @@ require("lazy").setup({
   },
   ui = {
     title = "Plugin Manager",
+    wrap = true,
     icons = {
       loaded = user_icons.ui.Loaded,
       not_loaded = user_icons.ui.NotLoaded,

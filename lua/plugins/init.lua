@@ -18,4 +18,5 @@ return {
   -- language setup
   { import = "plugins.extras.lang.typescript" },
   { import = "plugins.extras.lang.markdown" },
+  { import = "plugins.extras.lang.toml" },
 }

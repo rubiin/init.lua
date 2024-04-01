@@ -26,6 +26,7 @@ local function parse_change(item)
 end
 
 ---@param item Change
+---@return value
 local entry_maker = function(item)
   return {
     value = item,
