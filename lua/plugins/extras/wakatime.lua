@@ -2,6 +2,6 @@ return {
   -- wakatime
   {
     "wakatime/vim-wakatime",
-    event = "VeryLazy",
+    event = { 'BufReadPre', 'BufNewFile' },
   },
 }

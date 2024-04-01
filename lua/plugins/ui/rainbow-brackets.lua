@@ -1,7 +1,7 @@
 return {
   {
     "HiPhish/rainbow-delimiters.nvim",
-    event = "BufReadPre",
+    event = { 'BufReadPre', 'BufNewFile' },
     init = function()
       local rainbow_delimiters = prequire("rainbow-delimiters")
 

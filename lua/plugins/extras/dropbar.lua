@@ -1,7 +1,7 @@
 return {
   {
     "Bekaboo/dropbar.nvim",
-    event = "LazyFile",
+    event = { 'BufReadPre', 'BufNewFile' },
     enabled = function()
       return require("utils").is_neovim_version_satisfied(10)
     end,

@@ -1,6 +1,6 @@
 return {
   "stevearc/oil.nvim",
-  event = "BufReadPre",
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = {},
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
