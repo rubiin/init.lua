@@ -1,13 +1,14 @@
 # 💤 My neovim config
 
-Based on LazyVim as a starter, though most stuffs are overridden to keep less dependency on LazyVim as possible. The one based on lunarvim can be found at my dotfiles repo but I wanted more barebones and minimal
-as a result of which this repo was born which was sooner or later bound to happen
+Behold, the mystical incantations of my Neovim configuration, carefully crafted to summon the spirits of efficiency and productivity from the depths of the digital abyss. With the precision of a surgeon and the finesse of a ninja, I've concocted a brew of plugins and keybindings that dance harmoniously to the rhythm of my keystrokes weaving spells of autocomplete and syntax highlighting to illuminate the darkest recesses of my codebase.
 
 ## init.lua/(Always WIP)
 
-<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/plugin-manager?style=flat" /></a>
+
+<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugin-manager?style=flat" /></a>
+
 
 ## ⚡ Requirements
 
@@ -30,9 +31,10 @@ as a result of which this repo was born which was sooner or later bound to happe
 You can also run the `setup.sh` if you are lazy and it will install all the requirements for you considering
 you are on a unix based system
 
+
 ## Install Instructions
 
-> Install requires Neovim 0.9+. Always review the code before installing a configuration.
+ > Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -111,32 +113,154 @@ NOTE for Windows users:
 
 ### Editor
 
-![editor](https://i.imgur.com/xDAApQb.png)
+![editor](https://i.imgur.com/MilOlre.png)
+
 
 ## Plugins
 
-- Plugin management via [Lazy.nvim](https://github.com/folke/lazy.nvim).
-- Code, snippet, word auto-completion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
-- Language server protocol (LSP) support via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
-- Better escaping from insert mode via [better-escape](https://github.com/nvim-zh/better-escape.vim).
-- Better code folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo).
-- Ultra-fast project-wide fuzzy searching via [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
-- Faster code commenting via [comment](https://github.com/numToStr/Comment.nvim).
-- Faster matching pair insertion and jump via [rainbow-delimiters](https://github.com/HiPhish/rainbow-delimiters.nvim).
-- Fast buffer jump via [flash.nvim](https://github.com/folke/flash.nvim).
-- Powerful snippet insertion via [Luasnip](https://github.com/L3MON4D3/LuaSnip).
-- Better quickfix list with [trouble](https://github.com/folke/trouble.nvim).
-- Beautiful statusline via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim).
-- File tree explorer via [neo-tree.lua](https://github.com/nvim-neo-tree/neo-tree.nvim).
-- User-defined mapping hint via [which-key.nvim](https://github.com/folke/which-key.nvim).
-- Code highlighting via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
-- Beautiful colorscheme via [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim) and other colorschemes.
-- LaTeX editing and previewing via [vimtex](https://github.com/lervag/vimtex)
-- Animated GUI style notification via [nvim-notify](https://github.com/rcarriga/nvim-notify).
-- Code formatting via [conform](https://github.com/stevearc/conform.nvim).
-- Asynchronous code execution via [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim).
-- Undo management via [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
-- Markdown writing and previewing via [vim-markdown](https://github.com/preservim/vim-markdown) and [glow.nvim](https://github.com/ellisonleao/glow.nvim).
+### bars-and-lines
+
++ [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
++ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
+### code-runner
+
++ [hkupty/iron.nvim](https://dotfyle.com/plugins/hkupty/iron.nvim)
+### color
+
++ [folke/twilight.nvim](https://dotfyle.com/plugins/folke/twilight.nvim)
+### colorscheme
+
++ [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
++ [olimorris/onedarkpro.nvim](https://dotfyle.com/plugins/olimorris/onedarkpro.nvim)
++ [marko-cerovac/material.nvim](https://dotfyle.com/plugins/marko-cerovac/material.nvim)
++ [Mofiqul/vscode.nvim](https://dotfyle.com/plugins/Mofiqul/vscode.nvim)
+### comment
+
++ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
++ [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
+### completion
+
++ [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
++ [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+### cursorline
+
++ [RRethy/vim-illuminate](https://dotfyle.com/plugins/RRethy/vim-illuminate)
+### debugging
+
++ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
+### editing-support
+
++ [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
++ [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
++ [Wansmer/treesj](https://dotfyle.com/plugins/Wansmer/treesj)
++ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
++ [HiPhish/rainbow-delimiters.nvim](https://dotfyle.com/plugins/HiPhish/rainbow-delimiters.nvim)
++ [okuuva/auto-save.nvim](https://dotfyle.com/plugins/okuuva/auto-save.nvim)
++ [echasnovski/mini.pairs](https://dotfyle.com/plugins/echasnovski/mini.pairs)
+### file-explorer
+
++ [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
+### formatting
+
++ [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
+### fuzzy-finder
+
++ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+### game
+
++ [ThePrimeagen/vim-be-good](https://dotfyle.com/plugins/ThePrimeagen/vim-be-good)
+### git
+
++ [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
+### indent
+
++ [shellRaining/hlchunk.nvim](https://dotfyle.com/plugins/shellRaining/hlchunk.nvim)
++ [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
+### keybinding
+
++ [max397574/better-escape.nvim](https://dotfyle.com/plugins/max397574/better-escape.nvim)
++ [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
+### lsp
+
++ [nvimdev/lspsaga.nvim](https://dotfyle.com/plugins/nvimdev/lspsaga.nvim)
++ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
++ [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
++ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
++ [marilari88/twoslash-queries.nvim](https://dotfyle.com/plugins/marilari88/twoslash-queries.nvim)
+### lsp-installer
+
++ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
+### markdown-and-latex
+
++ [ellisonleao/glow.nvim](https://dotfyle.com/plugins/ellisonleao/glow.nvim)
+### marks
+
++ [ThePrimeagen/harpoon](https://dotfyle.com/plugins/ThePrimeagen/harpoon)
+### note-taking
+
++ [epwalsh/obsidian.nvim](https://dotfyle.com/plugins/epwalsh/obsidian.nvim)
+### nvim-dev
+
++ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
++ [kkharji/sqlite.lua](https://dotfyle.com/plugins/kkharji/sqlite.lua)
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
+### plugin-manager
+
++ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+### preconfigured
+
++ [LazyVim/LazyVim](https://dotfyle.com/plugins/LazyVim/LazyVim)
+### programming-languages-support
+
++ [dmmulroy/ts-error-translator.nvim](https://dotfyle.com/plugins/dmmulroy/ts-error-translator.nvim)
+### project
+
++ [ahmedkhalf/project.nvim](https://dotfyle.com/plugins/ahmedkhalf/project.nvim)
+
+### scrolling
+
++ [karb94/neoscroll.nvim](https://dotfyle.com/plugins/karb94/neoscroll.nvim)
+### session
+
++ [olimorris/persisted.nvim](https://dotfyle.com/plugins/olimorris/persisted.nvim)
+### snippet
+
++ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
++ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
+### startup
+
++ [nvimdev/dashboard-nvim](https://dotfyle.com/plugins/nvimdev/dashboard-nvim)
+### statusline
+
++ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
+### syntax
+
++ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+### tabline
+
++ [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
+### utility
+
++ [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
++ [echasnovski/mini.animate](https://dotfyle.com/plugins/echasnovski/mini.animate)
++ [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
++ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
++ [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)
++ [chrisgrieser/nvim-early-retirement](https://dotfyle.com/plugins/chrisgrieser/nvim-early-retirement)
++ [ghillb/cybu.nvim](https://dotfyle.com/plugins/ghillb/cybu.nvim)
+### workflow
+
++ [m4xshen/hardtime.nvim](https://dotfyle.com/plugins/m4xshen/hardtime.nvim)
+## Language Servers
+
++ astro
++ eslint
++ flow
++ graphql
++ html
++ svelte
++ taplo
 
 There are more plugins on extras folder that are not loaded by default. You can enable them by adding the require line on `lua/plugins/init.lua`.
 Some are disabled by default because they are not used by me but I keep them there for reference.
@@ -160,11 +284,16 @@ to use neovim as your git editor you can add this to your `.gitconfig`:
 core.editor = nvim --clean
 ```
 
-If anything is not working as expected, please open an issue.
+But beware, dear traveler, for navigating the labyrinthine corridors of the Neovim config is not for the faint of heart. One wrong keystroke, and you could find yourself lost in a sea of syntax errors, tangled in the vines of conflicting plugins, or worse – staring into the abyss of an unresponsive editor.
+
+Yet fear not, for even in the darkest depths of plugin hell, there is hope. With the wisdom of the Vim masters as your guide and the camaraderie of fellow developers as your shield, you shall emerge victorious. And when you do, you'll look back on your Neovim configuration not just as a set of preferences, but as a testament to your resilience, your creativity, and your ability to laugh in the face of even the most cryptic Vimscript errors.
 
 ## Credits and Further reading/learning
+Huge shoutout to the Vim elders, whose ancient wisdom and cryptic commands paved the way for the creation of Neovim. May your modal editing skills be forever sharp, and your init.lua files forever tidy.
 
-- Teejay Dev for his [videos](https://www.youtube.com/@teej_dv)
+- Teejay Devris for his [videos](https://www.youtube.com/@teej_dv)
 - Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
 - ThePrimeagen for his [videos](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
 - Alpha2phi for his [Article](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
+
+May these resources serve as beacons of light on your journey through the labyrinthine corridors of Neovim. Happy coding, and may your keystrokes be ever swift and your plugins ever reliable!
