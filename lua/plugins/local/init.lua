@@ -25,7 +25,7 @@ return {
   },
   {
     "rubiin/highlighturl.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     dev = true,
   },
 }

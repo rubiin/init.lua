@@ -4,7 +4,7 @@ local util = require("utils")
 return {
   {
     "sindrets/diffview.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Git Diff" },
@@ -12,7 +12,7 @@ return {
   },
   {
     "akinsho/git-conflict.nvim",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     init = function()
       require("git-conflict").setup({
         default_mappings = false,
@@ -32,7 +32,7 @@ return {
   --TODO: check this plugin
   {
     "tpope/vim-fugitive",
-    cmd = 'Git',
+    cmd = "Git",
     keys = {
       { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
       { "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git Add" },

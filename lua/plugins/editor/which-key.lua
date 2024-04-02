@@ -5,7 +5,7 @@ return {
   {
     "folke/which-key.nvim",
     optional = true,
-    event = 'VeryLazy',
+    event = "VeryLazy",
     opts = {
       window = {
         border = vim.g.border_style,

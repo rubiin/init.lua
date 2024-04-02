@@ -5,7 +5,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
     opts = function(_, opts)
       opts.playground = { enable = true }
       opts.autotag = {

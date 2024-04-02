@@ -2,7 +2,7 @@
 
 local M = {
   "LunarVim/bigfile.nvim",
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { "BufReadPre", "BufNewFile" },
   lazy = true,
 }
 
