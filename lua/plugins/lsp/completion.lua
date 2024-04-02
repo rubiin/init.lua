@@ -56,7 +56,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    event = 'InsertEnter',
+    event = "InsertEnter",
     dependencies = {
       "f3fora/cmp-spell",
       "petertriho/cmp-git",
@@ -144,8 +144,8 @@ return {
           compare.offset,
           compare.recently_used, -- higher
           compare.score,
-          compare.exact,         -- lower
-          compare.kind,          -- higher (prioritize snippets)
+          compare.exact, -- lower
+          compare.kind, -- higher (prioritize snippets)
           compare.locality,
           compare.length,
           compare.order,

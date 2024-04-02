@@ -17,7 +17,6 @@ return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    event = { 'BufReadPre', 'BufNewFile' },
     keys = {
       {
         "<leader>sr",

@@ -4,7 +4,7 @@ return {
   -- TODO: check for trouble-v3
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  event = { 'BufReadPre', 'BufNewFile' },
+  cmd = { "TodoTrouble", "TodoTelescope" },
   keys = {
     {
       "<leader>sT",
