@@ -11,7 +11,7 @@
           "global",
           "all"
         ],
-        "path": "global.json"
+        "path": "./snips/global.json"
       },
       {
         "language": [
