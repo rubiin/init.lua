@@ -19,6 +19,14 @@ return {
     },
     config = true,
   },
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed or {}, {
+        "typescript-language-server",
+      })
+    end,
+  },
 
   {
     "David-Kunz/cmp-npm",
