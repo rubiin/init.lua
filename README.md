@@ -111,7 +111,7 @@ NOTE for Windows users:
 
 ### Editor
 
-![editor](https://i.imgur.com/xDAApQb.png)
+![editor](https://i.imgur.com/MilOlre.png)
 
 ## Plugins
 
