@@ -242,6 +242,7 @@ autocmd("InsertLeave", {
 
 autocmd("BufEnter", {
   group = augeneral,
+  pattern = "*",
   callback = function()
     vim.cmd("set formatoptions-=cro")
   end,
