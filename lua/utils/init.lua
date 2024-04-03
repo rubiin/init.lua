@@ -160,6 +160,8 @@ function M.set_lualine_styles(type)
     },
   }
 
+  --TODO: check this
+
   opts.sections.lualine_x = {
     { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { right = "" } },
     {

@@ -16,9 +16,7 @@ return {
     "rubiin/vimwordlist.nvim",
     lazy = true,
     cmd = "GenerateVimSpell",
-    build = function()
-      require("vimwordlist").update_spell_file()
-    end,
+    build = ":GenerateVimSpell",
     config = function()
       vim.opt.spelllang:append("vim")
     end,

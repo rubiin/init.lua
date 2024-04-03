@@ -89,6 +89,13 @@ autocmd("ModeChanged", {
   end,
 })
 
+
+autocmd("BufWritePost", {
+  group = augeneral,
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
+})
+
 autocmd("BufWritePre", {
   group = augeneral,
   pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
