@@ -151,6 +151,13 @@ function M.set_lualine_styles(type)
     {
       "filename",
     },
+    {
+      require("custom.wakatime").wakatime,
+      cond = function()
+        return vim.g["loaded_wakatime"] == 1
+      end,
+      icon = "",
+    },
   }
 
   opts.sections.lualine_x = {
