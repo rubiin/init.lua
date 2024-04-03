@@ -92,7 +92,7 @@ autocmd("ModeChanged", {
 
 autocmd("BufWritePost", {
   group = augeneral,
-  pattern = { "*tmux.conf" },
+  pattern = { "*tmux.conf", "tmux.local.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
