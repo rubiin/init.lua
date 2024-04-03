@@ -1,27 +1,26 @@
 return {
 
   { import = "lazyvim.plugins.extras.lang.markdown" },
+  {
+    "lukas-reineke/headlines.nvim",
+    enabled = false,
+  },
   -- Markdown preview
   {
-    "ellisonleao/glow.nvim",
-    cmd = "Glow",
+    "MeanderingProgrammer/markdown.nvim",
+    cmd = "RenderMarkdownToggle",
+    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       {
         "<leader>cp",
         ft = "markdown",
-        "<cmd>Glow<cr>",
+        "<cmd>RenderMarkdownToggle<cr>",
         desc = "Markdown Preview",
       },
     },
     config = function()
-      local glow = prequire("glow")
-
-      local config = {
-        glow_install_path = "~/.local/bin", -- default path for installing glow binary
-        style = "dark", -- filled automatically with your current editor background, you can override using glow json style
-        pager = true,
-      }
-      glow.setup(config)
+      require("render-markdown").setup({})
     end,
   },
 }
