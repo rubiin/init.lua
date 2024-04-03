@@ -289,7 +289,7 @@ But beware, dear traveler, for navigating the labyrinthine corridors of the Neov
 Yet fear not, for even in the darkest depths of plugin hell, there is hope. With the wisdom of the Vim masters as your guide and the camaraderie of fellow developers as your shield, you shall emerge victorious. And when you do, you'll look back on your Neovim configuration not just as a set of preferences, but as a testament to your resilience, your creativity, and your ability to laugh in the face of even the most cryptic Vimscript errors.
 
 ## Credits and Further reading/learning
-Huge shoutout to the Vim elders, whose ancient wisdom and cryptic commands paved the way for the creation of Neovim. May your modal editing skills be forever sharp, and your init.lua files forever tidy.
+Huge shoutout to the Vim elders, whose ancient wisdom and cryptic commands paved the way for the adoption of Neovim. May your modal editing skills be forever sharp, and your init.lua files forever tidy.
 
 - Teejay Devris for his [videos](https://www.youtube.com/@teej_dv)
 - Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
