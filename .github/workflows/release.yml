@@ -11,7 +11,7 @@ jobs:
         id: release
         with:
           release-type: simple
-          package-name: ultimate-nest
+          package-name: init.lua
       - uses: actions/checkout@v4
       - name: tag stable versions
         if: ${{ steps.release.outputs.release_created }}
