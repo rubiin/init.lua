@@ -22,3 +22,7 @@
   o.foldexpr = 'v:lua.require"lazyvim.util".ui.foldexpr()'
 
 Fix this: https://i.imgur.com/gyqU1aL.png
+
+
+Update accordingly
+https://github.com/neovim/neovim/blob/master/runtime/doc/news.txt

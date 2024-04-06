@@ -123,6 +123,19 @@ return {
       opts.health = {
         checker = true, -- Disable if you don't want health checks to run
       }
+      opts.presets = {
+        lsp_doc_border = true,
+      }
+
+      opts.lsp = {
+        hover = {
+          opts = {
+            win_options = {
+              winblend = 100,
+            },
+          },
+        },
+      }
 
       local routes = {
         -- REDIRECT TO MINI

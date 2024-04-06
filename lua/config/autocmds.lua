@@ -89,7 +89,6 @@ autocmd("ModeChanged", {
   end,
 })
 
-
 autocmd("BufWritePost", {
   group = augeneral,
   pattern = { "*tmux.conf", "tmux.local.conf" },
