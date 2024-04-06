@@ -32,7 +32,7 @@ return {
           "javascript",
           -- "css",
           "docker",
-          -- "go",
+          "go",
           -- "html",
           "typescript",
           "json",
@@ -41,7 +41,7 @@ return {
           -- "python",
           -- "rust",
           "shell",
-          -- "sql",
+          "sql",
         },
       })
       load_snippets.lazy_load({ paths = { vim.g.vscode_snippets_path or "" } })
