@@ -16,6 +16,7 @@ vim.filetype.add({
     mdx = "markdown",
   },
   filename = {
+    ["Jenkinsfile"] = "groovy",
     [".env"] = "dotenv",
     ["tsconfig.tsbuildinfo"] = "json",
     ["vifmrc"] = "vim",
