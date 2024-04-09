@@ -2,7 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LazyVim": { "branch": "main", "commit": "5646ee5191da244ff8ea57b9dba8a7e0d1dbdd42" },
   "LuaSnip": { "branch": "master", "commit": "be7be2ca7f55bb881a7ffc16b2efa5af034ab06b" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "80d701841487f72bf9d3fa56b25146b95e190502" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "1cfa6871f0374b21e894aad646366e89a747107e" },
   "auto-save.nvim": { "branch": "main", "commit": "213f92ad96e366f2bf95193a8948ed097faf810d" },
   "barbecue.nvim": { "branch": "main", "commit": "d38a2a023dfb1073dd0e8fee0c9be08855d3688f" },
   "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },

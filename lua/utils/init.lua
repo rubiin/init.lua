@@ -3,6 +3,7 @@ local M = {}
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
+local Job = require("plenary.job")
 
 -- Gets the operating system
 function M.get_os()
@@ -19,7 +20,6 @@ end
 
 -- update configs on the fly
 function M.update()
-  local Job = require("plenary.job")
   local path = M.get_install_dir()
   local errors = {}
 
@@ -43,6 +43,26 @@ function M.update()
       table.insert(errors, err)
     end,
   }):sync()
+end
+
+-- TODO: use this where you use plenary
+-- Source: 🔭 utils: https://git.io/JK3ht
+function M.get_os_command_output(cmd, cwd)
+  if type(cmd) ~= "table" then
+    print("Utils: [get_os_command_output]: cmd has to be a table")
+    return {}
+  end
+  local command = table.remove(cmd, 1)
+  local stderr = {}
+  local stdout, ret = Job:new({
+    command = command,
+    args = cmd,
+    cwd = cwd,
+    on_stderr = function(_, data)
+      table.insert(stderr, data)
+    end,
+  }):sync()
+  return stdout, ret, stderr
 end
 
 --- Check if it's day time
