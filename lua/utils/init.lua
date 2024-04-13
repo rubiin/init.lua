@@ -3,7 +3,6 @@ local M = {}
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
 local user_icons = require("custom.icons")
-local Job = require("plenary.job")
 
 -- Gets the operating system
 function M.get_os()
@@ -18,36 +17,12 @@ function M.get_os()
   return os
 end
 
--- update configs on the fly
-function M.update()
-  local path = M.get_install_dir()
-  local errors = {}
 
-  Job:new({
-    command = "git",
-    args = { "pull", "--ff-only" },
-    cwd = path,
-    on_start = function()
-      vim.notify("Updating...")
-    end,
-    on_exit = function()
-      if vim.tbl_isempty(errors) then
-        vim.notify("✅  Updated! Successfully...")
-      else
-        table.insert(errors, 1, "Something went wrong! Please pull changes manually.")
-        table.insert(errors, 2, "")
-        vim.notify("💁 Woops, update failed!", vim.log.levels.ERROR)
-      end
-    end,
-    on_stderr = function(_, err)
-      table.insert(errors, err)
-    end,
-  }):sync()
-end
 
 -- TODO: use this where you use plenary
 -- Source: 🔭 utils: https://git.io/JK3ht
 function M.get_os_command_output(cmd, cwd)
+  local Job = require("plenary.job")
   if type(cmd) ~= "table" then
     print("Utils: [get_os_command_output]: cmd has to be a table")
     return {}
