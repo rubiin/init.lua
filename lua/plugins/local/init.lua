@@ -21,9 +21,5 @@ return {
       vim.opt.spelllang:append("vim")
     end,
   },
-  {
-    "rubiin/highlighturl.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dev = true,
-  },
+
 }
