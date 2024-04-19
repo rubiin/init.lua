@@ -17,8 +17,6 @@ function M.get_os()
   return os
 end
 
-
-
 -- TODO: use this where you use plenary
 -- Source: 🔭 utils: https://git.io/JK3ht
 function M.get_os_command_output(cmd, cwd)
@@ -145,13 +143,6 @@ function M.set_lualine_styles(type)
   opts.sections.lualine_c = {
     {
       "filename",
-    },
-    {
-      require("custom.wakatime").wakatime,
-      cond = function()
-        return vim.g["loaded_wakatime"] == 1
-      end,
-      icon = "",
     },
   }
 
