@@ -2,6 +2,7 @@ return {
   { "folke/persistence.nvim", enabled = false },
   {
     "olimorris/persisted.nvim",
+    lazy = false, -- make sure the plugin is always loaded at startup
     event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
@@ -63,5 +64,13 @@ return {
         return true
       end,
     },
+    config = function(_, options)
+      require("persisted").setup(options)
+      local ok, telescope = pcall(require, "telescope")
+      if not ok then
+        return
+      end
+      telescope.load_extension("persisted")
+    end,
   },
 }
