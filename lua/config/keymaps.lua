@@ -9,8 +9,8 @@ local keymap, delete_keymap = util.keymap, util.delete_keymap
 local nano = require("utils.nano-plugins")
 
 -- Copy / Select All
-keymap("n", "<C-1>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
-keymap("n", "<C-2>", "ggVG", { desc = "Select All" })
+keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
+keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 
 -- Block Arrow Keys

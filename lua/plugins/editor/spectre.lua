@@ -21,9 +21,9 @@ return {
       {
         "<leader>sr",
         function()
-          require("spectre").open()
+          require("spectre").open(_G.get_spectre_options())
         end,
-        desc = "Replace In Files",
+        desc = "Replace In Files (Root dir)",
       },
       {
         "<leader>sf",
