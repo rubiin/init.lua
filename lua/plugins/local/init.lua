@@ -21,5 +21,4 @@ return {
       vim.opt.spelllang:append("vim")
     end,
   },
-
 }

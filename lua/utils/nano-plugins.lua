@@ -12,24 +12,22 @@ local function normal(cmd)
   vim.cmd.normal({ cmd, bang = true })
 end
 
-
-
 -- HUUUUUUUUUUUUUUUUUUUUUUUGE kudos and thanks to
 -- https://github.com/hown3d for this function <3
 local function substitute(cmd)
-  cmd = cmd:gsub("%%", vim.fn.expand "%")
-  cmd = cmd:gsub("$fileBase", vim.fn.expand "%:r")
-  cmd = cmd:gsub("$filePath", vim.fn.expand "%:p")
-  cmd = cmd:gsub("$file", vim.fn.expand "%")
-  cmd = cmd:gsub("$dir", vim.fn.expand "%:p:h")
-  cmd = cmd:gsub("#", vim.fn.expand "#")
-  cmd = cmd:gsub("$altFile", vim.fn.expand "#")
+  cmd = cmd:gsub("%%", vim.fn.expand("%"))
+  cmd = cmd:gsub("$fileBase", vim.fn.expand("%:r"))
+  cmd = cmd:gsub("$filePath", vim.fn.expand("%:p"))
+  cmd = cmd:gsub("$file", vim.fn.expand("%"))
+  cmd = cmd:gsub("$dir", vim.fn.expand("%:p:h"))
+  cmd = cmd:gsub("#", vim.fn.expand("#"))
+  cmd = cmd:gsub("$altFile", vim.fn.expand("#"))
 
   return cmd
 end
 
 function M.code_runner()
-  local file_extension = vim.fn.expand "%:e"
+  local file_extension = vim.fn.expand("%:e")
   local selected_cmd = ""
   local term_cmd = "vsplit term://"
   local supported_filetypes = {

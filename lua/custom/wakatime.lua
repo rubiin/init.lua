@@ -10,7 +10,7 @@ M.get_wakatime_time = function()
     command = os.getenv("HOME") .. "/.wakatime/wakatime-cli",
     args = { "--today" },
     on_exit = function(j, _)
-      tx(vim.split(j:result()[1],",")[1] or "")
+      tx(vim.split(j:result()[1], ",")[1] or "")
     end,
   })
   if not ok then
@@ -34,7 +34,7 @@ M.wakatime = function()
     if timer == nil then
       return ""
     end
-    -- Update wakatime every 60 second 
+    -- Update wakatime every 60 second
     uv.timer_start(timer, 60000, WAKATIME_UPDATE_INTERVAL, function()
       require("plenary.async").run(M.get_wakatime_time, function(time)
         state.comp_wakatime_time = time

@@ -6,6 +6,8 @@ local formatters_by_ft = {
   zsh = { "shfmt" },
 }
 
+local utils = require("utils")
+
 local prettier_file_types = {
   "angular",
   "css",
@@ -47,31 +49,18 @@ return {
       formatters_by_ft = formatters_by_ft,
       formatters = {
         biome = {
-          condition = function(ctx)
-            return vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
+          condition = function()
+            return utils.biome_config_exists()
           end,
         },
         deno_fmt = {
-          condition = function(ctx)
-            return vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
-          end,
-        },
-        prettier = {
-          prepend_args = {
-            "--cache",
-          },
-          condition = function(ctx)
-            return not vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
-              and not vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
+          condition = function()
+            return utils.deno_config_exist()
           end,
         },
         prettierd = {
-          prepend_args = {
-            "--cache",
-          },
-          condition = function(ctx)
-            return not vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1]
-              and not vim.fs.find({ "deno.json" }, { path = ctx.filename, upward = true })[1]
+          condition = function()
+            return not utils.biome_config_exists()
           end,
         },
       },
