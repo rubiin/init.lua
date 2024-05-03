@@ -19,14 +19,6 @@ return {
     },
     config = true,
   },
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed or {}, {
-        "typescript-language-server",
-      })
-    end,
-  },
 
   {
     "David-Kunz/cmp-npm",
@@ -64,7 +56,26 @@ return {
       "typescript.tsx",
     },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
+    opts = {
+      settings = {
+        expose_as_code_action = "all",
+        jsx_close_tag = {
+          enable = true,
+          filetypes = { "javascriptreact", "typescriptreact" },
+        },
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+    },
+    config = function(opts)
       local api = require("typescript-tools.api")
       require("lazyvim.util.lsp").on_attach(function(client, bufnr)
         if client.name == "typescript-tools" then
@@ -93,7 +104,7 @@ return {
           require("twoslash-queries").attach(client, bufnr)
         end
       end)
-      require("typescript-tools").setup({})
+      require("typescript-tools").setup(opts)
     end,
   },
   {
