@@ -1,6 +1,6 @@
 return {
   "aznhe21/actions-preview.nvim",
-  event = {"LspAttach"},
+  event = { "LspAttach" },
   dependencies = {
     "MunifTanjim/nui.nvim",
     -- "nvim-telescope/telescope.nvim", Change back to telescope if you want to use telescope
