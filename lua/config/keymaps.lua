@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = keygrp,
   pattern = "*",
   callback = function()
-    if vim.bo.filetype == "neo-tree" then
+    if vim.bo.filetype == "neo-tree" and vim.bo.filetype == "spectre_panel" then
       return
     end
     -- do the rest of the callback
