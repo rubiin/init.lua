@@ -7,4 +7,3 @@ setlocal.shiftwidth = 4
 
 
 
--- TODO: remove cut notifications go mini
