@@ -14,9 +14,11 @@
 - check if `lua.vim` ftplugin includes `:---` as comment:
   <https://github.com/neovim/neovim/blob/master/runtime/ftplugin/lua.vim#L18>
 - `vim.fn.getregion()`
-- load `symbol-usage.nvim` and `ray-x/lsp_signature.nvim` only on `LspAttach`
 - checkout whether `lsp_workspace_symbols` now finally works in lua
+- https://github.com/monkoose/neocodeium
 - move from barbecue to dropbar
+- built-in comment support
+- vim.fs.root
 - o.smoothscroll = true
 -   o.foldmethod = "expr"
   o.foldexpr = 'v:lua.require"lazyvim.util".ui.foldexpr()'

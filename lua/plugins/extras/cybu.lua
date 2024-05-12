@@ -20,7 +20,7 @@ return {
           max_win_width = 0.5,
         },
         style = {
-          border = "rounded",
+          border = vim.g.boder_style,
           path = "relative",
         },
         devicons = {

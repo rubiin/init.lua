@@ -1,18 +1,7 @@
 name: CI
 on: [push, pull_request]
 
-jobs:
-  stylua:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: JohnnyMorganz/stylua-action@v4
-      with:
-        token: ${{ secrets.TOKEN_GITHUB }}
-        version: latest # NOTE: we recommend pinning to a specific version in case of formatting changes
-      # CLI arguments
-        args: -g '*.lua' -g '*.iy' -- .
-        
+jobs:   
   release:
     name: release
     if: ${{ github.ref == 'refs/heads/master' }}
