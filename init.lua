@@ -17,7 +17,13 @@
 vim.loader.enable()
 
 package.loaded["lazyvim.config.options"] = true
+
 require("config.globals") -- user and lazy globals
 require("config.lazy")
 require("filetype")
-require("spellfixes")
+
+-- lazy-load spellfixes
+vim.api.nvim_create_autocmd("InsertEnter", {
+	once = true,
+	callback = function() require("spellfixes") end,
+})
