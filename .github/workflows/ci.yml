@@ -12,6 +12,11 @@ jobs:
         version: latest # NOTE: we recommend pinning to a specific version in case of formatting changes
       # CLI arguments
         args: -g '*.lua' -g '*.iy' -- .
+    - uses: EndBug/add-and-commit@v9
+      with:
+        add: "."
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
         
   release:
     name: release
