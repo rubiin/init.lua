@@ -1,6 +1,13 @@
 {
-  "diagnostics.globals": ["vim", "log", "cmp_mappings", "vim", "jit",
-        "LazyVim"],
+  "diagnostics.globals": [
+    "vim",
+    "log",
+    "cmp_mappings",
+    "vim",
+    "jit",
+    "LazyVim"
+  ],
+  "runtime.version": "LuaJIT",
   "diagnostics.disable": [
     "unused-local",
     "different-requires",
