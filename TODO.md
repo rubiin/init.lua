@@ -16,12 +16,8 @@
 - `vim.fn.getregion()`
 - checkout whether `lsp_workspace_symbols` now finally works in lua
 - https://github.com/monkoose/neocodeium
-- move from barbecue to dropbar
 - built-in comment support
 - vim.fs.root
-- o.smoothscroll = true
--   o.foldmethod = "expr"
-  o.foldexpr = 'v:lua.require"lazyvim.util".ui.foldexpr()'
 
 Fix this: https://i.imgur.com/gyqU1aL.png
 
