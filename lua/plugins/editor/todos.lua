@@ -1,7 +1,6 @@
 local user_icons = require("custom.icons")
 
 return {
-  -- TODO: check for trouble-v3
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = { "TodoTrouble", "TodoTelescope" },
