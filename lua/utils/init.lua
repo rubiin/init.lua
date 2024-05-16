@@ -155,10 +155,6 @@ function M.set_lualine_styles(type)
   opts.options.component_separators = "|"
   opts.options.section_separators = ""
 
-  opts.winbar = {
-    lualine_a = {},
-  }
-
   if type == constants.styles.slanted then
     opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
