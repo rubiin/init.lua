@@ -15,7 +15,7 @@ jobs:
         with:
           release-type: simple
           package-name: ruVim
-          bootstrap-sha: 358d112bc5132ca91ff0431af2aff503f0955969
+          config-file: release-please-config.json
       - uses: actions/checkout@v4
       - name: tag stable versions
         if: ${{ steps.release.outputs.release_created }}
