@@ -14,7 +14,6 @@ jobs:
         id: release
         with:
           release-type: simple
-          package-name: ruVim
       - uses: actions/checkout@v4
       - name: tag stable versions
         if: ${{ steps.release.outputs.release_created }}
