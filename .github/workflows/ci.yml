@@ -1,23 +1,7 @@
 name: CI
 on: [push, pull_request]
 
-jobs:
-  stylua:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: JohnnyMorganz/stylua-action@v4
-      with:
-        token: ${{ secrets.TOKEN_GITHUB }}
-        version: latest # NOTE: we recommend pinning to a specific version in case of formatting changes
-      # CLI arguments
-        args: -g '*.lua' -g '*.iy' -- .
-    - uses: EndBug/add-and-commit@v9
-      with:
-        add: "."
-        committer_name: GitHub Actions
-        committer_email: actions@github.com
-        
+jobs:   
   release:
     name: release
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -26,11 +10,10 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           release-type: simple
-          package-name: ruVim
       - uses: actions/checkout@v4
       - name: tag stable versions
         if: ${{ steps.release.outputs.release_created }}

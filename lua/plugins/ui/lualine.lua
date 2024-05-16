@@ -13,27 +13,4 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local trouble = require("trouble")
-      if not trouble.statusline then
-        LazyVim.error("You have enabled the **trouble-v3** extra,\nbut still need to update it with `:Lazy`")
-        return
-      end
-
-      local symbols = trouble.statusline({
-        mode = "symbols",
-        groups = {},
-        title = false,
-        filter = { range = true },
-        format = "{kind_icon}{symbol.name:Normal}",
-      })
-      table.insert(opts.winbar.lualine_a, {
-        symbols.get,
-        cond = symbols.has,
-      })
-    end,
-  },
 }
