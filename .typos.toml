@@ -6,7 +6,6 @@
 noice = "noice" # plugin name
 iterm = "iterm" # iterm
 
-# FIX: this config doesn work for some reason , check
 # ignore these files
 # INFO (needs glob due to conform.nvim appending stuff for temporary file)
 [files]
