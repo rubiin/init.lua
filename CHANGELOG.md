@@ -1,18 +1,5 @@
 # Changelog
 
-## [1.8.0](https://github.com/rubiin/init.lua/compare/v1.7.11...v1.8.0) (2024-05-17)
-
-
-### Features
-
-* neovim 10 🎉🥳 ([ec70b1b](https://github.com/rubiin/init.lua/commit/ec70b1ba3f20345b2c4c634f6a20fc0bb7eac050))
-
-
-### Bug Fixes
-
-* remove package-name from ci ([2bedde3](https://github.com/rubiin/init.lua/commit/2bedde334cbdd89f91b4bb35cca26ebf9d9f9191))
-* **todo:** remove done todos ([5bf3ec3](https://github.com/rubiin/init.lua/commit/5bf3ec382ecf378fdc84902dbe070b1aaa06ee37))
-
 ## [1.7.11](https://github.com/rubiin/init.lua/compare/v1.7.11...v1.7.11) (2024-05-16)
 
 
