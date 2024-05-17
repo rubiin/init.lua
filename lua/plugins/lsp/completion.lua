@@ -106,6 +106,7 @@ return {
       }
     end,
 
+    -- TODO: fix this. Its overidding the lazy config
     config = function(_, opts)
       for _, source in ipairs(opts.sources) do
         source.group_index = source.group_index or 1
