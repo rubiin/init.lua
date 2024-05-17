@@ -121,7 +121,6 @@ NOTE for Windows users:
 ### bars-and-lines
 
 + [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
-+ [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
 + [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 ### code-runner
 
@@ -140,7 +139,6 @@ NOTE for Windows users:
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 + [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 + [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
-+ [echasnovski/mini.comment](https://dotfyle.com/plugins/echasnovski/mini.comment)
 ### completion
 
 + [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
@@ -159,7 +157,6 @@ NOTE for Windows users:
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 + [HiPhish/rainbow-delimiters.nvim](https://dotfyle.com/plugins/HiPhish/rainbow-delimiters.nvim)
 + [okuuva/auto-save.nvim](https://dotfyle.com/plugins/okuuva/auto-save.nvim)
-+ [echasnovski/mini.pairs](https://dotfyle.com/plugins/echasnovski/mini.pairs)
 ### file-explorer
 
 + [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
@@ -277,8 +274,8 @@ NOTE for Windows users:
 + taplo
 + vtsls
 
-
-There are more plugins on extras folder that are not loaded by default. You can enable them by adding the require line on `lua/plugins/init.lua`.
+-Note: These are the plugin list and most of them are not loaded by default.
+You can enable them by adding the require line on `lua/plugins/init.lua`.
 Some are disabled by default because they are not used by me but I keep them there for reference.
 
 ## Personalization
