@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/rubiin/init.lua/compare/v1.8.0...v2.0.0) (2024-05-17)
+
+
+### Features
+
+* lazyvim depraction option ([f941b91](https://github.com/rubiin/init.lua/commit/f941b917035e179965d629858c8a0a21146e65dc))
+
+
+### Bug Fixes
+
+* add missing vim illuminate ([63044e1](https://github.com/rubiin/init.lua/commit/63044e14c8aee2991d064cdaf016be2b37ef042e))
+* disable mini comment ([3eac5f6](https://github.com/rubiin/init.lua/commit/3eac5f6a5587945061cd2eec283bbc593a9c6c0e))
+* todo ([a77f760](https://github.com/rubiin/init.lua/commit/a77f7606343805fdf697552e02ab3bdff239f594))
+
+
+### Miscellaneous Chores
+
+* release 2.0.0 ([313283a](https://github.com/rubiin/init.lua/commit/313283aad212940097c20c16d5eab6c2de3a348e))
+
 ## [1.8.0](https://github.com/rubiin/init.lua/compare/v1.7.11...v1.8.0) (2024-05-17)
 
 
