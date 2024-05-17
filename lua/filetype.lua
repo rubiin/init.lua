@@ -17,13 +17,11 @@ vim.filetype.add({
   },
   filename = {
     ["Jenkinsfile"] = "groovy",
-    [".env"] = "dotenv",
     ["tsconfig.tsbuildinfo"] = "json",
     ["vifmrc"] = "vim",
     ["LICENCE"] = "markdown",
   },
   pattern = {
-    ["%.env%.[%w_.-]+"] = "dotenv",
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
   },
 })
