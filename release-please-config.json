@@ -1,0 +1,9 @@
+{
+  "release-search-depth": 10,
+  "commit-search-depth": 10,
+  "packages": {
+    ".": {
+      "release-type": "simple"
+    }
+  }
+}
