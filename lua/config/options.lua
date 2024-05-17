@@ -8,6 +8,10 @@ local opt = vim.opt
 local g = vim.g
 local fn = vim.fn
 
+
+-- Hide deprecation warnings
+vim.g.deprecation_warnings = false
+
 g.mapleader = " "
 g.maplocalleader = "\\"
 
