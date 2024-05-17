@@ -120,6 +120,7 @@ NOTE for Windows users:
 
 ### bars-and-lines
 
++ [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
 + [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
 + [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 ### code-runner
@@ -139,6 +140,7 @@ NOTE for Windows users:
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 + [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 + [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
++ [echasnovski/mini.comment](https://dotfyle.com/plugins/echasnovski/mini.comment)
 ### completion
 
 + [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
@@ -160,6 +162,7 @@ NOTE for Windows users:
 + [echasnovski/mini.pairs](https://dotfyle.com/plugins/echasnovski/mini.pairs)
 ### file-explorer
 
++ [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 + [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
 ### formatting
 
@@ -172,7 +175,12 @@ NOTE for Windows users:
 + [ThePrimeagen/vim-be-good](https://dotfyle.com/plugins/ThePrimeagen/vim-be-good)
 ### git
 
++ [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
++ [akinsho/git-conflict.nvim](https://dotfyle.com/plugins/akinsho/git-conflict.nvim)
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
+### icon
+
++ [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
 ### indent
 
 + [shellRaining/hlchunk.nvim](https://dotfyle.com/plugins/shellRaining/hlchunk.nvim)
@@ -183,7 +191,7 @@ NOTE for Windows users:
 + [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
 ### lsp
 
-+ [nvimdev/lspsaga.nvim](https://dotfyle.com/plugins/nvimdev/lspsaga.nvim)
++ [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
 + [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
@@ -193,7 +201,8 @@ NOTE for Windows users:
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 ### markdown-and-latex
 
-+ [ellisonleao/glow.nvim](https://dotfyle.com/plugins/ellisonleao/glow.nvim)
++ [iamcco/markdown-preview.nvim](https://dotfyle.com/plugins/iamcco/markdown-preview.nvim)
++ [MeanderingProgrammer/markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/markdown.nvim)
 ### marks
 
 + [ThePrimeagen/harpoon](https://dotfyle.com/plugins/ThePrimeagen/harpoon)
@@ -217,10 +226,15 @@ NOTE for Windows users:
 ### project
 
 + [ahmedkhalf/project.nvim](https://dotfyle.com/plugins/ahmedkhalf/project.nvim)
+### quickfix
 
++ [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
 ### scrolling
 
 + [karb94/neoscroll.nvim](https://dotfyle.com/plugins/karb94/neoscroll.nvim)
+### search
+
++ [nvim-pack/nvim-spectre](https://dotfyle.com/plugins/nvim-pack/nvim-spectre)
 ### session
 
 + [olimorris/persisted.nvim](https://dotfyle.com/plugins/olimorris/persisted.nvim)
@@ -261,6 +275,8 @@ NOTE for Windows users:
 + html
 + svelte
 + taplo
++ vtsls
+
 
 There are more plugins on extras folder that are not loaded by default. You can enable them by adding the require line on `lua/plugins/init.lua`.
 Some are disabled by default because they are not used by me but I keep them there for reference.
