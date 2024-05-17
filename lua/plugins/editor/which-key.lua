@@ -17,7 +17,6 @@ return {
         ["<leader>;"] = { name = "info" },
         ["<leader>y"] = { name = "misc" },
         ["<leader>T"] = { name = "terminal" },
-        ["<leader>r"] = { name = "refactoring" },
       },
     },
   },
