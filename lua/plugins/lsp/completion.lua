@@ -1,8 +1,9 @@
 -- 0.10 , can use native snippets
 
-local cmp = require("cmp")
 local compare = require("cmp.config.compare")
 local user_icons = require("custom.icons")
+
+local cmp = require("cmp")
 
 return {
 
@@ -23,7 +24,6 @@ return {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       }
-      -- TODO: check mappings
 
       opts.duplicates = {
         nvim_lsp = 1,
@@ -104,14 +104,12 @@ return {
           return item
         end,
       }
-    end,
 
-    -- TODO: fix this. Its overidding the lazy config
-    config = function(_, opts)
-      for _, source in ipairs(opts.sources) do
-        source.group_index = source.group_index or 1
-      end
-      cmp.setup(opts)
+      table.insert(opts.sources, #opts.sources + 1, {
+        name = "git",
+        priority = 500,
+        group_index = 1,
+      })
 
       -- Set configuration for specific filetype.
       cmp.setup.filetype("gitcommit", {
