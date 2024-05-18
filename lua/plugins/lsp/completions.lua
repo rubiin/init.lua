@@ -7,7 +7,7 @@ return {
     dependencies = {
       "petertriho/cmp-git",
       "hrsh7th/cmp-cmdline",
-      { "garymjr/nvim-snippets", opts = { friendly_snippets = true, search_paths = { vim.g.vscode_snippets_path } } }
+      { "garymjr/nvim-snippets", opts = { friendly_snippets = true, search_paths = { vim.g.vscode_snippets_path } } },
     },
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -140,6 +140,6 @@ return {
           return charBefore ~= "\\"
         end,
       })
-    end
-  }
+    end,
+  },
 }

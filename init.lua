@@ -24,6 +24,8 @@ require("filetype")
 
 -- lazy-load spellfixes
 vim.api.nvim_create_autocmd("InsertEnter", {
-	once = true,
-	callback = function() require("spellfixes") end,
+  once = true,
+  callback = function()
+    require("spellfixes")
+  end,
 })

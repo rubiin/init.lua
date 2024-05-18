@@ -456,9 +456,7 @@ end
 -- Very useful for polygot programmers correct their habits
 -- from
 function M.ft_abbr(lhs, rhs)
-  -- TODO: update on nvim 0.10
-  -- vim.keymap.set("ia", lhs, rhs, { buffer = true })
-  vim.cmd.inoreabbrev(("<buffer> %s %s"):format(lhs, rhs))
+  vim.keymap.set("ia", lhs, rhs, { buffer = true })
 end
 
 -- Extend a table of lists by key.
