@@ -1,24 +1,55 @@
--- 0.10 , can use native snippets
-
 local compare = require("cmp.config.compare")
 local user_icons = require("custom.icons")
 
-local cmp = require("cmp")
-
 return {
-
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
       "petertriho/cmp-git",
       "hrsh7th/cmp-cmdline",
+      { "garymjr/nvim-snippets", opts = { friendly_snippets = true, search_paths = { vim.g.vscode_snippets_path } } }
     },
     opts = function(_, opts)
+      local cmp = require("cmp")
+
       opts.confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       }
+
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
+            cmp.select_next_item()
+          elseif vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      })
 
       opts.duplicates = {
         nvim_lsp = 1,
@@ -29,23 +60,7 @@ return {
         buffer = 1,
         path = 1,
       }
-      opts.sources = {
-        { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "buffer" },
-        { name = "luasnip" },
-        {
-          name = "spell",
-          group_index = 2,
-          option = {
-            keep_all_entries = false,
-            enable_in_context = function()
-              return true
-            end,
-          },
-        },
-        { name = "nvim_lua" },
-      }
+
       opts.completion = {
         completeopt = vim.o.completeopt,
       }
@@ -100,12 +115,6 @@ return {
         end,
       }
 
-      table.insert(opts.sources, #opts.sources + 1, {
-        name = "git",
-        priority = 500,
-        group_index = 1,
-      })
-
       -- Set configuration for specific filetype.
       cmp.setup.filetype("gitcommit", {
         sources = cmp.config.sources({
@@ -131,28 +140,6 @@ return {
           return charBefore ~= "\\"
         end,
       })
-
-      -- `/` cmdline setup.
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer", max_item_count = 3, keyword_length = 2 },
-        },
-      })
-      -- `:` cmdline setup.
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          },
-        }),
-      })
-    end,
-  },
+    end
+  }
 }
