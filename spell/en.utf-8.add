@@ -46,3 +46,7 @@ backend
 observables
 PostgresQL
 NodeJS
+WSL2
+folke
+init
+autocomplete

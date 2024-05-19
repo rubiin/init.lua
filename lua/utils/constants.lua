@@ -113,26 +113,4 @@ M.ignore_dirs = {
   "vendor/*",
 }
 
-------------------------------------------------------------------------
---                              Plugin lists                          --
-------------------------------------------------------------------------
-
---- TreeSitter parsers to keep installed
-M.ts_parsers = {
-  "css",
-  "diff",
-  "html",
-  "svelte",
-  "astro",
-  "regex",
-  "bash",
-  "gitcommit",
-  -- these five should always be installed, https://github.com/nvim-treesitter/nvim-treesitter#modules
-  "c",
-  "lua",
-  "vim",
-  "vimdoc",
-  "query",
-}
-
 return M

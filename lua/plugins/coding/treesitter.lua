@@ -28,7 +28,7 @@ return {
         },
       }
 
-      opts.indent = { enable = true, disable = { "python", "css" } }
+      opts.indent = { enable = true, disable = { "python", "css", "gitrebase" } }
 
       opts.context_commentstring = {
         enable = true,
