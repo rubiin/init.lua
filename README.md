@@ -5,9 +5,9 @@ Behold, the mystical incantations of my Neovim configuration, carefully crafted 
 ## init.lua/(Always WIP)
 
 
-<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/rubiin/initlua"><img src="https://dotfyle.com/rubiin/initlua/badges/plugin-manager?style=flat" /></a>
+<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/rubiin/init.lua"><img src="https://dotfyle.com/rubiin/init.lua/badges/plugin-manager?style=flat" /></a>
 
 
 ## ⚡ Requirements
@@ -77,8 +77,6 @@ NOTE for Windows users:
 │   └── queries                         # Override filetype settings
 ├── autoload
 ├── biome.json                           # Configuration file for a specific feature or plugin
-├── doc
-│   └── keymaps.md                       # Documentation file for keymaps
 ├── init.lua                             # Initialization file for Vim or Neovim
 ├── lazy-lock.json                       # Configuration file for a specific feature or plugin
 ├── lazyvim.json                         # Configuration file for a specific feature or plugin
