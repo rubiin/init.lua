@@ -284,3 +284,12 @@ end, { desc = "Cd Current File's Directory" })
 usercmd("WriteAllBuffers", function()
   cmd("wa")
 end, { desc = "Write All Changed Buffers" })
+
+
+-- Clear registers.
+usercmd('ClearRegisters', function()
+    for r in ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):gmatch '%a' do
+        vim.fn.setreg(r, '')
+    end
+end, { desc = 'Clear registers' })
+
