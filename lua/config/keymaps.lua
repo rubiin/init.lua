@@ -84,6 +84,12 @@ keymap("n", "<C-/>", function()
 end, { desc = "Terminal (Root Dir)" })
 keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
 
+
+-- taken from vim-unimpaired
+keymap('n', '[p', 'O<Esc>p') -- paste above current line
+keymap("n", "]p", 'o<Esc>P') -- paste below current line
+
+
 -- Add keymap to open URL under cursor
 keymap("n", "gx", function()
   nano.open_url()
