@@ -11,33 +11,23 @@
           "global",
           "all"
         ],
-        "path": "./global.json"
+        "path": "./snips/global.json"
       },
       {
-        "language": [
-          "javascript",
-          "typescript"
-        ],
-        "path": "./nestjs.json"
+        "language": "typescript",
+        "path": "./snips/nestjs.json"
       },
       {
-        "language": [
-          "javascriptreact",
-          "typescriptreact"
-        ],
-        "path": "./react.json"
+        "language": "typescriptreact",
+        "path": "./snips/react.json"
       },
       {
-        "language": [
-          "lua"
-        ],
-        "path": "./lua.json"
+        "language": "lua",
+        "path": "./snips/lua.json"
       },
       {
-        "language": [
-          "sh"
-        ],
-        "path": "./sh.json"
+        "language": "sh",
+        "path": "./snips/sh.json"
       }
     ]
   }
