@@ -292,59 +292,9 @@ function M.add_author_details()
     twitter = "RubinCodes",
   }
 
-  -- Get current buffer's file type
-  local filetype = vim.bo.filetype
+  local comment = getCommentstr()
 
-  local double_slash_based = {
-    "c",
-    "go",
-    "css",
-    "php",
-    "java",
-    "rust",
-    "sass",
-    "scala",
-    "dart",
-    "swift",
-    "kotlin",
-    "javascript",
-    "typescript",
-    "cpp",
-    "javascriptreact",
-    "typescriptreact",
-  }
-
-  local hash_based = {
-    "r",
-    "sh",
-    "perl",
-    "bash",
-    "ruby",
-    "zsh",
-    "python",
-  }
-
-  local comment_syntax = {}
-
-  for _, value in ipairs(hash_based) do
-    comment_syntax[value] = "# "
-  end
-
-  for _, value in ipairs(double_slash_based) do
-    comment_syntax[value] = "// "
-  end
-
-  comment_syntax["lua"] = "-- "
-
-  -- Get the comment syntax for the current file type
-  local comment = comment_syntax[filetype]
-
-  -- If comment syntax not found, use default
-  if not comment then
-    vim.notify("💁 Woops, file format not supported for now")
-    return
-  end
-
+  vim.notify(comment)
   -- Format the comment with author details
   -- Get current buffer
   local comment_details = string.format(

@@ -52,7 +52,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "L3MON4D3/LuaSnip",
       "petertriho/cmp-git",
       "hrsh7th/cmp-cmdline",
     },
@@ -68,6 +67,12 @@ return {
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
+
+      -- If you want insert `(` after select function or method item
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+      -- For adding parans after method/function
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
       local luasnip = require("luasnip")
 
@@ -100,7 +105,6 @@ return {
       opts.duplicates = {
         nvim_lsp = 1,
         luasnip = 1,
-        look = 1,
         cmp_tabnine = 1,
         copilot = 1,
         buffer = 1,
@@ -160,31 +164,28 @@ return {
           return item
         end,
       }
-
-      -- Set configuration for specific filetype.
-      cmp.setup.filetype("gitcommit", {
-        sources = cmp.config.sources({
-          { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-        }, {
+    end,
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    config = function()
+      local cmp = require("cmp")
+      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
           { name = "buffer" },
+        },
+      })
+      --
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
         }),
-      })
-
-      -- LUA: disable annoying `--#region` suggestions
-      cmp.setup.filetype("lua", {
-        enabled = function()
-          local line = vim.api.nvim_get_current_line()
-          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
-        end,
-      })
-
-      -- SHELL: disable `\[` suggestions at EoL
-      cmp.setup.filetype("sh", {
-        enabled = function()
-          local col = vim.fn.col(".") - 1
-          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
-          return charBefore ~= "\\"
-        end,
       })
     end,
   },
