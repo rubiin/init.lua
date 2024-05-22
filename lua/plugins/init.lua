@@ -18,5 +18,4 @@ return {
   { import = "plugins.extras.lang.typescript" },
   -- manually set typescript server , options are extras.typescript-tools and extras.vtls
   { import = "plugins.extras.vtls" },
-  { import = "plugins.extras.lang.markdown" },
 }
