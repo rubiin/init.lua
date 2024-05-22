@@ -79,13 +79,17 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins, reference from NvChad
       disabled_plugins = {
-        "gzip",
+        "rplugin", -- needed when using `:UpdateRemotePlugins` (e.g. magma.nvim)
         "matchparen",
+        "matchit",
         "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
+        "man",
         "tutor",
+        "health",
+        "tohtml",
+        "gzip",
         "zipPlugin",
+        "tarPlugin",
       },
     },
   },

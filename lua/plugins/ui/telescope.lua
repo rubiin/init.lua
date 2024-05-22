@@ -3,16 +3,6 @@ local user_icons = require("custom.icons")
 
 return {
   {
-    "prochri/telescope-all-recent.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "kkharji/sqlite.lua",
-      "stevearc/dressing.nvim",
-    },
-    opts = {},
-  },
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "olimorris/persisted.nvim",
@@ -21,13 +11,19 @@ return {
       "debugloop/telescope-undo.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       {
+        "prochri/telescope-all-recent.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "kkharji/sqlite.lua",
+          "stevearc/dressing.nvim",
+        },
+        opts = {},
+      },
+      {
         "nvim-telescope/telescope-fzf-native.nvim",
         event = { "BufReadPre", "BufNewFile" },
         build = "make",
-      },
-      {
-        "kkharji/sqlite.lua",
-        enabled = not jit.os:find("Windows"),
       },
     },
     keys = {
@@ -144,7 +140,6 @@ return {
         telescope.load_extension("undo")
         telescope.load_extension("ui-select")
         telescope.load_extension("harpoon")
-        telescope.load_extension("persisted")
 
         -- custom telescope extensions
         telescope.load_extension("nerdfont")

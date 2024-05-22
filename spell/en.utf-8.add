@@ -75,3 +75,6 @@ parans
 jumpable
 autocompletion
 cmdline
+laststatus
+lualine
+stylua
