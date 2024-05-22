@@ -2,6 +2,16 @@ return {
   {
     "numToStr/Comment.nvim",
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        lazy = true,
+        opts = {
+          enable_autocmd = false,
+        },
+      },
+    },
     opts = {
       ---Add a space b/w comment and the line
       ---@type boolean
@@ -58,20 +68,11 @@ return {
         --  Make sense to be related to your opleader.block
         block = "gbc",
       },
-
-      -- Pre-hook, called before commenting the line
-      --    Can be used to determine the commentstring value
-      -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), TODO: check on this 
-      -- Post-hook, called after commenting is done
-      --    Can be used to alter any formatting / newlines / etc. after commenting
-      post_hook = nil,
-
-      -- Can be used to ignore certain lines when doing linewise motions.
-      --    Can be string (lua regex)
-      --    Or function (that returns lua regex)
-      -- ignore = nil,
     },
     config = function(_, opts)
+      -- to skip backwards compatibility routines and speed up loading
+      opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+      vim.g.skip_ts_context_commentstring_module = true
       require("Comment").setup(opts)
     end,
   },
