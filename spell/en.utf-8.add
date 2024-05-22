@@ -78,3 +78,5 @@ cmdline
 laststatus
 lualine
 stylua
+linters
+formatters
