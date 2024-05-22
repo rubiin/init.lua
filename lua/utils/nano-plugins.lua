@@ -12,6 +12,55 @@ local function normal(cmd)
   vim.cmd.normal({ cmd, bang = true })
 end
 
+local function getCommentstr()
+  if vim.bo.commentstring == "" then
+    vim.notify("No commentstring for " .. vim.bo.ft, vim.log.levels.WARN, { title = "Comment" })
+    return
+  end
+  return vim.bo.commentstring
+end
+
+-- appends a horizontal line, with the language's comment syntax,
+-- correctly indented and padded
+function M.commentHr()
+  local comStr = getCommentstr()
+  if not comStr then
+    return
+  end
+  local startLn = vim.api.nvim_win_get_cursor(0)[1]
+
+  -- determine indent
+  local ln = startLn
+  local line, indent
+  repeat
+    line = vim.api.nvim_buf_get_lines(0, ln - 1, ln, true)[1]
+    indent = line:match("^%s*")
+    ln = ln - 1
+  until line ~= "" or ln == 0
+
+  -- determine hrLength
+  local indentLength = vim.bo.expandtab and #indent or #indent * vim.bo.tabstop
+  local comStrLength = #(comStr:format(""))
+  local textwidth = vim.o.textwidth > 0 and vim.o.textwidth or 80
+  local hrLength = textwidth - (indentLength + comStrLength)
+
+  -- construct hr
+  local hrChar = comStr:find("%-") and "-" or "─"
+  local hr = hrChar:rep(hrLength)
+  local hrWithComment = comStr:format(hr)
+
+  -- filetype-specific padding
+  local formatterWantPadding = { "python", "css", "scss" }
+  if not vim.tbl_contains(formatterWantPadding, vim.bo.ft) then
+    hrWithComment = hrWithComment:gsub(" ", hrChar)
+  end
+  local fullLine = indent .. hrWithComment
+
+  -- append lines & move
+  vim.api.nvim_buf_set_lines(0, startLn, startLn, true, { fullLine, "" })
+  vim.api.nvim_win_set_cursor(0, { startLn + 1, #indent })
+end
+
 -- HUUUUUUUUUUUUUUUUUUUUUUUGE kudos and thanks to
 -- https://github.com/hown3d for this function <3
 local function substitute(cmd)

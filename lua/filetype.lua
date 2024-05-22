@@ -6,18 +6,14 @@
 
 vim.filetype.add({
   extension = {
-    rofi = "rasi",
-    wofi = "rasi",
     ejs = "html",
     htm = "html",
     mjml = "html",
     eta = "html",
     svx = "markdown",
-    mdx = "markdown",
   },
   filename = {
-    ["tsconfig.tsbuildinfo"] = "json",
-    ["vifmrc"] = "vim",
+    ["tsconfig.tsbuildinfo"] = "json", -- TODO: delete after merge
     ["LICENCE"] = "markdown",
   },
   pattern = {

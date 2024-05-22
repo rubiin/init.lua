@@ -87,6 +87,9 @@ keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
 -- taken from vim-unimpaired
 keymap("n", "[p", "O<Esc>p") -- paste above current line
 keymap("n", "]p", "o<Esc>P") -- paste below current line
+keymap("n", "hr", function()
+  nano.commentHr()
+end, { desc = "Add Horizontal Comment Line" })
 
 -- Add keymap to open URL under cursor
 keymap("n", "gx", function()
