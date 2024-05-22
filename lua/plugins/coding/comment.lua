@@ -61,7 +61,7 @@ return {
 
       -- Pre-hook, called before commenting the line
       --    Can be used to determine the commentstring value
-      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), TODO: check on this 
       -- Post-hook, called after commenting is done
       --    Can be used to alter any formatting / newlines / etc. after commenting
       post_hook = nil,
@@ -72,9 +72,6 @@ return {
       -- ignore = nil,
     },
     config = function(_, opts)
-      require("ts_context_commentstring").setup({
-        enable_autocmd = false,
-      })
       require("Comment").setup(opts)
     end,
   },

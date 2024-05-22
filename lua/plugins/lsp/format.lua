@@ -20,8 +20,6 @@ local prettier_file_types = {
   "json",
   "jsonc",
   "less",
-  "markdown",
-  "markdown.mdx",
   "sass",
   "scss",
   "typescript",
