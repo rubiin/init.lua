@@ -2,8 +2,7 @@ return {
   { "folke/persistence.nvim", enabled = false },
   {
     "olimorris/persisted.nvim",
-    lazy = false, -- make sure the plugin is always loaded at startup
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufReadPre",
     keys = {
       {
         "<leader>qs",
