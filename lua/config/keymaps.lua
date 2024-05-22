@@ -14,22 +14,10 @@ keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 
 -- Block Arrow Keys
-local keygrp = util.augroup("keybind")
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = keygrp,
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "neo-tree" and vim.bo.filetype == "spectre_panel" then
-      return
-    end
-    -- do the rest of the callback
-    keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-    keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-    keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-    keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-  end,
-})
+keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 keymap("v", "<leader>ct", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", { desc = "Visual Formatting" })
 
