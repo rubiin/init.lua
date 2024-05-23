@@ -16,7 +16,7 @@ local function normal(cmd)
   vim.cmd.normal({ cmd, bang = true })
 end
 
-local function getCommentstr()
+local function get_comment_str()
   if vim.bo.commentstring == "" then
     vim.notify("No commentstring for " .. vim.bo.ft, vim.log.levels.WARN, { title = "Comment" })
     return
@@ -27,8 +27,8 @@ end
 -- appends a horizontal line, with the language's comment syntax,
 -- correctly indented and padded
 function M.commentHr()
-  local comStr = getCommentstr()
-  if not comStr then
+  local comment_str = get_comment_str()
+  if not comment_str then
     return
   end
   local startLn = vim.api.nvim_win_get_cursor(0)[1]
@@ -42,23 +42,22 @@ function M.commentHr()
     ln = ln - 1
   until line ~= "" or ln == 0
 
-  -- determine hrLength
-  local indentLength = vim.bo.expandtab and #indent or #indent * vim.bo.tabstop
-  local comStrLength = #(comStr:format(""))
-  local textwidth = vim.o.textwidth > 0 and vim.o.textwidth or 80
-  local hrLength = textwidth - (indentLength + comStrLength)
+  local indent_length = vim.bo.expandtab and #indent or #indent * vim.bo.tabstop
+  local com_str_length = #(comment_str:format(""))
+  local text_width = vim.o.textwidth > 0 and vim.o.textwidth or 80
+  local hr_length = text_width - (indent_length + com_str_length)
 
   -- construct hr
-  local hrChar = comStr:find("%-") and "-" or "─"
-  local hr = hrChar:rep(hrLength)
-  local hrWithComment = comStr:format(hr)
+  local hr_char = comment_str:find("%-") and "-" or "─"
+  local hr = hr_char:rep(hr_length)
+  local hr_with_omment = comment_str:format(hr)
 
   -- filetype-specific padding
-  local formatterWantPadding = { "python", "css", "scss" }
-  if not vim.tbl_contains(formatterWantPadding, vim.bo.ft) then
-    hrWithComment = hrWithComment:gsub(" ", hrChar)
+  local formatter_want_padding = { "python", "css", "scss" }
+  if not vim.tbl_contains(formatter_want_padding, vim.bo.ft) then
+    hr_with_omment = hr_with_omment:gsub(" ", hr_char)
   end
-  local fullLine = indent .. hrWithComment
+  local fullLine = indent .. hr_with_omment
 
   -- append lines & move
   vim.api.nvim_buf_set_lines(0, startLn, startLn, true, { fullLine, "" })
@@ -296,7 +295,7 @@ function M.add_author_details()
     twitter = "RubinCodes",
   }
 
-  local comment = getCommentstr()
+  local comment = get_comment_str()
 
   -- replace %s in comment string with empty
   comment = string.format(comment, "")
