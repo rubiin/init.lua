@@ -1,3 +1,7 @@
+-- %s Author: Rubin Bhandari <roobin.bhandari@gmail.com>
+-- %s Date: 2024-05-23
+-- %s GitHub: https://github.com/rubiin
+-- %s Twitter: https://twitter.com/RubinCodes
 -- These are several commands that are too small to be created as standalone plugins,
 -- but too large to be included directly in the main configuration file, where they
 -- might clutter the actual configuration. Each function is self-contained, apart from
@@ -294,7 +298,9 @@ function M.add_author_details()
 
   local comment = getCommentstr()
 
-  vim.notify(comment)
+  -- replace %s in comment string with empty
+  comment = string.format(comment, "")
+
   -- Format the comment with author details
   -- Get current buffer
   local comment_details = string.format(
