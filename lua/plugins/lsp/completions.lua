@@ -187,6 +187,22 @@ return {
           { name = "cmdline" },
         }),
       })
+      -- LUA: disable annoying `--#region` suggestions
+      cmp.setup.filetype("lua", {
+        enabled = function()
+          local line = vim.api.nvim_get_current_line()
+          return not (line:find("%s%-%-?$") or line:find("^%-%-?$"))
+        end,
+      })
+
+      -- SHELL: disable `\[` suggestions at EoL
+      cmp.setup.filetype("sh", {
+        enabled = function()
+          local col = vim.fn.col(".") - 1
+          local charBefore = vim.api.nvim_get_current_line():sub(col, col)
+          return charBefore ~= "\\"
+        end,
+      })
     end,
   },
 }
