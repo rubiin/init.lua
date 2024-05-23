@@ -18,6 +18,15 @@ local aufiletype = utils.augroup("file_type")
 local auterminal = utils.augroup("terminal_setting")
 local fold_augroup = utils.augroup("remember_folds")
 
+-- make it easier to close man-files when opened inline
+autocmd("FileType", {
+  group = utils.augroup("lazyvim_man_unlisted"),
+  pattern = { "man" },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+  end,
+})
+
 autocmd("FileType", {
   group = aufiletype,
   pattern = { "gitcommit", "gitrebase" },
@@ -38,11 +47,9 @@ autocmd("TextYankPost", {
 
 autocmd("FileType", {
   group = aufiletype,
-  pattern = constants.exclude_file_types,
+  pattern = constants.common_file_types,
   callback = function(event)
-    vim.bo[event.buf].buflisted = false
     vim.o.number = false
-    opt_local.cursorline = false
     vim.opt.spell = false
     utils.keymap("n", "q", "<cmd>close<cr>")
   end,
