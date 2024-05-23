@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/rubiin/init.lua/compare/v2.0.0...v2.0.1) (2024-05-23)
+
+
+### Bug Fixes
+
+* autocmd bug ([af860d8](https://github.com/rubiin/init.lua/commit/af860d8a8be97c416f561e41c47fadd29eb480ff))
+
 ## [2.0.0](https://github.com/rubiin/init.lua/compare/v1.7.7...v2.0.0) (2024-05-23)
 
 
