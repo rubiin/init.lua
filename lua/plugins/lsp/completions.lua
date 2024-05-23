@@ -13,8 +13,6 @@ return {
       luasnip.filetype_extend("typescript", { "tsdoc" })
       luasnip.filetype_extend("javascript", { "jsdoc" })
       luasnip.filetype_extend("lua", { "luadoc" })
-      luasnip.filetype_extend("python", { "pydoc" })
-      luasnip.filetype_extend("rust", { "rustdoc" })
       luasnip.filetype_extend("sh", { "shelldoc" })
 
       -- extend html snippets to react files
