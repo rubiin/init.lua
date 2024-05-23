@@ -7,12 +7,9 @@
 vim.filetype.add({
   extension = {
     ejs = "html",
-    htm = "html",
     mjml = "html",
     eta = "html",
-  },
-  filename = {
-    ["tsconfig.tsbuildinfo"] = "json", -- TODO: delete after merge
+    tsbuildinfo = "json"
   },
   pattern = {
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
