@@ -45,6 +45,9 @@ keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
 keymap("n", "<leader>;c", LazyVim.news.changelog, { desc = "Changelog [LazyVim]" })
 keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
+-- Make U opposite to u.
+keymap("n", "U", "<C-r>", { desc = "Redo" })
+
 -- keeps registers clean
 
 keymap({ "n", "x" }, "x", '"_x')

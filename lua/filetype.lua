@@ -9,7 +9,7 @@ vim.filetype.add({
     ejs = "html",
     mjml = "html",
     eta = "html",
-    tsbuildinfo = "json"
+    tsbuildinfo = "json",
   },
   pattern = {
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
