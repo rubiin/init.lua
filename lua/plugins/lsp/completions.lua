@@ -65,13 +65,6 @@ return {
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
-
-      -- If you want insert `(` after select function or method item
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-      -- For adding parans after method/function
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
       local luasnip = require("luasnip")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {

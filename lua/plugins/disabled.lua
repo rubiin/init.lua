@@ -6,5 +6,4 @@ return disable_plugins({
   "folke/tokyonight",
   "echasnovski/mini.comment",
   "echasnovski/mini.pairs",
-  "iamcco/markdown-preview.nvim",
 })
