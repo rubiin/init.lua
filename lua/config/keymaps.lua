@@ -75,6 +75,7 @@ keymap("n", "<C-/>", function()
   LazyVim.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
+keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
 
 -- taken from vim-unimpaired
 keymap("n", "[p", "O<Esc>p") -- paste above current line

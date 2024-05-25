@@ -1,7 +1,7 @@
 return {
   "Wansmer/treesj",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  event = { "BufReadPre", "BufNewFile" },
+  cmd = { "TSJJoin", "TSJSplit" },
   lazy = true,
   config = function()
     require("treesj").setup({})
