@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0](https://github.com/rubiin/init.lua/compare/v2.0.1...v2.1.0) (2024-05-25)
+
+
+### Features
+
+* **keymaps:** add goto start and end of command on terminal ([9dadc7b](https://github.com/rubiin/init.lua/commit/9dadc7b386c3710973e5012fd9da0e39a8b0b97d))
+* **keymaps:** add redo keymap ([2024f76](https://github.com/rubiin/init.lua/commit/2024f76908c94b23b12e27f5c4c8a0b5688d14c7))
+* **spell:** add programming related spell file ([9dadc7b](https://github.com/rubiin/init.lua/commit/9dadc7b386c3710973e5012fd9da0e39a8b0b97d))
+
+
+### Bug Fixes
+
+* remove mini pairs ([8fc35a9](https://github.com/rubiin/init.lua/commit/8fc35a96c31e5f19a435e36b6018773cb684ba29))
+* remove unneeded configs ([7f92f74](https://github.com/rubiin/init.lua/commit/7f92f748d2ba4f47dd30b4a589f601e8621c03ed))
+* use extension instead ([c514e7a](https://github.com/rubiin/init.lua/commit/c514e7a9e072ff1f00a418f9bb0f08bb4ddd843c))
+
 ## [2.0.1](https://github.com/rubiin/init.lua/compare/v2.0.0...v2.0.1) (2024-05-23)
 
 
