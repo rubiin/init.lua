@@ -2,7 +2,6 @@ return {
   -- which key integration
   {
     "folke/which-key.nvim",
-    optional = true,
     event = "VeryLazy",
     opts = {
       window = {

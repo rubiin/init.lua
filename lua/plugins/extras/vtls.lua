@@ -11,6 +11,7 @@ return {
       {
         "dmmulroy/ts-error-translator.nvim",
         ft = "javascript,typescript,typescriptreact,svelte",
+        event = { "LspAttach" },
         opts = {
           auto_override_publish_diagnostics = true,
         },
@@ -19,6 +20,7 @@ return {
       {
         "marilari88/twoslash-queries.nvim",
         ft = "javascript,typescript,typescriptreact,svelte",
+        event = { "LspAttach" },
         opts = {
           is_enabled = false, -- Use :TwoslashQueriesEnable to enable
           multi_line = true, -- to print types in multi line mode

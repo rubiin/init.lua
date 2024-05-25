@@ -3,6 +3,7 @@ local vault_path = vim.fn.expand("~/Documents")
 return {
   "epwalsh/obsidian.nvim",
   ft = "markdown",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",

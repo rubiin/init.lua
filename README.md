@@ -298,6 +298,13 @@ But beware, dear traveler, for navigating the labyrinthine corridors of the Neov
 
 Yet fear not, for even in the darkest depths of plugin hell, there is hope. With the wisdom of the Vim masters as your guide and the camaraderie of fellow developers as your shield, you shall emerge victorious. And when you do, you'll look back on your Neovim configuration not just as a set of preferences, but as a testament to your resilience, your creativity, and your ability to laugh in the face of even the most cryptic Vimscript errors.
 
+## Self-Promotion
+Like the cofigs? Follow the repository on GitHub. You can check some of my plugins that are used here
+- [fotune.nvim](https://github.com/rubiin/fortune.nvim)
+- [highlighturl.nvim](https://github.com/rubiin/highlighturl.nvim)
+- [vimwordlist.nvim](https://github.com/rubiin/vimwordlist.nvim)
+
+
 ## Credits and Further reading/learning
 Huge shoutout to the Vim elders, whose ancient wisdom and cryptic commands paved the way for the adoption of Neovim. May your modal editing skills be forever sharp, and your init.lua files forever tidy.
 

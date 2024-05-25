@@ -8,6 +8,7 @@ return {
       "typescriptreact",
       "typescript.tsx",
     },
+    event = { "LspAttach" },
     config = true,
   },
   {
@@ -17,6 +18,7 @@ return {
       "typescriptreact",
       "typescript.tsx",
     },
+    event = { "LspAttach" },
     config = true,
   },
 

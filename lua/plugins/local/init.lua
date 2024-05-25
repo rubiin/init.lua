@@ -4,7 +4,6 @@
 return {
   {
     "rubiin/fortune.nvim",
-    lazy = true,
     dev = true,
     event = "VimEnter",
     opts = {
@@ -14,11 +13,12 @@ return {
   },
   {
     "rubiin/vimwordlist.nvim",
-    lazy = true,
     cmd = "GenerateVimSpell",
-    build = ":GenerateVimSpell",
+    dev = true,
+    build = "GenerateVimSpell",
     config = function()
       vim.opt.spelllang:append("vim")
+      vim.opt.spelllang:append("programming") -- append personal wordlist to spelllang
     end,
   },
 }

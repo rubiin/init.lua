@@ -66,8 +66,9 @@ keymap("n", "dd", function()
   return "dd"
 end, { expr = true })
 
--- Go to beginning of command in command-line mode
-keymap("c", "<C-A>", "<HOME>")
+-- Beginning and end of line in `:` command mode
+keymap("c", "<C-a>", "<home>")
+keymap("c", "<C-e>", "<end>")
 
 -- Override LazyVim bindings for terminal
 keymap("n", "<C-/>", function()
