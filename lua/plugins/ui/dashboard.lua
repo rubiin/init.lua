@@ -4,6 +4,7 @@ local util = require("utils")
 return {
   {
     "nvimdev/dashboard-nvim",
+    event = "VimEnter",
     opts = function()
       local logo = require("utils.banners").dashboard()
       local opts = {
