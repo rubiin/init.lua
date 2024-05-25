@@ -159,6 +159,7 @@ return {
   },
   {
     "hrsh7th/cmp-cmdline",
+    event = "VeryLazy",
     config = function()
       local cmp = require("cmp")
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
