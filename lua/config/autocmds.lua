@@ -220,6 +220,13 @@ autocmd({ "BufWritePost" }, {
   desc = "Source Config Lua Files On Save",
 })
 
+autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+  group = utils.augroup("newline-comment"),
+})
+
 autocmd({ "BufLeave", "BufWinLeave" }, {
   group = fold_augroup,
   pattern = "*",
@@ -251,15 +258,6 @@ autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste",
   desc = "Turn Off Paste Mode When Leaving Insert",
-})
-
-autocmd("BufEnter", {
-  group = augeneral,
-  pattern = "*",
-  callback = function()
-    vim.cmd("set formatoptions-=cro")
-  end,
-  desc = "Disable Auto Comment",
 })
 
 -- Disable `mini.indentscope` for specific filetypes
