@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.2.0](https://github.com/rubiin/init.lua/compare/v2.1.0...v2.2.0) (2024-05-28)
+
+
+### Features
+
+* new keymaps and others ([e81bb97](https://github.com/rubiin/init.lua/commit/e81bb97d0f60cbfa5bca2fb48e2c2d275e223f3f))
+
+
+### Bug Fixes
+
+* **copilot:** remove duplicate cmp ([3e1b1c1](https://github.com/rubiin/init.lua/commit/3e1b1c1209f0a500721d29adf6ece6a1ea229ad3))
+* dashboard fixes ([24dac49](https://github.com/rubiin/init.lua/commit/24dac49df32ccebfcb3b4a1c38df20ff02da4129))
+* lazy load cmp-cmdline ([9dd751f](https://github.com/rubiin/init.lua/commit/9dd751f4b30090b1fcd1829af3a989ced9304180))
+* terminal keymaps ([7208dd0](https://github.com/rubiin/init.lua/commit/7208dd01da01bd7143a47d2853627d357cd7f17f))
+
 ## [2.1.0](https://github.com/rubiin/init.lua/compare/v2.0.1...v2.1.0) (2024-05-25)
 
 
