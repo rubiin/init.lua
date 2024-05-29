@@ -9,8 +9,5 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = lualine_styles,
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
   },
 }
