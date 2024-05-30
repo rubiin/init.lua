@@ -1,115 +1,107 @@
-local utils = require("utils")
-
-return {
+return { -- Typescript formatter
+  {
+    "yioneko/nvim-vtsls",
+    lazy = true,
+    opts = {},
+    config = function(_, opts)
+      require("vtsls").config(opts)
+    end,
+  },
+  -- correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "yioneko/nvim-vtsls",
-      },
-      -- Typescript formatter
-      {
-        "dmmulroy/ts-error-translator.nvim",
-        ft = "javascript,typescript,typescriptreact,svelte",
-        event = { "LspAttach" },
-        opts = {
-          auto_override_publish_diagnostics = true,
-        },
-      },
-      -- Type queries
-      {
-        "marilari88/twoslash-queries.nvim",
-        ft = "javascript,typescript,typescriptreact,svelte",
-        event = { "LspAttach" },
-        opts = {
-          is_enabled = false, -- Use :TwoslashQueriesEnable to enable
-          multi_line = true, -- to print types in multi line mode
-          highlight = "Type", -- to set up a highlight group for the virtual text
-        },
-        keys = {
-          { "<leader>dt", ":TwoslashQueriesEnable<cr>", desc = "Enable twoslash queries" },
-          { "<leader>dd", ":TwoslashQueriesInspect<cr>", desc = "Inspect twoslash queries" },
-        },
-      },
-    },
     opts = {
+      -- make sure mason installs the server
       servers = {
-        -- ---@type lspconfig.options.vtsls
+        tsserver = {
+          enabled = false,
+        },
         vtsls = {
-          -- add keymap
-          keys = {
-            {
-              "<leader>cV",
-              "<cmd>VtsExec select_ts_version<cr>",
-              desc = "Select TS workspace version",
-            },
-          },
-
-          -- Settings
           settings = {
+            complete_function_calls = true,
             vtsls = {
-              autoUseWorkspaceTsdk = true,
+              enableMoveToFileCodeAction = true,
+            },
+            typescript = {
+              updateImportsOnFileMove = { enabled = "always" },
               experimental = {
                 completion = {
                   enableServerSideFuzzyMatch = true,
                 },
               },
-            },
-            javascript = {
+              suggest = {
+                completeFunctionCalls = true,
+              },
               inlayHints = {
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
                 parameterNames = { enabled = "literals" },
                 parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-              updateImportsOnFileMove = {
-                enabled = "always",
+                variableTypes = { enabled = false },
               },
             },
-            typescript = {
-              inlayHints = {
-                parameterNames = { enabled = "literals" },
-                parameterTypes = { enabled = false },
-                variableTypes = { enabled = false },
-                propertyDeclarationTypes = { enabled = false },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-              updateImportsOnFileMove = {
-                enabled = "always",
-              },
+          },
+          keys = {
+            {
+              "gD",
+              function()
+                require("vtsls").commands.goto_source_definition(0)
+              end,
+              desc = "Goto Source Definition",
+            },
+            {
+              "gR",
+              function()
+                require("vtsls").commands.file_references(0)
+              end,
+              desc = "File References",
+            },
+            {
+              "<leader>co",
+              function()
+                require("vtsls").commands.organize_imports(0)
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cM",
+              function()
+                require("vtsls").commands.add_missing_imports(0)
+              end,
+              desc = "Add missing imports",
+            },
+            {
+              "<leader>cV",
+              function()
+                require("vtsls").commands.select_ts_version(0)
+              end,
+              desc = "Select TS workspace version",
+            },
+            {
+              "<leader>cD",
+              function()
+                require("vtsls").commands.fix_all(0)
+              end,
+              desc = "Fix all diagnostics",
             },
           },
         },
       },
       setup = {
-        -- Disable tsserver
         tsserver = function()
+          -- disable tsserver
           return true
-        end,
-        vtsls = function()
-          -- Disable tsserver if denols is present
-          if utils.deno_config_exist() then
-            return true
-          end
-
-          require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-            if client.name == "vtsls" then
-              -- Attach twoslash queries
-              require("twoslash-queries").attach(client, bufnr)
-            end
-          end)
         end,
       },
     },
   },
+
   {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "vtsls" })
+      -- copy typescript settings to javascript
+      opts.servers.vtsls.settings.javascript = vim.deepcopy(opts.servers.vtsls.settings.typescript)
     end,
   },
 }
