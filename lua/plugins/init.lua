@@ -13,9 +13,4 @@ return {
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.runner" },
   { import = "plugins.extras.dropbar" },
-
-  -- language setup
-  { import = "plugins.extras.lang.typescript" },
-  -- manually set typescript server , options are extras.typescript-tools and extras.vtls
-  { import = "plugins.extras.vtls" },
 }
