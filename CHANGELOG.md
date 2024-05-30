@@ -1,4 +1,36 @@
-# Changelog
+## [2.3.0](https://github.com/rubiin/init.lua/compare/v2.1.0...v2.3.0) (2024-05-30)
+
+
+### Features
+
+* native snippets ([18e94b1](https://github.com/rubiin/init.lua/commit/18e94b1082f28f6e40b61ec727a3cf284a29413a))
+* new keymaps and others ([e81bb97](https://github.com/rubiin/init.lua/commit/e81bb97d0f60cbfa5bca2fb48e2c2d275e223f3f))
+
+
+### Bug Fixes
+
+* comment.nvim remove deprecated options ([de41373](https://github.com/rubiin/init.lua/commit/de41373739f3da087a9ec98e400c68be25248866))
+* **copilot:** remove duplicate cmp ([3e1b1c1](https://github.com/rubiin/init.lua/commit/3e1b1c1209f0a500721d29adf6ece6a1ea229ad3))
+* dashboard fixes ([24dac49](https://github.com/rubiin/init.lua/commit/24dac49df32ccebfcb3b4a1c38df20ff02da4129))
+* lazy load cmp-cmdline ([9dd751f](https://github.com/rubiin/init.lua/commit/9dd751f4b30090b1fcd1829af3a989ced9304180))
+* mini surround duplicate import ([91a4865](https://github.com/rubiin/init.lua/commit/91a4865e9ff03caf19091e21606408dc113d6427))
+* remove custom zoom as lazy has this baked in ([45f239e](https://github.com/rubiin/init.lua/commit/45f239e420e1bb7abb0d3a589493d5420907448e))
+* remove dependencies where not needed ([27c0db0](https://github.com/rubiin/init.lua/commit/27c0db01965fbc43b4c828d926f70c4b834ee44b))
+* terminal keymaps ([7208dd0](https://github.com/rubiin/init.lua/commit/7208dd01da01bd7143a47d2853627d357cd7f17f))
+* vtls ([2abe562](https://github.com/rubiin/init.lua/commit/2abe562fb02b4e9c1dd067c7cb79a55c8ee0d78e))
+
+---
+This PR was generated with [Release Please](https://github.com/googleapis/release-please). See [documentation](https://github.com/googleapis/release-please#release-please).
+
+### Performance Improvements
+
+* **persisted:** lazyload persisted ([1ec52b1](https://github.com/rubiin/init.lua/commit/1ec52b1495b0f83e048721fa710f50e21aca90d6))
+
+
+### Miscellaneous Chores
+
+* release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
+* release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
 ## [2.1.0](https://github.com/rubiin/init.lua/compare/v2.0.1...v2.1.0) (2024-05-25)
 
