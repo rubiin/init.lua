@@ -14,16 +14,20 @@ return {
     },
     opts = {
       ---Add a space b/w comment and the line
-      ---@type boolean
       padding = true,
       ---Whether the cursor should stay at its position
       sticky = true,
 
       ---Line which should be ignored while comment/uncomment
       ---Example: Use '^$' to ignore empty lines
-      ---@type string Lua regex
       ignore = nil,
+      toggler = {
+        -- line-comment keymap
+        line = "gcc",
 
+        --  Make sense to be related to your opleader.block
+        block = "gbc",
+      },
       -- LHS of operator-pending mapping in NORMAL + VISUAL mode
       opleader = {
         -- line-comment keymap
@@ -53,20 +57,8 @@ return {
         --  `gb[count]{motion}` -> block-comment the region contained in {motion}
         basic = true,
 
-        ---extended mapping
-        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        extended = false,
-      },
-
-      -- LHS of toggle mapping in NORMAL + VISUAL mode
-      toggler = {
-        -- line-comment keymap
-        --  Makes sense to be related to your opleader.line
-        line = "gcc",
-
-        -- block-comment keymap
-        --  Make sense to be related to your opleader.block
-        block = "gbc",
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = true,
       },
     },
     config = function(_, opts)

@@ -101,6 +101,5 @@ keymap("n", "<leader>yy", function()
   nano.add_author_details()
 end, { desc = "Add Author Details" })
 
-
 -- QUITTING
 keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
