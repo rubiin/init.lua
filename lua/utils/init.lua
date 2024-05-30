@@ -217,7 +217,9 @@ function M.set_lualine_styles(type)
     { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { right = "" } },
     {
       function()
-        local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
+        local shiftwidth = vim.api.nvim_get_option_value("shiftwidth", {
+          buf = 0,
+        })
         return user_icons.ui.Tab .. shiftwidth
       end,
       cond = M.hide_in_width,
