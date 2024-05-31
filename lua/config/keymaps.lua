@@ -13,6 +13,9 @@ keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
 keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 
+-- Escape from insert mode with jj
+keymap("i", "jj", "<Esc>", { noremap = false })
+
 -- Block Arrow Keys
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
