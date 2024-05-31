@@ -32,6 +32,16 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 * release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 * release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.3.1](https://github.com/rubiin/init.lua/compare/v2.3.0...v2.3.1) (2024-05-31)
+
+
+### Bug Fixes
+
+* just keep catpuccin ([0b0c166](https://github.com/rubiin/init.lua/commit/0b0c166311e3a0d3efa074060734ba09148bc553))
+* remove better escape , use jj instead ([97938ad](https://github.com/rubiin/init.lua/commit/97938ad3e6b42c4cd62610fb22c4d46c26bafae2))
+* remove refactoring as no longer used ([cb3f7b2](https://github.com/rubiin/init.lua/commit/cb3f7b2f83461a06b88784730ab59a661df6154d))
+* use lazy.json ([438f49c](https://github.com/rubiin/init.lua/commit/438f49c2187c5f4908bc06bbf37740d7e3fbec3b))
+
 ## [2.1.0](https://github.com/rubiin/init.lua/compare/v2.0.1...v2.1.0) (2024-05-25)
 
 
