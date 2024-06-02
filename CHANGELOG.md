@@ -32,6 +32,19 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 * release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 * release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.4.0](https://github.com/rubiin/init.lua/compare/v2.3.1...v2.4.0) (2024-06-02)
+
+
+### Features
+
+* use lazydev lsp for lua ([8bd0705](https://github.com/rubiin/init.lua/commit/8bd0705c3d712e071f2fa6f042c310d9bd57edc4))
+
+
+### Bug Fixes
+
+* remove trouble lualine ([f114874](https://github.com/rubiin/init.lua/commit/f11487432d411b1969c102aca886850648a13441))
+* update deps ([b4624e5](https://github.com/rubiin/init.lua/commit/b4624e5bc04415eb815a18fba2e396e292bb2198))
+
 ## [2.3.1](https://github.com/rubiin/init.lua/compare/v2.3.0...v2.3.1) (2024-05-31)
 
 
