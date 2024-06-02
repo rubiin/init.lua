@@ -30,6 +30,8 @@ g.autoformat = false ---@type boolean -- Enable LazyVim auto format
 g.border_style = "rounded" ---@type "single"|"double"|"rounded"|"solid"|"none"
 g.highlighturl = true
 g.trouble_lualine = false
+g.deprecation_warnings = true
+
 -- ========================================================================== --
 -- ==                       FUNCTIONS                                         == --
 -- ========================================================================== --
