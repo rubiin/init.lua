@@ -16,6 +16,12 @@ keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 -- Escape from insert mode with jj
 keymap("i", "jj", "<Esc>", { noremap = false })
 
+-- Keeping the cursor centered.
+keymap("n", "<C-d>", "<C-d>zz", { desc = "Scroll Downwards" })
+keymap("n", "<C-u>", "<C-u>zz", { desc = "Scroll Upwards" })
+keymap("n", "n", "nzzzv", { desc = "Next Result" })
+keymap("n", "N", "Nzzzv", { desc = "Previous Result" })
+
 -- Block Arrow Keys
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
