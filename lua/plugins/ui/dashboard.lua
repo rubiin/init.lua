@@ -26,7 +26,7 @@ return {
             { action = [[lua require('persisted').load()]], desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
             { action = 'Lazy', desc = ' Lazy', icon = user_icons.ui.Sleep, key = 'p' },
             { action = 'Mason', desc = ' Mason', icon = user_icons.ui.PackageAdd, key = 'm' },
-            { action = 'qa', desc = ' Quit', icon = user_icons.ui.Exit, key = 'q' },
+            { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = ' Quit', icon = user_icons.ui.Exit, key = 'q' },
           },
           footer = function()
             local stats = require("lazy").stats()
