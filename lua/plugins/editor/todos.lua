@@ -13,7 +13,7 @@ return {
     },
     {
       "<leader>xT",
-      "<cmd>Trouble todo filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
+      "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
       desc = "Search Todos (Trouble)",
     },
     {
