@@ -1,4 +1,4 @@
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 
 return {
   "folke/todo-comments.nvim",

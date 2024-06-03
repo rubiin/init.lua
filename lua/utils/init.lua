@@ -2,7 +2,7 @@ local M = {}
 
 local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 local constants = require("utils.constants")
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 
 -- Gets the operating system
 function M.get_os()
@@ -488,7 +488,7 @@ function M.cowboy()
       end
       if count >= 10 and bo.buftype ~= "nofile" then
         ok, id = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
-          icon = require("custom.icons").diagnostics.BoldWarn,
+          icon = require("rubin.icons").diagnostics.BoldWarn,
           replace = id,
           keep = function()
             return count >= 10

@@ -13,7 +13,7 @@ return {
       return {
         theme = "catppuccin",
         show_modified = true,
-        kinds = require("custom.icons").kinds,
+        kinds = require("rubin.icons").kinds,
         create_autocmd = false,
       }
     end,

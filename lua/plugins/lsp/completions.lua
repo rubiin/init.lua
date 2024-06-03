@@ -1,5 +1,5 @@
 local compare = require("cmp.config.compare")
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 
 return {
   {

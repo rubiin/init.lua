@@ -1,6 +1,6 @@
 -- ufo code folding
 
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 
 return {
   {

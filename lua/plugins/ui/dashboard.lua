@@ -1,4 +1,4 @@
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 local util = require("utils")
 
 return {

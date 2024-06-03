@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local user_icons = require("custom.icons")
+local user_icons = require("rubin.icons")
 
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
