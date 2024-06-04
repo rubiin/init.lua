@@ -345,7 +345,7 @@ Like the cofigs? Follow the repository on GitHub.  If you find this config usefu
 
 Huge shoutout to the Vim elders, whose ancient wisdom and cryptic commands paved the way for the adoption of Neovim. May your modal editing skills be forever sharp, and your init.lua files forever tidy.
 
-- Teejay Devris for his [videos](https://www.youtube.com/@teej_dv)
+- Teejay Devries for his [videos](https://www.youtube.com/@teej_dv)
 - Christian Chiarulli for his [videos](https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA)
 - ThePrimeagen for his [videos](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
 - Alpha2phi for his [Article](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
