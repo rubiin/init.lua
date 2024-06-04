@@ -335,7 +335,7 @@ Yet fear not, for even in the darkest depths of plugin hell, there is hope. With
 
 ## Self-Promotion
 
-Like the cofigs? Follow the repository on GitHub. You can check some of my plugins that are used here
+Like the cofigs? Follow the repository on GitHub.  If you find this config useful, you might also be interested in my other projects:
 
 - [fortune.nvim](https://github.com/rubiin/fortune.nvim)
 - [highlighturl.nvim](https://github.com/rubiin/highlighturl.nvim)
