@@ -1,5 +1,10 @@
 local constant = require("utils.constants")
 local user_icons = require("rubin.icons")
+local actions = require("telescope.actions")
+local open_with_trouble = require("trouble.sources.telescope").open
+
+-- Use this to add more results without clearing the trouble list
+local add_to_trouble = require("trouble.sources.telescope").add
 
 return {
   {
@@ -50,6 +55,10 @@ return {
         },
       },
       defaults = {
+        mappings = {
+          i = { ["<c-t>"] = open_with_trouble },
+          n = { ["<c-t>"] = open_with_trouble },
+        },
         vimgrep_arguments = {
           "rg",
           "--color=never",

@@ -13,10 +13,6 @@ local nano = require("utils.nano-plugins")
 keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
 keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
-
--- Escape from insert mode with jj
-keymap("i", "jj", "<Esc>", { noremap = false })
-
 -- Block Arrow Keys
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
@@ -124,3 +120,6 @@ keymap("n", "N", "Nzzzv", { desc = "Previous Result" })
 -- It would be helpful if it is a indent line in some languages like Python, Ruby, YAML, ...
 keymap("n", "H", "_")
 keymap("n", "L", "$")
+
+-- Escape from insert mode with jj
+keymap("i", "jj", "<Esc>", { noremap = false })
