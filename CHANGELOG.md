@@ -30,6 +30,17 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.4.1](https://github.com/rubiin/init.lua/compare/v2.4.0...v2.4.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* dashboard quit ([405dbe6](https://github.com/rubiin/init.lua/commit/405dbe6e08c16faa0dfb45ebc01d265bf1c0d76f))
+* new horizontal keymaps ([bb9a7ca](https://github.com/rubiin/init.lua/commit/bb9a7ca2abc07564c3d61fa0b2ff01ab61242627))
+* trouble filters ([8ff3ba6](https://github.com/rubiin/init.lua/commit/8ff3ba66ee244d1714d6571251524846cc1178af))
+* trouble keymaps for telescope ([cff8826](https://github.com/rubiin/init.lua/commit/cff88266f04681ef6fc0c23030c7bd8d8706ff96))
+* trouble toggle ([4d7e546](https://github.com/rubiin/init.lua/commit/4d7e546ecc77b3974801a8ec896b944149aba5f5))
+
 ## [2.4.0](https://github.com/rubiin/init.lua/compare/v2.3.1...v2.4.0) (2024-06-02)
 
 ### Features
