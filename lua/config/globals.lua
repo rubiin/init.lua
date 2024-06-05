@@ -31,7 +31,11 @@ g.border_style = "rounded" ---@type "single"|"double"|"rounded"|"solid"|"none"
 g.highlighturl = true
 g.trouble_lualine = false
 g.deprecation_warnings = true
-
+-- Options for the LazyVim statuscolumn
+g.lazyvim_statuscolumn = {
+  folds_open = false, -- show fold sign when fold is open
+  folds_githl = false, -- highlight fold sign with git sign color
+}
 -- ========================================================================== --
 -- ==                       FUNCTIONS                                         == --
 -- ========================================================================== --
