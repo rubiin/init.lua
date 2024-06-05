@@ -151,6 +151,7 @@ return {
     NotLoaded = " ",
     Pending = "󰔟 ",
     SelectionCaret = " ",
+    Space = "󱁐 ",
     Refactor = "󰲽 ",
     Search = " ",
     SignIn = " ",

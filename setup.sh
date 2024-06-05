@@ -8,31 +8,36 @@ command_exists() {
 # Update and install packages on Debian/Ubuntu-based systems
 update_and_install_debian() {
   sudo apt-get update
-  sudo apt-get install -y xclip neovim lazygit alacritty ripgrep
+  sudo apt-get install -y xclip neovim lazygit alacritty ripgrep fd gcc git
+
 }
 
 # Update and install packages on Red Hat/Fedora-based systems
 update_and_install_redhat() {
   sudo yum update -y
-  sudo yum install -y xclip neovim lazygit alacritty ripgrep
+  sudo yum install -y xclip neovim lazygit alacritty ripgrep fd gcc git
+
 }
 
 # Update and install packages on openSUSE
 update_and_install_opensuse() {
   sudo zypper update -y
-  sudo zypper install -y xclip neovim lazygit alacritty ripgrep
+  sudo zypper install -y xclip neovim lazygit alacritty ripgrep fd gcc git
+
 }
 
 # Update and install packages on Arch-based systems
 update_and_install_arch() {
   sudo pacman -Syu --noconfirm
-  sudo pacman -S --noconfirm xclip neovim lazygit alacritty ripgrep
+  sudo pacman -S --noconfirm xclip neovim lazygit alacritty ripgrep fd gcc git
+
 }
 
 # Update and install packages on macOS using Homebrew
 update_and_install_macos() {
   brew update
-  brew install xclip neovim lazygit alacritty ripgrep gnu-sed
+  brew install xclip neovim lazygit alacritty ripgrep gnu-sed fd gcc git
+
 }
 
 # Check the package manager, update the system, and install specified packages

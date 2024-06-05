@@ -8,7 +8,7 @@ return {
         border = vim.g.border_style,
       },
       icons = {
-        group = "", -- symbol prepended to a group
+        group = "", -- symbol prep pended to a group
       },
       defaults = {
         ["<leader>h"] = { name = "harpoon" },
