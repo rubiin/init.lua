@@ -30,6 +30,15 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.4.2](https://github.com/rubiin/init.lua/compare/v2.4.1...v2.4.2) (2024-06-06)
+
+
+### Bug Fixes
+
+* configuration upstream ([8525759](https://github.com/rubiin/init.lua/commit/8525759f8278408c375a9d312930bda00ba1ce2b))
+* folds and inc rename ([28717f8](https://github.com/rubiin/init.lua/commit/28717f8ef7383444f05eea09a222648fcbe54c9a))
+* icons ([ff3da25](https://github.com/rubiin/init.lua/commit/ff3da252667cf8818558e8862cf7f5801b8d40ce))
+
 ## [2.4.1](https://github.com/rubiin/init.lua/compare/v2.4.0...v2.4.1) (2024-06-04)
 
 
