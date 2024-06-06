@@ -5,7 +5,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "petertriho/cmp-git",
       { "garymjr/nvim-snippets", opts = { friendly_snippets = true, search_paths = { vim.g.vscode_snippets_path } } },
     },
     opts = function(_, opts)
