@@ -18,15 +18,6 @@ local aufiletype = utils.augroup("file_type")
 local auterminal = utils.augroup("terminal_setting")
 local fold_augroup = utils.augroup("remember_folds")
 
--- make it easier to close man-files when opened inline
-autocmd("FileType", {
-  group = utils.augroup("lazyvim_man_unlisted"),
-  pattern = { "man" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-  end,
-})
-
 autocmd("FileType", {
   group = aufiletype,
   pattern = { "gitcommit", "gitrebase" },
@@ -56,30 +47,6 @@ autocmd("FileType", {
   desc = "Close Some Filetypes With Just <q> Key",
 })
 
-autocmd({ "InsertLeave", "WinEnter" }, {
-  group = augeneral,
-  pattern = "*",
-  command = "set cursorline",
-  desc = "Set Cursorline On Active Window",
-})
-
-autocmd({ "InsertEnter", "WinLeave" }, {
-  group = augeneral,
-  pattern = "*",
-  command = "set nocursorline",
-  desc = "Set Nocursorline On Inactive Window",
-})
-
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
-  callback = function()
-    opt_local.wrap = true
-    opt_local.spell = true
-  end,
-  desc = "Set Wrap And Spell For Text Files",
-})
-
 autocmd("BufWritePost", {
   group = augeneral,
   pattern = { "*tmux.conf", "tmux.local.conf" },
@@ -104,7 +71,7 @@ autocmd("BufRead", {
   callback = function()
     vim.diagnostic.enable(true)
   end,
-  desc = "Disable Diagnostics For .env And Node_modules",
+  desc = "Disable Diagnostics For .env And node_modules",
 })
 
 autocmd("BufWritePre", {
@@ -129,65 +96,6 @@ autocmd("TermOpen", {
     opt_local.number = false
   end,
   desc = "Disable Foldcolumn And Signcolumn For Terminals",
-})
-
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = utils.augroup("lazyvim_checktime"),
-  callback = function()
-    if vim.o.buftype ~= "nofile" then
-      cmd("checktime")
-    end
-  end,
-  desc = "Check If We Need To Reload The File When It Changed",
-})
-
-autocmd({ "VimResized" }, {
-  group = utils.augroup("lazyvim_resize_splits"),
-  callback = function()
-    local current_tab = fn.tabpagenr()
-    cmd("tabdo wincmd =")
-    cmd("tabnext " .. current_tab)
-  end,
-  desc = "Resize Splits On VimResized",
-})
-
-autocmd("BufReadPost", {
-  group = utils.augroup("lazyvim_last_loc"),
-  callback = function(event)
-    local exclude = { "gitcommit" }
-    local buf = event.buf
-    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
-      return
-    end
-    vim.b[buf].lazyvim_last_loc = true
-    local mark = api.nvim_buf_get_mark(buf, '"')
-    local line_count = api.nvim_buf_line_count(buf)
-    if mark[1] > 0 and mark[1] <= line_count then
-      pcall(api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-  desc = "Go To Last Loc When Opening A Buffer",
-})
-
-autocmd({ "FileType" }, {
-  group = aufiletype,
-  pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
-  callback = function()
-    opt_local.conceallevel = 0
-  end,
-  desc = "Fix Conceallevel For Specific Files",
-})
-
-autocmd({ "BufWritePre" }, {
-  group = utils.augroup("lazyvim_auto_create_dir"),
-  callback = function(event)
-    if event.match:match("^%w%w+://") then
-      return
-    end
-    local file = vim.loop.fs_realpath(event.match) or event.match
-    fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
-  end,
-  desc = "Auto Create Directory Before Writing File",
 })
 
 autocmd({ "BufWritePost" }, {
@@ -227,14 +135,6 @@ autocmd("BufReadPost", {
     cmd("silent! loadview")
   end,
   desc = "Restore Folds On Buffer Enter",
-})
-
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = { "man" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-  end,
 })
 
 autocmd("InsertLeave", {
