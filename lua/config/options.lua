@@ -5,6 +5,7 @@
 -- https://neovim.io/doc/user/quickref.html#option-list
 
 local opt = vim.opt
+local g = vim.g
 -- ========================================================================== --
 -- ==                              SEARCH                                  == --
 -- ========================================================================== --
@@ -66,3 +67,13 @@ opt.encoding = "UTF-8" -- set encoding
 -- ========================================================================== --
 
 opt.history = 1000 -- Number of command-lines that are remembered
+
+-- ========================================================================== --
+-- ==                  LAZYVIM GLOBALS                                     == --
+-- ========================================================================== --
+
+g.skip_ts_context_commentstring_module = true -- Skip ts_context_commentstring module to speed up loading
+g.trouble_lualine = false
+g.deprecation_warnings = true
+g.autoformat = false ---@type boolean -- Enable LazyVim auto format
+g.markdown_recommended_style = 0 -- Fix markdown indentation settings
