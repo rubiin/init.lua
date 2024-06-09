@@ -59,7 +59,6 @@ opt.fillchars = "fold: "
 -- ==                  SPELL AND ENCODING                                  == --
 -- ========================================================================== --
 
-opt.spell = true -- Enable spell check by default
 opt.encoding = "UTF-8" -- set encoding
 
 -- ========================================================================== --
