@@ -30,6 +30,18 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.4.3](https://github.com/rubiin/init.lua/compare/v2.4.2...v2.4.3) (2024-06-09)
+
+
+### Bug Fixes
+
+* dont enable spell by default ([d0f9e2e](https://github.com/rubiin/init.lua/commit/d0f9e2ed70b2cb20e2407e706c8b1a5a187118b4))
+* enable lazyvim options ([0c16797](https://github.com/rubiin/init.lua/commit/0c167971fd479a9dbe3c7295cf0eae4134f3808d))
+* load telescope extension on their own files ([c91d2bf](https://github.com/rubiin/init.lua/commit/c91d2bf176623c2d56bfb3521ae2334fc9525e8c))
+* move lazyvim globals to options ([9a3b244](https://github.com/rubiin/init.lua/commit/9a3b244908448486d43935d063fd24c0c4f85cc3))
+* remove barbeque ([e16a7bb](https://github.com/rubiin/init.lua/commit/e16a7bbc0c0a8866a147939f30e90fa48871dd35))
+* **theme:** use tokyonight ([58f6a21](https://github.com/rubiin/init.lua/commit/58f6a218f7bacdbc0da88a29261134545a1ea582))
+
 ## [2.4.2](https://github.com/rubiin/init.lua/compare/v2.4.1...v2.4.2) (2024-06-06)
 
 
