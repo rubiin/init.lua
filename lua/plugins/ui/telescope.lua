@@ -1,56 +1,12 @@
 local constant = require("utils.constants")
 local user_icons = require("rubin.icons")
 local actions = require("telescope.actions")
-local open_with_trouble = require("trouble.sources.telescope").open
 
 return {
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "olimorris/persisted.nvim",
-      "rcarriga/nvim-notify",
-      "ThePrimeagen/harpoon",
-      "debugloop/telescope-undo.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-      {
-        "prochri/telescope-all-recent.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-          "kkharji/sqlite.lua",
-          "stevearc/dressing.nvim",
-        },
-        opts = {},
-      },
-    },
-    keys = {
-      {
-        "<leader>cu",
-        "<cmd>Telescope undo<cr>",
-        desc = "Undo History",
-      },
-      {
-        "<leader>sN",
-        function()
-          require("telescope").extensions.notify.notify()
-        end,
-        desc = "Search Notifications",
-      },
-    },
     opts = {
-      extensions = {
-        undo = {
-          side_by_side = true,
-          layout_strategy = "vertical",
-          layout_config = {
-            preview_height = 0.8,
-          },
-        },
-      },
       defaults = {
-        mappings = {
-          i = { ["<c-t>"] = open_with_trouble },
-          n = { ["<c-t>"] = open_with_trouble },
-        },
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -129,22 +85,48 @@ return {
         },
       },
     },
+  },
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = { -- note how they're inverted to above example
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+    keys = {
+      {
+        "<leader>cu",
+        "<cmd>Telescope undo<cr>",
+        desc = "Undo History",
+      },
+    },
+    opts = {
+      -- don't use `defaults = { }` here, do this in the main telescope spec
+      extensions = {
+        undo = {
+          -- telescope-undo.nvim config, see below
+        },
+      },
+    },
     config = function(_, opts)
-      local telescope = require("telescope")
-      telescope.setup(opts)
-
-      LazyVim.on_load("telescope.nvim", function()
-        if LazyVim.has("nvim-notify") then
-          require("telescope").load_extension("notify")
-        end
-        telescope.load_extension("undo")
-        telescope.load_extension("ui-select")
-        telescope.load_extension("harpoon")
-
-        -- custom telescope extensions
-        telescope.load_extension("nerdfont")
-        telescope.load_extension("lualine")
-      end)
+      -- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
+      -- configs for us. We won't use data, as everything is in it's own namespace (telescope
+      -- defaults, as well as each extension).
+      require("telescope").setup(opts)
+      require("telescope").load_extension("undo")
     end,
+  },
+  {
+    "prochri/telescope-all-recent.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "kkharji/sqlite.lua",
+      -- optional, if using telescope for vim.ui.select
+      "stevearc/dressing.nvim",
+    },
+    opts = {
+      -- your config goes here
+    },
   },
 }

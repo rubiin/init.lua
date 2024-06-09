@@ -1,6 +1,7 @@
 local user_icons = require("rubin.icons")
 local util = require("utils")
 
+--TODO: fix last Session open with s
 return {
   {
     "nvimdev/dashboard-nvim",

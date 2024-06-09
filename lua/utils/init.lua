@@ -133,16 +133,6 @@ function M.augroup(name, opts)
   return api.nvim_create_augroup(name, opts)
 end
 
--- Taken from ThePrimeagen and modified
----@param color string
-function M.color_my_pencils(color)
-  color = color or "catppuccin"
-  cmd.colorscheme(color)
-
-  api.nvim_set_hl(0, "Normal", { bg = "none" })
-  api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
 ---@param type string
 ---@return table
 function M.set_lualine_styles(type)

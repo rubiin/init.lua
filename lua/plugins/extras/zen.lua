@@ -1,6 +1,5 @@
 local o = vim.opt
 
-
 -- TODO: add this to lazy
 return {
   -- Zen mode for distraction free editing
@@ -14,7 +13,7 @@ return {
       window = {
         -- * a percentage of the width / height of the editor when <= 1
         width = 0.8, -- width of the Zen window
-        height = 1,  -- height of the Zen window
+        height = 1, -- height of the Zen window
       },
       -- callback where you can add custom code when the Zen window opens
       on_open = function()

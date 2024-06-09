@@ -127,10 +127,7 @@ NOTE for Windows users:
 
 ### colorscheme
 
-- [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
 - [olimorris/onedarkpro.nvim](https://dotfyle.com/plugins/olimorris/onedarkpro.nvim)
-- [marko-cerovac/material.nvim](https://dotfyle.com/plugins/marko-cerovac/material.nvim)
-- [Mofiqul/vscode.nvim](https://dotfyle.com/plugins/Mofiqul/vscode.nvim)
 
 ### comment
 

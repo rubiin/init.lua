@@ -93,6 +93,11 @@ return {
       },
     },
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "night" },
+  },
   -- nvim-notify
   {
     "rcarriga/nvim-notify",
@@ -101,6 +106,10 @@ return {
       -- Animation style
       stages = "fade_in_slide_out",
     },
+    config = function(_, opts)
+      require("notify").setup(opts)
+      require("telescope").load_extension("notify")
+    end,
   },
   -- neotree
   {

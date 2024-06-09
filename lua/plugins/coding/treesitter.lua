@@ -8,9 +8,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = function(_, opts)
       opts.playground = { enable = true }
-      opts.autotag = {
-        enable = true,
-      }
       opts.highlight = {
         enable = true, -- false will disable the whole extension
         disable = { "css" }, -- list of language that will be disabled
@@ -34,11 +31,11 @@ return {
         enable = true,
         enable_autocmd = false,
       }
-
-      -- auto tag
-      opts.autotag = {
-        enable = true,
-      }
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    event = "LazyFile",
+    opts = {},
   },
 }
