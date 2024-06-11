@@ -125,8 +125,6 @@ return {
       -- optional, if using telescope for vim.ui.select
       "stevearc/dressing.nvim",
     },
-    opts = {
-      -- your config goes here
-    },
+    config = true,
   },
 }

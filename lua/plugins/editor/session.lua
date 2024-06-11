@@ -63,13 +63,5 @@ return {
         return true
       end,
     },
-    config = function(_, options)
-      require("persisted").setup(options)
-      local ok, telescope = pcall(require, "telescope")
-      if not ok then
-        return
-      end
-      telescope.load_extension("persisted")
-    end,
   },
 }
