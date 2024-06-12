@@ -21,8 +21,8 @@ return {
           center = {
             { action = LazyVim.pick("files"), desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
             { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
-            { action = 'Telescope oldfiles', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
-            { action = [[lua require('lazyvim.util').telescope.config_files()()]], desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
+            { action = LazyVim.pick("live_grep"), desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
+            { action = LazyVim.pick.config_files(), desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
             { action = [[lua require('telescope').extensions.projects.projects()]], desc = " Projects", icon = user_icons.ui.Project, key = "P" },
             { action = [[lua require('persisted').load()]], desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
             { action = 'Lazy', desc = ' Lazy', icon = user_icons.ui.Sleep, key = 'p' },
