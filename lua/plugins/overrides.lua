@@ -3,6 +3,16 @@ local constant = require("utils.constants")
 
 return {
   {
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    opts = {
+      keys = {
+        ["<Tab>"] = "next",
+        ["<S-Tab>"] = "prev",
+      },
+    },
+  },
+  {
     "echasnovski/mini.indentscope",
     opts = {
       scroll = {

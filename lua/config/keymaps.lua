@@ -13,6 +13,7 @@ local nano = require("utils.nano-plugins")
 keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
 keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
+
 -- Block Arrow Keys
 keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
@@ -68,10 +69,6 @@ keymap("n", "gx", function()
   nano.open_url()
 end, { desc = "Open URL Under Cursor" })
 
-keymap("n", "z=", function()
-  require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))
-end, { desc = "Open Telescope Spell Suggest" })
-
 keymap("n", "<leader>yx", function()
   nano.open_at_regex_101()
 end, { desc = "Open Regex At Regex101" })
@@ -92,7 +89,6 @@ keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
 keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- keeps registers clean
-
 keymap({ "n", "x" }, "x", '"_x')
 -- Change text without putting it into the vim register,
 -- see https://stackoverflow.com/q/54255/6064933
