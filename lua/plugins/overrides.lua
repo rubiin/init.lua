@@ -70,14 +70,6 @@ return {
           delay = 200,
           reveal = { "close" },
         },
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Explorer",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
       },
     },
   },
