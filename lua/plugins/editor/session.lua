@@ -25,11 +25,6 @@ return {
         end,
         desc = "Don't Save Current Session",
       },
-      {
-        "<leader>fs",
-        "<cmd>Telescope persisted<cr>",
-        desc = "Find Session",
-      },
     },
     opts = {
       save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved,resolves to ~/.local/share/nvim/my-sessions/

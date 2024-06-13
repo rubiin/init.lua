@@ -3,32 +3,22 @@ local user_icons = require("rubin.icons")
 return {
   "folke/todo-comments.nvim",
   event = "LazyFile",
-  dependencies = { "nvim-lua/plenary.nvim" },
   cmd = { "TodoTrouble", "TodoTelescope" },
   keys = {
-    {
-      "<leader>sT",
-      "<cmd>TodoTelescope keywords=TODO,FIX,WARN,HACK,PERF,NOTE,TEST<cr>",
-      desc = "Search Todos (Telescope)",
-    },
+
     {
       "<leader>xT",
       "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
       desc = "Search Todos (Trouble)",
     },
     {
-      "]t",
+      "<leader>sT",
       function()
-        require("todo-comments").jump_next()
+        require("todo-comments.fzf").todo({
+          keywords = { "TODO", "FIX", "FIXME", "WARN", "HACK", "PERF", "NOTE", "TEST" },
+        })
       end,
-      desc = "Next Todo Comment",
-    },
-    {
-      "[t",
-      function()
-        require("todo-comments").jump_prev()
-      end,
-      desc = "Previous Todo Comment",
+      desc = "Todo/Fix/Fixme",
     },
   },
   opts = {

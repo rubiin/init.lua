@@ -12,6 +12,7 @@ return {
       },
     },
   },
+  {},
   {
     "echasnovski/mini.indentscope",
     opts = {
@@ -110,7 +111,6 @@ return {
     },
     config = function(_, opts)
       require("notify").setup(opts)
-      require("telescope").load_extension("notify")
     end,
   },
   -- neotree

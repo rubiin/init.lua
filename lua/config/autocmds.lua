@@ -266,18 +266,6 @@ usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
   desc = "Trim Trailing Whitespace",
 })
 
-usercmd("NerdFontPicker", function()
-  require("telescope").extensions.nerdfont.nerdfont()
-end, {
-  desc = "Select Nerd Fonts",
-})
-
-usercmd("LuaLinePicker", function()
-  require("telescope").extensions.lualine.lualine()
-end, {
-  desc = "Select LuaLine Styles",
-})
-
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
 usercmd("Cwd", function()

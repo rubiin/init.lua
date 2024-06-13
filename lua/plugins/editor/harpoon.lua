@@ -9,11 +9,6 @@ return {
     keys = function()
       local keys = {
         {
-          "<leader>fm",
-          "<cmd>Telescope harpoon marks<cr>",
-          desc = "Telescope Harpoon Marks",
-        },
-        {
           "<leader>hh",
           function()
             require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
