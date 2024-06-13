@@ -127,7 +127,7 @@ NOTE for Windows users:
 
 ### colorscheme
 
-- [olimorris/onedarkpro.nvim](https://dotfyle.com/plugins/olimorris/onedarkpro.nvim)
+- [folke/tokyolight.nvim](https://dotfyle.com/plugins/folke/tokyolight.nvim)
 
 ### comment
 
@@ -151,7 +151,7 @@ NOTE for Windows users:
 ### editing-support
 
 - [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
-- [debugloop/telescope-undo.nvim](https://dotfyle.com/plugins/debugloop/telescope-undo.nvim)
+- [jiaoshijie/undotree](https://dotfyle.com/plugins/jiaoshijie/undotree)
 - [Wansmer/treesj](https://dotfyle.com/plugins/Wansmer/treesj)
 - [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 - [HiPhish/rainbow-delimiters.nvim](https://dotfyle.com/plugins/HiPhish/rainbow-delimiters.nvim)
@@ -168,7 +168,7 @@ NOTE for Windows users:
 
 ### fuzzy-finder
 
-- [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+- [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
 
 ### game
 
