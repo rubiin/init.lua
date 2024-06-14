@@ -30,6 +30,27 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.0](https://github.com/rubiin/init.lua/compare/v2.4.3...v2.5.0) (2024-06-14)
+
+
+### Features
+
+* trouble winbar ([2cf7375](https://github.com/rubiin/init.lua/commit/2cf73755b852a19fbad0f7fd4d45b72c941314af))
+
+
+### Bug Fixes
+
+* colorscheme ([770b90f](https://github.com/rubiin/init.lua/commit/770b90fef07e6b7ba17a82ea0790cb41d506bba8))
+* dashboard ([054b298](https://github.com/rubiin/init.lua/commit/054b298ed58a8d43a756539ef28ce79805066935))
+* dashboard use Lazyvim.pick ([dcfd12e](https://github.com/rubiin/init.lua/commit/dcfd12ee12d387a8cd669591c5adf4f31c2ba22c))
+* deps ([1a46d2a](https://github.com/rubiin/init.lua/commit/1a46d2a4237c1019ee132b93ea2b10d38d4fde3e))
+* fzf-lua bottom like telescope ([f2a5a73](https://github.com/rubiin/init.lua/commit/f2a5a73ebcea67f16687df124d978273e8d50984))
+* telescope to fzf-lua ([2069773](https://github.com/rubiin/init.lua/commit/206977362b3dd1be7070e7eb7885f5673b4cffb1))
+* trouble move with tab ([a59b4fe](https://github.com/rubiin/init.lua/commit/a59b4fe979093c3f05fe0cd4df631ba0cd5dd9c1))
+* updates ([005700f](https://github.com/rubiin/init.lua/commit/005700f33d9e5d4f0880c362fdcec120565ee7b3))
+* use fzf spell suggest ([adc8f54](https://github.com/rubiin/init.lua/commit/adc8f54f122356621377c5cbae43d2d5305d3e72))
+* use undotree ([4928f98](https://github.com/rubiin/init.lua/commit/4928f9867bc3e85de14d7fc03339db93fd1442f4))
+
 ## [2.4.3](https://github.com/rubiin/init.lua/compare/v2.4.2...v2.4.3) (2024-06-09)
 
 
