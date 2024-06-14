@@ -30,6 +30,13 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.2](https://github.com/rubiin/init.lua/compare/v2.5.1...v2.5.2) (2024-06-14)
+
+
+### Bug Fixes
+
+* install eslint_d by default ([a129d2b](https://github.com/rubiin/init.lua/commit/a129d2bbfb1b75d334b6e67d238740b4bee67b12))
+
 ## [2.5.1](https://github.com/rubiin/init.lua/compare/v2.5.0...v2.5.1) (2024-06-14)
 
 
