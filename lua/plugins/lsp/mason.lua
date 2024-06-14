@@ -18,6 +18,7 @@ return {
       vim.list_extend(opts.ensure_installed or {}, {
         "stylua",
         "selene",
+        "eslint_d",
 
         -- code spell
         "typos-lsp",
