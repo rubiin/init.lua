@@ -30,6 +30,13 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.1](https://github.com/rubiin/init.lua/compare/v2.5.0...v2.5.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* undo tree use right ([61a8497](https://github.com/rubiin/init.lua/commit/61a8497cb03b675e65d91f14dc559c65d448cc03))
+
 ## [2.5.0](https://github.com/rubiin/init.lua/compare/v2.4.3...v2.5.0) (2024-06-14)
 
 
