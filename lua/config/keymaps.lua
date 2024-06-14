@@ -105,6 +105,8 @@ keymap("n", "dd", function()
   return "dd"
 end, { expr = true })
 
+keymap("n", "z=", [[<Cmd>lua require('fzf-lua').spell_suggest()<CR>]], { desc = "Open Telescope Spell Suggest" })
+
 -- Keeping the cursor centered.
 keymap("n", "<C-d>", "<C-d>zz", { desc = "Scroll Downwards" })
 keymap("n", "<C-u>", "<C-u>zz", { desc = "Scroll Upwards" })
