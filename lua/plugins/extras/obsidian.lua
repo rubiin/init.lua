@@ -15,7 +15,20 @@ return {
         path = vault_path,
       },
     },
-
+    picker = {
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+      name = "fzf-lua",
+      -- Optional, configure key mappings for the picker. These are the defaults.
+      -- Not all pickers support all mappings.
+      mappings = {
+        -- Create a new note from your query.
+        new = "<C-x>",
+        -- Insert a link to the selected note.
+        insert_link = "<C-l>",
+      },
+    }, -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
+    -- levels defined by "vim.log.levels.*".
+    log_level = vim.log.levels.INFO,
     templates = {
       subdir = "templates",
       date_format = "%Y-%m-%d",
