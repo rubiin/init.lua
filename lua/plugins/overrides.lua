@@ -157,6 +157,7 @@ return {
         { filter = { event = "msg_show", find = "^Word .*%.add$" }, view = "mini" },
         -- nvim-treesitter
         { filter = { event = "msg_show", find = "^%[nvim%-treesitter%]" }, view = "mini" },
+        { filter = { event = "notify", find = "^%[Neo%-tree INFO%] Toggling hidden files.*" }, skip = true },
         { -- Mason
           filter = {
             event = "notify",

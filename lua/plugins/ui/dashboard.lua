@@ -23,7 +23,7 @@ return {
             { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
             { action = 'lua LazyVim.pick("live_grep")()', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
             { action =  'lua LazyVim.pick.config_files()()', desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
-            { action = [[lua require('persisted').load()]], desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
+            { action = "<cmd>lua require('persisted').load()<CR>", desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
             { action = 'Lazy', desc = ' Lazy', icon = user_icons.ui.Sleep, key = 'p' },
             { action = 'Mason', desc = ' Mason', icon = user_icons.ui.PackageAdd, key = 'm' },
             { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = ' Quit', icon = user_icons.ui.Exit, key = 'q' },
