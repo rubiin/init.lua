@@ -30,6 +30,15 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.3](https://github.com/rubiin/init.lua/compare/v2.5.2...v2.5.3) (2024-06-20)
+
+
+### Bug Fixes
+
+* before keymap assign, check if fzf-lua exists ([9317887](https://github.com/rubiin/init.lua/commit/9317887fb06063cfe2c9c6719ec61c3f5057057b))
+* remove neotree hidden file notif ([94b686f](https://github.com/rubiin/init.lua/commit/94b686fc4c55afa0bf709bd59f1ae03f4579f79c))
+* spell and deps ([571f441](https://github.com/rubiin/init.lua/commit/571f4416f32122c8ef2ae733862027beb4714028))
+
 ## [2.5.2](https://github.com/rubiin/init.lua/compare/v2.5.1...v2.5.2) (2024-06-14)
 
 
