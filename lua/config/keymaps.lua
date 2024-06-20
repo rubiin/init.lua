@@ -20,6 +20,10 @@ keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
+if LazyVim.has("fzf-lua") then
+  keymap("n", "<leader>cj", [[<Cmd>lua require('fzf-lua').jumps()<CR>]])
+end
+
 keymap("v", "<leader>ct", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", { desc = "Visual Formatting" })
 
 -- Delete LazyVim default bindings which are nuisance for me
@@ -107,7 +111,9 @@ keymap("n", "dd", function()
   return "dd"
 end, { expr = true })
 
-keymap("n", "z=", [[<Cmd>lua require('fzf-lua').spell_suggest()<CR>]], { desc = "Open Telescope Spell Suggest" })
+if LazyVim.has("fzf-lua") then
+  keymap("n", "z=", [[<Cmd>lua require('fzf-lua').spell_suggest()<CR>]], { desc = "Open Telescope Spell Suggest" })
+end
 
 -- Keeping the cursor centered.
 keymap("n", "<C-d>", "<C-d>zz", { desc = "Scroll Downwards" })
