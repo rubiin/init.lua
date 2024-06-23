@@ -139,6 +139,9 @@ return {
       opts.health = {
         checker = true, -- Disable if you don't want health checks to run
       }
+      opts.signature = {
+        enabled = false,
+      }
       local routes = {
         -- REDIRECT TO MINI
 
