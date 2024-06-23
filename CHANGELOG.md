@@ -30,6 +30,16 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.4](https://github.com/rubiin/init.lua/compare/v2.5.3...v2.5.4) (2024-06-23)
+
+
+### Bug Fixes
+
+* disable noice signature help ([20b226b](https://github.com/rubiin/init.lua/commit/20b226b18d3351f5109911b650309208cf4b5fd8))
+* follow text while typing ([53cecd1](https://github.com/rubiin/init.lua/commit/53cecd1b5a6ecceb56976efc608174f8363a94b2))
+* go hello world snip ([aa15e9b](https://github.com/rubiin/init.lua/commit/aa15e9bcfcdc30f1752c02789c0a956ad3080940))
+* remove custom lsp config ([72617f9](https://github.com/rubiin/init.lua/commit/72617f9b538dce0214ca6c8e6e8472c8b618a0ec))
+
 ## [2.5.3](https://github.com/rubiin/init.lua/compare/v2.5.2...v2.5.3) (2024-06-20)
 
 
