@@ -1,6 +1,5 @@
 local o = vim.opt
 
--- TODO: add this to lazy
 return {
   -- Zen mode for distraction free editing
   {

@@ -28,10 +28,6 @@
       {
         "language": "sh",
         "path": "./snips/sh.json"
-      },
-      {
-        "language": "go",
-        "path": "./snips/sh.json"
       }
     ]
   }
