@@ -14,6 +14,12 @@ return {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       }
+      -- Set view to follow cursor while typing
+      opts.view = {
+        entries = {
+          follow_cursor = true,
+        },
+      }
 
       local has_words_before = function()
         unpack = unpack or table.unpack
