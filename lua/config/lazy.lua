@@ -40,7 +40,7 @@ require("lazy").setup({
     -- version = '*', -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight" } },
-  dev = { path = "~/personal-vim-plugs" },
+  dev = { path = "~/personal/vim" },
   checker = {
     -- automatically check for plugin updates
     enabled = true,
