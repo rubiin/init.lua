@@ -30,6 +30,15 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.5](https://github.com/rubiin/init.lua/compare/v2.5.4...v2.5.5) (2024-06-25)
+
+
+### Bug Fixes
+
+* deps ([ab45bb9](https://github.com/rubiin/init.lua/commit/ab45bb914b7482e29eeea81d105236f4a345d85a))
+* new personal vim folder ([ab9078f](https://github.com/rubiin/init.lua/commit/ab9078fb730d7daa6c1c2c0251db4dfcba6d6561))
+* remove bigfile as lazy handles it internally ([6b4c179](https://github.com/rubiin/init.lua/commit/6b4c1797f7c0e5de9683c132465a1db4ec846f5b))
+
 ## [2.5.4](https://github.com/rubiin/init.lua/compare/v2.5.3...v2.5.4) (2024-06-23)
 
 
