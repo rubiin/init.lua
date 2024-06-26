@@ -115,7 +115,6 @@ NOTE for Windows users:
 ### bars-and-lines
 
 - [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
-- [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 
 ### code-runner
 
@@ -191,7 +190,6 @@ NOTE for Windows users:
 
 ### keybinding
 
-- [max397574/better-escape.nvim](https://dotfyle.com/plugins/max397574/better-escape.nvim)
 - [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
 
 ### lsp
@@ -241,9 +239,6 @@ NOTE for Windows users:
 
 - [ahmedkhalf/project.nvim](https://dotfyle.com/plugins/ahmedkhalf/project.nvim)
 
-### quickfix
-
-- [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
 
 ### scrolling
 
