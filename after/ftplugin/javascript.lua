@@ -2,8 +2,8 @@ local utils = require("utils")
 --------------------------------------------------------------------------------
 
 -- fix my habits
-utils.ftAbbr("cosnt", "const")
-utils.ftAbbr("local", "const")
-utils.ftAbbr("--", "//")
-utils.ftAbbr("~=", "!==")
-utils.ftAbbr("elseif", "else if")
+utils.ft_abbr("cosnt", "const")
+utils.ft_abbr("local", "const")
+utils.ft_abbr("--", "//")
+utils.ft_abbr("~=", "!==")
+utils.ft_abbr("elseif", "else if")
