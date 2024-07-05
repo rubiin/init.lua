@@ -30,6 +30,14 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.6](https://github.com/rubiin/init.lua/compare/v2.5.5...v2.5.6) (2024-07-05)
+
+
+### Bug Fixes
+
+* add back themes ([88ba4fb](https://github.com/rubiin/init.lua/commit/88ba4fb48de4428c851fab6d4a77ce6e399f14c4))
+* deps ([19b0ac5](https://github.com/rubiin/init.lua/commit/19b0ac5dfd3bea74850d340f2e13ae5550c6957a))
+
 ## [2.5.5](https://github.com/rubiin/init.lua/compare/v2.5.4...v2.5.5) (2024-06-25)
 
 
