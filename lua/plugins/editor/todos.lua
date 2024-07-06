@@ -15,7 +15,7 @@ return {
       "<leader>sT",
       function()
         require("todo-comments.fzf").todo({
-          keywords = { "TODO", "FIX", "FIXME", "WARN", "HACK", "PERF", "NOTE", "TEST" },
+          keywords = { "TODO", "FIX", "WARN", "HACK", "PERF", "NOTE", "TEST" },
         })
       end,
       desc = "Todo/Fix/Fixme",
@@ -23,15 +23,27 @@ return {
   },
   opts = {
     keywords = {
+      TODO = {
+        icon = user_icons.ui.BoxChecked,
+        color = "info",
+        alt = { "CHORE", "CLEANUP", "REVIEW", "DOC", "DOCUMENTATION" },
+      },
       FIX = {
         icon = user_icons.ui.Bug, -- icon used for the sign, and in search results
         color = "error", -- can be a hex color, or a named color (see below)
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+        alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "FIXUP" }, -- a set of other keywords that all map to this FIX keywords
       },
-      TODO = { icon = user_icons.ui.BoxChecked, color = "info" },
       HACK = { icon = user_icons.ui.Fire, color = "warning" },
-      WARN = { icon = user_icons.diagnostics.Warn, color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = user_icons.ui.Performance, color = "hint", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      WARN = {
+        icon = user_icons.diagnostics.Warn,
+        color = "warning",
+        alt = { "WARNING", "XXX", "CONSIDER", "IDEA", "HINT", "TIP", "CAUTION" },
+      },
+      PERF = {
+        icon = user_icons.ui.Performance,
+        color = "hint",
+        alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "IMPROVE" },
+      },
       NOTE = { icon = user_icons.ui.Note, color = "hint", alt = { "INFO" } },
       TEST = {
         icon = user_icons.ui.Test,
