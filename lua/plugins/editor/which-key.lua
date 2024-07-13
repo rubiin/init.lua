@@ -10,7 +10,7 @@ return {
       icons = {
         group = "", -- symbol prep pended to a group
       },
-      defaults = {
+      spec = {
         ["<leader>h"] = { name = "harpoon" },
         ["<leader>l"] = { name = "lsp" },
         ["<leader>;"] = { name = "info" },
