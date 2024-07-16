@@ -4,11 +4,8 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      window = {
+      win = {
         border = vim.g.border_style,
-      },
-      icons = {
-        group = "", -- symbol prep pended to a group
       },
       spec = {
         ["<leader>h"] = { name = "harpoon" },
