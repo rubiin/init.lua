@@ -1,4 +1,4 @@
-# 💤 My neovim config
+# 💤 My neovim config aka PDE (Personal Development Environment)
 
 Behold, the mystical incantations of my Neovim configuration, carefully crafted to summon the spirits of efficiency and productivity from the depths of the digital abyss. With the precision of a surgeon and the finesse of a ninja, I've concocted a brew of plugins and keybindings that dance harmoniously to the rhythm of my keystrokes weaving spells of autocomplete and syntax highlighting to illuminate the darkest recesses of my codebase.
 
