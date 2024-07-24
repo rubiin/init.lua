@@ -30,6 +30,14 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.5.8](https://github.com/rubiin/init.lua/compare/v2.5.7...v2.5.8) (2024-07-24)
+
+
+### Bug Fixes
+
+* deps ([681e88e](https://github.com/rubiin/init.lua/commit/681e88ebf50cc291c83a99cc04eeb2fd19edb1ae))
+* remove spectre ([a793255](https://github.com/rubiin/init.lua/commit/a793255bb2e1277d540cc1f89190e0b97be11310))
+
 ## [2.5.7](https://github.com/rubiin/init.lua/compare/v2.5.6...v2.5.7) (2024-07-16)
 
 
