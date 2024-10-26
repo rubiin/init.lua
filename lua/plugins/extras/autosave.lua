@@ -12,8 +12,5 @@ return {
         desc = "Toggle Auto Save",
       },
     },
-    opts = {
-      execution_message = "", -- if you don't want any message after save
-    },
   },
 }
