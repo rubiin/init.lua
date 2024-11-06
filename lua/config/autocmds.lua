@@ -51,7 +51,14 @@ autocmd("FileType", {
   callback = function(event)
     vim.o.number = false
     vim.opt.spell = false
-    utils.keymap("n", "q", "<cmd>close<cr>")
+    vim.bo[event.buf].buflisted = false
+    vim.schedule(function()
+      vim.keymap.set("n", "q", "<cmd>:bd<cr>", {
+        buffer = event.buf,
+        silent = true,
+        desc = "Quit buffer",
+      })
+    end)
   end,
   desc = "Close Some Filetypes With Just <q> Key",
 })
