@@ -71,18 +71,7 @@ return { {
     opts = {
         style = "night"
     }
-}, -- nvim-notify :TODO
-    -- {
-    --   "rcarriga/nvim-notify",
-    --   opts = {
-    --     timeout = 2000,
-    --     -- Animation style
-    --     stages = "fade_in_slide_out",
-    --   },
-    --   config = function(_, opts)
-    --     require("notify").setup(opts)
-    --   end,
-    -- },
+},
     -- neotree
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -304,10 +293,12 @@ return { {
             animate = {
                 enabled = false
             }
+        },
+        notifier = {
+            timeout = 2000,
         }
 
     }
 }
-
 
 }

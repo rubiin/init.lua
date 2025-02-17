@@ -252,14 +252,14 @@ autocmd("InsertLeave", {
 })
 
 -- Disable `mini.indentscope` for specific filetypes :TODO
--- autocmd("FileType", {
---   group = aufiletype,
---   pattern = constants.common_file_types,
---   callback = function()
---     vim.b.miniindentscope_disable = true
---   end,
---   desc = "Disable `mini.indentscope` For Specific Filetypes",
--- })
+autocmd("FileType", {
+  group = aufiletype,
+  pattern = constants.common_file_types,
+  callback = function()
+    Snacks.indent.disable()
+  end,
+  desc = "Disable `snack.indentscope` For Specific Filetypes",
+})
 
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
