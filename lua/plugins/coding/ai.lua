@@ -47,10 +47,11 @@ return {
     optional = true,
     opts = function(_, opts)
       local colors = {
-        [""] = LazyVim.ui.fg("Special"),
-        ["Normal"] = LazyVim.ui.fg("Special"),
-        ["Warning"] = LazyVim.ui.fg("DiagnosticError"),
-        ["InProgress"] = LazyVim.ui.fg("DiagnosticWarn"),
+        [""] = Snacks.util.color("Special"),
+        ["Normal"] = Snacks.util.color("Special"),
+        ["Warning"] = Snacks.util.color("DiagnosticError"),
+        ["InProgress"] = Snacks.util.color("DiagnosticWarn"),
+
       }
       table.insert(opts.sections.lualine_y, 2, {
         function()

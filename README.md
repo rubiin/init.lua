@@ -120,9 +120,6 @@ NOTE for Windows users:
 
 - [hkupty/iron.nvim](https://dotfyle.com/plugins/hkupty/iron.nvim)
 
-### color
-
-- [folke/twilight.nvim](https://dotfyle.com/plugins/folke/twilight.nvim)
 
 ### colorscheme
 
@@ -149,7 +146,6 @@ NOTE for Windows users:
 
 ### editing-support
 
-- [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
 - [jiaoshijie/undotree](https://dotfyle.com/plugins/jiaoshijie/undotree)
 - [Wansmer/treesj](https://dotfyle.com/plugins/Wansmer/treesj)
 - [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
@@ -186,7 +182,6 @@ NOTE for Windows users:
 ### indent
 
 - [shellRaining/hlchunk.nvim](https://dotfyle.com/plugins/shellRaining/hlchunk.nvim)
-- [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 
 ### keybinding
 
@@ -276,7 +271,6 @@ NOTE for Windows users:
 ### utility
 
 - [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-- [echasnovski/mini.animate](https://dotfyle.com/plugins/echasnovski/mini.animate)
 - [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 - [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 - [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)

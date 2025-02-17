@@ -251,15 +251,15 @@ autocmd("InsertLeave", {
   desc = "Turn Off Paste Mode When Leaving Insert",
 })
 
--- Disable `mini.indentscope` for specific filetypes
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = constants.common_file_types,
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-  desc = "Disable `mini.indentscope` For Specific Filetypes",
-})
+-- Disable `mini.indentscope` for specific filetypes :TODO
+-- autocmd("FileType", {
+--   group = aufiletype,
+--   pattern = constants.common_file_types,
+--   callback = function()
+--     vim.b.miniindentscope_disable = true
+--   end,
+--   desc = "Disable `mini.indentscope` For Specific Filetypes",
+-- })
 
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
