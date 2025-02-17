@@ -14,9 +14,7 @@ return {
         providers = {
           snippets = {
             opts = {
-              search_paths = {
-                "~/.config/nvim/misc/snippets/"
-              }
+              search_paths = vim.g.vscode_snippets_path
             }
           }
         }
