@@ -41,15 +41,6 @@ return {
         map_c_w = false, -- map <c-w> to delete a pair if possible
         disable_in_visualblock = true,
       })
-
-      -- Import nvim-autopairs completion functionality safely
-      local cmp_autopairs = prequire("nvim-autopairs.completion.cmp")
-
-      -- Import nvim-cmp plugin safely (completions plugin)
-      local cmp = prequire("cmp")
-
-      -- Make autopairs and completion work together
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
 }
