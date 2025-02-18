@@ -79,12 +79,12 @@ return { {
             popup_border_style = vim.g.border_style
         }
     },
-    -- { :TODO
-    -- "RRethy/vim-illuminate",
-    -- opts = {
-    --     filetypes_denylist = constant.common_file_types
-    -- }
-}, -- messages, cmdline and the popupmenu
+--     {   :Todo
+--     "RRethy/vim-illuminate",
+--     opts = {
+--         filetypes_denylist = constant.common_file_types
+--     }
+-- }, -- messages, cmdline and the popupmenu
     {
         "folke/noice.nvim",
         opts = function(_, opts)
