@@ -20,14 +20,6 @@ return {
       words = { enabled = true },
       indent = {
         enabled = true,
-
-        -- filter for buffers to enable indent guides
-        filter = function()
-          return vim.g.snacks_indent ~= false
-            and vim.b[buf].snacks_indent ~= false
-            and vim.bo[buf].buftype == ""
-            and not utils.list_contains(constant.common_file_types, vim.bo[buf].filetype)
-        end,
       },
     },
   },
