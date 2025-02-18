@@ -251,14 +251,14 @@ autocmd("InsertLeave", {
   desc = "Turn Off Paste Mode When Leaving Insert",
 })
 
--- Disable `mini.indentscope` for specific filetypes :TODO
+-- Disable `snacks.indentscope` for specific filetypes :TODO
 autocmd("FileType", {
   group = aufiletype,
   pattern = constants.common_file_types,
   callback = function()
     Snacks.indent.disable()
   end,
-  desc = "Disable `snack.indentscope` For Specific Filetypes",
+  desc = "Disable `snacks.indentscope` For Specific Filetypes",
 })
 
 -- ========================================================================== --

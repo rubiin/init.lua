@@ -279,24 +279,21 @@ return { {
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
+    --- see here for more info https://www.lazyvim.org/plugins/ui#snacksnvim
     opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        zen = {
-            enabled = true
+        zen = { enabled = true },
+        indent = { enabled = true },
+        input = { enabled = true },
+        notifier = { enabled = true, timeout = 2000 },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        statuscolumn = { enabled = false }, -- we set this in options.lua
+        toggle = { map = LazyVim.safe_keymap_set },
+        words = { enabled = true },
 
-        },
-        indent = {
-            enabled = true,
-
-            animate = {
-                enabled = false
-            }
-        },
-        notifier = {
-            timeout = 2000,
-        }
 
     }
 }

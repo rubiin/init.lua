@@ -237,7 +237,6 @@ NOTE for Windows users:
 
 ### scrolling
 
-- [karb94/neoscroll.nvim](https://dotfyle.com/plugins/karb94/neoscroll.nvim)
 
 ### search
 
@@ -272,7 +271,6 @@ NOTE for Windows users:
 
 - [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
 - [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
-- [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 - [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)
 - [chrisgrieser/nvim-early-retirement](https://dotfyle.com/plugins/chrisgrieser/nvim-early-retirement)
 - [ghillb/cybu.nvim](https://dotfyle.com/plugins/ghillb/cybu.nvim)
