@@ -12,6 +12,8 @@ return {
       },
     },
   },
+  { "giuxtaposition/blink-cmp-copilot" },
+
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
