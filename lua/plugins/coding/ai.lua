@@ -23,7 +23,6 @@ return {
         ["Normal"] = Snacks.util.color("Special"),
         ["Warning"] = Snacks.util.color("DiagnosticError"),
         ["InProgress"] = Snacks.util.color("DiagnosticWarn"),
-
       }
       table.insert(opts.sections.lualine_y, 2, {
         function()

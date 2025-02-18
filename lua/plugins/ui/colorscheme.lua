@@ -1,6 +1,4 @@
-
 -- create colorscheme here: https://mswift42.github.io/themecreator/
-
 
 local util = require("utils")
 
