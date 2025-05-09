@@ -210,7 +210,7 @@ NOTE for Windows users:
 
 ### note-taking
 
-- [epwalsh/obsidian.nvim](https://dotfyle.com/plugins/epwalsh/obsidian.nvim)
+- [epwalsh/obsidian.nvim](https://dotfyle.com/plugins/obsidian-nvim/obsidian.nvim)
 
 ### nvim-dev
 
