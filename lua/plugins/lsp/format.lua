@@ -41,7 +41,7 @@ return {
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     dependencies = {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
     },
     opts = {
       formatters_by_ft = formatters_by_ft,

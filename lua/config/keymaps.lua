@@ -56,7 +56,7 @@ keymap("c", "<C-e>", "<end>")
 
 -- Override LazyVim bindings for terminal
 keymap("n", "<C-/>", function()
-  LazyVim.terminal(nil, { border = vim.g.border_style })
+  Snacks.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
 --TODO: verify these keymaps , seems to be causing issues
