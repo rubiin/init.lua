@@ -10,17 +10,18 @@ return {
     --- see here for more info https://www.lazyvim.org/plugins/ui#snacksnvim
     opts = {
 
-      zen = { enabled = true },
+      dim = { enabled = false },
       input = { enabled = true },
+      indent = {
+        enabled = true,
+      },
       notifier = { enabled = true, timeout = 2000 },
       scope = { enabled = true },
       scroll = { enabled = true },
       statuscolumn = { enabled = false }, -- we set this in options.lua
       toggle = { map = LazyVim.safe_keymap_set },
       words = { enabled = true },
-      indent = {
-        enabled = true,
-      },
+      zen = { enabled = false },
     },
   },
 }
