@@ -30,6 +30,14 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.7.0](https://github.com/rubiin/init.lua/compare/v2.6.0...v2.7.0) (2025-08-13)
+
+
+### Features
+
+* harpoon to 9 ([8de8600](https://github.com/rubiin/init.lua/commit/8de8600c44ed445f9e18c98ce7d9a838a344ba74))
+* snacks dim and zen ([dbfdda0](https://github.com/rubiin/init.lua/commit/dbfdda0ea5da0864caafca01a7f0142bce32df44))
+
 ## [2.6.0](https://github.com/rubiin/init.lua/compare/v2.5.8...v2.6.0) (2025-08-13)
 
 
