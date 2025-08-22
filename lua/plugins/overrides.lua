@@ -2,6 +2,16 @@
 local constant = require("utils.constants")
 
 return {
+
+  -- TODO: Remove this once https://github.com/LazyVim/LazyVim/pull/6354 is merged
+  {
+    "catppuccin",
+    optional = true,
+    opts = function()
+      local bufferline = require("catppuccin.groups.integrations.bufferline")
+      bufferline.get = bufferline.get or bufferline.get_theme
+    end,
+  },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
