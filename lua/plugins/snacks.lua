@@ -22,6 +22,7 @@ return {
       toggle = { map = LazyVim.safe_keymap_set },
       words = { enabled = true },
       zen = { enabled = false },
+      dashboard = { enabled = false },
     },
   },
 }
