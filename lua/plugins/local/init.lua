@@ -6,7 +6,6 @@ return {
     "rubiin/fortune.nvim",
     dev = true,
     event = "VimEnter",
-    name = "fortuner",
     opts = {
       max_width = 60,
       content_type = "tips",
