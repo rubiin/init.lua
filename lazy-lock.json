@@ -11,7 +11,6 @@
   "conform.nvim": { "branch": "master", "commit": "a0ab60ed666c56b37fd7ed1847d2ac52f2482ce0" },
   "copilot.lua": { "branch": "master", "commit": "1e37de649033b5519bef030287fbb590eb4472eb" },
   "cybu.nvim": { "branch": "main", "commit": "c8a8c71cd0e38d4165b02819dfdc32dedc35a6b6" },
-  "dashboard-nvim": { "branch": "master", "commit": "c42fcfbd96dfcaa486c0a0ab52494316f1c31350" },
   "dial.nvim": { "branch": "master", "commit": "78bd73aaf2b9c8f80715a878feaf56f7ffa8b6ff" },
   "flit.nvim": { "branch": "main", "commit": "513e38abe61237c53a9e983e45595b1d2e7d5391" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
