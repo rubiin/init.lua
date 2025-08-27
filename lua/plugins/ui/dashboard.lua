@@ -1,38 +1,14 @@
 local user_icons = require("rubin.icons")
 local util = require("utils")
 
---TODO: fix last Session open with s
-return {
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function()
-      local logo = require("utils.banners").dashboard()
-      local opts = {
-        theme = "doom",
-        hide = {
-          -- this is taken care of by lualine
-          -- enabling this messes up the actual laststatus setting after loading a file
-          statusline = false,
-        },
-        config = {
-          header = vim.split(logo, "\n"),
-          -- stylua: ignore
-          center = {
-            { action =  'lua LazyVim.pick()()', desc = ' Find File', icon = user_icons.ui.Search, key = 'f' },
-            { action = 'ene | startinsert', desc = ' New File', icon = user_icons.ui.FileBold, key = 'n' },
-            { action = 'lua LazyVim.pick("live_grep")()', desc = ' Recent Files', icon = user_icons.ui.FileOld, key = 'r' },
-            { action =  'lua LazyVim.pick.config_files()()', desc = ' Config', icon = user_icons.ui.Gear, key = 'c' },
-            { action = "<cmd>lua require('persisted').load()<CR>", desc = ' Last Session', icon = user_icons.ui.History, key = 's' },
-            { action = 'Lazy', desc = ' Lazy', icon = user_icons.ui.Sleep, key = 'p' },
-            { action = 'Mason', desc = ' Mason', icon = user_icons.ui.PackageAdd, key = 'm' },
-            { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = ' Quit', icon = user_icons.ui.Exit, key = 'q' },
-          },
-          footer = function()
+local fortune = require("fortune").get_fortune()
+local logo = require("utils.banners").dashboard()
+
+function footer()
             local stats = require("lazy").stats()
             local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
             local info = {}
-            info[1] = "⚡ Neovim loaded "
+            local info1 = {"⚡ Neovim loaded "
               .. stats.loaded
               .. "/"
               .. stats.count
@@ -42,35 +18,59 @@ return {
               .. " on "
               .. user_icons.ui.Neovim
               .. util.neovim_version()
-            info[2] = ""
+            }
 
-            if vim.g.fortune then
-              local fortune = require("fortune").get_fortune()
-              local footer = vim.list_extend(info, fortune)
-            end
+            table.insert(info, info1)
+
+
 
             return info
-          end,
+end
+
+print(footer())
+
+
+return {
+  {
+    "folke/snacks.nvim",
+    event = "VimEnter",
+    opts = {
+      dashboard = ---@class snacks.dashboard.Config
+      ---@field enabled? boolean
+      ---@field sections snacks.dashboard.Section
+      ---@field formats table<string, snacks.dashboard.Text|fun(item:snacks.dashboard.Item, ctx:snacks.dashboard.Format.ctx):snacks.dashboard.Text>
+      {
+        -- These settings are used by some built-in sections
+        preset = {
+          -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
+          ---@type fun(cmd:string, opts:table)|nil
+          pick = nil,
+          -- Used by the `keys` section to show keymaps.
+          -- Set your custom keymaps here.
+          -- When using a function, the `items` argument are the default keymaps.
+          ---@type snacks.dashboard.Item[]
+          keys = {
+            { icon = user_icons.ui.Search,   key = 'f', desc = "Find File",       action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = user_icons.ui.FileBold, key = 'n', desc = "New File",        action = ":ene | startinsert" },
+            { icon = user_icons.ui.FileOld,  key = 'g', desc = "Find Text",       action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = user_icons.ui.History,  key = 'r', desc = "Recent Files",    action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            { icon = user_icons.ui.Gear,     key = 'c', desc = "Config",          action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+            { icon = user_icons.ui.History,  key = 's', desc = "Restore Session", section = "session" },
+            { icon = user_icons.ui.Sleep,    key = 'L', desc = "Lazy",            action = ":Lazy",                                                                enabled = package.loaded.lazy ~= nil },
+            { icon = user_icons.ui.Exit,     key = 'q', desc = "Quit",            action = ":qa" },
+          },
+          -- Used by the `header` section
+          header = logo,
+        },
+        sections = {
+          { section = "header" },
+          { section = "keys",  gap = 1, padding = 1 },
+          {
+            align = "center",
+            text = footer(),
+          },
         },
       }
-
-      for _, button in ipairs(opts.config.center) do
-        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-        button.key_format = "  %s"
-      end
-
-      -- close Lazy and re-open when the dashboard is ready
-      if vim.o.filetype == "lazy" then
-        vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "DashboardLoaded",
-          callback = function()
-            require("lazy").show()
-          end,
-        })
-      end
-
-      return opts
-    end,
+    }
   },
 }
