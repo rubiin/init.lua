@@ -11,6 +11,7 @@ return {
     opts = {
 
       dim = { enabled = false },
+      bigfile = { enabled = true },
       input = { enabled = true },
       indent = {
         enabled = true,
