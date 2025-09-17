@@ -3,7 +3,7 @@
 local disable_plugins = require("utils").disable_plugins
 
 return disable_plugins({
-  "echasnovski/mini.comment",
-  "echasnovski/mini.pairs",
+  "nvim-mini/mini.comment",
+  "nvim-mini/mini.pairs",
   "folke/tokyonight",
 })

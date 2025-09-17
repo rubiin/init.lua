@@ -2,7 +2,7 @@ local user_icons = require("rubin.icons")
 
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.ui = {
         icons = {
