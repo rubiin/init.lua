@@ -3,15 +3,6 @@ local constant = require("utils.constants")
 
 return {
 
-  -- TODO: Remove this once https://github.com/LazyVim/LazyVim/pull/6354 is merged
-  {
-    "catppuccin",
-    optional = true,
-    opts = function()
-      local bufferline = require("catppuccin.groups.integrations.bufferline")
-      bufferline.get = bufferline.get or bufferline.get_theme
-    end,
-  },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
@@ -19,14 +10,6 @@ return {
       keys = {
         ["<Tab>"] = "next",
         ["<S-Tab>"] = "prev",
-      },
-    },
-  },
-  {
-    "ibhagwan/fzf-lua",
-    opts = {
-      fzf_opts = {
-        ["--layout"] = "default",
       },
     },
   },
@@ -69,27 +52,6 @@ return {
           delay = 200,
           reveal = { "close" },
         },
-      },
-    },
-  }, -- project
-  {
-    "ahmedkhalf/project.nvim",
-    lazy = false,
-
-    opts = {
-      manual_mode = false,
-      patterns = {
-        ".git",
-        "_darcs",
-        ".hg",
-        ".bzr",
-        ".svn",
-        "Makefile",
-        "package.json",
-        "pyproject.toml",
-        "poetry.lock",
-        "go.mod",
-        "Cargo.lock",
       },
     },
   },

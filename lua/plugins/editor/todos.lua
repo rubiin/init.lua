@@ -14,7 +14,7 @@ return {
     {
       "<leader>sT",
       function()
-        require("todo-comments.fzf").todo({
+        Snacks.picker.todo_comments({
           keywords = { "TODO", "FIX", "WARN", "HACK", "PERF", "NOTE", "TEST" },
         })
       end,

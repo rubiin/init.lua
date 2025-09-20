@@ -152,10 +152,7 @@ NOTE for Windows users:
 ### formatting
 
 + [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
-### fuzzy-finder
 
-+ [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 ### game
 
 + [ThePrimeagen/vim-be-good](https://dotfyle.com/plugins/ThePrimeagen/vim-be-good)

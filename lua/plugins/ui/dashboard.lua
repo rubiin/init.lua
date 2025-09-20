@@ -92,4 +92,15 @@ return {
       }
     end,
   },
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      table.insert(opts.dashboard.preset.keys, 3, {
+        icon = " ",
+        key = "p",
+        desc = "Projects",
+        action = ":lua Snacks.picker.projects()",
+      })
+    end,
+  },
 }
