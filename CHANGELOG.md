@@ -30,6 +30,22 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.8.0](https://github.com/rubiin/init.lua/compare/v2.7.2...v2.8.0) (2025-09-20)
+
+
+### 🚀 New Features
+
+* add precognition ([7d69f2c](https://github.com/rubiin/init.lua/commit/7d69f2c32c193e2864c80f85b20f3c1265ef8697))
+
+
+### 🐛 Bug Fixes
+
+* remove projects.nvim ([601d1a4](https://github.com/rubiin/init.lua/commit/601d1a41c8b8b3d1cdc1ea7e94cc26c7acee3d37))
+* snacks jumps ([1e405f7](https://github.com/rubiin/init.lua/commit/1e405f790b375d32bb4065d52f03883eff077aa1))
+* snacks layout to telescope ([a58b9ae](https://github.com/rubiin/init.lua/commit/a58b9aeb576f629666d707f9419f7cc62f5e8fa5))
+* update repo names for plugins ([9d6d6dc](https://github.com/rubiin/init.lua/commit/9d6d6dc6e398b2f3c60ce06807984d3cace74aba))
+* use snacks project ([430ded6](https://github.com/rubiin/init.lua/commit/430ded69e6a2d0afb69a53331d3f804e0a5e97cc))
+
 ## [2.7.2](https://github.com/rubiin/init.lua/compare/v2.7.1...v2.7.2) (2025-08-27)
 
 
