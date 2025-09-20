@@ -16,6 +16,10 @@ return {
       indent = {
         enabled = true,
       },
+      picker= {
+      enabled = true,
+      layout = "telescope"
+      },
       notifier = { enabled = true, timeout = 2000 },
       scope = { enabled = true },
       scroll = { enabled = true },
