@@ -81,8 +81,8 @@ return {
       substitutions = {},
     },
     picker = {
-      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-      name = "fzf-lua",
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'snacks.pick' or 'mini.pick'.
+      name = "snacks.pick",
       -- Optional, configure key mappings for the picker. These are the defaults.
       -- Not all pickers support all mappings.
       mappings = {
