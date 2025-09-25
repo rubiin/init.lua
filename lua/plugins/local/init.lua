@@ -7,7 +7,7 @@ return {
     dev = true,
     event = "VimEnter",
     opts = {
-      max_width = 60,
+      max_width = 40,
       content_type = "tips",
     },
   },
