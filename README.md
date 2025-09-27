@@ -226,7 +226,6 @@ NOTE for Windows users:
 ### workflow
 
 + [m4xshen/hardtime.nvim](https://dotfyle.com/plugins/m4xshen/hardtime.nvim)
-+ [jiaoshijie/undotree](https://dotfyle.com/plugins/jiaoshijie/undotree)
 
 ## Language Servers
 
