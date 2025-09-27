@@ -76,4 +76,4 @@ g.trouble_lualine = false
 g.deprecation_warnings = true
 g.autoformat = false ---@type boolean -- Enable LazyVim auto format
 g.markdown_recommended_style = 0 -- Fix markdown indentation settings
-g.lazyvim_picker = "snacks"
+g.snacks_animate = true
