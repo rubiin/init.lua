@@ -5,7 +5,8 @@
     "cmp_mappings",
     "vim",
     "jit",
-    "LazyVim"
+    "LazyVim",
+    "Snacks"
   ],
   "runtime.version": "LuaJIT",
   "diagnostics.disable": [
