@@ -275,7 +275,7 @@ function M.add_author_details()
     twitter = "RubinCodes",
   }
 
-  local comment = get_comment_str()
+  local comment = get_comment_str() or ""
 
   -- replace %s in comment string with empty
   comment = string.format(comment, "")
