@@ -6,10 +6,6 @@ return {
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
-  },
   opts = {
     workspaces = {
       {

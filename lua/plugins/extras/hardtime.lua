@@ -13,7 +13,7 @@ return {
   {
     "m4xshen/hardtime.nvim",
     cmd = "Hardtime",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    dependencies = { "MunifTanjim/nui.nvim" },
     keys = {
       {
         "<leader>uh",

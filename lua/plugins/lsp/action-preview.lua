@@ -1,12 +1,9 @@
 return {
   "aznhe21/actions-preview.nvim",
   event = { "LspAttach" },
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    -- "nvim-telescope/telescope.nvim", Change back to telescope if you want to use telescope
-  },
   opts = {
-    backend = { "nui" },
+    -- priority list of preferred backend
+    backend = { "snacks", "telescope", "nui" },
     -- options for nui.nvim components
     nui = {
       -- options for nui Layout component: https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/layout
@@ -34,6 +31,9 @@ return {
           padding = { 0, 1 },
         },
       },
+    },
+    snacks = {
+      layout = { preset = "default" },
     },
   },
   keys = {
