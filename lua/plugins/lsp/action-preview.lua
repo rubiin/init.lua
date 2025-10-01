@@ -33,7 +33,7 @@ return {
       },
     },
     snacks = {
-      layout = { preset = "default" },
+      layout = { preset = "telescope" },
     },
   },
   keys = {
