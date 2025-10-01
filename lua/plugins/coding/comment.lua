@@ -1,5 +1,15 @@
 return {
   {
+    "folke/ts-comments.nvim",
+    opts = {
+      langs = {
+        dts = "// %s",
+      },
+    },
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
+  {
     "numToStr/Comment.nvim",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
