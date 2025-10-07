@@ -1,5 +1,4 @@
 return {
-  { "folke/persistence.nvim", enabled = false },
   {
     "olimorris/persisted.nvim",
     event = "BufReadPre",
