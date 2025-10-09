@@ -30,6 +30,37 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.8.0](https://github.com/rubiin/init.lua/compare/v2.7.2...v2.8.0) (2025-10-09)
+
+
+### 🚀 New Features
+
+* add colorizer plugin configuration for enhanced color highlighting ([c6bf600](https://github.com/rubiin/init.lua/commit/c6bf600ea898e6d923693457aff75146ab28f38c))
+* add nvim-lightbulb plugin configuration for enhanced code insight ([90231cc](https://github.com/rubiin/init.lua/commit/90231cce2ddc882cf02980b38f046ad553dcfffb))
+* add precognition ([7d69f2c](https://github.com/rubiin/init.lua/commit/7d69f2c32c193e2864c80f85b20f3c1265ef8697))
+
+
+### 🐛 Bug Fixes
+
+* add "Snacks" to diagnostics.globals in .luarc.json ([6890257](https://github.com/rubiin/init.lua/commit/6890257d93cc1732b648916bd9a0e438d1333872))
+* add missing configuration for ts-comments.nvim plugin ([7cc56d7](https://github.com/rubiin/init.lua/commit/7cc56d7fc0c2f71420d9424d4ab18635a72e801c))
+* ensure comment string is not nil in add_author_details function ([47dddd9](https://github.com/rubiin/init.lua/commit/47dddd90b99532b87af4a82108f766db94ff3ea6))
+* only fix the lua line for copilot ([a9ae0ca](https://github.com/rubiin/init.lua/commit/a9ae0ca76bd70dd9d870fa8c1e3c7221a4d10eaf))
+* remove mini.hipatterns from lazy-lock and lazyvim configurations ([4430a1a](https://github.com/rubiin/init.lua/commit/4430a1a3ceba1cee5957175a4623a781995022f8))
+* remove projects.nvim ([601d1a4](https://github.com/rubiin/init.lua/commit/601d1a41c8b8b3d1cdc1ea7e94cc26c7acee3d37))
+* remove trailing spaces in function abbreviation mappings across multiple language configurations ([1657a7c](https://github.com/rubiin/init.lua/commit/1657a7c83146b0c05d8afdf878487f5244ae6452))
+* remove unnecessary dependencies from plugin configurations ([87815d7](https://github.com/rubiin/init.lua/commit/87815d729e2dd948dc893d0d13aa8029455a63f5))
+* remove unused Wakatime integration code ([4d9bac5](https://github.com/rubiin/init.lua/commit/4d9bac57dffe959bc8e971672416708461856f9e))
+* snacks jumps ([1e405f7](https://github.com/rubiin/init.lua/commit/1e405f790b375d32bb4065d52f03883eff077aa1))
+* snacks layout to telescope ([a58b9ae](https://github.com/rubiin/init.lua/commit/a58b9aeb576f629666d707f9419f7cc62f5e8fa5))
+* update copilot status reference in ai.lua ([46aec08](https://github.com/rubiin/init.lua/commit/46aec0853620dcc5bd02231ed4957d00c59b6f15))
+* update function abbreviation in multiple language configurations ([139fe21](https://github.com/rubiin/init.lua/commit/139fe2175e945e1b779ddd0d51910c44942fccd7))
+* update plugin identifiers and disable persistence plugin in configuration ([196407e](https://github.com/rubiin/init.lua/commit/196407efd17762ff6211f0b2263f66c5c22b1f6e))
+* update repo names for plugins ([9d6d6dc](https://github.com/rubiin/init.lua/commit/9d6d6dc6e398b2f3c60ce06807984d3cace74aba))
+* update snacks layout preset to telescope in action-preview configuration ([04047ee](https://github.com/rubiin/init.lua/commit/04047eeefb759f5cde2aa0e064a3aa72bbe602e0))
+* use snacks project ([430ded6](https://github.com/rubiin/init.lua/commit/430ded69e6a2d0afb69a53331d3f804e0a5e97cc))
+* use snacks undotree instead of undo tree plugin ([7f3d831](https://github.com/rubiin/init.lua/commit/7f3d831c53f47e03733bd267e219b9b77ddaac11))
+
 ## [2.7.2](https://github.com/rubiin/init.lua/compare/v2.7.1...v2.7.2) (2025-08-27)
 
 
