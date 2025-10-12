@@ -268,7 +268,7 @@ autocmd("BufWritePost", {
   },
   callback = function()
     vim.notify("Applying chezmoi changes", vim.log.levels.INFO)
-    vim.system({ "chezmoi", "apply", "-k" })
+    vim.system({ "chezmoi", "update", "--exclude=encrypted" })
   end,
   desc = "Apply chezmoi changes on saving a dotfile",
 })
