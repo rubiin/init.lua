@@ -1,15 +1,15 @@
+local ft_abbr = require("utils").ft_abbr
 --------------------------------------------------------------------------------
 -- fix habits
 
-local utils = require("utils")
 
-utils.ft_abbr("true", "True")
-utils.ft_abbr("false", "False")
-utils.ft_abbr("//", "#")
-utils.ft_abbr("--", "#")
-utils.ft_abbr("null", "None")
-utils.ft_abbr("nil", "None")
-utils.ft_abbr("none", "None")
-utils.ft_abbr("undefined", "None")
-utils.ft_abbr("trim", "strip")
-utils.ft_abbr("function", "def")
+ft_abbr("true", "True")
+ft_abbr("false", "False")
+ft_abbr("//", "#")
+ft_abbr("--", "#")
+ft_abbr("null", "None")
+ft_abbr("nil", "None")
+ft_abbr("none", "None")
+ft_abbr("undefined", "None")
+ft_abbr("trim", "strip")
+ft_abbr("function", "def")

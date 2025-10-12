@@ -1,13 +1,13 @@
 vim.opt.shiftwidth = 4
 
-local utils = require("utils")
+local ft_abbr = require("utils").ft_abbr
 
 --------------------------------------------------------------------------------
 
 -- fix my habits
-utils.ft_abbr("cosnt", "const")
-utils.ft_abbr("local", "const")
-utils.ft_abbr("def", "function")
-utils.ft_abbr("--", "//")
-utils.ft_abbr("~=", "!==")
-utils.ft_abbr("elseif", "else if")
+ft_abbr("cosnt", "const")
+ft_abbr("local", "const")
+ft_abbr("def", "function")
+ft_abbr("--", "//")
+ft_abbr("~=", "!==")
+ft_abbr("elseif", "else if")

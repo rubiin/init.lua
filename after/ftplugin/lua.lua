@@ -1,13 +1,13 @@
-local utils = require("utils")
+local ft_abbr = require("utils").ft_abbr
 --------------------------------------------------------------------------------
 
 -- habits from writing too much in other languages
-utils.ft_abbr("//", "--")
-utils.ft_abbr("const", "local")
-utils.ft_abbr("fi", "end")
-utils.ft_abbr("||", "or")
-utils.ft_abbr("&&", "and")
-utils.ft_abbr("!=", "~=")
-utils.ft_abbr("!==", "~=")
-utils.ft_abbr("===", "==")
-utils.ft_abbr("null", "nil")
+ft_abbr("//", "--")
+ft_abbr("const", "local")
+ft_abbr("fi", "end")
+ft_abbr("||", "or")
+ft_abbr("&&", "and")
+ft_abbr("!=", "~=")
+ft_abbr("!==", "~=")
+ft_abbr("===", "==")
+ft_abbr("null", "nil")

@@ -1,9 +1,11 @@
-local utils = require("utils")
+local ft_abbr = require("utils").ft_abbr
+
+
 --------------------------------------------------------------------------------
 
 -- fix my habits
-utils.ft_abbr("function", "func")
-utils.ft_abbr("local", "var")
-utils.ft_abbr("boolean", "bool")
-utils.ft_abbr("float", "float32")
-utils.ft_abbr("--", "//")
+ft_abbr("function", "func")
+ft_abbr("local", "var")
+ft_abbr("boolean", "bool")
+ft_abbr("float", "float32")
+ft_abbr("--", "//")
