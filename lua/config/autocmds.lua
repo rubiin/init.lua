@@ -261,6 +261,18 @@ autocmd("FileType", {
   desc = "Disable `snacks.indentscope` For Specific Filetypes",
 })
 
+local chezmoi_path = vim.fn.resolve(vim.fn.expand("~/.local/share/chezmoi"))
+autocmd("BufWritePost", {
+  pattern = {
+    chezmoi_path .. "/**/*", -- files in subdirectories
+  },
+  callback = function()
+    vim.notify("Applying chezmoi changes", vim.log.levels.INFO)
+    vim.system({ "chezmoi", "apply", "-k" })
+  end,
+  desc = "Apply chezmoi changes on saving a dotfile",
+})
+
 -- ========================================================================== --
 -- ==                          USER COMMANDS                               == --
 -- ========================================================================== --
