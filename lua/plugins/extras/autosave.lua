@@ -39,19 +39,8 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
--- Override the `flash.jump` function to detect start and end
-local flash = require("flash")
-local original_jump = flash.jump
 
-flash.jump = function(opts)
-  vim.api.nvim_exec_autocmds("User", { pattern = "FlashJumpStart" })
-  -- print("flash.nvim enter")
 
-  original_jump(opts)
-
-  vim.api.nvim_exec_autocmds("User", { pattern = "FlashJumpEnd" })
-  -- print("flash.nvim leave")
-end
 
 -- Disable auto-save when entering a snacks_input buffer
 vim.api.nvim_create_autocmd("FileType", {
@@ -119,14 +108,12 @@ return {
           "InsertLeave",
           "TextChanged",
           { "User", pattern = "VisualLeave" },
-          { "User", pattern = "FlashJumpEnd" },
           { "User", pattern = "SnacksInputLeave" },
           { "User", pattern = "SnacksPickerInputLeave" },
         },
         cancel_deferred_save = {
           "InsertEnter",
           { "User", pattern = "VisualEnter" },
-          { "User", pattern = "FlashJumpStart" },
           { "User", pattern = "SnacksInputEnter" },
           { "User", pattern = "SnacksPickerInputEnter" },
         },
