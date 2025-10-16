@@ -29,7 +29,7 @@ return {
       save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved,resolves to ~/.local/share/nvim/my-sessions/
       silent = false, -- silent nvim message when sourcing session file
       use_git_branch = false, -- create session files based on the branch of a git enabled repository
-      default_branch = "main", -- the branch to load if a session file is not found for the current branch
+      default_branch = "master", -- the branch to load if a session file is not found for the current branch
       autosave = true, -- automatically save session files when exiting Neovim
       autoload = false, -- automatically load the session for the cwd on Neovim startup
       on_autoload_no_session = nil, -- function to run when `autoload = true` but there is no session to load
