@@ -1,6 +1,4 @@
--- Auto save files
 
--- https://github.com/okuuva/auto-save.nvim
 
 -- Autocommand for printing the autosaved message
 local group = vim.api.nvim_create_augroup("autosave", {})
@@ -39,9 +37,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
-
-
-
 -- Disable auto-save when entering a snacks_input buffer
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "snacks_input",
@@ -49,19 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "SnacksInputEnter" })
     -- print("snacks input enter")
-  end,
-})
-
--- Re-enable auto-save when leaving that buffer
-vim.api.nvim_create_autocmd("BufLeave", {
-  group = group,
-  pattern = "*", -- check all buffers
-  callback = function(opts)
-    local ft = vim.bo[opts.buf].filetype
-    if ft == "snacks_input" then
-      vim.api.nvim_exec_autocmds("User", { pattern = "SnacksInputLeave" })
-      -- print("snacks input leave")
-    end
   end,
 })
 
@@ -78,12 +60,12 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Re-enable auto-save when leaving that buffer
 vim.api.nvim_create_autocmd("BufLeave", {
   group = group,
-  pattern = "*", -- check all buffers
   callback = function(opts)
     local ft = vim.bo[opts.buf].filetype
-    if ft == "snacks_picker_input" then
+    if ft == "snacks_input" then
+      vim.api.nvim_exec_autocmds("User", { pattern = "SnacksInputLeave" })
+    elseif ft == "snacks_picker_input" then
       vim.api.nvim_exec_autocmds("User", { pattern = "SnacksPickerInputLeave" })
-      -- print("snacks picker input leave")
     end
   end,
 })
