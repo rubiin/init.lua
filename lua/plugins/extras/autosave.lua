@@ -145,11 +145,6 @@ return {
           return false
         end
 
-        -- Skip autosave if you're in an active snippet
-        if require("luasnip").in_snippet() then
-          return false
-        end
-
         return true
       end,
       write_all_buffers = false, -- write all buffers when the current one meets `condition`
