@@ -4,6 +4,17 @@ local constant = require("utils.constants")
 return {
 
   {
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        char = {
+          jump_labels = true,
+        },
+      },
+    },
+  },
+
+  {
     "folke/trouble.nvim",
     event = "VeryLazy",
     opts = {

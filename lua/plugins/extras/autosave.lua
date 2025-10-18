@@ -1,5 +1,3 @@
-
-
 -- Autocommand for printing the autosaved message
 local group = vim.api.nvim_create_augroup("autosave", {})
 vim.api.nvim_create_autocmd("User", {
