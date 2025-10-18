@@ -4,6 +4,13 @@ return {
     opts = {
       langs = {
         dts = "// %s",
+        spec = "# %s",
+        gomod = "// %s",
+        gowork = "// %s",
+        vue = {
+          "<!-- %s -->",
+          script_element = "// %s",
+        },
       },
     },
     event = "VeryLazy",
