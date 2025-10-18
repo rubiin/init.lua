@@ -74,7 +74,6 @@ return {
     config = function(_, opts)
       -- to skip backwards compatibility routines and speed up loading
       opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
-      vim.g.skip_ts_context_commentstring_module = true
       require("Comment").setup(opts)
     end,
   },
