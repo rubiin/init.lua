@@ -19,6 +19,7 @@ return {
         "stylua",
         "selene",
         "eslint_d",
+        "oxlint",
 
         -- code spell
         "typos-lsp",
