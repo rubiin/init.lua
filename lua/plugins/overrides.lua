@@ -282,4 +282,50 @@ return {
       })
     end,
   },
+  {
+  "nvim-mini/mini.icons",
+  opts = {
+    file = {
+      [".chezmoiignore"] = { glyph = "", hl = "MiniIconsGrey" },
+      [".chezmoiremove"] = { glyph = "", hl = "MiniIconsGrey" },
+      [".chezmoiroot"] = { glyph = "", hl = "MiniIconsGrey" },
+      [".chezmoiversion"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["bash.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["json.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["ps1.tmpl"] = { glyph = "󰨊", hl = "MiniIconsGrey" },
+      ["sh.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["toml.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["yaml.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+      ["zsh.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+    },
+  },
+},
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    --- see here for more info https://www.lazyvim.org/plugins/ui#snacksnvim
+    opts = {
+
+      dim = { enabled = false },
+      bigfile = { enabled = true },
+      input = { enabled = true },
+      indent = {
+        enabled = true,
+      },
+      picker = {
+        enabled = true,
+        layout = "telescope",
+      },
+      notifier = { enabled = true, timeout = 2000 },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = false }, -- we set this in options.lua
+      toggle = { map = LazyVim.safe_keymap_set },
+      words = { enabled = true },
+      quickfile = { enabled = true },
+      zen = { enabled = false },
+    },
+  },
 }
