@@ -93,6 +93,12 @@ autocmd("BufWritePost", {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
+autocmd('BufWritePost', {
+  group = augeneral,
+  pattern = { 'yazi.toml' },
+  command = "execute 'silent !yazi --clear-cache'",
+})
+
 autocmd("BufWritePre", {
   group = augeneral,
   pattern = { "/tmp/*", "*.tmp", "*.bak", "COMMIT_EDITMSG", "MERGE_MSG" },
