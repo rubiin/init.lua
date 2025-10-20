@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "LazyVim": { "branch": "main", "commit": "42840b2ffbfa9dd3c15e0ce7d1bec36d772a3ead" },
+  "LazyVim": { "branch": "main", "commit": "a65d5d530d372b39a468dfbb2ce633f344770c5c" },
   "SchemaStore.nvim": { "branch": "main", "commit": "960a5cf992c033170499ccc7003df59734ed40a8" },
   "actions-preview.nvim": { "branch": "master", "commit": "cb938c25edaac38d362555f19244a9cb85d561e8" },
   "auto-save.nvim": { "branch": "main", "commit": "37c82fd548e3f5ffc2d9d020a65dac1044584f44" },
@@ -51,7 +51,7 @@
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "3277ad5f96eb03c9d618c88e24f683e4364e578c" },
   "render-markdown.nvim": { "branch": "main", "commit": "475d3ad8cae486b0df6fc6050cf5b5ea1de42db8" },
-  "snacks.nvim": { "branch": "main", "commit": "903bf3ffb25bcb4b01168e2d9ed4e9a3fa7434d4" },
+  "snacks.nvim": { "branch": "main", "commit": "595963140e464e9bd8244b758a590a7c0b5d0798" },
   "todo-comments.nvim": { "branch": "main", "commit": "19d461ddd543e938eb22505fb03fa878800270b6" },
   "tokyonight.nvim": { "branch": "main", "commit": "4d159616aee17796c2c94d2f5f87d2ee1a3f67c7" },
   "trouble.nvim": { "branch": "main", "commit": "c098362fe603d3922095e7db595961e020bdf2d0" },

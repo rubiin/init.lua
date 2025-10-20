@@ -93,9 +93,9 @@ autocmd("BufWritePost", {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
-autocmd('BufWritePost', {
+autocmd("BufWritePost", {
   group = augeneral,
-  pattern = { 'yazi.toml' },
+  pattern = { "yazi.toml" },
   command = "execute 'silent !yazi --clear-cache'",
 })
 

@@ -17,6 +17,18 @@ g.loaded_pythonx_provider = 0
 g.loaded_ruby_provider = 0
 
 -- ========================================================================== --
+-- ==                  LAZYVIM GLOBALS                                     == --
+-- ========================================================================== --
+
+g.skip_ts_context_commentstring_module = true -- Skip ts_context_commentstring module to speed up loading
+g.trouble_lualine = false
+g.deprecation_warnings = true
+g.autoformat = false ---@type boolean -- Enable LazyVim auto format
+g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+g.snacks_animate = false
+g.lazyvim_blink_main = false
+
+-- ========================================================================== --
 -- ==                       CUSTOM                                         == --
 -- ========================================================================== --
 

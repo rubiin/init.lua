@@ -49,7 +49,7 @@ opt.sidescrolloff = 5 -- Columns of context
 -- ========================================================================== --
 -- ==                  UNDO AND SWAP                                       == --
 -- ========================================================================== --
-
+opt.undofile = true
 opt.undodir = vim.fn.stdpath("config") .. "/misc/undo"
 opt.swapfile = false -- Disable swapfile
 
@@ -66,14 +66,3 @@ opt.encoding = "UTF-8" -- set encoding
 -- ========================================================================== --
 
 opt.history = 1000 -- Number of command-lines that are remembered
-
--- ========================================================================== --
--- ==                  LAZYVIM GLOBALS                                     == --
--- ========================================================================== --
-
-g.skip_ts_context_commentstring_module = true -- Skip ts_context_commentstring module to speed up loading
-g.trouble_lualine = false
-g.deprecation_warnings = true
-g.autoformat = false ---@type boolean -- Enable LazyVim auto format
-g.markdown_recommended_style = 0 -- Fix markdown indentation settings
-g.snacks_animate = false
