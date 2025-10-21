@@ -5,12 +5,20 @@ return {
   {
     "rubiin/goodies.nvim",
     dev = true,
+    opts = {
+      author = {
+        email = "roobin.bhandari@gmail.com",
+        github = "rubiin",
+        twitter = "RubinCodes",
+        name = "Rubin Bhandari",
+      },
+    },
     keys = {
       -- Add Horizontal Comment Line
       {
         "hr",
         function()
-          require("goodies.utils").comment_hr()
+          require("goodies").comment_hr()
         end,
         desc = "Add Horizontal Comment Line",
         mode = "n",
@@ -19,7 +27,7 @@ return {
       {
         "gx",
         function()
-          require("goodies.utils").open_url()
+          require("goodies").open_url()
         end,
         desc = "Open URL Under Cursor",
         mode = "n",
@@ -28,20 +36,20 @@ return {
       {
         "<leader>yx",
         function()
-          require("goodies.utils").open_at_regex_101()
+          require("goodies").open_at_regex_101()
         end,
         desc = "Open Regex At Regex101",
         mode = "n",
       },
       -- Add Author Details
-      -- {
-      --   "<leader>yy",
-      --   function()
-      --     require("goodies.utils").add_author_details()
-      --   end,
-      --   desc = "Add Author Details",
-      --   mode = "n",
-      -- },
+      {
+        "<leader>yy",
+        function()
+          require("goodies").add_author_details()
+        end,
+        desc = "Add Author Details",
+        mode = "n",
+      },
     },
   },
   {
