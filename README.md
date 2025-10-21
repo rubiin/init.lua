@@ -272,6 +272,7 @@ Like the config? Follow the repository on GitHub.  If you find this config usefu
 - [fortune.nvim](https://github.com/rubiin/fortune.nvim)
 - [highlighturl.nvim](https://github.com/rubiin/highlighturl.nvim)
 - [vimwordlist.nvim](https://github.com/rubiin/vimwordlist.nvim)
+- [goodies.nvim](https://github.com/rubiin/goodies.nvim)
 
 ## Credits and Further reading/learning
 

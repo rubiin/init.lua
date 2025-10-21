@@ -294,15 +294,6 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
--- Get the version of neovim
----@return string
-function M.version()
-  local version = vim.version()
-  local print_version = version.major .. "." .. version.minor .. "." .. version.patch
-
-  return user_icons.ui.Neovim .. print_version
-end
-
 -- Notify
 ---@param message string
 ---@param level string|number

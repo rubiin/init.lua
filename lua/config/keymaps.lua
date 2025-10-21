@@ -7,7 +7,6 @@
 
 local util = require("utils")
 local keymap, delete_keymap = util.keymap, util.delete_keymap
-local nano = require("utils.nano-plugins")
 
 -- Copy / Select All
 keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
@@ -62,22 +61,6 @@ end, { desc = "Terminal (Root Dir)" })
 -- taken from vim-unimpaired
 keymap("n", "[p", "O<Esc>p") -- paste above current line
 keymap("n", "]p", "o<Esc>P") -- paste below current line
-keymap("n", "hr", function()
-  nano.commentHr()
-end, { desc = "Add Horizontal Comment Line" })
-
--- Add keymap to open URL under cursor
-keymap("n", "gx", function()
-  nano.open_url()
-end, { desc = "Open URL Under Cursor" })
-
-keymap("n", "<leader>yx", function()
-  nano.open_at_regex_101()
-end, { desc = "Open Regex At Regex101" })
-
-keymap("n", "<leader>yy", function()
-  nano.add_author_details()
-end, { desc = "Add Author Details" })
 
 -- QUITTING
 keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
