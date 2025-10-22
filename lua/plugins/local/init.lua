@@ -5,6 +5,7 @@ return {
   {
     "rubiin/goodies.nvim",
     dev = true,
+    event = "BufRead",
     opts = {
       author = {
         email = "roobin.bhandari@gmail.com",
@@ -63,8 +64,8 @@ return {
   },
   {
     "rubiin/vimwordlist.nvim",
-    cmd = "GenerateVimSpell",
     dev = true,
+    cmd = "GenerateVimSpell",
     build = ":GenerateVimSpell",
     config = function()
       vim.opt.spelllang:append("vim")
