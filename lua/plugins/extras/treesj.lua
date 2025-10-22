@@ -3,7 +3,5 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   cmd = { "TSJJoin", "TSJSplit" },
   lazy = true,
-  config = function()
-    require("treesj").setup({})
-  end,
+  opts = { use_default_keymaps = false, max_join_length = 150 },
 }
