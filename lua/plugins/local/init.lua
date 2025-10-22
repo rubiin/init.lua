@@ -5,6 +5,7 @@ return {
   {
     "rubiin/goodies.nvim",
     dev = true,
+    event = "BuffRead",
     opts = {
       author = {
         email = "roobin.bhandari@gmail.com",
