@@ -32,30 +32,30 @@ end
 -- A list of colorscheme plugin you may want to try. Find what suits you.
 return {
   -- add onedarkpro
-  {
-    "olimorris/onedarkpro.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   lazy = true,
+  --   keys = {
+  --     { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+  --   },
+  -- },
 
   -- add vscode
-  {
-    "Mofiqul/vscode.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
+  -- {
+  --   "Mofiqul/vscode.nvim",
+  --   lazy = true,
+  --   keys = {
+  --     { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+  --   },
+  -- },
   -- add material
-  {
-    "marko-cerovac/material.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-    },
-  },
+  -- {
+  --   "marko-cerovac/material.nvim",
+  --   lazy = true,
+  --   keys = {
+  --     { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+  --   },
+  -- },
   {
     "LazyVim/LazyVim",
     opts = {
