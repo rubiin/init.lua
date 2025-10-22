@@ -22,14 +22,12 @@ return {
         border = vim.g.boder_style,
         path = "relative",
       },
-      devicons = {
-        enabled = true,
-        colored = true,
-      },
       exclude = {
         -- filetypes
-        "qf",
         "help",
+        "neo-tree",
+        "fugitive",
+        "qf",
       },
       display_time = 800,
       fallback = function()
