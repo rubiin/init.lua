@@ -2,8 +2,6 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    lazy = true,
-
     opts = {
       check_ts = true, -- enable treesitter
       ts_config = {
