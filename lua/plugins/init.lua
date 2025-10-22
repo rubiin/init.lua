@@ -9,6 +9,5 @@ return {
   -- plugin.<file name without extension> to require it.
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.cybu" },
-  { import = "plugins.extras.key-analyzer" },
   { import = "plugins.extras.wakatime" },
 }
