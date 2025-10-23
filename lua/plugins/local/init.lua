@@ -63,6 +63,12 @@ return {
     },
   },
   {
+    "rubiin/highlighturl.nvim",
+    dev = true,
+    event = "BufEnter", -- load when entering a buffer
+    config = true,
+  },
+  {
     "rubiin/vimwordlist.nvim",
     dev = true,
     cmd = "GenerateVimSpell",
