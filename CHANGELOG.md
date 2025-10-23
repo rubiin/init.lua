@@ -30,6 +30,83 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.8.0](https://github.com/rubiin/init.lua/compare/v2.7.2...v2.8.0) (2025-10-23)
+
+
+### 🚀 New Features
+
+* add autocmd to apply chezmoi changes on saving dotfiles ([ba701fa](https://github.com/rubiin/init.lua/commit/ba701faa12cd5b4bc4da808c51fd5e5125f61765))
+* add colorizer plugin configuration for enhanced color highlighting ([c6bf600](https://github.com/rubiin/init.lua/commit/c6bf600ea898e6d923693457aff75146ab28f38c))
+* add nvim-lightbulb plugin configuration for enhanced code insight ([90231cc](https://github.com/rubiin/init.lua/commit/90231cce2ddc882cf02980b38f046ad553dcfffb))
+* add precognition ([7d69f2c](https://github.com/rubiin/init.lua/commit/7d69f2c32c193e2864c80f85b20f3c1265ef8697))
+* enhance auto-save functionality with detailed event handling and conditions ([31eeeb3](https://github.com/rubiin/init.lua/commit/31eeeb34b7aaaeefbe90658e6d22fd2eb69504b8))
+* replace nvim-highlight-colors with nvim-colorizer.lua for enhanced color highlighting ([0d45802](https://github.com/rubiin/init.lua/commit/0d45802345bdf6135bb1c037cd09d97a4a03db01))
+* update chezmoi command to exclude encrypted files on dotfile save ([83f3014](https://github.com/rubiin/init.lua/commit/83f3014afc7de201b5f461806fba8b406a9c0b44))
+
+
+### 🐛 Bug Fixes
+
+* add "Snacks" to diagnostics.globals in .luarc.json ([6890257](https://github.com/rubiin/init.lua/commit/6890257d93cc1732b648916bd9a0e438d1333872))
+* add missing configuration for ts-comments.nvim plugin ([7cc56d7](https://github.com/rubiin/init.lua/commit/7cc56d7fc0c2f71420d9424d4ab18635a72e801c))
+* **autosave:** unify BufLeave handler to re-enable auto-save for snacks_input and snacks_picker ([c6dccef](https://github.com/rubiin/init.lua/commit/c6dccef515f9c0f8a600db35b5d30cd419211c61))
+* enable ts_context_commentstring integration by removing skip_ts_context_commentstring_module ([7e855a4](https://github.com/rubiin/init.lua/commit/7e855a4150dbcaf1c043074e0b4d59389c966eb5))
+* ensure comment string is not nil in add_author_details function ([47dddd9](https://github.com/rubiin/init.lua/commit/47dddd90b99532b87af4a82108f766db94ff3ea6))
+* only fix the lua line for copilot ([a9ae0ca](https://github.com/rubiin/init.lua/commit/a9ae0ca76bd70dd9d870fa8c1e3c7221a4d10eaf))
+* re-enable autosave during active luasnip snippets by removing in_snippet guard ([63dac84](https://github.com/rubiin/init.lua/commit/63dac84fa7d627dc4579622d12f1d26727b2990c))
+* remove mini.hipatterns from lazy-lock and lazyvim configurations ([4430a1a](https://github.com/rubiin/init.lua/commit/4430a1a3ceba1cee5957175a4623a781995022f8))
+* remove projects.nvim ([601d1a4](https://github.com/rubiin/init.lua/commit/601d1a41c8b8b3d1cdc1ea7e94cc26c7acee3d37))
+* remove trailing spaces in function abbreviation mappings across multiple language configurations ([1657a7c](https://github.com/rubiin/init.lua/commit/1657a7c83146b0c05d8afdf878487f5244ae6452))
+* remove unnecessary dependencies from plugin configurations ([87815d7](https://github.com/rubiin/init.lua/commit/87815d729e2dd948dc893d0d13aa8029455a63f5))
+* remove unused Wakatime integration code ([4d9bac5](https://github.com/rubiin/init.lua/commit/4d9bac57dffe959bc8e971672416708461856f9e))
+* snacks jumps ([1e405f7](https://github.com/rubiin/init.lua/commit/1e405f790b375d32bb4065d52f03883eff077aa1))
+* snacks layout to telescope ([a58b9ae](https://github.com/rubiin/init.lua/commit/a58b9aeb576f629666d707f9419f7cc62f5e8fa5))
+* update copilot status reference in ai.lua ([46aec08](https://github.com/rubiin/init.lua/commit/46aec0853620dcc5bd02231ed4957d00c59b6f15))
+* update function abbreviation in multiple language configurations ([139fe21](https://github.com/rubiin/init.lua/commit/139fe2175e945e1b779ddd0d51910c44942fccd7))
+* update plugin identifiers and disable persistence plugin in configuration ([196407e](https://github.com/rubiin/init.lua/commit/196407efd17762ff6211f0b2263f66c5c22b1f6e))
+* update repo names for plugins ([9d6d6dc](https://github.com/rubiin/init.lua/commit/9d6d6dc6e398b2f3c60ce06807984d3cace74aba))
+* update snacks layout preset to telescope in action-preview configuration ([04047ee](https://github.com/rubiin/init.lua/commit/04047eeefb759f5cde2aa0e064a3aa72bbe602e0))
+* use snacks project ([430ded6](https://github.com/rubiin/init.lua/commit/430ded69e6a2d0afb69a53331d3f804e0a5e97cc))
+* use snacks undotree instead of undo tree plugin ([7f3d831](https://github.com/rubiin/init.lua/commit/7f3d831c53f47e03733bd267e219b9b77ddaac11))
+
+
+### 🎨 Code Style
+
+* **colorizer:** normalize inline comments and whitespace in colorizer setup ([c6dccef](https://github.com/rubiin/init.lua/commit/c6dccef515f9c0f8a600db35b5d30cd419211c61))
+
+
+### ⚙️ Chores
+
+* add BufRead lazy-load for rubiin/goodies.nvim and reorder vimwordlist.nvim fields ([14bf63a](https://github.com/rubiin/init.lua/commit/14bf63afa44b9c2bd41a1a1328406029d7773b4f))
+* add key-analyzer plugin and autocmd to clear yazi cache on save ([42d0dac](https://github.com/rubiin/init.lua/commit/42d0dac357cbcf592c9e102dd8da4f61005359a1))
+* add local goodies.nvim and tidy related utils/keymaps; update README & lockfile ([ac6d259](https://github.com/rubiin/init.lua/commit/ac6d259272a208d4805ab97d4fd4a57ff05b1929))
+* add oxlint to mason ensure_installed ([ec53904](https://github.com/rubiin/init.lua/commit/ec539048a697bce817a44e1218ef31156f22ced7))
+* comment out sample colorscheme plugin blocks (onedarkpro, vscode, material) in lua/plugins/ui/colorscheme.lua ([4a9d700](https://github.com/rubiin/init.lua/commit/4a9d70053074c0c03049b01b20330e08c94ec78f))
+* consolidate snacks.nvim and mini.icons into plugins/overrides.lua; remove lua/plugins/snacks.lua ([99b6958](https://github.com/rubiin/init.lua/commit/99b695883d9c4732cc0577df8e0bc9a5d5463d08))
+* migrate plugins from config() to opts for lazy setup and add dashboard startup print ([5fcf8c9](https://github.com/rubiin/init.lua/commit/5fcf8c975d69bb6208960d338ed51eb29c71d029))
+* move LazyVim globals to globals.lua, tidy configs, add blink extra, and update lockfile ([fa3847e](https://github.com/rubiin/init.lua/commit/fa3847e2decb714d6d5a3349d3e1bbf10a272dc3))
+* refresh lazy-lock.json ([c6dccef](https://github.com/rubiin/init.lua/commit/c6dccef515f9c0f8a600db35b5d30cd419211c61))
+* refresh lazy-lock.json and set persisted session default_branch to master ([812c4a4](https://github.com/rubiin/init.lua/commit/812c4a4b4ce4f338321256795fe9a1a05eb85191))
+* refresh lockfile, remove leap extra, and tidy configs ([94adc59](https://github.com/rubiin/init.lua/commit/94adc5916cae744b36b88f683fd99a4b30b0becb))
+* remove BufRead lazy-load for rubiin/goodies.nvim and refresh spellfile ([bfcefb9](https://github.com/rubiin/init.lua/commit/bfcefb9ac2f09d9be6f7490e678c06065d213768))
+* remove DAP/test extras and prune related plugins; disable tokyonight; add ts-comments language mappings ([766404e](https://github.com/rubiin/init.lua/commit/766404e8597a7615218cd0facaf964c33b55f332))
+* remove devicons settings from cybu config and tidy exclude filetypes order ([f002d84](https://github.com/rubiin/init.lua/commit/f002d846662ea3690730670eec8f735d569a7f2e))
+* remove go language extra from lazyvim.json ([3eefc0c](https://github.com/rubiin/init.lua/commit/3eefc0c5ef05e6ff797b897009b8b743e2dc3811))
+* remove key-analyzer plugin import and lockfile entry ([0b4cbe5](https://github.com/rubiin/init.lua/commit/0b4cbe562d484a929f841336aac49229de74df06))
+* remove markdownlint from nvim-lint config and update lazy-lock.json ([6f70438](https://github.com/rubiin/init.lua/commit/6f70438a1a0f1a0b9133d42c8a490a3b3d6e1ebe))
+* switch goodies keymaps to top-level API and enable author details mapping ([4307d17](https://github.com/rubiin/init.lua/commit/4307d17cd4bd7745a4cee97a35a5b3db4d40459f))
+* tidy plugin configs, defer ts-context pre_hook, and fix lazy.stats require ([59cfd86](https://github.com/rubiin/init.lua/commit/59cfd86861305f2db5128ea391a81720c3a90346))
+
+
+### ♻️ Code Refactoring
+
+* remove flash.jump overrides to streamline auto-save functionality ([922395c](https://github.com/rubiin/init.lua/commit/922395c518f5888fa111ed8ff01680574e1d3052))
+* standardize usage of ft_abbr function across multiple language configurations ([25f0f6d](https://github.com/rubiin/init.lua/commit/25f0f6de397e76c3b6768004426d0e0e7e9e39ff))
+
+
+### 🚀 CI Improvements
+
+* update vimdoc config ([6032421](https://github.com/rubiin/init.lua/commit/60324215fa65846edc9266a2c9940471b55e2ed8))
+
 ## [2.7.2](https://github.com/rubiin/init.lua/compare/v2.7.1...v2.7.2) (2025-08-27)
 
 
