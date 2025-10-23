@@ -1,6 +1,5 @@
 local linters_by_ft = {
   bash = { "shellcheck" },
-  markdown = { "markdownlint" },
   lua = { "selene", "luacheck" },
   sh = { "shellcheck" },
   zsh = { "shellcheck" },
@@ -28,9 +27,6 @@ return {
           condition = function(ctx)
             return vim.fs.find({ ".luacheckrc" }, { path = ctx.filename, upward = true })[1]
           end,
-        },
-        markdownlint = {
-          args = { "--disable", "MD013", "--" },
         },
         eslint_d = {
           args = {
