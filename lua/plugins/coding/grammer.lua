@@ -1,3 +1,5 @@
+-- check config here: https://writewithharper.com/docs/integrations/neovim
+
 return {
   {
     "neovim/nvim-lspconfig",
