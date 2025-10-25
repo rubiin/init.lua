@@ -30,6 +30,27 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.8.1](https://github.com/rubiin/init.lua/compare/v2.8.0...v2.8.1) (2025-10-25)
+
+
+### ⚙️ Chores
+
+* add harper_ls grammar LSP settings and update lazy-lock pins (nvim-treesitter, snacks.nvim) ([0674b78](https://github.com/rubiin/init.lua/commit/0674b788164fa2948b398512fc35a6aacee4e86e))
+* add harper_ls Neovim integration doc link to grammar config ([c727745](https://github.com/rubiin/init.lua/commit/c727745cfc36fa8aa33cd291759eedfcc21105d1))
+* comment out harper_ls LSP settings in grammer.lua ([012cc90](https://github.com/rubiin/init.lua/commit/012cc90cbf05b3626bc742f30ecb19ef3b27d45d))
+* move Copilot lualine status into ui/lualine.lua and remove standalone ai.lua ([5352ac4](https://github.com/rubiin/init.lua/commit/5352ac429f8b5ba35111bac830e7b465ecf84a2e))
+* normalize ftplugin formatting, add spelllang, spellfile and pre-commit config ([6eaebea](https://github.com/rubiin/init.lua/commit/6eaebea1857e0b15b7d39f8dcdd00838f2a784ca))
+* remove M.cowboy helper, disable spell in qf ftplugin, refresh lazy-lock.json ([4c65973](https://github.com/rubiin/init.lua/commit/4c659734989b2deae60be263e5f0053c3d264cfe))
+* switch to Snacks.keymap.set for key mappings in ftplugins and utils ([10693e0](https://github.com/rubiin/init.lua/commit/10693e042bcbaece099b20385485b7bd38af2baf))
+* switch to Snacks.keymap.set, remove custom keymap helpers, bump snacks.nvim, fix lualine formatting ([77b44cd](https://github.com/rubiin/init.lua/commit/77b44cd18ba0d378d199b7aeae3a52ddc2707b80))
+* update catppuccin commit in lazy-lock.json (bump to 8c4125e) ([1c7c292](https://github.com/rubiin/init.lua/commit/1c7c2921823c19156965e847113635ec4f8d1c69))
+* use %R time format in gitsigns current_line_blame_formatter ([60aaf83](https://github.com/rubiin/init.lua/commit/60aaf83e6bbc629b9beaa8709cd0bc8ed5a33079))
+
+
+### 🚀 CI Improvements
+
+* update vimdoc config ([3be1ffd](https://github.com/rubiin/init.lua/commit/3be1ffde33fa9656469c8e2e1c2ef87c8cdeb3d0))
+
 ## [2.8.0](https://github.com/rubiin/init.lua/compare/v2.7.2...v2.8.0) (2025-10-23)
 
 
