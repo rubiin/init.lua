@@ -50,6 +50,20 @@ return {
 
       opts.winbar = { lualine_c = winbar_filetype }
       opts.inactive_winbar = { lualine_c = winbar_filetype }
+
+      table.insert(
+        opts.sections.lualine_z,
+        2,
+        LazyVim.lualine.status(LazyVim.config.icons.kinds.Copilot, function()
+          local clients = package.loaded["copilot"] and vim.lsp.get_clients({ name = "copilot", bufnr = 0 }) or {}
+          if #clients > 0 then
+            local status = require("copilot.status").data.status
+            return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
+          end
+        end)
+      )
+
     end,
-  },
+  }
+
 }
