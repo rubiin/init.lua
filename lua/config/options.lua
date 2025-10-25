@@ -60,6 +60,7 @@ opt.fillchars = "fold: "
 -- ========================================================================== --
 
 opt.encoding = "UTF-8" -- set encoding
+opt.spelllang = { "en", "programming" } -- set spellcheck languages
 
 -- ========================================================================== --
 -- ==                  PERFORMANCE SETTINGS                                == --

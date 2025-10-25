@@ -75,7 +75,6 @@ return {
     build = ":GenerateVimSpell",
     config = function()
       vim.opt.spelllang:append("vim")
-      vim.opt.spelllang:append("programming") -- append personal wordlist to spelllang
     end,
   },
 }

@@ -454,7 +454,6 @@ function M.extend_keys(table, keys, values)
   return table
 end
 
-
 -- Checks if a list contains a value.
 ---@param list table
 ---@param val any

@@ -2,7 +2,6 @@ local ft_abbr = require("utils").ft_abbr
 --------------------------------------------------------------------------------
 -- fix habits
 
-
 ft_abbr("true", "True")
 ft_abbr("false", "False")
 ft_abbr("//", "#")

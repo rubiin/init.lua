@@ -7,9 +7,7 @@ ft_abbr("--", "#")
 ft_abbr("delay", "sleep")
 ft_abbr("const", "local")
 
-
 local cmd = vim.cmd
-
 
 vim.keymap.set("n", "<leader>f.", function()
   local file = vim.fn.expand("%") -- Get the current file name
