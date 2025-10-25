@@ -9,7 +9,7 @@ ft_abbr("const", "local")
 
 local cmd = vim.cmd
 
-vim.keymap.set("n", "<leader>f.", function()
+Snacks.keymap.set("n", "<leader>f.", function()
   local file = vim.fn.expand("%") -- Get the current file name
   local first_line = vim.fn.getline(1) -- Get the first line of the file
   if string.match(first_line, "^#!/") then -- If first line contains shebang

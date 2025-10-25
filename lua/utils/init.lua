@@ -419,7 +419,7 @@ end
 -- Very useful for polygot programmers correct their habits
 -- from
 function M.ft_abbr(lhs, rhs)
-  vim.keymap.set("ia", lhs, rhs, { buffer = true })
+  Snacks.keymap.set("ia", lhs, rhs, { buffer = true })
 end
 
 -- Extend a table of lists by key.

@@ -53,7 +53,7 @@ autocmd("FileType", {
     vim.opt.spell = false
     vim.bo[event.buf].buflisted = false
     vim.schedule(function()
-      vim.keymap.set("n", "q", "<cmd>:bd<cr>", {
+      Snacks.keymap.set("n", "q", "<cmd>:bd<cr>", {
         buffer = event.buf,
         silent = true,
         desc = "Quit buffer",

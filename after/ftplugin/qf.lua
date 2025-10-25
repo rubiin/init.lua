@@ -10,4 +10,4 @@ local function qf_delete_entry()
   vim.fn.execute(":" .. tostring(current))
 end
 
-vim.keymap.set("n", "dd", qf_delete_entry, { buffer = true })
+Snacks.keymap.set("n", "dd", qf_delete_entry, { buffer = true })

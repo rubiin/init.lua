@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 
 -- toggle !important (useful for debugging selectors)
-vim.keymap.set("n", "<leader>i", function()
+Snacks.keymap.set("n", "<leader>i", function()
   local line = vim.api.nvim_get_current_line()
   if line:find("!important") then
     line = line:gsub(" !important", "")
