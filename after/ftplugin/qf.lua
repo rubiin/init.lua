@@ -1,4 +1,5 @@
 vim.wo.wrap = true
+vim.opt_local.spell = false
 
 local function qf_delete_entry()
   local current = vim.fn.line(".")
