@@ -62,8 +62,6 @@ return {
           end
         end)
       )
-
     end,
-  }
-
+  },
 }

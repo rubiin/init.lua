@@ -307,13 +307,6 @@ function M.notify(message, level, title, timeout)
   vim.notify(message, level, notify_options)
 end
 
--- Delete keymap.
----@param keymap list
----@return nil
-function M.delete_keymap(keymap)
-  vim.keymap.del(keymap[1], keymap[2])
-end
-
 -- Trim trailing whitespace on save.
 function M.trim_trailing_whitespace()
   local pos = api.nvim_win_get_cursor(0)
@@ -390,19 +383,6 @@ end
 ---@return boolean
 function M.is_not_empty(s)
   return s ~= nil and s ~= ""
-end
-
--- Check if a variable is empty or nil.
----@param mode string|table
----@param lhs string
----@param rhs string|function
----@param opts table?
-function M.keymap(mode, lhs, rhs, opts)
-  local defaults = {
-    silent = true,
-    noremap = true,
-  }
-  vim.keymap.set(mode, lhs, rhs, vim.tbl_deep_extend("force", defaults, opts or {}))
 end
 
 --- Checks whether the buffer is valid.

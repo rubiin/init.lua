@@ -5,23 +5,20 @@
 -- Not everything needs to be a keymap, you can also use `user_commands`
 -- https://vim.fandom.com/wiki/Unused_keys check this for unused keys
 
-local util = require("utils")
-local keymap, delete_keymap = util.keymap, util.delete_keymap
-
 -- Copy / Select All
-keymap("n", "<C-1>", "ggVG", { desc = "Select All" })
-keymap("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
-keymap("n", "<C-3>", "ggVGx", { desc = "Delete All" })
+Snacks.keymap.set("n", "<C-1>", "ggVG", { desc = "Select All" })
+Snacks.keymap.set("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
+Snacks.keymap.set("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 
 -- Block Arrow Keys
-keymap("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-keymap("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-keymap("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-keymap("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+Snacks.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>', { desc = "Block Left Arrow" })
+Snacks.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>', { desc = "Block Right Arrow" })
+Snacks.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>', { desc = "Block Up Arrow" })
+Snacks.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>', { desc = "Block Down Arrow" })
 
-keymap("v", "<leader>ct", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", { desc = "Visual Formatting" })
+Snacks.keymap.set("v", "<leader>ct", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", { desc = "Visual Formatting" })
 
--- Delete LazyVim default bindings which are nuisance for me
+-- -- Delete LazyVim default bindings which are nuisance for me
 local keymaps_to_delete = {
   { "n", "<leader>l" },
   { "n", "<leader>L" },
@@ -33,37 +30,37 @@ local keymaps_to_delete = {
 }
 
 for _, value in pairs(keymaps_to_delete) do
-  delete_keymap(value)
+  vim.keymap.del(value[1], value[2])
 end
 
 -- Add LazyVim bindings for meta information
-keymap("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-keymap("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
-keymap("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
-keymap("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-keymap("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
-keymap("n", "<leader>;c", LazyVim.news.changelog, { desc = "Changelog [LazyVim]" })
-keymap("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
+Snacks.keymap.set("n", "<leader>;m", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+Snacks.keymap.set("n", "<leader>;p", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+Snacks.keymap.set("n", "<leader>;e", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
+Snacks.keymap.set("n", "<leader>;l", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+Snacks.keymap.set("n", "<leader>;i", "<cmd>ConformInfo<CR>", { desc = "Conform Info" })
+Snacks.keymap.set("n", "<leader>;c", LazyVim.news.changelog, { desc = "Changelog [LazyVim]" })
+Snacks.keymap.set("n", "<leader>;M", vim.cmd.messages, { desc = "Display Messages" })
 
 -- Beginning and end of line in `:` command mode
-keymap("c", "<C-a>", "<home>")
-keymap("c", "<C-e>", "<end>")
+Snacks.keymap.set("c", "<C-a>", "<home>", { desc = "Beginning of Line" })
+Snacks.keymap.set("c", "<C-e>", "<end>", { desc = "End of Line" })
 
 -- Override LazyVim bindings for terminal
-keymap("n", "<C-/>", function()
+Snacks.keymap.set("n", "<C-/>", function()
   Snacks.terminal(nil, { border = vim.g.border_style })
 end, { desc = "Terminal (Root Dir)" })
 
 --TODO: verify these keymaps , seems to be causing issues
--- keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
--- keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
+-- Snacks.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Esc (Terminal Mode)" })
+-- Snacks.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
 
 -- taken from vim-unimpaired
-keymap("n", "[p", "O<Esc>p") -- paste above current line
-keymap("n", "]p", "o<Esc>P") -- paste below current line
+Snacks.keymap.set("n", "[p", "O<Esc>p", { desc = "Paste Above Current Line" })
+Snacks.keymap.set("n", "]p", "o<Esc>P", { desc = "Paste Below Current Line" })
 
 -- QUITTING
-keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
+Snacks.keymap.set({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -71,36 +68,37 @@ keymap({ "n", "x" }, "<MiddleMouse>", vim.cmd.wqall, { desc = "Quit App" })
 -- Additional keymaps(hacks which make using neovim more sane)
 
 -- Make U opposite to u.
-keymap("n", "U", "<C-r>", { desc = "Redo" })
+Snacks.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
 
 -- keeps registers clean
-keymap({ "n", "x" }, "x", '"_x')
+Snacks.keymap.set({ "n", "x" }, "x", '"_x', { desc = "Delete Without Copying" })
+
 -- Change text without putting it into the vim register,
 -- see https://stackoverflow.com/q/54255/6064933
-keymap("n", "c", '"_c')
-keymap("n", "C", '"_C')
-keymap("n", "cc", '"_cc')
-keymap("x", "c", '"_c')
+Snacks.keymap.set("n", "c", '"_c', { desc = "Change text without yanking" }) -- Don't yank when changing text
+Snacks.keymap.set("n", "C", '"_C', { desc = "Change to end of line (no yank)" }) -- Change to end of line without affecting registers
+Snacks.keymap.set("n", "cc", '"_cc', { desc = "Change entire line (no yank)" }) -- Change whole line without overwriting yank buffer
+Snacks.keymap.set("x", "c", '"_c', { desc = "Change selection without yanking" }) -- Visual change also ignores yank register
 
 -- do not clutter the register if blank line is deleted
-keymap("n", "dd", function()
+Snacks.keymap.set("n", "dd", function()
   if vim.api.nvim_get_current_line():find("^%s*$") then
     return '"_dd'
   end
   return "dd"
-end, { expr = true })
+end, { expr = true, desc = "Delete Line Without Copying" })
 
 -- Keeping the cursor centered.
-keymap("n", "<C-d>", "<C-d>zz", { desc = "Scroll Downwards" })
-keymap("n", "<C-u>", "<C-u>zz", { desc = "Scroll Upwards" })
-keymap("n", "n", "nzzzv", { desc = "Next Result" })
-keymap("n", "N", "Nzzzv", { desc = "Previous Result" })
+Snacks.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Downwards" })
+Snacks.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll Upwards" })
+Snacks.keymap.set("n", "n", "nzzzv", { desc = "Next Result" })
+Snacks.keymap.set("n", "N", "Nzzzv", { desc = "Previous Result" })
 
 -- Using H/L to go to the beginning and the end of line
 -- Note: H will map to _ (the first non-whitespace character of a line)
 -- It would be helpful if it is a indent line in some languages like Python, Ruby, YAML, ...
-keymap("n", "H", "_")
-keymap("n", "L", "$")
+Snacks.keymap.set("n", "H", "_", { desc = "Beginning of Line" })
+Snacks.keymap.set("n", "L", "$", { desc = "End of Line" })
 
 -- Escape from insert mode with jj
-keymap("i", "jj", "<Esc>", { noremap = false })
+Snacks.keymap.set("i", "jj", "<Esc>", { noremap = false, desc = "Escape Insert Mode" })
