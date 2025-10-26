@@ -10,6 +10,18 @@ vim.filetype.add({
     mjml = "html",
     eta = "html",
     tsbuildinfo = "json",
+    pipeline = "Jenkinsfile",
+    stage = "Jenkinsfile",
+    JenkinsFile = "Jenkinsfile",
+    conf = "toml",
+    h = "c",
+    scheme = "scheme",
+  },
+  filename = {
+    ["dotshrc"] = "sh",
+    ["dotsh"] = "sh",
+    ["dotcshrc"] = "csh",
+    ["gitconfig"] = "gitconfig",
   },
   pattern = {
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
