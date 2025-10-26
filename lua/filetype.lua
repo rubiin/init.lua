@@ -15,7 +15,6 @@ vim.filetype.add({
     JenkinsFile = "Jenkinsfile",
     conf = "toml",
     h = "c",
-    scheme = "scheme",
   },
   filename = {
     ["dotshrc"] = "sh",
