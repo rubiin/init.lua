@@ -18,31 +18,51 @@ local aufiletype = utils.augroup("file_type")
 local auterminal = utils.augroup("terminal_setting")
 local fold_augroup = utils.augroup("remember_folds")
 
--- make it easier to close man-files when opened inline
-autocmd("FileType", {
-  group = utils.augroup("lazyvim_man_unlisted"),
-  pattern = { "man" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-  end,
-})
+-- LAZYVIM specific autocmds---
+-- These are copied from LazyVim's default autocmds but modified to fit my needs
 
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = { "gitcommit", "gitrebase" },
-  command = "startinsert | 1",
-  desc = "Start Insert Mode",
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = utils.augroup("checktime"),
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
+    end
+  end,
 })
 
 autocmd("TextYankPost", {
   group = augeneral,
   callback = function()
-    vim.hl.on_yank({
-      higroup = "Visual",
-      timeout = 400,
-    })
+    (vim.hl or vim.highlight).on_yank()
   end,
-  desc = "Highlight On Yank",
+})
+
+autocmd({ "VimResized" }, {
+  group = utils.augroup("lazyvim_resize_splits"),
+  callback = function()
+    local current_tab = fn.tabpagenr()
+    cmd("tabdo wincmd =")
+    cmd("tabnext " .. current_tab)
+  end,
+  desc = "Resize Splits On VimResized",
+})
+
+autocmd("BufReadPost", {
+  group = utils.augroup("lazyvim_last_loc"),
+  callback = function(event)
+    local exclude = { "gitcommit" }
+    local buf = event.buf
+    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+      return
+    end
+    vim.b[buf].lazyvim_last_loc = true
+    local mark = api.nvim_buf_get_mark(buf, '"')
+    local line_count = api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= line_count then
+      pcall(api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+  desc = "Go To Last Loc When Opening A Buffer",
 })
 
 autocmd("FileType", {
@@ -53,7 +73,10 @@ autocmd("FileType", {
     vim.opt.spell = false
     vim.bo[event.buf].buflisted = false
     vim.schedule(function()
-      Snacks.keymap.set("n", "q", "<cmd>:bd<cr>", {
+      vim.keymap.set("n", "q", function()
+        vim.cmd("close")
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end, {
         buffer = event.buf,
         silent = true,
         desc = "Quit buffer",
@@ -63,6 +86,49 @@ autocmd("FileType", {
   desc = "Close Some Filetypes With Just <q> Key",
 })
 
+autocmd("FileType", {
+  group = utils.augroup("lazyvim_man_unlisted"),
+  pattern = { "man" },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+  end,
+  desc = "Make it easier to close man-files when opened inline",
+})
+
+autocmd("FileType", {
+  group = aufiletype,
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+  callback = function()
+    opt_local.wrap = true
+    opt_local.spell = true
+  end,
+  desc = "Set Wrap And Spell For Text Files",
+})
+
+autocmd({ "FileType" }, {
+  group = aufiletype,
+  pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
+  callback = function()
+    opt_local.conceallevel = 0
+  end,
+  desc = "Fix Conceallevel For Specific Files",
+})
+
+autocmd({ "BufWritePre" }, {
+  group = utils.augroup("lazyvim_auto_create_dir"),
+  callback = function(event)
+    if event.match:match("^%w%w+://") then
+      return
+    end
+    local file = vim.loop.fs_realpath(event.match) or event.match
+    fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
+  end,
+  desc = "Auto Create Directory Before Writing File",
+})
+-----------------------------------------
+--- END LAZYVIM specific autocmds -------
+-----------------------------------------
+
 autocmd({ "InsertLeave", "WinEnter" }, {
   group = augeneral,
   pattern = "*",
@@ -70,21 +136,18 @@ autocmd({ "InsertLeave", "WinEnter" }, {
   desc = "Set Cursorline On Active Window",
 })
 
+autocmd("FileType", {
+  group = aufiletype,
+  pattern = { "gitcommit", "gitrebase" },
+  command = "startinsert | 1",
+  desc = "Start Insert Mode",
+})
+
 autocmd({ "InsertEnter", "WinLeave" }, {
   group = augeneral,
   pattern = "*",
   command = "set nocursorline",
   desc = "Set Nocursorline On Inactive Window",
-})
-
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
-  callback = function()
-    opt_local.wrap = true
-    opt_local.spell = true
-  end,
-  desc = "Set Wrap And Spell For Text Files",
 })
 
 autocmd("BufWritePost", {
@@ -154,55 +217,6 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc = "Check If We Need To Reload The File When It Changed",
 })
 
-autocmd({ "VimResized" }, {
-  group = utils.augroup("lazyvim_resize_splits"),
-  callback = function()
-    local current_tab = fn.tabpagenr()
-    cmd("tabdo wincmd =")
-    cmd("tabnext " .. current_tab)
-  end,
-  desc = "Resize Splits On VimResized",
-})
-
-autocmd("BufReadPost", {
-  group = utils.augroup("lazyvim_last_loc"),
-  callback = function(event)
-    local exclude = { "gitcommit" }
-    local buf = event.buf
-    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
-      return
-    end
-    vim.b[buf].lazyvim_last_loc = true
-    local mark = api.nvim_buf_get_mark(buf, '"')
-    local line_count = api.nvim_buf_line_count(buf)
-    if mark[1] > 0 and mark[1] <= line_count then
-      pcall(api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-  desc = "Go To Last Loc When Opening A Buffer",
-})
-
-autocmd({ "FileType" }, {
-  group = aufiletype,
-  pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
-  callback = function()
-    opt_local.conceallevel = 0
-  end,
-  desc = "Fix Conceallevel For Specific Files",
-})
-
-autocmd({ "BufWritePre" }, {
-  group = utils.augroup("lazyvim_auto_create_dir"),
-  callback = function(event)
-    if event.match:match("^%w%w+://") then
-      return
-    end
-    local file = vim.loop.fs_realpath(event.match) or event.match
-    fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
-  end,
-  desc = "Auto Create Directory Before Writing File",
-})
-
 autocmd({ "BufWritePost" }, {
   pattern = "lua",
   group = augeneral,
@@ -240,14 +254,6 @@ autocmd("BufReadPost", {
     cmd("silent! loadview")
   end,
   desc = "Restore Folds On Buffer Enter",
-})
-
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = { "man" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-  end,
 })
 
 autocmd("InsertLeave", {

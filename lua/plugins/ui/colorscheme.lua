@@ -60,6 +60,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
+      defaults = {
+        autocmds = false,
+      },
     },
   },
 }
