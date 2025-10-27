@@ -56,13 +56,4 @@ return {
   --     { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
   --   },
   -- },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-      defaults = {
-        autocmds = false,
-      },
-    },
-  },
 }
