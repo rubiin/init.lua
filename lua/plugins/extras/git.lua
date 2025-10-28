@@ -14,9 +14,9 @@ return {
     "akinsho/git-conflict.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-        default_mappings = false,
-        disable_diagnostics = true,
-      },
+      default_mappings = false,
+      disable_diagnostics = true,
+    },
     keys = {
       { "<leader>gco", "<cmd>GitConflictChooseOurs<cr>", desc = "Choose Ours" },
       { "<leader>gct", "<cmd>GitConflictChooseTheirs<cr>", desc = "Choose Theirs" },

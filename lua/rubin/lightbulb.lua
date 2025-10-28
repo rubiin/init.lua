@@ -3,7 +3,9 @@ vim.fn.sign_define("LightBulbSign", { text = "💡", texthl = "DiagnosticSignInf
 
 local function safe_update_lightbulb()
   local bufnr = vim.api.nvim_get_current_buf()
-  if not vim.api.nvim_buf_is_valid(bufnr) then return end
+  if not vim.api.nvim_buf_is_valid(bufnr) then
+    return
+  end
 
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
   if #clients == 0 then
@@ -29,13 +31,7 @@ local function safe_update_lightbulb()
       end
     else
       if vim.api.nvim_buf_is_valid(bufnr) then
-        vim.fn.sign_place(
-          1,
-          "lightbulb",
-          "LightBulbSign",
-          bufnr,
-          { lnum = vim.fn.line("."), priority = 10 }
-        )
+        vim.fn.sign_place(1, "lightbulb", "LightBulbSign", bufnr, { lnum = vim.fn.line("."), priority = 10 })
       end
     end
   end)
