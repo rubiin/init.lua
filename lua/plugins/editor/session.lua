@@ -16,8 +16,7 @@ return {
       suppressed_dirs = { "/", "~/", "~/Downloads", "~/Documents" },
       use_git_branch = true,
       bypass_save_filetypes = { "snacks_dashboard" },
-      cwd_change_handling = true,
-      root_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved,resolves to ~/.local/share/nvim/my-sessions/
+      root_dir = vim.fn.stdpath("data") .. "/sessions/",   -- Root dir where sessions will be stored
       session_lens = {
         picker = "snacks",
       },
