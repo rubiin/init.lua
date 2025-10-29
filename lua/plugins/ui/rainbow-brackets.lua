@@ -9,7 +9,7 @@ return {
         vim = "rainbow-delimiters.strategy.local",
       },
       priority = {
-        [''] = 110,
+        [""] = 110,
         lua = 210,
       },
       query = {

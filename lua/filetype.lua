@@ -16,6 +16,7 @@ vim.filetype.add({
     conf = "toml",
     h = "c",
     service = "systemd",
+    tmux = "tmux",
   },
   filename = {
     ["dotshrc"] = "sh",
