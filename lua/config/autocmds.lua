@@ -6,8 +6,8 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, fn, cmd, api, bo =
-  vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
+local opt, opt_local, autocmd, fn, cmd, api, bo =
+  vim.opt,vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
 local usercmd = api.nvim_create_user_command
 
 local constants = require("utils.constants")
@@ -71,12 +71,12 @@ autocmd("FileType", {
   pattern = constants.common_file_types,
   callback = function(event)
     vim.o.number = false
-    vim.opt.spell = false
+    opt.spell = false
     bo[event.buf].buflisted = false
     vim.schedule(function()
       vim.keymap.set("n", "q", function()
-        vim.cmd("close")
-        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+        cmd("close")
+        pcall(api.nvim_buf_delete, event.buf, { force = true })
       end, {
         buffer = event.buf,
         silent = true,
@@ -223,8 +223,8 @@ autocmd({ "BufWritePost" }, {
   group = augeneral,
   callback = function()
     -- if lua file and is in nvim config dir :so the file
-    local current_file_path = vim.api.nvim_buf_get_name(0)
-    local is_in_config = current_file_path:find("^" .. vim.fn.stdpath("config")) ~= nil
+    local current_file_path = api.nvim_buf_get_name(0)
+    local is_in_config = current_file_path:find("^" .. fn.stdpath("config")) ~= nil
     if is_in_config then
       cmd.so()
     end
@@ -234,7 +234,7 @@ autocmd({ "BufWritePost" }, {
 
 autocmd("BufEnter", {
   callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
+    opt.formatoptions:remove({ "c", "r", "o" })
   end,
   group = utils.augroup("newline-comment"),
 })
@@ -274,7 +274,7 @@ autocmd("FileType", {
   desc = "Disable `snacks.indentscope` For Specific Filetypes",
 })
 
-local chezmoi_path = vim.fn.resolve(vim.fn.expand("~/.local/share/chezmoi"))
+local chezmoi_path = fn.resolve(fn.expand("~/.local/share/chezmoi"))
 autocmd("BufWritePost", {
   pattern = {
     chezmoi_path .. "/**/*", -- files in subdirectories
@@ -313,6 +313,6 @@ end, { desc = "Write All Changed Buffers" })
 -- Clear registers.
 usercmd("ClearRegisters", function()
   for r in ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):gmatch("%a") do
-    vim.fn.setreg(r, "")
+    fn.setreg(r, "")
   end
 end, { desc = "Clear registers" })
