@@ -6,7 +6,8 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local opt_local, autocmd, fn, cmd, api = vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api
+local opt_local, autocmd, fn, cmd, api, bo =
+  vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
 local usercmd = api.nvim_create_user_command
 
 local constants = require("utils.constants")
@@ -52,7 +53,7 @@ autocmd("BufReadPost", {
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
-    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+    if vim.tbl_contains(exclude, bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
       return
     end
     vim.b[buf].lazyvim_last_loc = true
@@ -71,7 +72,7 @@ autocmd("FileType", {
   callback = function(event)
     vim.o.number = false
     vim.opt.spell = false
-    vim.bo[event.buf].buflisted = false
+    bo[event.buf].buflisted = false
     vim.schedule(function()
       vim.keymap.set("n", "q", function()
         vim.cmd("close")
@@ -90,7 +91,7 @@ autocmd("FileType", {
   group = utils.augroup("lazyvim_man_unlisted"),
   pattern = { "man" },
   callback = function(event)
-    vim.bo[event.buf].buflisted = false
+    bo[event.buf].buflisted = false
   end,
   desc = "Make it easier to close man-files when opened inline",
 })
