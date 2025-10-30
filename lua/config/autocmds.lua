@@ -7,7 +7,7 @@
 -- Add any additional autocmds here
 
 local opt, opt_local, autocmd, fn, cmd, api, bo =
-  vim.opt,vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
+  vim.opt, vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
 local usercmd = api.nvim_create_user_command
 
 local constants = require("utils.constants")

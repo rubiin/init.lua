@@ -133,6 +133,24 @@ function M.augroup(name, opts)
   return api.nvim_create_augroup(name, opts)
 end
 
+local file_big_cache = {}
+
+--- check if the buffer is big
+---@param buffer any
+---@param max_size? number
+---@return boolean
+M.is_file_big = function(buffer, max_size)
+  if file_big_cache[buffer] ~= nil then
+    return file_big_cache[buffer]
+  end
+
+  local max_bytes = max_size or (100 * 1024)
+  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buffer))
+  local big = ok and stats and stats.size > max_bytes
+  file_big_cache[buffer] = big
+  return big
+end
+
 ---@param type string
 ---@return table
 function M.set_lualine_styles(type)
