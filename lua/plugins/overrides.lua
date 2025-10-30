@@ -318,7 +318,35 @@ return {
     opts = {
 
       dim = { enabled = false },
-      bigfile = { enabled = true },
+      bigfile = {
+        size = 500 * 1024, -- 500KB
+        setup = function(ctx)
+          if vim.fn.exists(":NoMatchParen") ~= 0 then
+            vim.cmd([[NoMatchParen]])
+          end
+          Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
+
+          -- taken from lunarvim/bigfile.nvim
+          vim.cmd("syntax clear")
+          Snacks.util.buf_var(0, {
+            syntax = "OFF",
+            swapfile = false,
+            foldmethod = "manual",
+            undolevels = -1,
+            undoreload = 0,
+            list = false,
+            filetype = ""
+          })
+
+          vim.b.minianimate_disable = true
+          vim.b.minihipatterns_disable = true
+          vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(ctx.buf) then
+              vim.bo[ctx.buf].syntax = ctx.ft
+            end
+          end)
+        end,
+      },
       input = { enabled = true },
       indent = {
         enabled = true,

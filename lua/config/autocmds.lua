@@ -26,7 +26,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = utils.augroup("checktime"),
   callback = function()
     if vim.o.buftype ~= "nofile" then
-      vim.cmd("checktime")
+      cmd("checktime")
     end
   end,
 })

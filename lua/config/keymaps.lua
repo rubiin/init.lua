@@ -101,4 +101,4 @@ Snacks.keymap.set("n", "H", "_", { desc = "Beginning of Line" })
 Snacks.keymap.set("n", "L", "$", { desc = "End of Line" })
 
 -- Escape from insert mode with jj
-Snacks.keymap.set("i", "jj", "<Esc>", { noremap = false, desc = "Escape Insert Mode" })
+Snacks.keymap.set("i", "jk", "<Esc>", { noremap = true, desc = "Escape Insert Mode" })
