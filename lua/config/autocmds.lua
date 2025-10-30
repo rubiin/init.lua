@@ -74,7 +74,7 @@ autocmd("FileType", {
     opt.spell = false
     bo[event.buf].buflisted = false
     vim.schedule(function()
-      vim.keymap.set("n", "q", function()
+      Snacks.keymap.set("n", "q", function()
         cmd("close")
         pcall(api.nvim_buf_delete, event.buf, { force = true })
       end, {

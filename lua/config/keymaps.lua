@@ -30,7 +30,7 @@ local keymaps_to_delete = {
 }
 
 for _, value in pairs(keymaps_to_delete) do
-  vim.keymap.del(value[1], value[2])
+  Snacks.keymap.del(value[1], value[2])
 end
 
 -- Add LazyVim bindings for meta information

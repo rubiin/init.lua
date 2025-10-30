@@ -6,6 +6,6 @@ return {
     "nvim-lua/plenary.nvim", -- required
   },
   init = function()
-    vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>", { desc = "Neogit | Open Neogit", silent = true })
+    Snacks.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>", { desc = "Neogit | Open Neogit", silent = true })
   end,
 }
