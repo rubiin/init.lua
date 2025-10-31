@@ -328,7 +328,7 @@ return {
 
           -- taken from lunarvim/bigfile.nvim
           vim.cmd("syntax clear")
-          Snacks.util.buf_var(0, {
+          Snacks.util.wo(0, {
             syntax = "OFF",
             swapfile = false,
             foldmethod = "manual",
