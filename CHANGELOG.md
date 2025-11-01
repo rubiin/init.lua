@@ -30,6 +30,65 @@ This PR was generated with [Release Please](https://github.com/googleapis/releas
 - release 2.1.1 ([35e99ce](https://github.com/rubiin/init.lua/commit/35e99cead064ab8c6efd5a87b0f4ad6ebdd4aaa6))
 - release 2.3.0 ([9a0a0be](https://github.com/rubiin/init.lua/commit/9a0a0bea718152df97c322c0a7e39260cb0eac7d))
 
+## [2.9.0](https://github.com/rubiin/init.lua/compare/v2.8.0...v2.9.0) (2025-11-01)
+
+
+### 🚀 New Features
+
+* add LSP lightbulb sign to show available code actions on CursorHold/CursorHoldI ([4fd48f6](https://github.com/rubiin/init.lua/commit/4fd48f621d3bf2c703e0e015b490ac86d6185d7a))
+* **snacks:** add bigfile setup to optimize handling of large files ([eb3f664](https://github.com/rubiin/init.lua/commit/eb3f6649e5d6891a7bb6e4e9eaf2d93ae7a8ee48))
+* **utils:** add is_file_big (with cache) and blacklist large files for rainbow-delimiters ([919544f](https://github.com/rubiin/init.lua/commit/919544fd5f91001c6d6eefaf4b465f49b98ae3cb))
+
+
+### 🐛 Bug Fixes
+
+* **snacks:** use Snacks.util.wo in bigfile setup ([535961e](https://github.com/rubiin/init.lua/commit/535961ee01aac654a317ffa09c63ab07a192bf3e))
+
+
+### 🎨 Code Style
+
+* fix spacing in lua/config/autocmds.lua ([919544f](https://github.com/rubiin/init.lua/commit/919544fd5f91001c6d6eefaf4b465f49b98ae3cb))
+
+
+### ⚙️ Chores
+
+* add 'service' extension filetype mapping -&gt; systemd ([4794fe7](https://github.com/rubiin/init.lua/commit/4794fe7dc1b4e66e56280b3e55fb061cc7b5ff28))
+* add 'tmux' extension mapping to filetype detection ([f3dcc41](https://github.com/rubiin/init.lua/commit/f3dcc413cd4c8dfb043d5381709f1c7d3234af7a))
+* add ftplugins for just & toml, update lazy-lock pins, normalize filetype mappings ([2b70a50](https://github.com/rubiin/init.lua/commit/2b70a505af628972573b79dc330ff960b56644f3))
+* add harper_ls grammar LSP settings and update lazy-lock pins (nvim-treesitter, snacks.nvim) ([0674b78](https://github.com/rubiin/init.lua/commit/0674b788164fa2948b398512fc35a6aacee4e86e))
+* add harper_ls Neovim integration doc link to grammar config ([c727745](https://github.com/rubiin/init.lua/commit/c727745cfc36fa8aa33cd291759eedfcc21105d1))
+* add local `bo` alias and use it for buffer options in autocmds.lua ([1518ce1](https://github.com/rubiin/init.lua/commit/1518ce1bc31c9a0e18bda37183c13bca9473b3d5))
+* add local `opt` alias and use local aliases for vim.api/vim.fn/vim.cmd/vim.opt in autocmds.lua ([bb7092e](https://github.com/rubiin/init.lua/commit/bb7092e5e440a668f281b3c4f88f5670a7a44feb))
+* add screenkey.nvim plugin config and refresh lazy-lock.json ([92dc3fd](https://github.com/rubiin/init.lua/commit/92dc3fd3f8f7bbe36c19a7da0823bfc833e190ec))
+* comment out harper_ls LSP settings in grammer.lua ([012cc90](https://github.com/rubiin/init.lua/commit/012cc90cbf05b3626bc742f30ecb19ef3b27d45d))
+* **config:** refresh lazy-lock, add spellfixes, and tune lualine separators ([682551f](https://github.com/rubiin/init.lua/commit/682551f1ec923bea4c603ce3fcfa85a8af91f444))
+* **keymaps/autocmds/neogit:** use Snacks.keymap API instead of vim.keymap ([116425d](https://github.com/rubiin/init.lua/commit/116425dda1188a2e45b25ee350124ace381b5c86))
+* **lazy-lock,autocmds,keymaps:** update lazy-lock entries; use local cmd alias; change escape mapping to jk (noremap) ([eb3f664](https://github.com/rubiin/init.lua/commit/eb3f6649e5d6891a7bb6e4e9eaf2d93ae7a8ee48))
+* move Copilot lualine status into ui/lualine.lua and remove standalone ai.lua ([5352ac4](https://github.com/rubiin/init.lua/commit/5352ac429f8b5ba35111bac830e7b465ecf84a2e))
+* normalize ftplugin formatting, add spelllang, spellfile and pre-commit config ([6eaebea](https://github.com/rubiin/init.lua/commit/6eaebea1857e0b15b7d39f8dcdd00838f2a784ca))
+* **plugins:** enable Neogit and remove tokyonight disable override ([1ab33be](https://github.com/rubiin/init.lua/commit/1ab33be66ddcb9a665e764c264ab049087565aaa))
+* refactor rainbow-delimiters config, add language queries & priorities; fix session whitespace ([95f407e](https://github.com/rubiin/init.lua/commit/95f407eccd0ece2badccf60ff724f30e214324c4))
+* refresh lazy-lock.json plugin pins ([535961e](https://github.com/rubiin/init.lua/commit/535961ee01aac654a317ffa09c63ab07a192bf3e))
+* relocate LazyVim settings to overrides.lua; convert git-conflict setup to opts and add descriptive keymaps ([fa8eeb2](https://github.com/rubiin/init.lua/commit/fa8eeb2856ac4b45b550092ebdbf9a5c4d6dd7ca))
+* remove M.cowboy helper, disable spell in qf ftplugin, refresh lazy-lock.json ([4c65973](https://github.com/rubiin/init.lua/commit/4c659734989b2deae60be263e5f0053c3d264cfe))
+* remove nvim-lightbulb plugin config and refresh lazy-lock.json ([efdb390](https://github.com/rubiin/init.lua/commit/efdb3909b1b2c5d5265a733fe86bdfcba71e8191))
+* remove redundant 'scheme' filetype mapping ([93cdc68](https://github.com/rubiin/init.lua/commit/93cdc683c5ac803ee3e0cacf85fd6e4469cb8889))
+* reorganize autocmds and disable LazyVim default autocmds ([bf14681](https://github.com/rubiin/init.lua/commit/bf146810f6a65c2d04bc35c65e3de33a7a470046))
+* simplify auto-session root_dir and remove cwd_change_handling ([e5ca395](https://github.com/rubiin/init.lua/commit/e5ca3953686050b9ef671ae12d722bc66d771bcd))
+* switch session plugin to auto-session, refresh lockfile, add markdownlint and neogit stub ([108a5f0](https://github.com/rubiin/init.lua/commit/108a5f061e47c8e1655bb0208cd97dad6de28a44))
+* switch to Snacks.keymap.set for key mappings in ftplugins and utils ([10693e0](https://github.com/rubiin/init.lua/commit/10693e042bcbaece099b20385485b7bd38af2baf))
+* switch to Snacks.keymap.set, remove custom keymap helpers, bump snacks.nvim, fix lualine formatting ([77b44cd](https://github.com/rubiin/init.lua/commit/77b44cd18ba0d378d199b7aeae3a52ddc2707b80))
+* update catppuccin commit in lazy-lock.json (bump to 8c4125e) ([1c7c292](https://github.com/rubiin/init.lua/commit/1c7c2921823c19156965e847113635ec4f8d1c69))
+* update lazy-lock pins for noice.nvim and snacks.nvim ([02bc96f](https://github.com/rubiin/init.lua/commit/02bc96fb9ef5aef646fda460db0a6c5ea50e47a8))
+* update mason-lspconfig.nvim commit in lazy-lock.json ([92df767](https://github.com/rubiin/init.lua/commit/92df767e74577f5c5b1f231cd4074e2e3e89ba50))
+* update plugin commit pins in lazy-lock.json ([919544f](https://github.com/rubiin/init.lua/commit/919544fd5f91001c6d6eefaf4b465f49b98ae3cb))
+* use %R time format in gitsigns current_line_blame_formatter ([60aaf83](https://github.com/rubiin/init.lua/commit/60aaf83e6bbc629b9beaa8709cd0bc8ed5a33079))
+
+
+### 🚀 CI Improvements
+
+* update vimdoc config ([3be1ffd](https://github.com/rubiin/init.lua/commit/3be1ffde33fa9656469c8e2e1c2ef87c8cdeb3d0))
+
 ## [2.8.0](https://github.com/rubiin/init.lua/compare/v2.7.2...v2.8.0) (2025-10-23)
 
 
