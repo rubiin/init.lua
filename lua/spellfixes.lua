@@ -9,7 +9,9 @@ local spellfixes = {
   brwoser = "browser",
   cant = "can't",
   chnage = "change",
+  coudl = "could",
   cleitn = "client",
+  claer = "clear",
   curosr = "cursor",
   defualt = "default",
   definately = "definitely",
@@ -58,6 +60,8 @@ local spellfixes = {
   ture = "true",
   verison = "version",
   woudl = "would",
+  yera = "year",
+  wrod = "word",
 }
 
 for wrong, correct in pairs(spellfixes) do

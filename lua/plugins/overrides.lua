@@ -335,7 +335,7 @@ return {
             undolevels = -1,
             undoreload = 0,
             list = false,
-            filetype = ""
+            filetype = "",
           })
 
           vim.b.minianimate_disable = true

@@ -169,7 +169,7 @@ function M.set_lualine_styles(type)
   end
 
   if type == constants.styles.bubbly then
-    opts.options.component_separators = ""
+    opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
   end
 
