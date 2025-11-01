@@ -75,13 +75,6 @@ return {
       },
     },
   },
-  {
-    "folke/tokyonight.nvim",
-    enabled = false,
-    opts = {
-      style = "night",
-    },
-  },
   -- neotree
   {
     "nvim-neo-tree/neo-tree.nvim",
