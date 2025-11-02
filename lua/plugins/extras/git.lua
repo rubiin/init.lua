@@ -6,6 +6,13 @@ return {
     "sindrets/diffview.nvim",
     event = { "BufReadPre", "BufNewFile" },
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    opts = {
+      enhanced_diff_hl = true,
+      view = {
+        default = { winbar_info = true },
+        file_history = { winbar_info = true },
+      },
+    },
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Git Diff" },
     },
