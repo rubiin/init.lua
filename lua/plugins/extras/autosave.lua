@@ -1,28 +1,15 @@
--- Autocommand for printing the autosaved message
-local group = vim.api.nvim_create_augroup("autosave", {})
-vim.api.nvim_create_autocmd("User", {
-  pattern = "AutoSaveWritePost",
-  group = group,
-  callback = function(opts)
-    if opts.data.saved_buffer ~= nil then
-      -- print("AutoSaved at " .. vim.fn.strftime("%H:%M:%S"))
-      print("AutoSaved")
-    end
-  end,
-})
-
 -- I do not want to save when I'm in visual mode because I'm usually moving
 -- stuff from one place to another, or deleting it
 -- I got this suggestion from the plugin maintainers
 -- https://github.com/okuuva/auto-save.nvim/issues/67#issuecomment-2597631756
 local visual_event_group = vim.api.nvim_create_augroup("visual_event", { clear = true })
+local group = vim.api.nvim_create_augroup("autosave", {})
 
 vim.api.nvim_create_autocmd("ModeChanged", {
   group = visual_event_group,
   pattern = { "*:[vV\x16]*" },
   callback = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "VisualEnter" })
-    -- print("VisualEnter")
   end,
 })
 
@@ -31,7 +18,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   pattern = { "[vV\x16]*:*" },
   callback = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "VisualLeave" })
-    -- print("VisualLeave")
   end,
 })
 
@@ -41,7 +27,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group,
   callback = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "SnacksInputEnter" })
-    -- print("snacks input enter")
   end,
 })
 
@@ -51,7 +36,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group,
   callback = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "SnacksPickerInputEnter" })
-    -- print("snacks picker input enter")
   end,
 })
 
