@@ -184,12 +184,6 @@ autocmd("BufRead", {
   desc = "Disable Diagnostics For .env And Node_modules",
 })
 
-autocmd("BufWritePre", {
-  group = utils.augroup("trim_on_save"),
-  callback = utils.trim,
-  desc = "Trim Trailing Whitespace And Blank Lines On Save",
-})
-
 autocmd("TermOpen", {
   group = auterminal,
   pattern = "*",
