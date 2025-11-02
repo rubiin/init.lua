@@ -1,6 +1,16 @@
 return {
   "HiPhish/rainbow-delimiters.nvim",
   event = "BufReadPre",
+  keys = {
+    {
+      '<leader>u"',
+      function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        require("rainbow-delimiters").toggle(bufnr)
+      end,
+      desc = "Toggle Rainbow Brackets",
+    },
+  },
   config = function()
     ---@type rainbow_delimiters.config
     vim.g.rainbow_delimiters = {
