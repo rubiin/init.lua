@@ -6,9 +6,9 @@
 
 vim.filetype.add({
   extension = {
-    ejs = "html",
+    ejs = "embedded_template",
     mjml = "html",
-    eta = "html",
+    eta = "embedded_template",
     tsbuildinfo = "json",
     pipeline = "Jenkinsfile",
     stage = "Jenkinsfile",
@@ -26,5 +26,6 @@ vim.filetype.add({
   },
   pattern = {
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
+    ["*.ejs.t"] = "embedded_template",
   },
 })
