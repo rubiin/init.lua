@@ -292,6 +292,17 @@ usercmd("TrimWhitespace", utils.trim_trailing_whitespace, {
   desc = "Trim Trailing Whitespace",
 })
 
+usercmd("ToggleSpell", function()
+  vim.wo.spell = not vim.wo.spell
+end, {
+  desc = "Toggle Spell Checking",
+})
+usercmd("ToggleWrap", function()
+  vim.wo.wrap = not vim.wo.wrap
+end, {
+  desc = "Toggle Wrap",
+})
+
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
 usercmd("Cwd", function()

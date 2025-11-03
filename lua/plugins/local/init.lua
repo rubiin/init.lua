@@ -66,14 +66,14 @@ return {
     "rubiin/highlighturl.nvim",
     dev = true,
     event = "BufEnter", -- load when entering a buffer
-    config = true,
+    opts = {},
   },
   {
     "rubiin/vimwordlist.nvim",
     dev = true,
     cmd = "GenerateVimSpell",
     build = ":GenerateVimSpell",
-    config = function()
+    init = function()
       vim.opt.spelllang:append("vim")
     end,
   },

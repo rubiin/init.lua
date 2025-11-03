@@ -6,7 +6,7 @@ return {
       { "<leader>yd", "<cmd>CellularAutomaton make_it_rain<cr>", { desc = "Make It Rain Baby" } },
     },
     cmd = "CellularAutomaton",
-    config = function()
+    opts = function()
       require("cellular-automaton").register_animation({
         fps = 50,
         name = "slide",

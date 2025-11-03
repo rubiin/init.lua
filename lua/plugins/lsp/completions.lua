@@ -1,5 +1,3 @@
-local user_icons = require("rubin.icons")
-
 return {
 
   {
