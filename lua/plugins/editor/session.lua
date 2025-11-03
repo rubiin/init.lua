@@ -1,7 +1,7 @@
 return {
   {
     "rmagatti/auto-session", -- auto save session
-    event = "VeryLazy",
+    lazy = "false",
     keys = {
 
       { "<leader>qs", "<cmd>AutoSession search<CR>", desc = "Restore session" },
