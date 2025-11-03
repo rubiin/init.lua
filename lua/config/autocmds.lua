@@ -155,12 +155,14 @@ autocmd("BufWritePost", {
   group = augeneral,
   pattern = { "*tmux.conf", "tmux.local.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
+  desc = "Reload Tmux Config On Save",
 })
 
 autocmd("BufWritePost", {
   group = augeneral,
   pattern = { "yazi.toml" },
   command = "execute 'silent !yazi --clear-cache'",
+  desc = "Clear Yazi Cache On Config Save",
 })
 
 autocmd("BufWritePre", {
@@ -231,6 +233,7 @@ autocmd("BufEnter", {
     opt.formatoptions:remove({ "c", "r", "o" })
   end,
   group = utils.augroup("newline-comment"),
+  desc = "Don't Continue Comments On Newline",
 })
 
 autocmd({ "BufLeave", "BufWinLeave" }, {

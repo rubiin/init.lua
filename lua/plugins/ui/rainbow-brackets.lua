@@ -3,7 +3,7 @@ return {
   event = "BufReadPre",
   keys = {
     {
-      '<leader>u[',
+      "<leader>u[",
       function()
         local bufnr = vim.api.nvim_get_current_buf()
         require("rainbow-delimiters").toggle(bufnr)

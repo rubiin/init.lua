@@ -13,6 +13,37 @@ return {
   },
 
   {
+    "monaqa/dial.nvim",
+    opts = function()
+      local augend = require("dial.augend")
+      local environments = augend.constant.new({
+        -- elements through which we cycle. When we increment, we go down
+        -- On decrement we go up
+        elements = { "production", "development", "stage", "test", "sandbox" },
+        -- if true, it only matches strings with word boundary. firstDate wouldn't work for example
+        word = false,
+        -- do we cycle back and forth (tenth to first on increment, first to tenth on decrement).
+        -- Otherwise nothing will happen when there are no further values
+        cyclic = true,
+      })
+      local logs = augend.constant.new({
+        elements = { "fatal", "error", "warn", "info", "debug", "trace" },
+        word = false,
+        cyclic = true,
+      })
+
+      return {
+        augends = {
+          default = {
+            environments,
+            logs,
+          },
+        },
+      }
+    end,
+  },
+
+  {
     "folke/flash.nvim",
     opts = {
       modes = {
