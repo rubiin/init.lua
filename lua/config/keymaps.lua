@@ -27,6 +27,11 @@ local keymaps_to_delete = {
   { "n", "<leader>fT" },
   { "n", "<leader>ft" },
   { "n", "<leader>cm" },
+
+  -- harpoon bindings
+
+  { "n", "<leader>H" },
+  { "n", "<leader>h" },
 }
 
 for _, value in pairs(keymaps_to_delete) do

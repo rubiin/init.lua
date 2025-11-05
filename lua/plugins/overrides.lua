@@ -13,6 +13,48 @@ vim.api.nvim_set_hl(0, "SnacksPickerInput", { bg = "#1a1b26" })
 
 return {
   {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    keys = {
+      {
+        "<leader>hh",
+        function()
+          require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+        end,
+        desc = "Toggle menu",
+      },
+      {
+        "<leader>ha",
+        function()
+          require("harpoon"):list():append()
+        end,
+        desc = "Add File",
+      },
+      {
+        "<leader>hc",
+        function()
+          require("harpoon"):list():clear()
+        end,
+        desc = "Clear All",
+      },
+      {
+        "<leader>hn",
+        function()
+          require("harpoon"):list():next()
+        end,
+        desc = "Next File",
+      },
+      {
+        "<leader>hp",
+        function()
+          require("harpoon"):list():prev()
+        end,
+        desc = "Previous File",
+      },
+    },
+  },
+
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
