@@ -14,7 +14,7 @@ return {
 
   {
     "monaqa/dial.nvim",
-    opts = function()
+    opts = function(_, opts)
       local augend = require("dial.augend")
       local environments = augend.constant.new({
         -- elements through which we cycle. When we increment, we go down
@@ -32,14 +32,10 @@ return {
         cyclic = true,
       })
 
-      return {
-        augends = {
-          default = {
-            environments,
-            logs,
-          },
-        },
-      }
+      opts.groups.default = vim.list_extend(opts.groups.default, {
+        environments,
+        logs,
+      })
     end,
   },
 
