@@ -1,6 +1,16 @@
 -- this file holds all the overrides from lazyvim config
 local constant = require("utils.constants")
 
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#45475A", bg = "NONE" })
+vim.api.nvim_set_hl(0, "SnacksPickerTitle", { bg = "#7aa2f7", fg = "#1f2335" })
+vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bg = "#1a1b26" })
+vim.api.nvim_set_hl(0, "SnacksPickerList", { bg = "#1a1b26" })
+vim.api.nvim_set_hl(0, "SnacksPickerListTitle", { bg = "#9ece6a", fg = "#1f2335" })
+vim.api.nvim_set_hl(0, "SnacksPickerInputTitle", { bg = "#f7768e", fg = "#1f2335" })
+vim.api.nvim_set_hl(0, "SnacksPickerInputBorder", { bg = "#1a1b26", fg = "#45475a" })
+vim.api.nvim_set_hl(0, "SnacksPickerInputSearch", { bg = "#f7768e", fg = "#1f2335" })
+vim.api.nvim_set_hl(0, "SnacksPickerInput", { bg = "#1a1b26" })
+
 return {
   {
     "LazyVim/LazyVim",
@@ -440,7 +450,60 @@ return {
       },
       picker = {
         enabled = true,
-        layout = "telescope",
+        layout = {
+          -- The default layout for "telescopy" pickers, e.g. `files`, `commands`, ...
+          -- It will not override non-standard pickers, e.g. `explorer`, `lines`, ...
+          preset = function()
+            return vim.o.columns >= 120 and "telescope" or "vertical"
+          end,
+        },
+        layouts = {
+          telescope = {
+            -- Copy from https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#telescope
+            reverse = false,
+            layout = {
+              box = "horizontal",
+              backdrop = false,
+              height = 0.9,
+              border = "none",
+              {
+                box = "vertical",
+                {
+                  win = "input",
+                  height = 1,
+                  border = "rounded",
+                  title = "{title} {live} {flags}",
+                  title_pos = "center",
+                },
+                { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
+              },
+              {
+                win = "preview",
+                title = "{preview:Preview}",
+                width = 0.51, -- Change the preview width
+                border = "rounded",
+                title_pos = "center",
+              },
+            },
+          },
+        },
+        sources = {
+          files = {},
+          explorer = {
+            layout = {
+              layout = {
+                position = "right",
+              },
+            },
+          },
+          lines = {
+            layout = {
+              preset = function()
+                return vim.o.columns >= 120 and "telescope" or "vertical"
+              end,
+            },
+          },
+        },
       },
       notifier = { enabled = true, timeout = 2000 },
       scope = { enabled = true },
