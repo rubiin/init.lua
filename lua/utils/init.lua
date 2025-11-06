@@ -154,6 +154,39 @@ end
 ---@param type string
 ---@return table
 function M.set_lualine_styles(type, opts)
+  local trouble = require("trouble")
+  local symbols = trouble.statusline
+    and trouble.statusline({
+      mode = "symbols",
+      groups = {},
+      title = false,
+      filter = { range = true },
+      format = "{kind_icon}{symbol.name:Normal}",
+    })
+
+  local winbar_filetype = {
+    {
+      "filetype",
+      icon_only = true,
+      separator = "",
+      padding = { left = 3, right = 1 },
+      color = { bg = "none" },
+    },
+
+    {
+      LazyVim.lualine.pretty_path(),
+      color = { bg = "none", gui = "bold" },
+    },
+  }
+
+  table.insert(winbar_filetype, {
+    symbols and symbols.get,
+    cond = symbols and symbols.has,
+  })
+
+  opts.winbar = { lualine_c = winbar_filetype }
+  opts.inactive_winbar = { lualine_c = winbar_filetype }
+
   opts.options.component_separators = "|"
   opts.options.section_separators = ""
 
@@ -252,6 +285,18 @@ function M.set_lualine_styles(type, opts)
       cond = M.buffer_not_empty,
     },
   }
+
+  table.insert(
+    opts.sections.lualine_z,
+    2,
+    LazyVim.lualine.status(LazyVim.config.icons.kinds.Copilot, function()
+      local clients = package.loaded["copilot"] and vim.lsp.get_clients({ name = "copilot", bufnr = 0 }) or {}
+      if #clients > 0 then
+        local status = require("copilot.status").data.status
+        return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
+      end
+    end)
+  )
 
   return opts
 end
