@@ -27,5 +27,8 @@ vim.filetype.add({
   pattern = {
     [".*docker[-]compose.*.yml"] = "docker-compose.yaml",
     ["*.ejs.t"] = "embedded_template",
+    -- Match any filename ending with .log or _log (case-insensitive)
+    [".*%.([lL][oO][gG])$"] = "log",
+    [".*_[lL][oO][gG]$"] = "log",
   },
 })
