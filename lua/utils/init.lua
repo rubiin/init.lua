@@ -153,13 +153,7 @@ end
 
 ---@param type string
 ---@return table
-function M.set_lualine_styles(type)
-  local opts = {
-    options = {},
-    sections = {},
-    winbar = {},
-  }
-
+function M.set_lualine_styles(type, opts)
   opts.options.component_separators = "|"
   opts.options.section_separators = ""
 
@@ -258,8 +252,6 @@ function M.set_lualine_styles(type)
       cond = M.buffer_not_empty,
     },
   }
-
-  opts.extensions = {}
 
   return opts
 end

@@ -2,22 +2,18 @@ local constants = require("utils.constants")
 local utils = require("utils")
 
 local used_style = constants.styles.bubbly -- this is the default style, change it to the style you want to use from the list
-local lualine_styles = utils.set_lualine_styles(used_style)
 
 return {
   {
     "nvim-lualine/lualine.nvim",
-    opts = lualine_styles,
-    event = { "BufReadPre", "BufNewFile" },
+    opts = function(_, opts)
+      return utils.set_lualine_styles(used_style, opts)
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
 
     opts = function(_, opts)
-      opts.disabled_filetypes = {
-        winbar = { "neo-tree" },
-      }
-
       local trouble = require("trouble")
       local symbols = trouble.statusline
         and trouble.statusline({
