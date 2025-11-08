@@ -486,9 +486,9 @@ return {
           Snacks.util.wo(0, {
             syntax = "OFF",
             swapfile = false,
-            foldmethod = "manual",
-            undolevels = -1,
             undoreload = 0,
+            undolevels = -1,
+            spell = false,
             list = false,
             filetype = "",
           })
