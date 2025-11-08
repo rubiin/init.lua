@@ -13,6 +13,22 @@ vim.api.nvim_set_hl(0, "SnacksPickerInput", { bg = "#1a1b26" })
 
 return {
   {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    priority = 1000,
+    build = ":Copilot auth",
+    opts = {
+      server_opts_overrides = {
+        settings = {
+          telemetry = {
+            telemetryLevel = "off",
+          },
+        },
+      },
+    },
+  },
+
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     keys = {
