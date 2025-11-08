@@ -1,5 +1,12 @@
 return {
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
     "folke/ts-comments.nvim",
     opts = {
       langs = {
@@ -18,7 +25,7 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "InsertEnter" },
     dependencies = {
       {
         "JoosepAlviste/nvim-ts-context-commentstring",
