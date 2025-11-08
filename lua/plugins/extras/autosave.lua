@@ -97,15 +97,35 @@ return {
           return false
         end
 
-        -- Disable auto-save for the harpoon plugin, otherwise it just opens and closes
-        -- https://github.com/ThePrimeagen/harpoon/issues/434
-        --
-        -- don't save for `sql` file types
-        -- I do this so when working with dadbod the file is not saved every time
-        -- I make a change, and a SQL query executed
-        -- Run `:set filetype?` on a dadbod query to make sure of the filetype
+        local excluded_filetypes = {
+          -- this one is especially useful if you use neovim as a commit message editor
+          "gitcommit",
+          -- most of these are usually set to non-modifiable, which prevents autosaving
+          -- by default, but it doesn't hurt to be extra safe.
+          "NvimTree",
+          "Outline",
+          "TelescopePrompt",
+          "alpha",
+          "dashboard",
+          "lazygit",
+          "neo-tree",
+          "oil",
+          "prompt",
+          "toggleterm",
+
+          -- Disable auto-save for the harpoon plugin, otherwise it just opens and closes
+          -- https://github.com/ThePrimeagen/harpoon/issues/434
+          --
+          -- don't save for `sql` file types
+          -- I do this so when working with dadbod the file is not saved every time
+          -- I make a change, and a SQL query executed
+          -- Run `:set filetype?` on a dadbod query to make sure of the filetype
+          "harpoon",
+          "mysql",
+        }
+
         local filetype = vim.bo[buf].filetype
-        if filetype == "harpoon" or filetype == "mysql" then
+        if vim.tbl_contains(excluded_filetypes, filetype) then
           return false
         end
 
