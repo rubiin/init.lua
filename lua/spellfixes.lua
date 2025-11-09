@@ -2,7 +2,6 @@
 -- INFO if abbreviations are not working, probably something has been mapped to
 -- `<Space>` in insert mode
 -----------------------------------------------------------------------------------
-
 local spellfixes = {
   THe = "The",
   ahve = "have",
@@ -20,6 +19,11 @@ local spellfixes = {
   dont = "don't",
   dwon = "down",
   esle = "else",
+  exprot = "export",
+  locla = "local",
+  resutl = "result",
+  heigth = "height",
+  widht = "width",
   awiat = "await",
   fales = "false",
   fiel = "file",

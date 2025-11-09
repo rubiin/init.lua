@@ -15,6 +15,7 @@ g.loaded_python3_provider = 0
 g.loaded_python_provider = 0
 g.loaded_pythonx_provider = 0
 g.loaded_ruby_provider = 0
+g.editorconfig = true
 
 -- ========================================================================== --
 -- ==                  LAZYVIM GLOBALS                                     == --
