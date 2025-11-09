@@ -3,7 +3,7 @@ local util = require("utils")
 return {
   {
     "ghillb/cybu.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     keys = {
       { "<C-S-Tab>", "<Plug>(CybuLastusedPrev)", mode = { "n", "v" }, desc = "CybuLastusedPrev" },
       { "<C-Tab>", "<Plug>(CybuLastusedNext)", mode = { "n", "v" }, desc = "CybuLastusedNext" },

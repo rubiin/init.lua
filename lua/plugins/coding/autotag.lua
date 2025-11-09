@@ -1,11 +1,7 @@
 return {
   {
-    "nvim-treesitter/playground",
-    cmd = "TSPlaygroundToggle",
-  },
-  {
     "windwp/nvim-ts-autotag",
-    event = { "BufNewFile", "BufReadPre" },
+    event = "LazyFile",
     opts = {
       opts = {
         enable_close = true,

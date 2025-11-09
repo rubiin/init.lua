@@ -4,7 +4,7 @@ local util = require("utils")
 return {
   {
     "sindrets/diffview.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     opts = {
       enhanced_diff_hl = true,
@@ -19,7 +19,7 @@ return {
   },
   {
     "akinsho/git-conflict.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     opts = {
       default_mappings = false,
       disable_diagnostics = true,

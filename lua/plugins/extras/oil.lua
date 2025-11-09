@@ -3,6 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = {},
   keys = {
-    { "<leader>o", "<cmd>Oil<cr>", desc = "Oil" },
+    { "<leader>o", "<cmd>Oil<cr>", desc = "Open Oil" },
   },
 }
