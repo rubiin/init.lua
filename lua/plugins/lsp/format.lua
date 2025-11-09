@@ -55,7 +55,7 @@ return {
         },
         prettierd = {
           condition = function()
-            return not utils.biome_config_exists()
+            return not utils.biome_config_exists() and utils.p
           end,
         },
       },

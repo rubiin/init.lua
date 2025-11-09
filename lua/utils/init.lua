@@ -59,6 +59,10 @@ end
 
 M.biome_config_exists = function()
   local current_dir = vim.fn.getcwd()
+  local root = LazyVim.root.get({ normalize = true })
+  if root ~= current_dir then
+    return false
+  end
   local config_file = current_dir .. "/biome.json"
   if vim.fn.filereadable(config_file) == 1 then
     return true
@@ -79,6 +83,10 @@ end
 
 M.deno_config_exist = function()
   local current_dir = vim.fn.getcwd()
+  local root = LazyVim.root.get({ normalize = true })
+  if root ~= current_dir then
+    return false
+  end
   local config_file = current_dir .. "/deno.json"
   if vim.fn.filereadable(config_file) == 1 then
     return true
@@ -99,8 +107,38 @@ end
 
 M.eslint_config_exists = function()
   local current_dir = vim.fn.getcwd()
+  local root = LazyVim.root.get({ normalize = true })
+  if root ~= current_dir then
+    return false
+  end
   local config_files =
     { ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", ".eslintrc" }
+
+  for _, file in ipairs(config_files) do
+    local config_file = current_dir .. "/" .. file
+    if vim.fn.filereadable(config_file) == 1 then
+      return true
+    end
+  end
+
+  -- If the current directory is a git repo, check if the root of the repo
+  -- contains a eslint config file
+  local git_root = M.get_git_root()
+  if M.is_git_repo() and git_root ~= current_dir then
+    for _, file in ipairs(config_files) do
+      local config_file = git_root .. "/" .. file
+      if vim.fn.filereadable(config_file) == 1 then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
+M.oxlint_config_exists = function()
+  local current_dir = vim.fn.getcwd()
+  local config_files = { ".oxlintrc.json" }
 
   for _, file in ipairs(config_files) do
     local config_file = current_dir .. "/" .. file
