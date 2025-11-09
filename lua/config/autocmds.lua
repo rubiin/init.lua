@@ -29,6 +29,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
       cmd("checktime")
     end
   end,
+  desc = "Check If We Need To Reload The File When It Changed",
 })
 
 autocmd("TextYankPost", {
@@ -36,6 +37,7 @@ autocmd("TextYankPost", {
   callback = function()
     (vim.hl or vim.highlight).on_yank()
   end,
+  desc = "Highlight On Yank",
 })
 
 autocmd({ "VimResized" }, {
