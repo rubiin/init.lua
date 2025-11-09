@@ -21,35 +21,30 @@ return {
       linters_by_ft = linters_by_ft,
       linters = {
         selene = {
-          condition = function(ctx)
-            local root = LazyVim.root.get({ normalize = true })
-            if root ~= vim.uv.cwd() then
-              return false
-            end
-            return vim.fs.find({ "selene.toml" }, { path = root, upward = true })[1]
+          condition = function()
+            return utils.cli_config_exists({ "selene.toml" })
           end,
         },
         luacheck = {
-          condition = function(ctx)
-            local root = LazyVim.root.get({ normalize = true })
-            if root ~= vim.uv.cwd() then
-              return false
-            end
-            return vim.fs.find({ ".luacheckrc" }, { path = root, upward = true })[1]
+          condition = function()
+            return utils.cli_config_exists({ ".luacheckrc" })
           end,
         },
         oxlint = {
-          condition = function(ctx)
-            local root = LazyVim.root.get({ normalize = true })
-            if root ~= vim.uv.cwd() then
-              return false
-            end
-            return vim.fs.find({ ".oxlintrc.json" }, { path = root, upward = true })[1]
+          condition = function()
+            return utils.cli_config_exists({ ".oxlintrc.json" })
           end,
         },
         eslint_d = {
-          condition = function(ctx)
-            utils.eslint_config_exists()
+          condition = function()
+            return utils.cli_config_exists({
+              ".eslintrc",
+              ".eslintrc.json",
+              ".eslintrc.js",
+              ".eslintrc.cjs",
+              ".eslintrc.yaml",
+              ".eslintrc.yml",
+            })
           end,
           args = {
             "--no-warn-ignored",

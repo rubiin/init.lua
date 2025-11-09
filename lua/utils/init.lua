@@ -46,7 +46,7 @@ M.biome_config_path = function()
 
   -- If the current directory is a git repo, check if the root of the repo
   -- contains a biome.json file
-  local git_root = M.get_git_root()
+  local git_root = LazyVim.root.git()
   if M.is_git_repo() and git_root ~= current_dir then
     config_file = git_root .. "/biome.json"
     if vim.fn.filereadable(config_file) == 1 then
@@ -57,111 +57,43 @@ M.biome_config_path = function()
   return nil
 end
 
-M.biome_config_exists = function()
+-- Check if CLI config exists
+---@param config_files table
+---@return boolean
+M.cli_config_exists = function(config_files)
   local current_dir = vim.fn.getcwd()
   local root = LazyVim.root.get({ normalize = true })
+
   if root ~= current_dir then
     return false
   end
-  local config_file = current_dir .. "/biome.json"
-  if vim.fn.filereadable(config_file) == 1 then
-    return true
-  end
 
-  -- If the current directory is a git repo, check if the root of the repo
-  -- contains a biome.json file
-  local git_root = M.get_git_root()
-  if M.is_git_repo() and git_root ~= current_dir then
-    config_file = git_root .. "/biome.json"
-    if vim.fn.filereadable(config_file) == 1 then
-      return true
-    end
-  end
-
-  return false
-end
-
-M.deno_config_exist = function()
-  local current_dir = vim.fn.getcwd()
-  local root = LazyVim.root.get({ normalize = true })
-  if root ~= current_dir then
-    return false
-  end
-  local config_file = current_dir .. "/deno.json"
-  if vim.fn.filereadable(config_file) == 1 then
-    return true
-  end
-
-  -- If the current directory is a git repo, check if the root of the repo
-  -- contains a deno.json file
-  local git_root = M.get_git_root()
-  if M.is_git_repo() and git_root ~= current_dir then
-    config_file = git_root .. "/deno.json"
-    if vim.fn.filereadable(config_file) == 1 then
-      return true
-    end
-  end
-
-  return false
-end
-
-M.eslint_config_exists = function()
-  local current_dir = vim.fn.getcwd()
-  local root = LazyVim.root.get({ normalize = true })
-  if root ~= current_dir then
-    return false
-  end
-  local config_files =
-    { ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", ".eslintrc" }
-
-  for _, file in ipairs(config_files) do
-    local config_file = current_dir .. "/" .. file
-    if vim.fn.filereadable(config_file) == 1 then
-      return true
-    end
-  end
-
-  -- If the current directory is a git repo, check if the root of the repo
-  -- contains a eslint config file
-  local git_root = M.get_git_root()
-  if M.is_git_repo() and git_root ~= current_dir then
-    for _, file in ipairs(config_files) do
-      local config_file = git_root .. "/" .. file
-      if vim.fn.filereadable(config_file) == 1 then
+  -- helper to check if any of the provided files exist in a given directory
+  local function has_config(dir)
+    for _, file in ipairs(config_files or {}) do
+      local path = dir .. "/" .. file
+      if vim.fn.filereadable(path) == 1 then
         return true
       end
     end
+    return false
   end
 
-  return false
-end
+  -- 1. check current directory
+  if has_config(current_dir) then
+    return true
+  end
 
-M.oxlint_config_exists = function()
-  local current_dir = vim.fn.getcwd()
-  local config_files = { ".oxlintrc.json" }
-
-  for _, file in ipairs(config_files) do
-    local config_file = current_dir .. "/" .. file
-    if vim.fn.filereadable(config_file) == 1 then
+  -- 2. check git root if applicable
+  local git_root = LazyVim.root.git()
+  if M.is_git_repo() and git_root ~= current_dir then
+    if has_config(git_root) then
       return true
     end
   end
 
-  -- If the current directory is a git repo, check if the root of the repo
-  -- contains a eslint config file
-  local git_root = M.get_git_root()
-  if M.is_git_repo() and git_root ~= current_dir then
-    for _, file in ipairs(config_files) do
-      local config_file = git_root .. "/" .. file
-      if vim.fn.filereadable(config_file) == 1 then
-        return true
-      end
-    end
-  end
-
   return false
 end
-
 -- Create augroup
 ---@param name string
 ---@param opts? table
@@ -398,9 +330,10 @@ function M.buffer_not_empty()
 end
 
 -- Check if window width is wide enough for lualine components.
+---@param width? number
 ---@return boolean
-function M.hide_in_width()
-  return fn.winwidth(0) > 100
+function M.hide_in_width(width)
+  return fn.winwidth(0) > (width or 100)
 end
 
 -- Check if current directory is a git repo.
@@ -411,13 +344,6 @@ function M.is_git_repo()
   return gitdir and #gitdir > 0 and #gitdir < #filepath
 end
 
--- Get root directory of git project
----@return string|nil
-function M.get_git_root()
-  local dot_git_path = fn.finddir(".git", ".;")
-  return fn.fnamemodify(dot_git_path, ":h")
-end
-
 -- Lua line component for lazy.
 ---@return table
 function M.lazy_lua_component()
@@ -426,16 +352,6 @@ function M.lazy_lua_component()
     cond = require("lazy.status").has_updates,
     color = { fg = "#ff9e64" },
   }
-end
-
--- Get root directory of git project or fallback to current directory.
----@return string|nil
-function M.get_root_directory()
-  if M.is_git_repo() then
-    return M.get_git_root()
-  end
-
-  return fn.getcwd()
 end
 
 -- Check if a variable is not empty nor nil.

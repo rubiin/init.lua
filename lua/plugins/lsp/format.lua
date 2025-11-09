@@ -45,17 +45,18 @@ return {
       formatters = {
         biome = {
           condition = function()
-            return utils.biome_config_exists()
+            return utils.cli_config_exists({ "biome.json", "biome.jsonc" })
           end,
         },
         deno_fmt = {
           condition = function()
-            return utils.deno_config_exist()
+            return utils.cli_config_exists({ "deno.json" })
           end,
         },
         prettierd = {
           condition = function()
-            return not utils.biome_config_exists() and utils.p
+            return not utils.cli_config_exists({ "biome.json", "biome.jsonc" })
+              and utils.cli_config_exists({ "prettier.config.js", ".prettierrc", ".prettierrc.json" })
           end,
         },
       },
