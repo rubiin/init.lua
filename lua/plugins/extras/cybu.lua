@@ -19,7 +19,7 @@ return {
         path = "relative",
       },
       exclude = {
-        -- filetypes
+        -- filetypes TODO: check which ones to exclude
         "help",
         "neo-tree",
         "fugitive",

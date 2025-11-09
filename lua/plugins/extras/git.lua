@@ -4,7 +4,6 @@ local util = require("utils")
 return {
   {
     "sindrets/diffview.nvim",
-    event = "LazyFile",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     opts = {
       enhanced_diff_hl = true,
