@@ -183,7 +183,7 @@ autocmd("BufRead", {
   group = augeneral,
   pattern = { ".env", "*/node_modules/*" },
   callback = function()
-    vim.diagnostic.enable(true)
+    vim.diagnostic.enable(false)
   end,
   desc = "Disable Diagnostics For .env And Node_modules",
 })
