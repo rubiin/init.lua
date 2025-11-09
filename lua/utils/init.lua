@@ -186,6 +186,13 @@ function M.set_lualine_styles(type, opts)
       fmt = string.upper,
     },
 
+
+    {
+      "filetype",
+      fmt = M.capitalize,
+    },
+  }
+  opts.sections.lualine_z = {
     {
       "fileformat",
       icons_enabled = true,
@@ -194,12 +201,6 @@ function M.set_lualine_styles(type, opts)
         dos = "CRLF  ",
         mac = "CR  ",
       },
-    },
-  }
-  opts.sections.lualine_z = {
-    {
-      "filetype",
-      fmt = M.capitalize,
     },
   }
 
