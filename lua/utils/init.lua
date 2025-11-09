@@ -37,26 +37,6 @@ function M.is_warp_terminal()
   return os.getenv("TERM_PROGRAM") == "WarpTerminal"
 end
 
-M.biome_config_path = function()
-  local current_dir = vim.fn.getcwd()
-  local config_file = current_dir .. "/biome.json"
-  if vim.fn.filereadable(config_file) == 1 then
-    return current_dir
-  end
-
-  -- If the current directory is a git repo, check if the root of the repo
-  -- contains a biome.json file
-  local git_root = LazyVim.root.git()
-  if M.is_git_repo() and git_root ~= current_dir then
-    config_file = git_root .. "/biome.json"
-    if vim.fn.filereadable(config_file) == 1 then
-      return git_root
-    end
-  end
-
-  return nil
-end
-
 -- Check if CLI config exists
 ---@param config_files table
 ---@return boolean
