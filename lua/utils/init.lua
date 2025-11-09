@@ -132,6 +132,7 @@ function M.set_lualine_styles(type, opts)
     },
     {
       "diff",
+      cond = M.is_git_repo,
       symbols = {
         added = user_icons.git.LineAdded,
         modified = user_icons.git.LineModified,
@@ -162,11 +163,12 @@ function M.set_lualine_styles(type, opts)
   opts.sections.lualine_c = {
     {
       "filename",
+      cond = M.buffer_not_empty,
     },
   }
 
   opts.sections.lualine_x = {
-    { "location", cond = M.buffer_not_empty, icon = user_icons.kinds.Unit, separator = { right = "" } },
+    { "location", icon = user_icons.kinds.Unit, separator = { right = "" } },
     {
       function()
         local shiftwidth = vim.api.nvim_get_option_value("shiftwidth", {
@@ -187,7 +189,6 @@ function M.set_lualine_styles(type, opts)
     {
       "fileformat",
       icons_enabled = true,
-      cond = M.buffer_not_empty,
       symbols = {
         unix = "LF  ",
         dos = "CRLF  ",
@@ -199,7 +200,6 @@ function M.set_lualine_styles(type, opts)
     {
       "filetype",
       fmt = M.capitalize,
-      cond = M.buffer_not_empty,
     },
   }
 
