@@ -32,16 +32,11 @@ return {
       { "[x", "<cmd>GitConflictPrevConflict<cr>", desc = "Previous Conflict" },
     },
   },
-  -- Git command inside vim
-  --TODO: check this plugin
   {
-    "tpope/vim-fugitive",
-    cmd = "Git",
+    "NeogitOrg/neogit",
+    event = "VeryLazy",
     keys = {
-      { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
-      { "<leader>ga", "<cmd>Gwrite<cr>", desc = "Git Add" },
-      { "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit" },
-      { "<leader>gpl", "<cmd>Git pull<cr>", desc = "Git Pull" },
-    },
+      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit | Open Neogit" },
+    }
   },
 }
