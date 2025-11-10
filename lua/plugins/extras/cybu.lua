@@ -1,4 +1,6 @@
-local util = require("utils")
+
+local constants = require("utils.constants")
+local utils = require("utils")
 
 return {
   {
@@ -18,16 +20,10 @@ return {
         border = vim.g.boder_style,
         path = "relative",
       },
-      exclude = {
-        -- filetypes TODO: check which ones to exclude
-        "help",
-        "neo-tree",
-        "fugitive",
-        "qf",
-      },
+      exclude = constants.common_file_types,
       display_time = 800,
       fallback = function()
-        util.notify("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
+        Snacks.notify.info("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
       end,
     },
   },

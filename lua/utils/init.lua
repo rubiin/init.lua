@@ -271,18 +271,6 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
--- Notify
----@param message string
----@param level string|number
----@param title? string
----@param timeout? number
-function M.notify(message, level, title, timeout)
-  local notify_options = {
-    title = title or "notification",
-    timeout = timeout or 2000,
-  }
-  vim.notify(message, level, notify_options)
-end
 
 -- Trim trailing whitespace on save.
 function M.trim_trailing_whitespace()
