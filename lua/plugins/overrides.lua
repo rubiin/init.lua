@@ -71,16 +71,6 @@ return {
   },
 
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-      defaults = {
-        autocmds = false,
-      },
-    },
-  },
-
-  {
     "monaqa/dial.nvim",
     opts = function(_, opts)
       local augend = require("dial.augend")
