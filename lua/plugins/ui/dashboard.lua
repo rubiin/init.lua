@@ -66,12 +66,17 @@ return {
                 action = ":lua Snacks.dashboard.pick('oldfiles')",
               },
               {
+                icon = user_icons.ui.Project,
+                key = "p",
+                desc = "Projects",
+                action = ":lua Snacks.picker.projects()",
+              },
+              {
                 icon = user_icons.ui.Gear,
                 key = "c",
                 desc = "Config",
                 action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
               },
-              { icon = user_icons.ui.History, key = "s", desc = "Restore Session", section = "session" },
               {
                 icon = user_icons.ui.Sleep,
                 key = "L",
@@ -90,17 +95,6 @@ return {
           },
         },
       }
-    end,
-  },
-  {
-    "folke/snacks.nvim",
-    opts = function(_, opts)
-      table.insert(opts.dashboard.preset.keys, 3, {
-        icon = " ",
-        key = "p",
-        desc = "Projects",
-        action = ":lua Snacks.picker.projects()",
-      })
     end,
   },
 }

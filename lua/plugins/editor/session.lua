@@ -15,7 +15,7 @@ return {
       log_level = "error",
       suppressed_dirs = { "/", "~/", "~/Downloads", "~/Documents" },
       use_git_branch = true,
-      bypass_save_filetypes = { "snacks_dashboard" },
+      bypass_save_filetypes = { "alpha", "dashboard", "snacks_dashboard" }, -- or whatever dashboard you use
       root_dir = vim.fn.stdpath("data") .. "/sessions/", -- Root dir where sessions will be stored
       session_lens = {
         picker = "snacks",
