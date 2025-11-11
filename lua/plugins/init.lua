@@ -10,4 +10,5 @@ return {
   { import = "plugins.extras.autosave" },
   { import = "plugins.extras.cybu" },
   { import = "plugins.extras.wakatime" },
+  { import = "plugins.extras.code-action" },
 }

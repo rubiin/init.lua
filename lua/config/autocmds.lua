@@ -275,7 +275,7 @@ autocmd("FileType", {
 
 autocmd("BufWritePost", {
   pattern = {
-        fn.resolve(fn.expand("~/.local/share/chezmoi")) .. "/**/*", -- files in subdirectories
+    fn.resolve(fn.expand("~/.local/share/chezmoi")) .. "/**/*", -- files in subdirectories
   },
   callback = function()
     Snacks.notify.info("Applying chezmoi changes", vim.log.levels.INFO)

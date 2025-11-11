@@ -37,6 +37,6 @@ return {
     event = "VeryLazy",
     keys = {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit | Open Neogit" },
-    }
+    },
   },
 }

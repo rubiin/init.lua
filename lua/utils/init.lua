@@ -271,7 +271,6 @@ function M.disable_plugins(list)
   return disabled_plugins
 end
 
-
 -- Trim trailing whitespace on save.
 function M.trim_trailing_whitespace()
   local pos = api.nvim_win_get_cursor(0)
