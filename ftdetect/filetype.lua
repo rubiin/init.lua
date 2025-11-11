@@ -30,5 +30,6 @@ vim.filetype.add({
     -- Match any filename ending with .log or _log (case-insensitive)
     [".*%.([lL][oO][gG])$"] = "log",
     [".*_[lL][oO][gG]$"] = "log",
+    ["[jt]sconfig.*.json"] = "jsonc",
   },
 })
