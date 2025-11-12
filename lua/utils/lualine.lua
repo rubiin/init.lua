@@ -15,8 +15,23 @@ function M.set_lualine_styles(type, opts)
   end
 
   if type == constants.styles.bubbly then
-    opts.options.component_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
+  end
+
+  if type == constants.styles.powerline then
+    opts.options.component_separators = { left = "", right = "" }
+    opts.options.section_separators = { left = "", right = "" }
+  end
+
+  if type == constants.styles.nerd then
+    opts.options.component_separators = { left = "", right = "" }
+    opts.options.section_separators = { left = "", right = "" }
+  end
+
+  if type == constants.styles.slanted_reverse then
+    opts.options.component_separators = { left = "|", right = "|" }
+    opts.options.section_separators = { left = "", right = "" }
   end
 
   opts.sections.lualine_a = {

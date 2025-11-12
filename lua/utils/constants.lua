@@ -3,7 +3,10 @@ local M = {}
 -- lua line styles
 M.styles = {
   slanted = "slanted",
+  slanted_reverse = "slanted_reverse",
   bubbly = "bubbly",
+  powerline = "powerline",
+  nerd = "nerd",
   default = "default",
 }
 
