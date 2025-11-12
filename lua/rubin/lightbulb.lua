@@ -4,14 +4,14 @@
 
 local M = {}
 
-local lb_name = 'mariasolos/lightbulb'
+local lb_name = "mariasolos/lightbulb"
 local lb_namespace = vim.api.nvim_create_namespace(lb_name)
-local lb_icon = require('icons').diagnostics.HINT
+local lb_icon = require("icons").diagnostics.HINT
 local lb_group = vim.api.nvim_create_augroup(lb_name, {})
-local code_action_method = 'textDocument/codeAction' --- @type vim.lsp.protocol.Method.ClientToServer.Request
+local code_action_method = "textDocument/codeAction" --- @type vim.lsp.protocol.Method.ClientToServer.Request
 
 local timer = vim.uv.new_timer()
-assert(timer, 'Timer was not initialized')
+assert(timer, "Timer was not initialized")
 
 local updated_bufnr = nil
 
@@ -27,14 +27,14 @@ local function update_extmark(bufnr, line)
 
   -- Extra check for not being in insert mode here because sometimes the autocommand
   -- fails.
-  if not line or vim.startswith(vim.api.nvim_get_mode().mode, 'i') then
+  if not line or vim.startswith(vim.api.nvim_get_mode().mode, "i") then
     return
   end
 
   -- Swallow errors.
   pcall(vim.api.nvim_buf_set_extmark, bufnr, lb_namespace, line, -1, {
-    virt_text = { { ' ' .. lb_icon, 'DiagnosticSignHint' } },
-    hl_mode = 'combine',
+    virt_text = { { " " .. lb_icon, "DiagnosticSignHint" } },
+    hl_mode = "combine",
   })
 
   updated_bufnr = bufnr
@@ -96,27 +96,27 @@ M.attach_lightbulb = function(bufnr, client)
   end
 
   local lb_buf_group = vim.api.nvim_create_augroup(buf_group_name, { clear = true })
-  vim.api.nvim_create_autocmd('CursorMoved', {
+  vim.api.nvim_create_autocmd("CursorMoved", {
     group = lb_buf_group,
-    desc = 'Update lightbulb when moving the cursor in normal/visual mode',
+    desc = "Update lightbulb when moving the cursor in normal/visual mode",
     buffer = bufnr,
     callback = function()
       update(bufnr, client)
     end,
   })
 
-  vim.api.nvim_create_autocmd({ 'InsertEnter', 'BufLeave' }, {
+  vim.api.nvim_create_autocmd({ "InsertEnter", "BufLeave" }, {
     group = lb_buf_group,
-    desc = 'Update lightbulb when entering insert mode or leaving the buffer',
+    desc = "Update lightbulb when entering insert mode or leaving the buffer",
     buffer = bufnr,
     callback = function()
       update_extmark(bufnr, nil)
     end,
   })
 
-  vim.api.nvim_create_autocmd('LspDetach', {
+  vim.api.nvim_create_autocmd("LspDetach", {
     group = lb_group,
-    desc = 'Detach code action lightbulb',
+    desc = "Detach code action lightbulb",
     buffer = bufnr,
     callback = function()
       pcall(vim.api.nvim_del_augroup_by_name, lb_name .. tostring(bufnr))

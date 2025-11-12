@@ -109,4 +109,4 @@ Snacks.keymap.set("n", "L", "$", { desc = "End of Line" })
 Snacks.keymap.set("i", "jk", "<Esc>", { noremap = true, desc = "Escape Insert Mode" })
 
 -- Restart Neovim.
-Snacks.keymap.set('n', '<leader>R', '<cmd>restart<cr>', { desc = 'Restart Neovim' })
+Snacks.keymap.set("n", "<leader>R", "<cmd>restart<cr>", { desc = "Restart Neovim" })
