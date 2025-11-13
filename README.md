@@ -71,12 +71,13 @@ NOTE for Windows users:
 ```
 ├── after
 │   └── ftplugin                         # Override filetype settings
-│   └── queries                         # Override filetype settings
+│   └── queries                          # Override filetype settings
+│   └── syntax                           # Override syntax settings
 ├── autoload
-├── biome.json                           # Configuration file for a specific feature or plugin
+├── CHANGELOG.md                         # Changelog file for the project
 ├── init.lua                             # Initialization file for Vim or Neovim
-├── lazy-lock.json                       # Configuration file for a specific feature or plugin
-├── lazyvim.json                         # Configuration file for a specific feature or plugin
+├── lazy-lock.json                       # Lockfile for lazy.nvim plugin manager
+├── lazyvim.json                         # LazyVim configuration file
 ├── LICENSE                              # File containing licensing information
 ├── lua
 │   ├── config                           # Core configuration scripts
@@ -87,10 +88,13 @@ NOTE for Windows users:
 │   │   ├── editor                       # Editor related plugins
 │   │   ├── extras                       # Extra plugins that are not loaded by default
 │   │   ├── init.lua
+│   │   ├── overrides.lua                # Plugin overrides
 │   │   ├── lsp                          # Language server protocol related plugins
 │   │   └── ui                           # UI related plugins
-│   └── utils                            # Utility scripts
-│   └── telescope                        # Custom telescope extension
+│   │   └── local                        # Local plugins
+│   └── rubin                            # Utility scripts
+│   └── utils                            # Personal utility scripts
+│   └── spellfixes.lua                   # Spellfixes Lua script
 ├── misc                                 # Misc folders
 │   ├── snippets
 │   └── undo
@@ -98,6 +102,8 @@ NOTE for Windows users:
 ├── setup.sh                             # Shell script for bootstrapping required tools
 ├── spell                                # Directory possibly containing spellcheck related files
 └── stylua.toml                          # Configuration file for Stylua
+└── .typos.toml                          # Configuration file for typos-lsp
+└── .luarc.json                          # Configuration file for Lua language server
 ```
 
 ## UI
