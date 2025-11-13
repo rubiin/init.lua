@@ -75,6 +75,7 @@ autocmd("FileType", {
     vim.o.number = false
     opt.spell = false
     bo[event.buf].buflisted = false
+    Snacks.indent.disable()
     vim.schedule(function()
       Snacks.keymap.set("n", "q", function()
         cmd("close")
@@ -261,16 +262,6 @@ autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste",
   desc = "Turn Off Paste Mode When Leaving Insert",
-})
-
--- Disable `snacks.indentscope` for specific filetypes :TODO
-autocmd("FileType", {
-  group = aufiletype,
-  pattern = constants.common_file_types,
-  callback = function()
-    Snacks.indent.disable()
-  end,
-  desc = "Disable `snacks.indentscope` For Specific Filetypes",
 })
 
 autocmd("BufWritePost", {

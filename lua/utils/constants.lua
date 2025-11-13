@@ -15,6 +15,7 @@ M.common_file_types = {
   "dap-float",
   "fugitive",
   "fugitiveblame",
+  "snacks_dashboard",
   "git",
   "help",
   "lspinfo",
