@@ -1,6 +1,6 @@
 local user_icons = require("rubin.icons")
 local util = require("utils")
-local logo = require("utils.banners").dashboard()
+local logo = require("rubin.banners").dashboard()
 
 return {
   {

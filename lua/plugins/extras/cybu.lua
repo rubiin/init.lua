@@ -1,4 +1,4 @@
-local constants = require("utils.constants")
+local constants = require("rubin.constants")
 local utils = require("utils")
 
 return {

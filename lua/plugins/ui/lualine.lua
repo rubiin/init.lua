@@ -1,7 +1,7 @@
-local constants = require("utils.constants")
-local lualine = require("utils.lualine")
+local constants = require("rubin.constants")
+local lualine = require("rubin.lualine")
 
-local used_style = constants.styles.slanted_reverse -- this is the default style, change it to the style you want to use from the list
+local used_style = constants.styles.bubbly -- this is the default style, change it to the style you want to use from the list
 
 return {
   {

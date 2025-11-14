@@ -1,5 +1,5 @@
 local user_icons = require("rubin.icons")
-local constants = require("utils.constants")
+local constants = require("rubin.constants")
 
 local M = {}
 
@@ -66,6 +66,9 @@ function M.set_lualine_styles(type, opts)
         end
       end,
     },
+  }
+
+  opts.sections.lualine_c = {
     {
       "diagnostics",
       symbols = {
@@ -75,9 +78,6 @@ function M.set_lualine_styles(type, opts)
         warn = user_icons.diagnostics.BoldWarn,
       },
     },
-  }
-
-  opts.sections.lualine_c = {
     {
       "filename",
       cond = M.buffer_not_empty,

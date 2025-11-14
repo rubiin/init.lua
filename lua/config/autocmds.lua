@@ -10,7 +10,7 @@ local opt, opt_local, autocmd, fn, cmd, api, bo =
   vim.opt, vim.opt_local, vim.api.nvim_create_autocmd, vim.fn, vim.cmd, vim.api, vim.bo
 local usercmd = api.nvim_create_user_command
 
-local constants = require("utils.constants")
+local constants = require("rubin.constants")
 local utils = require("utils")
 
 local aufilewrite = utils.augroup("file_write")

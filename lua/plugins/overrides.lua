@@ -1,5 +1,5 @@
 -- this file holds all the overrides from lazyvim config
-local constant = require("utils.constants")
+local constant = require("rubin.constants")
 
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#45475A", bg = "NONE" })
 vim.api.nvim_set_hl(0, "SnacksPickerTitle", { bg = "#7aa2f7", fg = "#1f2335" })
@@ -564,6 +564,14 @@ return {
       words = { enabled = true },
       quickfile = { enabled = true },
       zen = { enabled = false },
+    },
+  },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin",
+    opts = {
+      auto_integrations = true,
     },
   },
 }
