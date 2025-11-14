@@ -462,7 +462,6 @@ return {
     --- see here for more info https://www.lazyvim.org/plugins/ui#snacksnvim
     opts = {
 
-      dim = { enabled = false },
       bigfile = {
         size = 500 * 1024, -- 500KB
         setup = function(ctx)
@@ -495,10 +494,13 @@ return {
           end)
         end,
       },
+      dim = { enabled = false },
       input = { enabled = true },
       indent = {
         enabled = true,
       },
+
+      notifier = { enabled = true, timeout = 2000, sort = { "added" } },
       picker = {
         enabled = true,
         layout = {
@@ -539,8 +541,14 @@ return {
           },
         },
         sources = {
-          files = {},
+          files = {
+            hidden = true,
+          },
+          grep = {
+            hidden = true,
+          },
           explorer = {
+            hidden = true,
             layout = {
               layout = {
                 position = "right",
@@ -556,14 +564,12 @@ return {
           },
         },
       },
-      notifier = { enabled = true, timeout = 2000 },
       scope = { enabled = true },
       scroll = { enabled = true },
       statuscolumn = { enabled = false }, -- we set this in options.lua
       toggle = { map = LazyVim.safe_keymap_set },
       words = { enabled = true },
       quickfile = { enabled = true },
-      zen = { enabled = false },
     },
   },
   {
