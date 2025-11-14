@@ -5,7 +5,7 @@ return {
   {
     "rubiin/goodies.nvim",
     dev = true,
-    event = "BufRead",
+    event = "VimEnter",
     opts = {
       author = {
         email = "roobin.bhandari@gmail.com",
@@ -65,7 +65,7 @@ return {
   {
     "rubiin/highlighturl.nvim",
     dev = true,
-    event = "BufEnter", -- load when entering a buffer
+    event = "LazyFile",
     opts = {},
   },
   {
