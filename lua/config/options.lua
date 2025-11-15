@@ -13,7 +13,7 @@ local g = vim.g
 opt.hlsearch = true -- highlight search
 opt.incsearch = true -- incremental search
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-opt.grepprg = "rg --vimgrep --no-heading --smart-case" -- use ripgrep for grep
+opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
 -- completeopt is used to manage code suggestions
 -- menuone: show popup even when there is only one suggestion
@@ -42,7 +42,10 @@ opt.foldcolumn = "1" -- '0' is not bad
 opt.foldlevelstart = 99
 opt.foldenable = true
 
--- Scrolling settings
+-- ========================================================================== --
+-- ==                          SCROLLING                                   == --
+-- ========================================================================== --
+
 opt.scrolloff = 10 -- Lines of context
 opt.sidescrolloff = 5 -- Columns of context
 
@@ -52,8 +55,6 @@ opt.sidescrolloff = 5 -- Columns of context
 opt.undofile = true
 opt.undodir = vim.fn.stdpath("config") .. "/misc/undo"
 opt.swapfile = false -- Disable swapfile
-
-opt.fillchars = "fold: "
 
 -- ========================================================================== --
 -- ==                  SPELL AND ENCODING                                  == --
