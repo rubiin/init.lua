@@ -305,12 +305,10 @@ usercmd("Cwd", function()
   cmd(":pwd")
 end, { desc = "Cd Current File's Directory" })
 
--- Write all buffers
 usercmd("WriteAllBuffers", function()
   cmd("wa")
 end, { desc = "Write All Changed Buffers" })
 
--- Clear registers.
 usercmd("ClearRegisters", function()
   for r in ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):gmatch("%a") do
     fn.setreg(r, "")
