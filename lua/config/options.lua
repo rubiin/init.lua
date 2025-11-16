@@ -16,12 +16,7 @@ opt.infercase = true -- infer case in built-in completion
 opt.spelloptions = "camel" -- Treat camelCase word parts as separate words
 opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
--- completeopt is used to manage code suggestions
--- menuone: show popup even when there is only one suggestion
--- noselect: force us to select one from the suggestions
--- noinsert: Only insert text when selection is confirmed
 
-opt.completeopt = "menu,menuone,noselect,noinsert"
 
 -- ========================================================================== --
 -- ==                          INDENTATION                                 == --
