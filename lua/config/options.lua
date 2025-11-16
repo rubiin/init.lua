@@ -18,8 +18,8 @@ opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
 -- completeopt is used to manage code suggestions
 -- menuone: show popup even when there is only one suggestion
--- noinsert: Only insert text when selection is confirmed
 -- noselect: force us to select one from the suggestions
+-- noinsert: Only insert text when selection is confirmed
 
 opt.completeopt = "menu,menuone,noselect,noinsert"
 
