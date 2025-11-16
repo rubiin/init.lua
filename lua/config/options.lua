@@ -56,7 +56,8 @@ opt.swapfile = false -- Disable swapfile
 -- ==                  SPELL AND ENCODING                                  == --
 -- ========================================================================== --
 
-opt.encoding = "UTF-8" -- set encoding
+opt.encoding = "UTF-8"                  -- set encoding
+opt.fileencoding = "UTF-8"              -- set file encoding
 opt.spelllang = { "en", "programming" } -- set spellcheck languages
 
 -- ========================================================================== --
@@ -64,3 +65,4 @@ opt.spelllang = { "en", "programming" } -- set spellcheck languages
 -- ========================================================================== --
 
 opt.history = 1000 -- Number of command-lines that are remembered
+opt.wildignore:append({ "*/node_modules/*" })
