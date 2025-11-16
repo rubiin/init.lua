@@ -15,6 +15,10 @@ function M.get_os()
   return os
 end
 
+function M.is_file_window()
+  return vim.bo.buftype == ""
+end
+
 --- Check if it's day time
 ---@return boolean
 function M.is_day_time()

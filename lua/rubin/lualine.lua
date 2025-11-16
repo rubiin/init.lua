@@ -1,5 +1,6 @@
 local user_icons = require("rubin.icons")
 local constants = require("rubin.constants")
+local utils = require("utils")
 
 local M = {}
 
@@ -45,11 +46,17 @@ function M.set_lualine_styles(type, opts)
   opts.sections.lualine_b = {
     {
       "branch",
-      cond = M.is_git_repo,
+      cond = utils.is_git_repo and utils.is_file_window,
+      on_click = function()
+        Snacks.notify("add branch picker")
+      end,
     },
     {
       "diff",
-      cond = M.is_git_repo,
+      cond = utils.is_git_repo and utils.is_file_window,
+      on_click = function()
+        Snacks.picker.git_diff()
+      end,
       symbols = {
         added = user_icons.git.LineAdded,
         modified = user_icons.git.LineModified,
@@ -71,6 +78,9 @@ function M.set_lualine_styles(type, opts)
   opts.sections.lualine_c = {
     {
       "diagnostics",
+      on_click = function()
+        vim.cmd("Trouble diagnostics toggle")
+      end,
       symbols = {
         error = user_icons.diagnostics.BoldError,
         hint = user_icons.diagnostics.BoldHint,
@@ -78,13 +88,30 @@ function M.set_lualine_styles(type, opts)
         warn = user_icons.diagnostics.BoldWarn,
       },
     },
+    LazyVim.lualine.root_dir(),
     {
-      "filename",
-      cond = M.buffer_not_empty,
+      LazyVim.lualine.pretty_path({ length = 5 }),
+      color = { fg = "#D7D7BC" },
+      separator = "",
+      cond = utils.is_file_window and utils.hide_in_width,
+      on_click = function()
+        vim.g.trouble_lualine = not vim.g.trouble_lualine
+        require("lualine").refresh()
+      end,
     },
   }
 
   opts.sections.lualine_x = {
+    {
+      require("lazy.status").updates,
+      cond = require("lazy.status").has_updates and utils.hide_in_width,
+      color = function()
+        return { fg = Snacks.util.color("Comment") }
+      end,
+      on_click = function()
+        vim.cmd([[Lazy]])
+      end,
+    },
     { "location", icon = user_icons.kinds.Unit, separator = { right = "" } },
     {
       function()
@@ -93,19 +120,20 @@ function M.set_lualine_styles(type, opts)
         })
         return user_icons.ui.Tab .. shiftwidth
       end,
-      cond = M.hide_in_width,
+      cond = utils.hide_in_width,
     },
   }
   opts.sections.lualine_y = {
     {
       "o:encoding",
-      cond = M.hide_in_width,
+      cond = utils.hide_in_width,
       fmt = string.upper,
     },
 
     {
       "filetype",
-      fmt = M.capitalize,
+      fmt = utils.capitalize,
+      cond = utils.is_file_window,
     },
   }
   opts.sections.lualine_z = {
