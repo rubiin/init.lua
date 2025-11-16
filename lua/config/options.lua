@@ -16,8 +16,6 @@ opt.infercase = true -- infer case in built-in completion
 opt.spelloptions = "camel" -- Treat camelCase word parts as separate words
 opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
-
-
 -- ========================================================================== --
 -- ==                          INDENTATION                                 == --
 -- ========================================================================== --
@@ -56,8 +54,8 @@ opt.swapfile = false -- Disable swapfile
 -- ==                  SPELL AND ENCODING                                  == --
 -- ========================================================================== --
 
-opt.encoding = "UTF-8"                  -- set encoding
-opt.fileencoding = "UTF-8"              -- set file encoding
+opt.encoding = "UTF-8" -- set encoding
+opt.fileencoding = "UTF-8" -- set file encoding
 opt.spelllang = { "en", "programming" } -- set spellcheck languages
 
 -- ========================================================================== --

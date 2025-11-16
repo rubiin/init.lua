@@ -4,6 +4,7 @@ return {
   { import = "plugins.coding" },
   { import = "plugins.lsp" },
   { import = "plugins.local" },
+  { import = "plugins.overrides" },
 
   -- install from extras if you need them
   -- plugin.<file name without extension> to require it.
