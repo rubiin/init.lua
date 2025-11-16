@@ -12,8 +12,8 @@ local g = vim.g
 
 opt.hlsearch = true -- highlight search
 opt.incsearch = true -- incremental search
-opt.infercase = true  -- infer case in built-in completion
-opt.spelloptions = 'camel'-- Treat camelCase word parts as separate words
+opt.infercase = true -- infer case in built-in completion
+opt.spelloptions = "camel" -- Treat camelCase word parts as separate words
 opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
 -- completeopt is used to manage code suggestions
