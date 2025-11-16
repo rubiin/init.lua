@@ -6,7 +6,7 @@
 -- https://vim.fandom.com/wiki/Unused_keys check this for unused keys
 
 -- Copy / Select All
-Snacks.keymap.set("n", "<C-1>", "ggVG", { desc = "Select All" })
+Snacks.keymap.set("n", "<C-1>", "gg<S-v>G", { desc = "Select All" })
 Snacks.keymap.set("n", "<C-2>", ":%y+<CR>", { desc = "Copy Whole File To Clipboard" })
 Snacks.keymap.set("n", "<C-3>", "ggVGx", { desc = "Delete All" })
 
