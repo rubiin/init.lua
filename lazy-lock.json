@@ -32,7 +32,7 @@
   "nvim-autopairs": { "branch": "master", "commit": "7a2c97cccd60abc559344042fefb1d5a85b3e33b" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "81e676d3203c9eb6e4c0ccf1eba1679296ef923f" },
   "nvim-lint": { "branch": "master", "commit": "baf7c91c2b868b12446df511d4cdddc98e9bf66e" },
-  "nvim-lspconfig": { "branch": "master", "commit": "abf6d190f2c06818489c0bd4b926e7e3a06c5e51" },
+  "nvim-lspconfig": { "branch": "master", "commit": "a665b99dcd71b6763e9a8484cf77af7134a7a94f" },
   "nvim-treesitter": { "branch": "main", "commit": "0cfa59947416d14e36a41e6fe4f025abd8760301" },
   "nvim-treesitter-context": { "branch": "master", "commit": "660861b1849256398f70450afdf93908d28dc945" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f" },
