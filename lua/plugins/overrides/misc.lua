@@ -155,6 +155,21 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       popup_border_style = vim.g.border_style,
+
+      filesystem = {
+        window = {
+          mappings = {
+            ["o"] = "system_open",
+          },
+        },
+      },
+      commands = {
+        system_open = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+        end,
+      },
     },
   },
 
