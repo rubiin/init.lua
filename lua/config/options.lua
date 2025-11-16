@@ -12,7 +12,8 @@ local g = vim.g
 
 opt.hlsearch = true -- highlight search
 opt.incsearch = true -- incremental search
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.infercase = true  -- infer case in built-in completion
+opt.spelloptions = 'camel'-- Treat camelCase word parts as separate words
 opt.grepprg = "rg --vimgrep --smart-case" -- use ripgrep for grep
 
 -- completeopt is used to manage code suggestions
