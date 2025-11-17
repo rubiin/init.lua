@@ -48,7 +48,7 @@ function M.set_lualine_styles(type, opts)
       "branch",
       cond = utils.is_git_repo and utils.is_file_window,
       on_click = function()
-        Snacks.notify("add branch picker")
+        Snacks.picker.git_branches()
       end,
     },
     {
@@ -92,7 +92,7 @@ function M.set_lualine_styles(type, opts)
     {
       LazyVim.lualine.pretty_path({ length = 5 }),
       color = { fg = "#D7D7BC" },
-      separator = "",
+      separator = user_icons.ui.DividerRight,
       cond = utils.is_file_window and utils.hide_in_width,
       on_click = function()
         vim.g.trouble_lualine = not vim.g.trouble_lualine
