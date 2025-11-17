@@ -130,6 +130,7 @@ return {
     Tag = " ",
     Watch = " ",
     Smiley = " ",
+    InProgress = " ",
     CircuitBoard = " ",
     Triangle = "󰐊 ",
     TriangleShortArrowDown = " ",

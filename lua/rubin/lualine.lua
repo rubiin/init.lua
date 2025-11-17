@@ -104,13 +104,14 @@ function M.set_lualine_styles(type, opts)
   opts.sections.lualine_x = {
     {
       require("lazy.status").updates,
-      cond = require("lazy.status").has_updates and utils.hide_in_width,
+      cond = require("lazy.status").has_updates,
       color = function()
-        return { fg = Snacks.util.color("Comment") }
+        return { fg = Snacks.util.color("Special") }
       end,
       on_click = function()
         vim.cmd([[Lazy]])
       end,
+      icon = user_icons.ui.Package,
     },
     { "location", icon = LazyVim.config.icons.kinds.Unit, separator = { right = "" } },
     {
@@ -155,11 +156,11 @@ function M.set_lualine_styles(type, opts)
       if #clients > 0 then
         local status = require("copilot.status").data.status
         if status == "InProgress" then
-          return " "
+          return user_icons.ui.InProgress
         elseif status == "Warning" then
           return " "
         else
-          return " "
+          return user_icons.git.Copilot
         end
       end
     end,
