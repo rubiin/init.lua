@@ -113,7 +113,6 @@ function M.set_lualine_styles(type, opts)
       end,
     },
     { "location", separator = { right = "" } },
-
   }
   opts.sections.lualine_y = {
     {
@@ -165,6 +164,12 @@ function M.set_lualine_styles(type, opts)
       end
     end,
   })
+
+  -- if style is bubbly, add right separator to lualine_z
+  if type == constants.styles.bubbly then
+    opts.sections.lualine_z[#opts.sections.lualine_z]["separator"] = { right = "" }
+    opts.sections.lualine_a[#opts.sections.lualine_a]["separator"] = { left = "" }
+  end
 
   return opts
 end
