@@ -181,4 +181,17 @@ return {
       auto_integrations = true,
     },
   },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          border = vim.g.border_style,
+          draw = {
+            columns = { { "kind_icon", "label", gap = 2 }, { "label_description", "kind" } },
+          },
+        },
+      },
+    },
+  },
 }
