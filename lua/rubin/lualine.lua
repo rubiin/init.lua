@@ -111,7 +111,6 @@ function M.set_lualine_styles(type, opts)
       on_click = function()
         vim.cmd([[Lazy]])
       end,
-      icon = user_icons.ui.Package,
     },
     { "location", icon = LazyVim.config.icons.kinds.Unit, separator = { right = "" } },
     {
