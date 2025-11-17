@@ -54,12 +54,6 @@ return {
               },
               { icon = user_icons.ui.FileBold, key = "n", desc = "New File", action = ":ene | startinsert" },
               {
-                icon = user_icons.ui.FileOld,
-                key = "g",
-                desc = "Find Text",
-                action = ":lua Snacks.dashboard.pick('live_grep')",
-              },
-              {
                 icon = user_icons.ui.History,
                 key = "r",
                 desc = "Recent Files",
