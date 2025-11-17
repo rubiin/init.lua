@@ -112,7 +112,10 @@ function M.set_lualine_styles(type, opts)
         vim.cmd([[Lazy]])
       end,
     },
-    { "location", icon = LazyVim.config.icons.kinds.Unit, separator = { right = "" } },
+    { "location", separator = { right = "" } },
+
+  }
+  opts.sections.lualine_y = {
     {
       function()
         local shiftwidth = vim.api.nvim_get_option_value("shiftwidth", {
@@ -122,8 +125,6 @@ function M.set_lualine_styles(type, opts)
       end,
       cond = utils.hide_in_width,
     },
-  }
-  opts.sections.lualine_y = {
     {
       "o:encoding",
       cond = utils.hide_in_width,
