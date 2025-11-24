@@ -83,6 +83,7 @@ return {
       opts.groups.default = vim.list_extend(opts.groups.default, {
         environments,
         logs,
+        augend.integer.alias.Bool,
       })
     end,
   },

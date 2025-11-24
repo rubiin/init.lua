@@ -1,3 +1,5 @@
+local constants = require("rubin.constants")
+
 return {
   --[[
   Recommended workflow:
@@ -29,20 +31,7 @@ return {
     opts = {
       restriction_mode = "hint", -- block or hint
       disable_mouse = false,
-      disabled_filetypes = {
-        "dapui",
-        "mason",
-        "neo-tree",
-        "Outline",
-        "TelescopePrompt",
-        "lazy",
-        "spectre_panel",
-        "lspsaga.window",
-        "qf",
-        "netrw",
-        "NvimTree",
-        "oil",
-      },
+      disabled_filetypes = constants.common_file_types,
     },
   },
 }

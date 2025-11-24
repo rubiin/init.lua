@@ -3,7 +3,7 @@ local user_icons = require("rubin.icons")
 return {
   "folke/todo-comments.nvim",
   event = "LazyFile",
-  cmd = { "TodoTrouble", "TodoTelescope" },
+  cmd = { "TodoTrouble" },
   keys = {
 
     {

@@ -4,6 +4,7 @@
 -- https://github.com/okuuva/auto-save.nvim/issues/67#issuecomment-2597631756
 local visual_event_group = vim.api.nvim_create_augroup("visual_event", { clear = true })
 local group = vim.api.nvim_create_augroup("autosave", {})
+local constants = require("rubin.constants")
 
 vim.api.nvim_create_autocmd("ModeChanged", {
   group = visual_event_group,
@@ -97,20 +98,12 @@ return {
           return false
         end
 
-        local excluded_filetypes = {
+        local excluded_filetypes = vim.list_extend(constants.common_file_types, {
           -- this one is especially useful if you use neovim as a commit message editor
           "gitcommit",
           -- most of these are usually set to non-modifiable, which prevents autosaving
           -- by default, but it doesn't hurt to be extra safe.
           "NvimTree",
-          "Outline",
-          "TelescopePrompt",
-          "alpha",
-          "dashboard",
-          "lazygit",
-          "neo-tree",
-          "oil",
-          "prompt",
           "toggleterm",
 
           -- Disable auto-save for the harpoon plugin, otherwise it just opens and closes
@@ -122,7 +115,7 @@ return {
           -- Run `:set filetype?` on a dadbod query to make sure of the filetype
           "harpoon",
           "mysql",
-        }
+        })
 
         local filetype = vim.bo[buf].filetype
         if vim.tbl_contains(excluded_filetypes, filetype) then

@@ -1,3 +1,5 @@
+local constants = require("rubin.constants")
+
 return {
   {
     "rmagatti/auto-session", -- auto save session
@@ -15,7 +17,7 @@ return {
       log_level = "error",
       suppressed_dirs = { "/", "~/", "~/Downloads", "~/Documents" },
       use_git_branch = true,
-      bypass_save_filetypes = { "alpha", "dashboard", "snacks_dashboard" }, -- or whatever dashboard you use
+      bypass_save_filetypes = constants.common_file_types,
       root_dir = vim.fn.stdpath("data") .. "/sessions/", -- Root dir where sessions will be stored
       session_lens = {
         picker = "snacks",
