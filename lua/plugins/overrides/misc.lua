@@ -84,6 +84,11 @@ return {
         environments,
         logs,
         augend.integer.alias.Bool,
+        augend.constant.alias.en_weekday_full,
+        augend.case.new({
+          types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
+          cyclic = true,
+        }),
       })
     end,
   },
