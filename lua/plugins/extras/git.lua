@@ -39,4 +39,8 @@ return {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit | Open Neogit" },
     },
   },
+  {
+    "esmuellert/vscode-diff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+  },
 }
