@@ -144,15 +144,6 @@ return {
       "<cmd>BufferLinePick<cr>",
       desc = "Pick buffer",
     } },
-    opts = {
-      options = {
-        hover = {
-          enabled = true,
-          delay = 200,
-          reveal = { "close" },
-        },
-      },
-    },
   },
   -- neotree
   {
