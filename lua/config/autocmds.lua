@@ -133,6 +133,18 @@ autocmd({ "BufWritePre" }, {
 --- END LAZYVIM specific autocmds -------
 -----------------------------------------
 
+autocmd("CursorMoved", {
+  group = utils.augroup("rubiin/auto-hlsearch", { clear = true }),
+  callback = function()
+    if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
+      vim.schedule(function()
+        cmd("nohlsearch")
+      end)
+    end
+  end,
+  desc = "Auto clear hlsearch when moving the cursor",
+})
+
 autocmd({ "InsertLeave", "WinEnter" }, {
   group = augeneral,
   pattern = "*",
