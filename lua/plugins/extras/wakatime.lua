@@ -1,5 +1,6 @@
+-- WakaTime integration for Neovim
+
 return {
-  -- wakatime
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",
