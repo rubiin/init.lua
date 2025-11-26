@@ -5,7 +5,10 @@ local g = vim.g
 -- use this for more https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow or https://textfancy.com/text-art/
 -- or copy from here https://emojicombos.com/anime-ascii-art
 -- you may need to adjust the padding on the headers to fit your screen mostly the vertical padding as done on the first header
-local headers = {
+local headers = nil
+
+local function load_headers()
+  return {
   [[         __                        ___________________________________
            _( _)_                     /    I know Beethoven was great,    \
           ( _) ( )            _____  |      but do you have to say it      |
@@ -481,15 +484,24 @@ l42            |  '-'  |                |  '-'  |
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⢿⣿⣿⣽⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   ]],
-}
+  }
+end
+
+local function get_headers()
+  if not headers then
+    headers = load_headers()
+  end
+  return headers
+end
 
 -- Dashboard logo
 function M.dashboard()
   math.randomseed(os.time())
-  local logo = headers[1]
+  local h = get_headers()
+  local logo = h[1]
 
   if g.random_banner then
-    logo = headers[math.random(#headers)]
+    logo = h[math.random(#h)]
   end
 
   -- add padding to the top and bottom of the logo

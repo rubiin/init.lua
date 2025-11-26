@@ -4,10 +4,9 @@ local constant = require("rubin.constants")
 return {
   {
     "zbirenbaum/copilot.lua",
-    lazy = false,
-    priority = 1000,
-    build = ":Copilot auth",
+    event = "BufReadPost",
     opts = {
+      event = "InsertEnter",
       server_opts_overrides = {
         settings = {
           telemetry = {
@@ -17,7 +16,6 @@ return {
       },
     },
   },
-
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
