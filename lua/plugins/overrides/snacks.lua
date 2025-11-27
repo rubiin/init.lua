@@ -58,6 +58,7 @@ return {
       notifier = { enabled = true, timeout = 2000, sort = { "added" } },
       picker = {
         enabled = true,
+        hidden = true,
         layout = {
           -- The default layout for "telescopy" pickers, e.g. `files`, `commands`, ...
           -- It will not override non-standard pickers, e.g. `explorer`, `lines`, ...
