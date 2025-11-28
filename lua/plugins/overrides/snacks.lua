@@ -25,6 +25,8 @@ return {
           end
           Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
 
+          -- TODO: disable highlighturl.nvim
+
           -- taken from lunarvim/bigfile.nvim
           vim.cmd("syntax clear")
           Snacks.util.wo(0, {
