@@ -78,9 +78,37 @@ return {
         cyclic = true,
       })
 
+      local git_verbs = augend.constant.new({
+        elements = { "feat", "fix", "chore", "docs", "refactor", "test", "style", "perf" },
+        word = false,
+        cyclic = true,
+      })
+
+      local git_branches = augend.constant.new({
+        elements = { "dev", "staging", "release", "hotfix", "main", "master" },
+        cyclic = true,
+        word = true,
+      })
+
+      local http_verbs = augend.constant.new({
+        elements = { "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "CONNECT", "TRACE" },
+        cyclic = true,
+        word = true, -- treats each element as a separate word
+      })
+
+      local todo = augend.constant.new({
+        elements = { "TODO", "HACK", "WARN", "PERF", "NOTE", "TEST", "BUG", "DONE", "INFO" },
+        cyclic = true,
+        word = true,
+      })
+
       opts.groups.default = vim.list_extend(opts.groups.default, {
         environments,
         logs,
+        todo,
+        git_verbs,
+        git_branches,
+        http_verbs,
         augend.integer.alias.Bool,
         augend.constant.alias.en_weekday_full,
         augend.case.new({
