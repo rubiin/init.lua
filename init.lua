@@ -13,6 +13,7 @@
 -- ░▓        ▓
 -- ░▓▓▓▓▓▓▓▓▓▓
 -- ░░░░░░░░░░
+
 -- this is supposed to make loading faster
 vim.loader.enable()
 
