@@ -1,4 +1,3 @@
-
 -- enable lazyvim.plugins.extras.editor.harpoon2 first before using this override
 
 return {
