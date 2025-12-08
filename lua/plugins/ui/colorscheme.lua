@@ -41,13 +41,13 @@ return {
   -- },
 
   -- add vscode
-  -- {
-  --   "Mofiqul/vscode.nvim",
-  --   lazy = true,
-  --   keys = {
-  --     { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
-  --   },
-  -- },
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+    },
+  },
   -- add material
   -- {
   --   "marko-cerovac/material.nvim",

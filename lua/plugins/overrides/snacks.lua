@@ -43,7 +43,7 @@ return {
           vim.b.minihipatterns_disable = true
           vim.b.completion = false
           vim.b.minisurround_disable = true
-          vim.b.vim.b.miniai_disable = true
+          vim.b.miniai_disable = true
           vim.schedule(function()
             if vim.api.nvim_buf_is_valid(ctx.buf) then
               vim.bo[ctx.buf].syntax = ctx.ft
