@@ -27,7 +27,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   rocks = {
-    enabled = false, -- dont use luarocks
+    enabled = false, -- don't use luarocks
   },
   ui = {
     title = "Plugin Manager",

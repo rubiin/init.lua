@@ -166,6 +166,7 @@ return {
     "saghen/blink.cmp",
     opts = {
       completion = {
+        documentation = { window = { border = vim.g.border_style } },
         menu = {
           border = vim.g.border_style,
           draw = {
