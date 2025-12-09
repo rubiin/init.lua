@@ -15,17 +15,12 @@ return {
       }
 
       opts.max_concurrent_installers = 10
+
+      -- Ensure these tools are installed, this includes only tools not installed globally
+      -- if any tool is installed globally, remove from this list
       vim.list_extend(opts.ensure_installed or {}, {
-        "stylua",
         "selene",
-        "oxlint",
-        "eslint_d",
         "biome",
-        "oxfmt",
-
-        -- code spell
-        "typos-lsp",
-
         -- rustywind for tailwindcss
         "rustywind",
       })
