@@ -14,7 +14,7 @@ for name, _ in vim.fs.dir("$VIMRUNTIME/colors/") do
   end
 end
 
-local get_colorsheme = function()
+local get_colorscheme = function()
   local target = vim.fn.getcompletion
 
   ---@diagnostic disable-next-line: duplicate-set-field
@@ -45,7 +45,7 @@ return {
     "Mofiqul/vscode.nvim",
     lazy = true,
     keys = {
-      { "<leader>uC", get_colorsheme, desc = "Colorscheme With Preview" },
+      { "<leader>uC", get_colorscheme, desc = "Colorscheme With Preview" },
     },
   },
   -- add material
