@@ -21,6 +21,7 @@ return {
         "oxlint",
         "eslint_d",
         "biome",
+        "oxfmt",
 
         -- code spell
         "typos-lsp",
