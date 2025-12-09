@@ -43,6 +43,11 @@ return {
     opts = {
       formatters_by_ft = formatters_by_ft,
       formatters = {
+        oxfmt = {
+          condition = function()
+            return utils.cli_config_exists({ ".oxfmtrc.jsonc" })
+          end,
+        },
         biome = {
           condition = function()
             return utils.cli_config_exists({ "biome.json", "biome.jsonc" })
