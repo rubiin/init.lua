@@ -42,7 +42,8 @@ return {
 
   -- add vscode
   {
-    "Mofiqul/vscode.nvim",
+    "askfiy/visual_studio_code",
+    priority = 100,
     lazy = true,
     keys = {
       { "<leader>uC", get_colorscheme, desc = "Colorscheme With Preview" },

@@ -17,7 +17,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "vscode",
+        colorscheme = "visual_studio_code",
         defaults = {
           autocmds = false,
         },
@@ -48,7 +48,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = '*', -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "vscode" } },
+  install = { colorscheme = { "visual_studio_code" } },
   dev = { path = "~/personal/vim" },
   checker = {
     -- automatically check for plugin updates
