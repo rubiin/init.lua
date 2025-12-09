@@ -10,14 +10,14 @@ return {
     opts = {
       keymap = {
         -- https://cmp.saghen.dev/configuration/keymap.html
-        preset = "none",
-        ["<CR>"] = { "select_and_accept", "fallback" },
-        ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
-        ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
-        ["<D-c>"] = { "show", "hide" },
+        preset = "default",
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
         ["<PageDown>"] = { "scroll_documentation_down", "fallback" },
         ["<PageUp>"] = { "scroll_documentation_up", "fallback" },
-        ["<D-g>"] = { "show_signature", "hide_signature" },
       },
       completion = {
         documentation = { window = { border = vim.g.border_style } },
