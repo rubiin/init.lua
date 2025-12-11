@@ -17,7 +17,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "visual_studio_code",
+        colorscheme = "catppuccin-mocha",
         defaults = {
           autocmds = false,
         },
@@ -48,7 +48,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = '*', -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "visual_studio_code" } },
+  install = { colorscheme = { "catppuccin-mocha" } },
   dev = { path = "~/personal/vim" },
   checker = {
     -- automatically check for plugin updates

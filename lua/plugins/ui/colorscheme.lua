@@ -41,14 +41,14 @@ return {
   -- },
 
   -- add vscode
-  {
-    "askfiy/visual_studio_code",
-    priority = 100,
-    lazy = true,
-    keys = {
-      { "<leader>uC", get_colorscheme, desc = "Colorscheme With Preview" },
-    },
-  },
+  -- {
+  --   "askfiy/visual_studio_code",
+  --   priority = 100,
+  --   lazy = true,
+  --   keys = {
+  --     { "<leader>uC", get_colorscheme, desc = "Colorscheme With Preview" },
+  --   },
+  -- },
   -- add material
   -- {
   --   "marko-cerovac/material.nvim",
