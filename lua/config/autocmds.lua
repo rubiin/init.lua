@@ -326,3 +326,84 @@ usercmd("ClearRegisters", function()
     fn.setreg(r, "")
   end
 end, { desc = "Clear registers" })
+
+usercmd("PickNpmScript", function(_opts)
+  local path = vim.fn.findfile("package.json", ".;")
+  if path == "" then
+    return vim.notify("No package.json found", vim.log.levels.WARN)
+  end
+
+  -- 1. Decode JSON to get the commands safely
+  local content = table.concat(vim.fn.readfile(path), "\n")
+  local ok, json = pcall(vim.fn.json_decode, content)
+  if not ok or not json.scripts then
+    return vim.notify("No scripts found in package.json", vim.log.levels.WARN)
+  end
+
+  -- 2. Scan file manually to get keys in definition order
+  -- (Lua tables are unordered, so pairs(json.scripts) destroys file order)
+  local script_keys = {}
+  local in_scripts = false
+  for line in io.lines(path) do
+    if not in_scripts then
+      -- Look for "scripts": {
+      if line:match('^%s*"scripts"%s*:%s*{') then
+        in_scripts = true
+      end
+    else
+      -- Stop if we hit the closing brace of scripts
+      if line:match("^%s*}") then
+        break
+      end
+
+      -- Extract key from line: "start": "..."
+      local key = line:match('^%s*"(.-)"%s*:')
+      if key and json.scripts[key] then
+        table.insert(script_keys, key)
+      end
+    end
+  end
+
+  -- Fallback: If regex failed (e.g. minified JSON), use random pairs order
+  if #script_keys == 0 then
+    for k, _ in pairs(json.scripts) do
+      table.insert(script_keys, k)
+    end
+    table.sort(script_keys) -- At least sort A-Z if we can't get file order
+  end
+
+  -- 3. Build items list based on the ordered keys
+  local items = {}
+  for _, key in ipairs(script_keys) do
+    table.insert(items, {
+      text = key,
+      cmd = json.scripts[key],
+      preview = {
+        text = json.scripts[key],
+        ft = "sh",
+      },
+    })
+  end
+
+  -- 4. Open Picker
+  require("snacks").picker({
+    title = "NPM Scripts",
+    items = items,
+    on_show = function(picker)
+      picker.preview.win.opts.wo.wrap = true
+    end,
+    preview = "preview",
+    format = function(item, _)
+      return {
+        { item.text, "SnacksPickerLabel" },
+        { " " },
+        { item.cmd, "Comment" },
+      }
+    end,
+    confirm = function(picker, item)
+      picker:close()
+      -- Run in ToggleTerm
+      vim.cmd("TermExec cmd='npm run " .. item.text .. "' size=10 direction=horizontal")
+    end,
+  })
+end, {})
