@@ -20,7 +20,6 @@ return {
       -- if any tool is installed globally, remove from this list
       vim.list_extend(opts.ensure_installed or {}, {
         "selene",
-        "biome",
         -- rustywind for tailwindcss
         "rustywind",
       })
