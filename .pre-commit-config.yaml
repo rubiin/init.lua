@@ -9,10 +9,12 @@ repos:
         files: \.lua$
         args: ["--config-path", ".stylua.toml"]  # Optional: if you have a stylua config
 
-  - repo: https://github.com/biomejs/pre-commit
-    rev: v2.3.8 # Use the sha / tag you want to point at
+
+  - repo: local
     hooks:
-      - id: biome-check
-        name: Biome code formatter
+      - id: local-biome-check
+        name: biome check
+        entry: npx biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
+        language: system
         types: [yaml, markdown]
         files: "\\.(yaml|yml|md)$"

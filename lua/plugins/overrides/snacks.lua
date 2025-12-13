@@ -79,6 +79,7 @@ return {
               border = "none",
               {
                 box = "vertical",
+                { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
                 {
                   win = "input",
                   height = 1,
@@ -86,7 +87,6 @@ return {
                   title = "{title} {live} {flags}",
                   title_pos = "center",
                 },
-                { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
               },
               {
                 win = "preview",
