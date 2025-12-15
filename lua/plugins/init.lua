@@ -9,6 +9,5 @@ return {
   -- install from extras if you need them
   -- plugin.<file name without extension> to require it.
   { import = "plugins.extras.autosave" },
-  { import = "plugins.extras.blinkpairs" },
   { import = "plugins.extras.wakatime" },
 }
