@@ -2,35 +2,66 @@ return {
   "catgoose/nvim-colorizer.lua",
   event = "VeryLazy",
   opts = { -- set to setup table
-    lazy_load = true,
-    user_default_options = {
-      names = true, -- "Name" codes like Blue or red.  Added from `vim.api.nvim_get_color_map()`
-      names_opts = { -- options for mutating/filtering names.
-        lowercase = true, -- name:lower(), highlight `blue` and `red`
-        camelcase = true, -- name, highlight `Blue` and `Red`
-        uppercase = false, -- name:upper(), highlight `BLUE` and `RED`
-        strip_digits = false, -- ignore names with digits,
-        -- highlight `blue` and `red`, but not `blue3` and `red4`
+    filetypes = { "*" },
+    buftypes = {},
+    user_commands = true,
+    lazy_load = false,
+    options = {
+      parsers = {
+        css = false, -- preset: enables names, hex, rgb, hsl, oklch
+        css_fn = false, -- preset: enables rgb, hsl, oklch
+        names = {
+          enable = false,
+          lowercase = true,
+          camelcase = true,
+          uppercase = false,
+          strip_digits = false,
+          custom = false, -- table|function|false
+        },
+        hex = {
+          default = false, -- default value for format keys (see above)
+          rgb = false, -- #RGB
+          rgba = false, -- #RGBA
+          rrggbb = false, -- #RRGGBB
+          rrggbbaa = false, -- #RRGGBBAA
+          aarrggbb = false, -- 0xAARRGGBB
+        },
+        rgb = { enable = false },
+        hsl = { enable = false },
+        oklch = { enable = false },
+        tailwind = {
+          enable = false, -- parse Tailwind color names
+          lsp = false, -- use Tailwind LSP documentColor
+          update_names = false,
+        },
+        sass = {
+          enable = false,
+          parsers = { css = true },
+          variable_pattern = "^%$([%w_-]+)",
+        },
+        xterm = { enable = false },
+        custom = {},
       },
-      -- Expects a table of color name to #RRGGBB value pairs.  # is optional
-      -- Example: { cool = "#107dac", ["notcool"] = "ee9240" }
-      -- Set to false to disable, for example when setting filetype options
-      names_custom = false, -- Custom names to be highlighted: table|function|false
-      RGB = true, -- #RGB hex codes
-      RGBA = true, -- #RGBA hex codes
-      RRGGBB = true, -- #RRGGBB hex codes
-      RRGGBBAA = true, -- #RRGGBBAA hex codes
-      AARRGGBB = true, -- 0xAARRGGBB hex codes
-      rgb_fn = true, -- CSS rgb() and rgba() functions
-      hsl_fn = true, -- CSS hsl() and hsla() functions
-      css = true, -- Enable all CSS *features*:
-      -- names, RGB, RGBA, RRGGBB, RRGGBBAA, AARRGGBB, rgb_fn, hsl_fn
-      css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-      -- Tailwind colors.  boolean|'normal'|'lsp'|'both'.  True sets to 'normal'
-      tailwind = true, -- Enable tailwind colors
-      tailwind_opts = { -- Options for highlighting tailwind names
-        update_names = false, -- When using tailwind = 'both', update tailwind names from LSP results.  See tailwind section
+      display = {
+        mode = "background", -- "background"|"foreground"|"virtualtext"
+        background = {
+          bright_fg = "#000000",
+          dark_fg = "#ffffff",
+        },
+        virtualtext = {
+          char = "■",
+          position = "eol", -- "eol"|"before"|"after"
+          hl_mode = "foreground",
+        },
+        priority = {
+          default = 150, -- vim.hl.priorities.diagnostics
+          lsp = 200, -- vim.hl.priorities.user
+        },
       },
+      hooks = {
+        should_highlight_line = false, -- function(line, bufnr, line_num) -> bool
+      },
+      always_update = false,
     },
   },
 }
