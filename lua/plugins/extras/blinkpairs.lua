@@ -1,4 +1,3 @@
-
 -- TODO: have to run this :lua local ok,mod=pcall(require,'blink.pairs'); print(ok, type(mod))
 
 return {
@@ -76,6 +75,6 @@ return {
         },
       },
       debug = false,
-    }
-  }
+    },
+  },
 }
