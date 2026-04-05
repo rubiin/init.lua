@@ -2,7 +2,14 @@ return {
 
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = { "rafamadriz/friendly-snippets", {
+      "Kaiser-Yang/blink-cmp-git",
+      dependencies = { "nvim-lua/plenary.nvim" },
+    },
+      {
+        "Kaiser-Yang/blink-cmp-dictionary",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      }, },
     -- use a release tag to download pre-built binaries
     version = "1.*",
     ---@module 'blink.cmp'
@@ -29,7 +36,22 @@ return {
         },
       },
       sources = {
+        default = { "lsp", "buffer", "snippets", "path", "git", "dictionary" },
         providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+            opts = {},
+          },
+          dictionary = {
+            module = "blink-cmp-dictionary",
+            name = "Dict",
+            min_keyword_length = 3,
+            max_items = 10,
+            opts = {
+              dictionary_files = { vim.fn.expand("~/.config/dictionaries/words_alpha.txt") },
+            },
+          },
           snippets = {
             opts = {
               search_paths = { vim.g.vscode_snippets_path },

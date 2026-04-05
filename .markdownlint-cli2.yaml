@@ -1,3 +1,13 @@
 config:
+  # MD007: Unordered list indentation
+  MD007: false
+  # MD010: Hard tabs
+  MD010: false
+  # MD013: Line length
   MD013: false
-  MD033: false
+  # MD024: Multiple headings with the same content
+  MD024: false
+  # MD041: First line in file should be a top-level heading
+  MD041: false
+  # MD034: Bare URL used
+  MD034: false
