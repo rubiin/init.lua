@@ -49,7 +49,7 @@ return {
             min_keyword_length = 3,
             max_items = 10,
             opts = {
-              dictionary_files = { vim.fn.expand("~/.config/dictionaries/words_alpha.txt") },
+              dictionary_files = { vim.fn.expand("~/.config/dictionaries/words.txt") },
             },
           },
           snippets = {
