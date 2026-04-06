@@ -31,7 +31,7 @@ local prettier_file_types = {
   "astro",
 }
 
-local P = { "oxfmt","biome", "prettierd" }
+local P = { "oxfmt", "biome", "prettierd" }
 for _, ft in pairs(prettier_file_types) do
   formatters_by_ft[ft] = P
 end
@@ -47,7 +47,7 @@ return {
       formatters = {
         oxfmt = {
           condition = function()
-            return utils.cli_config_exists({ ".oxfmtrc.jsonc", ".oxfmtrc.json","oxfmt.config.ts" })
+            return utils.cli_config_exists({ ".oxfmtrc.jsonc", ".oxfmtrc.json", "oxfmt.config.ts" })
           end,
         },
         biome = {
