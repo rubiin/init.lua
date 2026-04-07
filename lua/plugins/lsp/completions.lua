@@ -2,14 +2,17 @@ return {
 
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets", {
-      "Kaiser-Yang/blink-cmp-git",
-      dependencies = { "nvim-lua/plenary.nvim" },
-    },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      {
+        "Kaiser-Yang/blink-cmp-git",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
       {
         "Kaiser-Yang/blink-cmp-dictionary",
         dependencies = { "nvim-lua/plenary.nvim" },
-      }, },
+      },
+    },
     -- use a release tag to download pre-built binaries
     version = "1.*",
     ---@module 'blink.cmp'
