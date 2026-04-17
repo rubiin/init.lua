@@ -3,7 +3,7 @@ local util = require("utils")
 
 return {
   {
-    "sindrets/diffview.nvim",
+    "dlyongemallo/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     opts = {
       enhanced_diff_hl = true,
