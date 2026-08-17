@@ -152,9 +152,13 @@ local timer = nil
 local function schedule_close()
   local to = M.config.timeout
   if timer then
-    pcall(vim.loop.kill, timer)
+    -- stop and close the previous timer (vim.loop.kill is for processes, not timers)
+    pcall(function()
+      timer:stop()
+      timer:close()
+    end)
   end
-  timer = vim.loop.new_timer()
+  timer = vim.uv.new_timer()
   timer:start(
     to,
     0,

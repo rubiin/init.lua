@@ -1,4 +1,4 @@
-vim.opt.shiftwidth = 4
+vim.opt_local.shiftwidth = 4
 
 local ft_abbr = require("utils").ft_abbr
 

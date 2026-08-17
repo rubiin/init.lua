@@ -35,11 +35,8 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 autocmd("TextYankPost", {
   group = augeneral,
   callback = function()
-    if vim.fn.has("nvim-0.13") == 1 then
-      vim.hl.hl_op()
-    else
-      (vim.hl or vim.highlight).on_yank()
-    end
+    -- vim.hl.on_yank exists since nvim-0.11; vim.highlight.on_yank is the deprecated alias
+    (vim.hl or vim.highlight).on_yank()
   end,
   desc = "Highlight On Yank",
 })
@@ -76,8 +73,8 @@ autocmd("FileType", {
   group = aufiletype,
   pattern = constants.common_file_types,
   callback = function(event)
-    vim.o.number = false
-    opt.spell = false
+    vim.wo.number = false
+    vim.wo.spell = false
     bo[event.buf].buflisted = false
     Snacks.indent.disable()
     vim.schedule(function()
@@ -115,7 +112,7 @@ autocmd("FileType", {
 
 autocmd({ "FileType" }, {
   group = aufiletype,
-  pattern = { "json", "jsonc", "json5", "*.txt", "*.md" },
+  pattern = { "json", "jsonc", "json5", "txt", "markdown" },
   callback = function()
     opt_local.conceallevel = 0
   end,
@@ -128,7 +125,7 @@ autocmd({ "BufWritePre" }, {
     if event.match:match("^%w%w+://") then
       return
     end
-    local file = vim.loop.fs_realpath(event.match) or event.match
+    local file = vim.uv.fs_realpath(event.match) or event.match
     fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
   end,
   desc = "Auto Create Directory Before Writing File",
@@ -223,18 +220,8 @@ autocmd("TermOpen", {
   desc = "Disable Foldcolumn And Signcolumn For Terminals",
 })
 
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = utils.augroup("lazyvim_checktime"),
-  callback = function()
-    if vim.o.buftype ~= "nofile" then
-      cmd("checktime")
-    end
-  end,
-  desc = "Check If We Need To Reload The File When It Changed",
-})
-
 autocmd({ "BufWritePost" }, {
-  pattern = "lua",
+  pattern = "*.lua",
   group = augeneral,
   callback = function()
     -- if lua file and is in nvim config dir :so the file
@@ -285,7 +272,7 @@ autocmd("BufWritePost", {
     fn.resolve(fn.expand("~/.local/share/chezmoi")) .. "/**/*", -- files in subdirectories
   },
   callback = function()
-    Snacks.notify.info("Applying chezmoi changes", vim.log.levels.INFO)
+    Snacks.notify.info("Applying chezmoi changes", { title = "Chezmoi" })
     vim.system({ "chezmoi", "update", "--exclude=encrypted" })
   end,
   desc = "Apply chezmoi changes on saving a dotfile",

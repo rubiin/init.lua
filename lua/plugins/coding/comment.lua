@@ -91,7 +91,8 @@ return {
 
       -- to skip backwards compatibility routines and speed up loading
       opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
-      require("Comment").setup(opts)
+      -- return opts; lazy.nvim calls setup() itself (calling it here double-setups the plugin)
+      return opts
     end,
   },
 }

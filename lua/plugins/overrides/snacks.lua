@@ -29,15 +29,18 @@ return {
 
           -- taken from lunarvim/bigfile.nvim
           vim.cmd("syntax clear")
+          -- window-local options (Snacks.util.wo sets these with { win = 0 })
           Snacks.util.wo(0, {
-            syntax = "OFF",
-            swapfile = false,
-            undoreload = 0,
-            undolevels = -1,
             spell = false,
             list = false,
-            filetype = "",
           })
+          -- buffer-local options (passing these to Snacks.util.wo errors:
+          -- 'win' cannot be passed for buffer-local option)
+          vim.bo[ctx.buf].syntax = "OFF"
+          vim.bo[ctx.buf].swapfile = false
+          vim.bo[ctx.buf].undoreload = 0
+          vim.bo[ctx.buf].undolevels = -1
+          vim.bo[ctx.buf].filetype = ""
 
           vim.b.minianimate_disable = true
           vim.b.minihipatterns_disable = true

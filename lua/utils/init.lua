@@ -4,7 +4,7 @@ local fn, bo, api, cmd, o = vim.fn, vim.bo, vim.api, vim.cmd, vim.opt
 
 -- Gets the operating system
 function M.get_os()
-  local os = vim.loop.os_uname().sysname
+  local os = vim.uv.os_uname().sysname
   if os == "Darwin" then
     return "macOS"
   end
@@ -237,7 +237,7 @@ function M.DN(v, cm)
   local time = os.date("%H:%M")
   local context_msg = cm or " "
   local msg = context_msg .. " " .. time
-  vim.notify(vim.inspect(v), "debug", { title = { "Debug Output", msg } })
+  vim.notify(vim.inspect(v), vim.log.levels.DEBUG, { title = { "Debug Output", msg } })
   return v
 end
 
@@ -255,19 +255,19 @@ end
 ---@param module string
 ---@return any
 function M.prequire(module)
-  local success, module = pcall(require, module)
+  local success, mod = pcall(require, module)
 
   if success then
-    return module
+    return mod
   else
-    local msg = ("Error loading %s\n%s"):format(module, module)
+    local msg = ("Error loading %s\n%s"):format(module, mod)
     vim.defer_fn(function()
       vim.notify(msg, vim.log.levels.ERROR)
     end, 1000)
   end
 end
 
-function M.get_resiters()
+function M.get_registers()
   -- Execute the :registers command to get the list of registers and store the output in a variable
   local registers_output = vim.fn.getreg('"0')
 

@@ -55,11 +55,6 @@ return {
             return utils.cli_config_exists({ "biome.json", "biome.jsonc" })
           end,
         },
-        deno_fmt = {
-          condition = function()
-            return utils.cli_config_exists({ "deno.json" })
-          end,
-        },
         prettierd = {
           condition = function()
             return not utils.cli_config_exists({ "biome.json", "biome.jsonc" })

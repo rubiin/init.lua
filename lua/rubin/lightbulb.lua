@@ -6,7 +6,7 @@ local M = {}
 
 local lb_name = "mariasolos/lightbulb"
 local lb_namespace = vim.api.nvim_create_namespace(lb_name)
-local lb_icon = require("icons").diagnostics.HINT
+local lb_icon = require("rubin.icons").diagnostics.Hint
 local lb_group = vim.api.nvim_create_augroup(lb_name, {})
 local code_action_method = "textDocument/codeAction" --- @type vim.lsp.protocol.Method.ClientToServer.Request
 

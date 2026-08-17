@@ -7,7 +7,7 @@ return {
     "folke/snacks.nvim",
     event = "VimEnter",
     opts = function()
-      function Footer()
+      local function footer()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         local info = {}
@@ -85,7 +85,7 @@ return {
           sections = {
             { section = "header" },
             { section = "keys", gap = 1, padding = 1 },
-            { text = Footer() },
+            { text = footer() },
           },
         },
       }

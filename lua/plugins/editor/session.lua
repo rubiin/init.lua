@@ -3,7 +3,7 @@ local constants = require("rubin.constants")
 return {
   {
     "rmagatti/auto-session", -- auto save session
-    lazy = "false",
+    lazy = false,
     keys = {
 
       { "<leader>qs", "<cmd>AutoSession search<CR>", desc = "Restore session" },

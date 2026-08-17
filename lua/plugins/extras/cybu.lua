@@ -16,13 +16,13 @@ return {
         max_win_width = 0.5,
       },
       style = {
-        border = vim.g.boder_style,
+        border = vim.g.border_style,
         path = "relative",
       },
       exclude = constants.common_file_types,
       display_time = 800,
       fallback = function()
-        Snacks.notify.info("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", vim.log.levels.INFO, "Cybu")
+        Snacks.notify.info("Cybu: Not active in '" .. vim.bo.filetype .. "' filetype.", { title = "Cybu" })
       end,
     },
   },

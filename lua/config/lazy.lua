@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local user_icons = require("rubin.icons")
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable",
@@ -85,10 +85,10 @@ local function checkForPluginUpdates()
   if numberOfUpdates < threshold then
     return
   end
-  vim.notify(("󱧕 %s plugin updates"):format(numberOfUpdates, vim.log.levels.INFO, {
+  vim.notify(("󱧕 %d plugin updates"):format(numberOfUpdates), vim.log.levels.INFO, {
     title = "Lazy",
     timeout = 2000,
-  }))
+  })
 end
 
 vim.defer_fn(checkForPluginUpdates, 5000)

@@ -7,7 +7,7 @@ local linters_by_ft = {
   zsh = { "shellcheck" },
 }
 
-local eslint_file_types = { "javascript", "typescript", "javascriptreact", "typescriptreact", "sveltve" }
+local eslint_file_types = { "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" }
 
 local P = { "oxlint", "eslint_d" }
 for _, ft in pairs(eslint_file_types) do

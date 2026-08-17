@@ -5,12 +5,12 @@ local util = require("utils")
 -- these are neovim built-in colorscheme
 local builtins = {}
 
-for name, _ in vim.fs.dir("$VIMRUNTIME/colors/") do
-  if name:match("*.txt") then
-    break
-  else
-    name = name:match("(.*).lua$") or name:match("(.*).vim$")
-    table.insert(builtins, name)
+for name, _ in vim.fs.dir(vim.env.VIMRUNTIME .. "/colors") do
+  if not name:match("%.txt$") then
+    local base = name:match("^(.*)%.lua$") or name:match("^(.*)%.vim$")
+    if base then
+      table.insert(builtins, base)
+    end
   end
 end
 
