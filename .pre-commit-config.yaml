@@ -9,12 +9,10 @@ repos:
         files: \.lua$
         args: ["--config-path", ".stylua.toml"]  # Optional: if you have a stylua config
 
-
-  - repo: local
-    hooks:
-      - id: local-biome-check
-        name: biome check
-        entry: npx biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
-        language: system
-        types: [yaml, markdown]
-        files: "\\.(yaml|yml|md)$"
+  # # ------------------------
+  # # Markdown linting
+  # # ------------------------
+  # - repo: https://github.com/DavidAnson/markdownlint-cli2
+  #   rev: v0.23.2
+  #   hooks:
+  #     - id: markdownlint-cli2
