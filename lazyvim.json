@@ -12,7 +12,7 @@
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.lang.typescript.oxc",
-    "lazyvim.plugins.extras.lang.typescript.tsgo",
+    "lazyvim.plugins.extras.lang.typescript.tsc",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.linting.eslint",
     "lazyvim.plugins.extras.ui.treesitter-context",
